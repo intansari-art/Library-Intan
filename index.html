@@ -75,6 +75,54 @@ h1,h2{
 iframe{
     max-width:100%;
 }
+
+/* Styling untuk form login/daftar */
+.form-container {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    border-radius: 8px;
+    max-width: 400px;
+    margin: 20px auto;
+    text-align: left;
+    color: black;
+}
+
+.form-container h3 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.form-container label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.form-container input[type="text"],
+.form-container input[type="email"],
+.form-container input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.form-container button {
+    width: 100%;
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.form-container button:hover {
+    background-color: #45a049;
+}
 </style>
 
 <script>
@@ -102,6 +150,24 @@ function showMenu(menu){
 <div id="dashboard" class="section active">
 <h1>Library Intan</h1>
 <p style="text-align:center;">Selamat datang di perpustakaan Intan.</p>
+
+<!-- Form Daftar Anggota -->
+<div class="form-container">
+<h3>Login / Daftar Anggota</h3>
+<form action="#" method="post"> <!-- Ganti action dengan endpoint backend jika diperlukan -->
+    <label for="nama">Nama Lengkap:</label>
+    <input type="text" id="nama" name="nama" required>
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required>
+
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password" required>
+
+    <button type="submit">Daftar</button>
+</form>
+<p style="text-align: center; margin-top: 10px;">Sudah punya akun? <a href="#" style="color: #4CAF50;">Login di sini</a></p>
+</div>
 
 <div class="link-box">
 <a href="https://www.instagram.com/intan_soo?igsh=bzI5empoYjE5dGFl" target="_blank">
