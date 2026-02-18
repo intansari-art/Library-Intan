@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Intan Library</title>
+<title>Login - Intan Library</title>
 
 <style>
 body {
@@ -15,192 +15,57 @@ body {
     background-repeat: no-repeat; /* Tidak diulang */
     background-attachment: fixed; /* Tetap saat scroll (opsional, untuk efek parallax) */
     color: #0D47A1; /* Biru gelap untuk text utama, tetap untuk kontras */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
 }
 
 .overlay{
     background-color: rgba(0,0,0,0.4); /* Hitam transparan lebih ringan untuk kesan terbuka, tetap untuk kontras teks */
     min-height:100vh;
-}
-
-nav{
-    background-color: #1976D2; /* Biru navy untuk nav */
-    padding:15px;
+    width: 100%;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
 }
 
-.nav-left {
-    display: flex;
-}
-
-nav a{
-    color: white; /* Putih untuk kontras di nav biru */
-    margin:0 15px;
-    text-decoration:none;
-    font-weight:bold;
-}
-
-nav a:hover{
-    color: #FFEB3B; /* Kuning cerah untuk highlight */
-    transition:0.3s;
-}
-
-.container{
-    padding:40px;
-    max-width:900px;
-    margin:auto;
-}
-
-.section{
-    display:none;
-}
-
-.active{
-    display:block;
-}
-
-h1,h2{
-    text-align:center;
-}
-
-.link-box{
-    text-align:center;
-    margin-top:25px;
-}
-
-.link-box a{
-    display:block;
-    margin:10px;
-    color: white; /* Putih cerah untuk link About Me dan My Biodata */
-    font-size:18px;
-    text-decoration:none;
-}
-
-.link-box a:hover {
-    color: #FFEB3B; /* Kuning untuk hover */
-}
-
-.video-box{
-    text-align:center;
-    margin-top:30px;
-}
-
-.video-box h3 {
-    color: white; /* Putih cerah untuk Video Profil */
-}
-
-iframe{
-    max-width:100%;
-}
-
-/* Styling untuk form login/daftar */
-.form-container {
+.container {
     background-color: rgba(255, 255, 255, 0.9); /* Putih transparan untuk form */
-    padding: 20px;
+    padding: 30px;
     border-radius: 8px;
-    max-width: 400px;
-    margin: 20px auto;
-    text-align: left;
-    color: #0D47A1; /* Biru gelap untuk text di form */
-    display: none; /* Awalnya tersembunyi */
-}
-
-.form-container.active {
-    display: block;
-}
-
-.form-container h3 {
+    max-width: 500px;
+    width: 100%;
     text-align: center;
-    margin-bottom: 20px;
-}
-
-.form-container label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: bold;
-}
-
-.form-container input[type="text"],
-.form-container input[type="email"],
-.form-container input[type="tel"],
-.form-container input[type="password"] {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 15px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-}
-
-.form-container button {
-    width: 100%;
-    padding: 10px;
-    background-color: #1976D2; /* Biru navy untuk tombol */
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 16px;
-}
-
-.form-container button:hover {
-    background-color: #1565C0; /* Biru lebih gelap untuk hover */
-}
-
-/* Styling untuk modal form daftar anggota */
-.modal {
-    display: none; /* Awalnya tersembunyi */
-    position: fixed;
-    z-index: 1;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgba(0,0,0,0.5); /* Background gelap transparan */
-}
-
-.modal-content {
-    background-color: rgba(255, 255, 255, 0.9); /* Putih transparan */
-    margin: 15% auto;
-    padding: 20px;
-    border: 1px solid #888;
-    width: 80%;
-    max-width: 400px;
-    border-radius: 8px;
-    text-align: left;
     color: #0D47A1;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
 
-.close {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-}
-
-.close:hover,
-.close:focus {
-    color: black;
-    text-decoration: none;
-    cursor: pointer;
-}
-
-.modal-content h3 {
-    text-align: center;
+h1 {
     margin-bottom: 20px;
+    color: #1976D2; /* Biru navy untuk judul */
 }
 
-.modal-content label {
+.form-section {
+    margin-bottom: 30px;
+}
+
+.form-section h3 {
+    margin-bottom: 15px;
+    color: #1976D2;
+}
+
+.form-section label {
     display: block;
     margin-bottom: 5px;
     font-weight: bold;
+    text-align: left;
 }
 
-.modal-content input[type="text"],
-.modal-content input[type="email"],
-.modal-content input[type="tel"] {
+.form-section input[type="text"],
+.form-section input[type="email"],
+.form-section input[type="tel"],
+.form-section input[type="password"] {
     width: 100%;
     padding: 10px;
     margin-bottom: 15px;
@@ -209,7 +74,7 @@ iframe{
     box-sizing: border-box;
 }
 
-.modal-content button {
+.form-section button {
     width: 100%;
     padding: 10px;
     background-color: #1976D2; /* Biru navy untuk tombol */
@@ -218,45 +83,37 @@ iframe{
     border-radius: 4px;
     cursor: pointer;
     font-size: 16px;
+    margin-bottom: 10px;
 }
 
-.modal-content button:hover {
+.form-section button:hover {
     background-color: #1565C0; /* Biru lebih gelap untuk hover */
 }
 
-/* Warna putih cerah untuk elemen spesifik di dashboard */
-#dashboard h1 {
-    color: white; /* Library Intan */
+.back-link {
+    display: block;
+    margin-top: 20px;
+    color: #1976D2;
+    text-decoration: none;
+    font-weight: bold;
 }
 
-#dashboard p {
-    color: white; /* Selamat datang di perpustakaan Intan. */
+.back-link:hover {
+    color: #FFEB3B;
 }
 </style>
 
 <script>
-function showMenu(menu){
-    document.querySelectorAll('.section').forEach(sec=>{
-        sec.classList.remove('active');
-    });
-    document.getElementById(menu).classList.add('active');
-}
-
-function showLoginForm(){
-    // Tampilkan modal form daftar anggota
-    document.getElementById('loginModal').style.display = 'block';
-}
-
-function closeModal(){
-    // Sembunyikan modal
-    document.getElementById('loginModal').style.display = 'none';
-}
-
-// Tutup modal jika klik di luar modal
-window.onclick = function(event) {
-    const modal = document.getElementById('loginModal');
-    if (event.target == modal) {
-        modal.style.display = 'none';
+// Fungsi untuk toggle antara form daftar dan login (opsional, jika diperlukan)
+function toggleForm(formType) {
+    const daftarForm = document.getElementById('daftarForm');
+    const loginForm = document.getElementById('loginForm');
+    if (formType === 'daftar') {
+        daftarForm.style.display = 'block';
+        loginForm.style.display = 'none';
+    } else {
+        daftarForm.style.display = 'none';
+        loginForm.style.display = 'block';
     }
 }
 </script>
@@ -265,47 +122,11 @@ window.onclick = function(event) {
 
 <body>
 <div class="overlay">
-
-<nav>
-<div class="nav-left">
-<a href="javascript:void(0)" onclick="showMenu('dashboard')">Dashboard</a>
-<a href="javascript:void(0)" onclick="showMenu('katalog')">Katalog</a>
-<a href="javascript:void(0)" onclick="showMenu('kegiatan')">Kegiatan Literasi</a>
-</div>
-<a href="login.html" target="_blank">Login</a>
-</nav>
-
-<!-- Modal untuk Form Daftar Anggota -->
-<div id="loginModal" class="modal">
-<div class="modal-content">
-    <span class="close" onclick="closeModal()">&times;</span>
-    <h3>Daftar Anggota</h3>
-    <form action="#" method="post"> <!-- Ganti action dengan endpoint backend jika diperlukan -->
-        <label for="firstName">First Name:</label>
-        <input type="text" id="firstName" name="firstName" required>
-
-        <label for="lastName">Last Name:</label>
-        <input type="text" id="lastName" name="lastName" required>
-
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required>
-
-        <label for="noHp">No HP:</label>
-        <input type="tel" id="noHp" name="noHp" required>
-
-        <button type="submit">Daftar</button>
-    </form>
-</div>
-</div>
-
 <div class="container">
-
-<div id="dashboard" class="section active">
-<h1>Library Intan</h1>
-<p style="text-align:center;">Selamat datang di perpustakaan Intan.</p>
+<h1>Daftar Anggota Perpustakaan</h1>
 
 <!-- Form Daftar Anggota -->
-<div class="form-container">
+<div class="form-section" id="daftarForm">
 <h3>Daftar Anggota</h3>
 <form action="#" method="post"> <!-- Ganti action dengan endpoint backend jika diperlukan -->
     <label for="firstName">First Name:</label>
@@ -324,9 +145,9 @@ window.onclick = function(event) {
 </form>
 </div>
 
-<!-- Menu Login -->
-<div class="form-container active"> <!-- Tampilkan langsung di dashboard -->
-<h3>Login</h3>
+<!-- Form Login untuk Anggota yang Sudah Terdaftar -->
+<div class="form-section" id="loginForm" style="display: none;"> <!-- Awalnya tersembunyi, bisa diaktifkan jika diperlukan -->
+<h3>Login Anggota</h3>
 <form action="#" method="post"> <!-- Ganti action dengan endpoint backend jika diperlukan -->
     <label for="username">Username:</label>
     <input type="text" id="username" name="username" required>
@@ -338,51 +159,11 @@ window.onclick = function(event) {
 </form>
 </div>
 
-<div class="link-box">
-<a href="https://www.instagram.com/intan_soo?igsh=bzI5empoYjE5dGGl" target="_blank">
-About Me
-</a>
+<!-- Tombol untuk Toggle (opsional) -->
+<button onclick="toggleForm('daftar')">Tampilkan Form Daftar</button>
+<button onclick="toggleForm('login')">Tampilkan Form Login</button>
 
-<a href="https://drive.google.com/file/d/1G5itB-_B9wnXcuPKdBqTAqtli1AWduhz/view?usp=sharing" target="_blank">
-My Biodata
-</a>
-</div>
-
-<div class="video-box">
-<h3>Video Profil</h3>
-
-<iframe width="560" height="315"
-src="https://www.youtube.com/embed/rxxNE-s2cSU"
-title="YouTube video"
-frameborder="0"
-allowfullscreen>
-</iframe>
-
-</div>
-
-</div>
-
-<div id="katalog" class="section">
-<h2>Daftar Buku</h2>
-<ul>
-<li>Dasar-dasar Web</li>
-<li>Perkembangan Web</li>
-<li>Skill Komunikasi</li>
-<li>Media Digital</li>
-</ul>
-</div>
-
-<div id="kegiatan" class="section">
-<h2>Kegiatan Literasi</h2>
-
-<ul>
-<li>Bibingan Penerapan Web</li>
-<li>Sosialisasi Penggunaan Web</li>
-<li>Sosialisasi Manfaat Web</li>
-</ul>
-
-</div>
-
+<a href="index.html" class="back-link">Kembali ke Homepage</a>
 </div>
 </div>
 
