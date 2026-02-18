@@ -15,11 +15,17 @@ body {
     background-repeat: no-repeat; /* Tidak diulang */
     background-attachment: fixed; /* Tetap saat scroll (opsional, untuk efek parallax) */
     color: #0D47A1; /* Biru gelap untuk text utama, tetap untuk kontras */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
 }
 
 .overlay{
     background-color: rgba(0,0,0,0.4); /* Hitam transparan lebih ringan untuk kesan terbuka, tetap untuk kontras teks */
     min-height:100vh;
+    width: 100%;
+    display: none; /* Awalnya tersembunyi, tampil setelah login */
 }
 
 nav{
@@ -72,7 +78,7 @@ h1,h2{
 .link-box a{
     display:block;
     margin:10px;
-    color: #1976D2; /* Biru navy untuk link */
+    color: white; /* Putih cerah untuk link About Me dan My Biodata */
     font-size:18px;
     text-decoration:none;
 }
@@ -84,6 +90,10 @@ h1,h2{
 .video-box{
     text-align:center;
     margin-top:30px;
+}
+
+.video-box h3 {
+    color: white; /* Putih cerah untuk Video Profil */
 }
 
 iframe{
@@ -119,7 +129,8 @@ iframe{
 
 .form-container input[type="text"],
 .form-container input[type="email"],
-.form-container input[type="tel"] {
+.form-container input[type="tel"],
+.form-container input[type="password"] {
     width: 100%;
     padding: 10px;
     margin-bottom: 15px;
@@ -142,9 +153,86 @@ iframe{
 .form-container button:hover {
     background-color: #1565C0; /* Biru lebih gelap untuk hover */
 }
+
+/* Warna putih cerah untuk elemen spesifik di dashboard */
+#dashboard h1 {
+    color: white; /* Library Intan */
+}
+
+#dashboard p {
+    color: white; /* Selamat datang di perpustakaan Intan. */
+}
+
+/* Form login awal */
+.login-form {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    border-radius: 8px;
+    max-width: 400px;
+    text-align: center;
+    color: #0D47A1;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.login-form h2 {
+    margin-bottom: 20px;
+}
+
+.login-form input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.login-form button {
+    width: 100%;
+    padding: 10px;
+    background-color: #1976D2;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.login-form button:hover {
+    background-color: #1565C0;
+}
 </style>
 
 <script>
+let isLoggedIn = false; // Flag untuk status login
+
+function checkLogin() {
+    if (!isLoggedIn) {
+        // Tampilkan form login jika belum login
+        document.getElementById('loginContainer').style.display = 'flex';
+        document.querySelector('.overlay').style.display = 'none';
+    } else {
+        // Tampilkan homepage jika sudah login
+        document.getElementById('loginContainer').style.display = 'none';
+        document.querySelector('.overlay').style.display = 'block';
+        showMenu('dashboard');
+    }
+}
+
+function login(event) {
+    event.preventDefault();
+    const username = document.getElementById('username').value;
+    const password = document.getElementById('password').value;
+    
+    // Simulasi validasi login (ganti dengan logika backend jika diperlukan)
+    if (username === 'admin' && password === 'password') {
+        isLoggedIn = true;
+        checkLogin();
+    } else {
+        alert('Username atau password salah!');
+    }
+}
+
 function showMenu(menu){
     document.querySelectorAll('.section').forEach(sec=>{
         sec.classList.remove('active');
@@ -160,13 +248,26 @@ function showLoginForm(){
     // Pastikan dashboard aktif
     showMenu('dashboard');
 }
+
+// Jalankan checkLogin saat halaman load
+window.onload = checkLogin;
 </script>
 
 </head>
 
 <body>
-<div class="overlay">
+<!-- Form Login Awal -->
+<div id="loginContainer" class="login-form">
+    <h2>Login ke Intan Library</h2>
+    <form onsubmit="login(event)">
+        <input type="text" id="username" placeholder="Username" required>
+        <input type="password" id="password" placeholder="Password" required>
+        <button type="submit">Login</button>
+    </form>
+    <p>Username: admin<br>Password: password</p> <!-- Hanya untuk demo, hapus di produksi -->
+</div>
 
+<div class="overlay">
 <nav>
 <div class="nav-left">
 <a href="javascript:void(0)" onclick="showMenu('dashboard')">Dashboard</a>
