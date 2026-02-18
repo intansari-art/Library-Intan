@@ -41,6 +41,15 @@ body {
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
 
+.logo {
+    margin-bottom: 20px;
+}
+
+.logo img {
+    max-width: 150px; /* Ukuran logo, sesuaikan jika perlu */
+    height: auto;
+}
+
 h1 {
     margin-bottom: 20px;
     color: #1976D2; /* Biru navy untuk judul */
@@ -90,6 +99,23 @@ h1 {
     background-color: #1565C0; /* Biru lebih gelap untuk hover */
 }
 
+.contact-section {
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid #ccc;
+    text-align: left;
+}
+
+.contact-section h4 {
+    color: #1976D2;
+    margin-bottom: 10px;
+}
+
+.contact-section p {
+    margin: 5px 0;
+    font-size: 14px;
+}
+
 .back-link {
     display: block;
     margin-top: 20px;
@@ -123,47 +149,67 @@ function toggleForm(formType) {
 <body>
 <div class="overlay">
 <div class="container">
-<h1>Daftar Anggota Perpustakaan</h1>
+    <!-- Logo -->
+    <div class="logo">
+        <img src="https://via.placeholder.com/150x150?text=Logo+Intan+Library" alt="Logo Intan Library"> <!-- Ganti dengan URL logo asli jika ada -->
+    </div>
 
-<!-- Form Daftar Anggota -->
-<div class="form-section" id="daftarForm">
-<h3>Daftar Anggota</h3>
-<form action="#" method="post"> <!-- Ganti action dengan endpoint backend jika diperlukan -->
-    <label for="firstName">First Name:</label>
-    <input type="text" id="firstName" name="firstName" required>
+    <h1>Daftar Anggota Perpustakaan</h1>
 
-    <label for="lastName">Last Name:</label>
-    <input type="text" id="lastName" name="lastName" required>
+    <!-- Form Daftar Anggota -->
+    <div class="form-section" id="daftarForm">
+    <h3>Daftar Anggota</h3>
+    <form action="#" method="post"> <!-- Ganti action dengan endpoint backend jika diperlukan -->
+        <label for="firstName">First Name:</label>
+        <input type="text" id="firstName" name="firstName" required>
 
-    <label for="email">Email:</label>
-    <input type="email" id="email" name="email" required>
+        <label for="lastName">Last Name:</label>
+        <input type="text" id="lastName" name="lastName" required>
 
-    <label for="noHp">No HP:</label>
-    <input type="tel" id="noHp" name="noHp" required>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
 
-    <button type="submit">Daftar</button>
-</form>
-</div>
+        <label for="noHp">No HP:</label>
+        <input type="tel" id="noHp" name="noHp" required>
 
-<!-- Form Login untuk Anggota yang Sudah Terdaftar -->
-<div class="form-section" id="loginForm" style="display: none;"> <!-- Awalnya tersembunyi, bisa diaktifkan jika diperlukan -->
-<h3>Login Anggota</h3>
-<form action="#" method="post"> <!-- Ganti action dengan endpoint backend jika diperlukan -->
-    <label for="username">Username:</label>
-    <input type="text" id="username" name="username" required>
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required>
 
-    <label for="password">Password:</label>
-    <input type="password" id="password" name="password" required>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
 
-    <button type="submit">Login</button>
-</form>
-</div>
+        <button type="submit">Daftar</button>
+    </form>
+    </div>
 
-<!-- Tombol untuk Toggle (opsional) -->
-<button onclick="toggleForm('daftar')">Tampilkan Form Daftar</button>
-<button onclick="toggleForm('login')">Tampilkan Form Login</button>
+    <!-- Form Login untuk Anggota yang Sudah Terdaftar -->
+    <div class="form-section" id="loginForm" style="display: none;"> <!-- Awalnya tersembunyi, bisa diaktifkan jika diperlukan -->
+    <h3>Login Anggota</h3>
+    <form action="#" method="post"> <!-- Ganti action dengan endpoint backend jika diperlukan -->
+        <label for="loginUsername">Username:</label>
+        <input type="text" id="loginUsername" name="username" required>
 
-<a href="index.html" class="back-link">Kembali ke Homepage</a>
+        <label for="loginPassword">Password:</label>
+        <input type="password" id="loginPassword" name="password" required>
+
+        <button type="submit">Login</button>
+    </form>
+    </div>
+
+    <!-- Tombol untuk Toggle (opsional) -->
+    <button onclick="toggleForm('daftar')">Tampilkan Form Daftar</button>
+    <button onclick="toggleForm('login')">Tampilkan Form Login</button>
+
+    <!-- Section Kontak Kami -->
+    <div class="contact-section">
+        <h4>Kontak Kami</h4>
+        <p><strong>Email:</strong> info@intanlibrary.com</p>
+        <p><strong>Telepon:</strong> +62 123 456 7890</p>
+        <p><strong>Alamat:</strong> Jl. Perpustakaan No. 123, Kota Intan, Indonesia</p>
+        <p><strong>Jam Operasional:</strong> Senin - Jumat, 08:00 - 17:00 WIB</p>
+    </div>
+
+    <a href="index.html" class="back-link">Kembali ke Homepage</a>
 </div>
 </div>
 
