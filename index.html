@@ -94,6 +94,60 @@ iframe{
     max-width:100%;
 }
 
+/* Styling untuk form login/daftar */
+.form-container {
+    background-color: rgba(255, 255, 255, 0.9); /* Putih transparan untuk form */
+    padding: 20px;
+    border-radius: 8px;
+    max-width: 400px;
+    margin: 20px auto;
+    text-align: left;
+    color: #0D47A1; /* Biru gelap untuk text di form */
+    display: none; /* Awalnya tersembunyi */
+}
+
+.form-container.active {
+    display: block;
+}
+
+.form-container h3 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.form-container label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.form-container input[type="text"],
+.form-container input[type="email"],
+.form-container input[type="tel"],
+.form-container input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.form-container button {
+    width: 100%;
+    padding: 10px;
+    background-color: #1976D2; /* Biru navy untuk tombol */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.form-container button:hover {
+    background-color: #1565C0; /* Biru lebih gelap untuk hover */
+}
+
 /* Styling untuk modal form daftar anggota */
 .modal {
     display: none; /* Awalnya tersembunyi */
@@ -214,11 +268,11 @@ window.onclick = function(event) {
 
 <nav>
 <div class="nav-left">
-<a href="javascript:void(0)" onclick="showMenu('dashboard')">Dashboard</a>
-<a href="javascript:void(0)" onclick="showMenu('katalog')">Katalog</a>
-<a href="javascript:void(0)" onclick="showMenu('kegiatan')">Kegiatan Literasi</a>
+<a href="dashboard.html" target="_blank">Dashboard</a>
+<a href="katalog.html" target="_blank">Katalog</a>
+<a href="kegiatan.html" target="_blank">Kegiatan Literasi</a>
 </div>
-<a href="javascript:void(0)" onclick="showLoginForm()">Login</a>
+<a href="login.html" target="_blank">Login</a>
 </nav>
 
 <!-- Modal untuk Form Daftar Anggota -->
@@ -249,6 +303,40 @@ window.onclick = function(event) {
 <div id="dashboard" class="section active">
 <h1>Library Intan</h1>
 <p style="text-align:center;">Selamat datang di perpustakaan Intan.</p>
+
+<!-- Form Daftar Anggota -->
+<div class="form-container">
+<h3>Daftar Anggota</h3>
+<form action="#" method="post"> <!-- Ganti action dengan endpoint backend jika diperlukan -->
+    <label for="firstName">First Name:</label>
+    <input type="text" id="firstName" name="firstName" required>
+
+    <label for="lastName">Last Name:</label>
+    <input type="text" id="lastName" name="lastName" required>
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required>
+
+    <label for="noHp">No HP:</label>
+    <input type="tel" id="noHp" name="noHp" required>
+
+    <button type="submit">Daftar</button>
+</form>
+</div>
+
+<!-- Menu Login -->
+<div class="form-container active"> <!-- Tampilkan langsung di dashboard -->
+<h3>Login</h3>
+<form action="#" method="post"> <!-- Ganti action dengan endpoint backend jika diperlukan -->
+    <label for="username">Username:</label>
+    <input type="text" id="username" name="username" required>
+
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password" required>
+
+    <button type="submit">Login</button>
+</form>
+</div>
 
 <div class="link-box">
 <a href="https://www.instagram.com/intan_soo?igsh=bzI5empoYjE5dGGl" target="_blank">
