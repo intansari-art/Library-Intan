@@ -15,17 +15,11 @@ body {
     background-repeat: no-repeat; /* Tidak diulang */
     background-attachment: fixed; /* Tetap saat scroll (opsional, untuk efek parallax) */
     color: #0D47A1; /* Biru gelap untuk text utama, tetap untuk kontras */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
 }
 
 .overlay{
     background-color: rgba(0,0,0,0.4); /* Hitam transparan lebih ringan untuk kesan terbuka, tetap untuk kontras teks */
     min-height:100vh;
-    width: 100%;
-    display: none; /* Awalnya tersembunyi, tampil setelah login */
 }
 
 nav{
@@ -100,37 +94,59 @@ iframe{
     max-width:100%;
 }
 
-/* Styling untuk form login/daftar */
-.form-container {
-    background-color: rgba(255, 255, 255, 0.9); /* Putih transparan untuk form */
-    padding: 20px;
-    border-radius: 8px;
-    max-width: 400px;
-    margin: 20px auto;
-    text-align: left;
-    color: #0D47A1; /* Biru gelap untuk text di form */
+/* Styling untuk modal form daftar anggota */
+.modal {
     display: none; /* Awalnya tersembunyi */
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.5); /* Background gelap transparan */
 }
 
-.form-container.active {
-    display: block;
+.modal-content {
+    background-color: rgba(255, 255, 255, 0.9); /* Putih transparan */
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 400px;
+    border-radius: 8px;
+    text-align: left;
+    color: #0D47A1;
 }
 
-.form-container h3 {
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal-content h3 {
     text-align: center;
     margin-bottom: 20px;
 }
 
-.form-container label {
+.modal-content label {
     display: block;
     margin-bottom: 5px;
     font-weight: bold;
 }
 
-.form-container input[type="text"],
-.form-container input[type="email"],
-.form-container input[type="tel"],
-.form-container input[type="password"] {
+.modal-content input[type="text"],
+.modal-content input[type="email"],
+.modal-content input[type="tel"] {
     width: 100%;
     padding: 10px;
     margin-bottom: 15px;
@@ -139,7 +155,7 @@ iframe{
     box-sizing: border-box;
 }
 
-.form-container button {
+.modal-content button {
     width: 100%;
     padding: 10px;
     background-color: #1976D2; /* Biru navy untuk tombol */
@@ -150,7 +166,7 @@ iframe{
     font-size: 16px;
 }
 
-.form-container button:hover {
+.modal-content button:hover {
     background-color: #1565C0; /* Biru lebih gelap untuk hover */
 }
 
@@ -162,112 +178,40 @@ iframe{
 #dashboard p {
     color: white; /* Selamat datang di perpustakaan Intan. */
 }
-
-/* Form login awal */
-.login-form {
-    background-color: rgba(255, 255, 255, 0.9);
-    padding: 20px;
-    border-radius: 8px;
-    max-width: 400px;
-    text-align: center;
-    color: #0D47A1;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-}
-
-.login-form h2 {
-    margin-bottom: 20px;
-}
-
-.login-form input {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 15px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-}
-
-.login-form button {
-    width: 100%;
-    padding: 10px;
-    background-color: #1976D2;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 16px;
-}
-
-.login-form button:hover {
-    background-color: #1565C0;
-}
 </style>
 
 <script>
-let isLoggedIn = false; // Flag untuk status login
-
-function checkLogin() {
-    if (!isLoggedIn) {
-        // Tampilkan form login jika belum login
-        document.getElementById('loginContainer').style.display = 'flex';
-        document.querySelector('.overlay').style.display = 'none';
-    } else {
-        // Tampilkan homepage jika sudah login
-        document.getElementById('loginContainer').style.display = 'none';
-        document.querySelector('.overlay').style.display = 'block';
-        showMenu('dashboard');
-    }
-}
-
-function login(event) {
-    event.preventDefault();
-    const username = document.getElementById('username').value;
-    const password = document.getElementById('password').value;
-    
-    // Simulasi validasi login (ganti dengan logika backend jika diperlukan)
-    if (username === 'admin' && password === 'password') {
-        isLoggedIn = true;
-        checkLogin();
-    } else {
-        alert('Username atau password salah!');
-    }
-}
-
 function showMenu(menu){
     document.querySelectorAll('.section').forEach(sec=>{
         sec.classList.remove('active');
     });
     document.getElementById(menu).classList.add('active');
-    // Sembunyikan form login jika menu lain diklik
-    document.querySelector('.form-container').classList.remove('active');
 }
 
 function showLoginForm(){
-    // Tampilkan form login
-    document.querySelector('.form-container').classList.add('active');
-    // Pastikan dashboard aktif
-    showMenu('dashboard');
+    // Tampilkan modal form daftar anggota
+    document.getElementById('loginModal').style.display = 'block';
 }
 
-// Jalankan checkLogin saat halaman load
-window.onload = checkLogin;
+function closeModal(){
+    // Sembunyikan modal
+    document.getElementById('loginModal').style.display = 'none';
+}
+
+// Tutup modal jika klik di luar modal
+window.onclick = function(event) {
+    const modal = document.getElementById('loginModal');
+    if (event.target == modal) {
+        modal.style.display = 'none';
+    }
+}
 </script>
 
 </head>
 
 <body>
-<!-- Form Login Awal -->
-<div id="loginContainer" class="login-form">
-    <h2>Login ke Intan Library</h2>
-    <form onsubmit="login(event)">
-        <input type="text" id="username" placeholder="Username" required>
-        <input type="password" id="password" placeholder="Password" required>
-        <button type="submit">Login</button>
-    </form>
-    <p>Username: admin<br>Password: password</p> <!-- Hanya untuk demo, hapus di produksi -->
-</div>
-
 <div class="overlay">
+
 <nav>
 <div class="nav-left">
 <a href="javascript:void(0)" onclick="showMenu('dashboard')">Dashboard</a>
@@ -277,34 +221,37 @@ window.onload = checkLogin;
 <a href="javascript:void(0)" onclick="showLoginForm()">Login</a>
 </nav>
 
+<!-- Modal untuk Form Daftar Anggota -->
+<div id="loginModal" class="modal">
+<div class="modal-content">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <h3>Daftar Anggota</h3>
+    <form action="#" method="post"> <!-- Ganti action dengan endpoint backend jika diperlukan -->
+        <label for="firstName">First Name:</label>
+        <input type="text" id="firstName" name="firstName" required>
+
+        <label for="lastName">Last Name:</label>
+        <input type="text" id="lastName" name="lastName" required>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="noHp">No HP:</label>
+        <input type="tel" id="noHp" name="noHp" required>
+
+        <button type="submit">Daftar</button>
+    </form>
+</div>
+</div>
+
 <div class="container">
 
 <div id="dashboard" class="section active">
 <h1>Library Intan</h1>
 <p style="text-align:center;">Selamat datang di perpustakaan Intan.</p>
 
-<!-- Form Daftar Anggota -->
-<div class="form-container">
-<h3>Daftar Anggota</h3>
-<form action="#" method="post"> <!-- Ganti action dengan endpoint backend jika diperlukan -->
-    <label for="firstName">First Name:</label>
-    <input type="text" id="firstName" name="firstName" required>
-
-    <label for="lastName">Last Name:</label>
-    <input type="text" id="lastName" name="lastName" required>
-
-    <label for="email">Email:</label>
-    <input type="email" id="email" name="email" required>
-
-    <label for="noHp">No HP:</label>
-    <input type="tel" id="noHp" name="noHp" required>
-
-    <button type="submit">Daftar</button>
-</form>
-</div>
-
 <div class="link-box">
-<a href="https://www.instagram.com/intan_soo?igsh=bzI5empoYjE5dGFl" target="_blank">
+<a href="https://www.instagram.com/intan_soo?igsh=bzI5empoYjE5dGGl" target="_blank">
 About Me
 </a>
 
