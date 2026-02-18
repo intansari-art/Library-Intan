@@ -9,30 +9,36 @@
 body {
     margin:0;
     font-family: Arial, sans-serif;
-    background-color: #9CAF88; /* Green */
-    color:green;
+    background-color: #E3F2FD; /* Biru sangat muda untuk background */
+    color: #0D47A1; /* Biru gelap untuk text utama */
 }
 
 .overlay{
-    background-color: rgba(0,0,0,0.55);
+    background-color: rgba(0,0,0,0.4); /* Hitam transparan lebih ringan untuk kesan terbuka */
     min-height:100vh;
 }
 
 nav{
-    background-color: rgba(0,0,0,0.8);
+    background-color: #1976D2; /* Biru navy untuk nav */
     padding:15px;
-    text-align:center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-left {
+    display: flex;
 }
 
 nav a{
-    color:white;
+    color: white; /* Putih untuk kontras di nav biru */
     margin:0 15px;
     text-decoration:none;
     font-weight:bold;
 }
 
 nav a:hover{
-    color:#ffd700;
+    color: #FFEB3B; /* Kuning cerah untuk highlight */
     transition:0.3s;
 }
 
@@ -62,9 +68,13 @@ h1,h2{
 .link-box a{
     display:block;
     margin:10px;
-    color:#ffd700;
+    color: #1976D2; /* Biru navy untuk link */
     font-size:18px;
     text-decoration:none;
+}
+
+.link-box a:hover {
+    color: #FFEB3B; /* Kuning untuk hover */
 }
 
 .video-box{
@@ -78,13 +88,18 @@ iframe{
 
 /* Styling untuk form login/daftar */
 .form-container {
-    background-color: rgba(255, 255, 255, 0.9);
+    background-color: rgba(255, 255, 255, 0.9); /* Putih transparan untuk form */
     padding: 20px;
     border-radius: 8px;
     max-width: 400px;
     margin: 20px auto;
     text-align: left;
-    color: black;
+    color: #0D47A1; /* Biru gelap untuk text di form */
+    display: none; /* Awalnya tersembunyi */
+}
+
+.form-container.active {
+    display: block;
 }
 
 .form-container h3 {
@@ -100,7 +115,7 @@ iframe{
 
 .form-container input[type="text"],
 .form-container input[type="email"],
-.form-container input[type="password"] {
+.form-container input[type="tel"] {
     width: 100%;
     padding: 10px;
     margin-bottom: 15px;
@@ -112,7 +127,7 @@ iframe{
 .form-container button {
     width: 100%;
     padding: 10px;
-    background-color: #4CAF50;
+    background-color: #1976D2; /* Biru navy untuk tombol */
     color: white;
     border: none;
     border-radius: 4px;
@@ -121,7 +136,7 @@ iframe{
 }
 
 .form-container button:hover {
-    background-color: #45a049;
+    background-color: #1565C0; /* Biru lebih gelap untuk hover */
 }
 </style>
 
@@ -131,6 +146,15 @@ function showMenu(menu){
         sec.classList.remove('active');
     });
     document.getElementById(menu).classList.add('active');
+    // Sembunyikan form login jika menu lain diklik
+    document.querySelector('.form-container').classList.remove('active');
+}
+
+function showLoginForm(){
+    // Tampilkan form login
+    document.querySelector('.form-container').classList.add('active');
+    // Pastikan dashboard aktif
+    showMenu('dashboard');
 }
 </script>
 
@@ -140,9 +164,12 @@ function showMenu(menu){
 <div class="overlay">
 
 <nav>
+<div class="nav-left">
 <a href="javascript:void(0)" onclick="showMenu('dashboard')">Dashboard</a>
 <a href="javascript:void(0)" onclick="showMenu('katalog')">Katalog</a>
 <a href="javascript:void(0)" onclick="showMenu('kegiatan')">Kegiatan Literasi</a>
+</div>
+<a href="javascript:void(0)" onclick="showLoginForm()">Login</a>
 </nav>
 
 <div class="container">
@@ -153,20 +180,22 @@ function showMenu(menu){
 
 <!-- Form Daftar Anggota -->
 <div class="form-container">
-<h3>Login / Daftar Anggota</h3>
+<h3>Daftar Anggota</h3>
 <form action="#" method="post"> <!-- Ganti action dengan endpoint backend jika diperlukan -->
-    <label for="nama">Nama Lengkap:</label>
-    <input type="text" id="nama" name="nama" required>
+    <label for="firstName">First Name:</label>
+    <input type="text" id="firstName" name="firstName" required>
+
+    <label for="lastName">Last Name:</label>
+    <input type="text" id="lastName" name="lastName" required>
 
     <label for="email">Email:</label>
     <input type="email" id="email" name="email" required>
 
-    <label for="password">Password:</label>
-    <input type="password" id="password" name="password" required>
+    <label for="noHp">No HP:</label>
+    <input type="tel" id="noHp" name="noHp" required>
 
     <button type="submit">Daftar</button>
 </form>
-<p style="text-align: center; margin-top: 10px;">Sudah punya akun? <a href="#" style="color: #4CAF50;">Login di sini</a></p>
 </div>
 
 <div class="link-box">
