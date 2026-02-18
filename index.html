@@ -9,12 +9,16 @@
 body {
     margin:0;
     font-family: Arial, sans-serif;
-    background-color: #E3F2FD; /* Biru sangat muda untuk background */
-    color: #0D47A1; /* Biru gelap untuk text utama */
+    background-image: url('https://images.unsplash.com/photo-1481627834876-b7833e8f5570?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80'); /* Foto perpustakaan dari Unsplash */
+    background-size: cover; /* Agar gambar menutupi seluruh area */
+    background-position: center; /* Posisi tengah */
+    background-repeat: no-repeat; /* Tidak diulang */
+    background-attachment: fixed; /* Tetap saat scroll (opsional, untuk efek parallax) */
+    color: #0D47A1; /* Biru gelap untuk text utama, tetap untuk kontras */
 }
 
 .overlay{
-    background-color: rgba(0,0,0,0.4); /* Hitam transparan lebih ringan untuk kesan terbuka */
+    background-color: rgba(0,0,0,0.4); /* Hitam transparan lebih ringan untuk kesan terbuka, tetap untuk kontras teks */
     min-height:100vh;
 }
 
