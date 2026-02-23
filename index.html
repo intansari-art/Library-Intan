@@ -9,21 +9,21 @@
 body {
     margin:0;
     font-family: Arial, sans-serif;
-    background-image: url('https://images.unsplash.com/photo-1481627834876-b7833e8f5570?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80'); /* Foto perpustakaan dari Unsplash */
-    background-size: cover; /* Agar gambar menutupi seluruh area */
-    background-position: center; /* Posisi tengah */
-    background-repeat: no-repeat; /* Tidak diulang */
-    background-attachment: fixed; /* Tetap saat scroll (opsional, untuk efek parallax) */
-    color: #0D47A1; /* Biru gelap untuk text utama, tetap untuk kontras */
+    background-image: url('https://images.unsplash.com/photo-1481627834876-b7833e8f5570');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    color: #0D47A1;
 }
 
 .overlay{
-    background-color: rgba(0,0,0,0.4); /* Hitam transparan lebih ringan untuk kesan terbuka, tetap untuk kontras teks */
+    background-color: rgba(0,0,0,0.4);
     min-height:100vh;
 }
 
 nav{
-    background-color: #1976D2; /* Biru navy untuk nav */
+    background-color: #1976D2;
     padding:15px;
     display: flex;
     justify-content: space-between;
@@ -35,15 +35,14 @@ nav{
 }
 
 nav a{
-    color: white; /* Putih untuk kontras di nav biru */
+    color: white;
     margin:0 15px;
     text-decoration:none;
     font-weight:bold;
 }
 
 nav a:hover{
-    color: #FFEB3B; /* Kuning cerah untuk highlight */
-    transition:0.3s;
+    color: #FFEB3B;
 }
 
 .container{
@@ -62,6 +61,18 @@ nav a:hover{
 
 h1,h2{
     text-align:center;
+    color:white;
+}
+
+.logo-title{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:15px;
+}
+
+.logo-title img{
+    width:60px;
 }
 
 .link-box{
@@ -72,111 +83,77 @@ h1,h2{
 .link-box a{
     display:block;
     margin:10px;
-    color: white; /* Putih cerah untuk link About Me dan My Biodata */
+    color: white;
     font-size:18px;
     text-decoration:none;
-}
-
-.link-box a:hover {
-    color: #FFEB3B; /* Kuning untuk hover */
 }
 
 .video-box{
     text-align:center;
     margin-top:30px;
+    color:white;
 }
 
-.video-box h3 {
-    color: white; /* Putih cerah untuk Video Profil */
-}
-
-iframe{
-    max-width:100%;
-}
-
-/* Styling untuk modal form daftar anggota */
+/* Modal */
 .modal {
-    display: none; /* Awalnya tersembunyi */
+    display: none;
     position: fixed;
-    z-index: 1;
+    z-index: 10;
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
-    overflow: auto;
-    background-color: rgba(0,0,0,0.5); /* Background gelap transparan */
+    background-color: rgba(0,0,0,0.6);
 }
 
 .modal-content {
-    background-color: rgba(255, 255, 255, 0.9); /* Putih transparan */
-    margin: 15% auto;
+    background-color: white;
+    margin: 8% auto;
     padding: 20px;
-    border: 1px solid #888;
-    width: 80%;
+    width: 90%;
     max-width: 400px;
     border-radius: 8px;
-    text-align: left;
-    color: #0D47A1;
 }
 
-.close {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
+.modal-content input{
+    width:100%;
+    padding:10px;
+    margin:8px 0;
 }
 
-.close:hover,
-.close:focus {
-    color: black;
-    text-decoration: none;
-    cursor: pointer;
+.modal-content button{
+    width:48%;
+    padding:10px;
+    margin-top:10px;
+    background:#1976D2;
+    color:white;
+    border:none;
+    cursor:pointer;
 }
 
-.modal-content h3 {
-    text-align: center;
-    margin-bottom: 20px;
+.modal-buttons{
+    display:flex;
+    justify-content:space-between;
 }
 
-.modal-content label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: bold;
+/* WhatsApp */
+.whatsapp{
+    position:fixed;
+    bottom:20px;
+    right:20px;
+    background:#25D366;
+    color:white;
+    padding:12px 15px;
+    border-radius:50px;
+    text-decoration:none;
+    font-weight:bold;
+    display:flex;
+    align-items:center;
+    gap:8px;
 }
 
-.modal-content input[type="text"],
-.modal-content input[type="email"],
-.modal-content input[type="tel"] {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 15px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-}
-
-.modal-content button {
-    width: 100%;
-    padding: 10px;
-    background-color: #1976D2; /* Biru navy untuk tombol */
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 16px;
-}
-
-.modal-content button:hover {
-    background-color: #1565C0; /* Biru lebih gelap untuk hover */
-}
-
-/* Warna putih cerah untuk elemen spesifik di dashboard */
-#dashboard h1 {
-    color: white; /* Library Intan */
-}
-
-#dashboard p {
-    color: white; /* Selamat datang di perpustakaan Intan. */
+.whatsapp img{
+    width:25px;
 }
 </style>
 
@@ -189,20 +166,21 @@ function showMenu(menu){
 }
 
 function showLoginForm(){
-    // Tampilkan modal form daftar anggota
     document.getElementById('loginModal').style.display = 'block';
 }
 
 function closeModal(){
-    // Sembunyikan modal
     document.getElementById('loginModal').style.display = 'none';
 }
 
-// Tutup modal jika klik di luar modal
-window.onclick = function(event) {
-    const modal = document.getElementById('loginModal');
-    if (event.target == modal) {
-        modal.style.display = 'none';
+function login(){
+    const user = document.getElementById("usernameLogin").value;
+    const pass = document.getElementById("passwordLogin").value;
+
+    if(user !== "" && pass !== ""){
+        window.open("dashboard.html","_blank");
+    }else{
+        alert("Masukkan Username dan Password!");
     }
 }
 </script>
@@ -221,55 +199,55 @@ window.onclick = function(event) {
 <a href="javascript:void(0)" onclick="showLoginForm()">Login</a>
 </nav>
 
-<!-- Modal untuk Form Daftar Anggota -->
+<!-- Modal -->
 <div id="loginModal" class="modal">
 <div class="modal-content">
-    <span class="close" onclick="closeModal()">&times;</span>
-    <h3>Daftar Anggota</h3>
-    <form action="#" method="post"> <!-- Ganti action dengan endpoint backend jika diperlukan -->
-        <label for="firstName">First Name:</label>
-        <input type="text" id="firstName" name="firstName" required>
+<h3>Daftar / Login</h3>
 
-        <label for="lastName">Last Name:</label>
-        <input type="text" id="lastName" name="lastName" required>
+<h4>Daftar</h4>
+<input type="text" placeholder="First Name">
+<input type="text" placeholder="Last Name">
+<input type="email" placeholder="Email">
+<input type="tel" placeholder="No HP">
+<input type="text" placeholder="Username">
+<input type="password" placeholder="Password">
 
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required>
+<h4>Login</h4>
+<input type="text" id="usernameLogin" placeholder="Username">
+<input type="password" id="passwordLogin" placeholder="Password">
 
-        <label for="noHp">No HP:</label>
-        <input type="tel" id="noHp" name="noHp" required>
+<div class="modal-buttons">
+<button onclick="closeModal()">Tutup</button>
+<button onclick="login()">Login</button>
+</div>
 
-        <button type="submit">Daftar</button>
-    </form>
 </div>
 </div>
 
 <div class="container">
 
 <div id="dashboard" class="section active">
+
+<div class="logo-title">
+<img src="LOGO-ANDA.png">
 <h1>Library Intan</h1>
-<p style="text-align:center;">Selamat datang di perpustakaan Intan.</p>
+</div>
+
+<p style="text-align:center; color:white;">
+Selamat datang di perpustakaan Intan.
+</p>
 
 <div class="link-box">
-<a href="https://www.instagram.com/intan_soo?igsh=bzI5empoYjE5dGGl" target="_blank">
-About Me
-</a>
-
-<a href="https://drive.google.com/file/d/1G5itB-_B9wnXcuPKdBqTAqtli1AWduhz/view?usp=sharing" target="_blank">
-My Biodata
-</a>
+<a href="https://www.instagram.com/intan_soo" target="_blank">About Me</a>
+<a href="https://drive.google.com" target="_blank">My Biodata</a>
 </div>
 
 <div class="video-box">
 <h3>Video Profil</h3>
-
 <iframe width="560" height="315"
 src="https://www.youtube.com/embed/rxxNE-s2cSU"
-title="YouTube video"
 frameborder="0"
-allowfullscreen>
-</iframe>
-
+allowfullscreen></iframe>
 </div>
 
 </div>
@@ -286,17 +264,21 @@ allowfullscreen>
 
 <div id="kegiatan" class="section">
 <h2>Kegiatan Literasi</h2>
-
 <ul>
-<li>Bibingan Penerapan Web</li>
+<li>Bimbingan Penerapan Web</li>
 <li>Sosialisasi Penggunaan Web</li>
 <li>Sosialisasi Manfaat Web</li>
 </ul>
-
 </div>
 
 </div>
 </div>
+
+<!-- WhatsApp Contact -->
+<a href="https://wa.me/6281226423048" target="_blank" class="whatsapp">
+<img src="https://cdn-icons-png.flaticon.com/512/733/733585.png">
+081226423048
+</a>
 
 </body>
 </html>
