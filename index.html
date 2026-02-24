@@ -26,22 +26,21 @@ nav{
     background-color: #1976D2;
     padding:15px;
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
     align-items: center;
 }
 
 .nav-left {
     display: flex;
+    flex-direction: column;
     align-items: center;
 }
 
 nav a{
     color: white;
-    margin:0 15px;
+    margin:5px 15px;
     text-decoration:none;
     font-weight:bold;
-    display: flex;
-    align-items: center;
 }
 
 nav a:hover{
@@ -49,10 +48,12 @@ nav a:hover{
     transition:0.3s;
 }
 
-/* Styling Logo */
+/* Styling Logo di bawah menu */
 .nav-logo {
-    height: 24px;
-    margin-right: 8px;
+    height: 60px;
+    margin-top: 10px;
+    border-radius: 50%;
+    border: 3px solid white;
 }
 
 .container{
@@ -235,237 +236,4 @@ iframe{
 }
 
 #dashboard p {
-    color: white;
-}
-
-/* --- PERUBAHAN WARNA KATALOG & KEGIATAN LITERASI --- */
-/* Judul menjadi biru cerah */
-#katalog h2, #katalog h3,
-#kegitan h2, #kegitan h3 {
-    color: #00E5FF !important;
-    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
-}
-
-/* Tulisan biasa (list, paragraf) menjadi putih */
-#katalog li, #katalog p,
-#kegitan li, #kegitan p {
-    color: white !important;
-    font-size: 18px;
-    line-height: 1.6;
-}
-
-/* --- FLOATING WHATSAPP BUTTON --- */
-.whatsapp-float {
-    position: fixed;
-    width: 60px;
-    height: 60px;
-    bottom: 40px;
-    right: 40px;
-    background-color: #25d366;
-    color: #FFF;
-    border-radius: 50px;
-    text-align: center;
-    font-size: 30px;
-    box-shadow: 2px 2px 3px #999;
-    z-index: 100;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-decoration: none;
-    transition: transform 0.3s;
-}
-
-.whatsapp-float:hover {
-    transform: scale(1.1);
-    background-color: #20b857;
-}
-</style>
-
-<script>
-function showMenu(menu){
-    document.querySelectorAll('.section').forEach(sec=>{
-        sec.classList.remove('active');
-    });
-    document.getElementById(menu).classList.add('active');
-}
-
-function showLoginForm(){
-    document.getElementById('loginModal').style.display = 'block';
-    // Default membuka tab Login saat modal dibuka
-    openTab(event, 'loginTab');
-}
-
-function closeModal(){
-    document.getElementById('loginModal').style.display = 'none';
-}
-
-// Tutup modal jika klik di luar area modal
-window.onclick = function(event) {
-    const modal = document.getElementById('loginModal');
-    if (event.target == modal) {
-        modal.style.display = 'none';
-    }
-}
-
-// Fungsi untuk mengganti tab di dalam modal
-function openTab(evt, tabName) {
-    var i, tabcontent, tablinks;
-    
-    // Sembunyikan semua isi form
-    tabcontent = document.getElementsByClassName("form-content");
-    for (i = 0; i < tabcontent.length; i++) {
-        tabcontent[i].style.display = "none";
-        tabcontent[i].classList.remove("active-form");
-    }
-    
-    // Hapus class active dari semua tombol tab
-    tablinks = document.getElementsByClassName("tab-btn");
-    for (i = 0; i < tablinks.length; i++) {
-        tablinks[i].className = tablinks[i].className.replace(" active", "");
-    }
-    
-    // Tampilkan tab yang dipilih dan tambahkan class active ke tombolnya
-    document.getElementById(tabName).style.display = "block";
-    document.getElementById(tabName).classList.add("active-form");
-    evt.currentTarget.className += " active";
-}
-</script>
-
-</head>
-
-<body>
-<div class="overlay">
-
-<!-- Navbar dengan Logo -->
-<nav>
-<div class="nav-left">
-    <!-- Logo Perpustakaan (Ikon Buku) -->
-    <img src="https://cdn-icons-png.flaticon.com/512/3241/3241393.png" alt="Logo" class="nav-logo">
-    
-    <a href="javascript:void(0)" onclick="showMenu('dashboard')">Dashboard</a>
-    <a href="javascript:void(0)" onclick="showMenu('katalog')">Katalog</a>
-    <a href="javascript:void(0)" onclick="showMenu('kegitan')">Kegiatan Literasi</a>
-</div>
-<a href="javascript:void(0)" onclick="showLoginForm()">Login</a>
-</nav>
-
-<!-- Modal dengan Dua Opsi (Login & Daftar) -->
-<div id="loginModal" class="modal">
-<div class="modal-content">
-    <span class="close" onclick="closeModal()">&times;</span>
-    
-    <!-- Header Tab -->
-    <div class="tab-header">
-        <button class="tab-btn active" onclick="openTab(event, 'loginTab')">Login</button>
-        <button class="tab-btn" onclick="openTab(event, 'registerTab')">Daftar</button>
-    </div>
-
-    <!-- Form Login -->
-    <div id="loginTab" class="form-content active-form">
-        <h3>Masuk Akun</h3>
-        <form action="#" method="post">
-            <label for="loginUsername">Username:</label>
-            <input type="text" id="loginUsername" name="username" required>
-
-            <label for="loginPassword">Password:</label>
-            <input type="password" id="loginPassword" name="password" required>
-
-            <button type="submit">Login</button>
-        </form>
-    </div>
-
-    <!-- Form Daftar (Username & Password di atas) -->
-    <div id="registerTab" class="form-content">
-        <h3>Daftar Anggota Baru</h3>
-        <form action="#" method="post">
-            <!-- Username dan Password ada di sini (sebelum First Name) -->
-            <label for="regUsername">Username:</label>
-            <input type="text" id="regUsername" name="username" required>
-
-            <label for="regPassword">Password:</label>
-            <input type="password" id="regPassword" name="password" required>
-
-            <label for="firstName">First Name:</label>
-            <input type="text" id="firstName" name="firstName" required>
-
-            <label for="lastName">Last Name:</label>
-            <input type="text" id="lastName" name="lastName" required>
-
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required>
-
-            <label for="noHp">No HP:</label>
-            <input type="tel" id="noHp" name="noHp" required>
-
-            <button type="submit">Daftar</button>
-        </form>
-    </div>
-</div>
-</div>
-
-<div class="container">
-
-<div id="dashboard" class="section active">
-<h1>Library Intan</h1>
-<p style="text-align:center;">Selamat datang di perpustakaan Intan.</p>
-
-<div class="link-box">
-<a href="https://www.instagram.com/intan_soo?igsh=bzI5empoYjE5dGGl" target="_blank">
-About Me
-</a>
-
-<a href="https://drive.google.com/file/d/1G5itB-_B9wnXcuPKdBqTAqtli1AWduhz/view?usp=sharing" target="_blank">
-My Biodata
-</a>
-</div>
-
-<div class="video-box">
-<h3>Video Profil</h3>
-
-<iframe width="560" height="315"
-src="https://www.youtube.com/embed/rxxNE-s2cSU"
-title="YouTube video"
-frameborder="0"
-allowfullscreen>
-</iframe>
-
-</div>
-
-</div>
-
-<!-- Bagian Katalog (Warna Biru Cerah & Putih) -->
-<div id="katalog" class="section">
-<h2>Daftar Buku</h2>
-<ul>
-<li>Dasar-dasar Web</li>
-<li>Perkembangan Web</li>
-<li>Skill Komunikasi</li>
-<li>Media Digital</li>
-</ul>
-</div>
-
-<!-- Bagian Kegiatan Literasi (Warna Biru Cerah & Putih) -->
-<div id="kegitan" class="section">
-<h2>Kegiatan Literasi</h2>
-
-<ul>
-<li>Bibingan Penerapan Web</li>
-<li>Sosialisasi Penggunaan Web</li>
-<li>Sosialisasi Manfaat Web</li>
-</ul>
-
-</div>
-
-</div>
-</div>
-
-<!-- Tombol Pop Up WhatsApp -->
-<a href="https://wa.me/6281226423048" class="whatsapp-float" target="_blank">
-    <!-- Ikon WhatsApp SVG -->
-    <svg viewBox="0 0 24 24" width="32px" height="32px" fill="white">
-        <path d="M12 0C5.373 0 0 5.373 0 12c0 5.084 3.163 9.426 7.627 11.174-.105-.949-.2-2.405.042-3.441.218-.937 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738.098.119.112.224.083.345l-.333 1.36c-.053.22-.174.267-.402.161-1.499-.698-2.436-2.889-2.436-4.649 0-3.785 2.75-7.262 7.929-7.262 4.163 0 7.398 2.967 7.398 6.931 0 4.136-2.607 7.464-6.227 7.464-1.216 0-2.359-.631-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24 12 24c6.627 0 12-5.373 12-12 0-6.628-5.373-12-12-12z"/>
-    </svg>
-</a>
-
-</body>
-</html>
+    color
