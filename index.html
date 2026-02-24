@@ -26,19 +26,23 @@ nav{
     background-color: #1976D2;
     padding:15px;
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    justify-content: space-between;
+    align-items: flex-start;
 }
 
 .nav-left {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
+}
+
+.nav-links {
+    display: flex;
 }
 
 nav a{
     color: white;
-    margin:5px 15px;
+    margin:0 15px;
     text-decoration:none;
     font-weight:bold;
 }
@@ -50,10 +54,11 @@ nav a:hover{
 
 /* Styling Logo di bawah menu */
 .nav-logo {
-    height: 60px;
-    margin-top: 10px;
+    height: 40px;
+    margin-top: 8px;
+    margin-left: 5px;
     border-radius: 50%;
-    border: 3px solid white;
+    border: 2px solid white;
 }
 
 .container{
@@ -341,12 +346,13 @@ function openTab(evt, tabName) {
 <!-- Navbar dengan Logo di bawah -->
 <nav>
 <div class="nav-left">
-    <a href="javascript:void(0)" onclick="showMenu('dashboard')">Dashboard</a>
-    <a href="javascript:void(0)" onclick="showMenu('katalog')">Katalog</a>
-    <a href="javascript:void(0)" onclick="showMenu('kegitan')">Kegiatan Literasi</a>
-    
+    <div class="nav-links">
+        <a href="javascript:void(0)" onclick="showMenu('dashboard')">Dashboard</a>
+        <a href="javascript:void(0)" onclick="showMenu('katalog')">Katalog</a>
+        <a href="javascript:void(0)" onclick="showMenu('kegitan')">Kegiatan Literasi</a>
+    </div>
     <!-- Logo Perpustakaan (di bawah menu) -->
-    <img src="https://chatgpt.com/s/m_699c6a6b5ce08191bb8b5f11532b8384" alt="Logo" class="nav-logo">
+    <img src="https://cdn-icons-png.flaticon.com/512/3241/3241393.png" alt="Logo" class="nav-logo">
 </div>
 <a href="javascript:void(0)" onclick="showLoginForm()">Login</a>
 </nav>
@@ -463,7 +469,7 @@ allowfullscreen>
 
 <!-- Tombol Pop Up WhatsApp dengan Logo -->
 <a href="https://wa.me/6281226423048" class="whatsapp-float" target="_blank">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+    <img src="https://img.icons8.com/color/72/whatsapp--v1.png" alt="WhatsApp">
 </a>
 
 </body>
