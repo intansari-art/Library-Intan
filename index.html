@@ -27,17 +27,12 @@ nav{
     padding:15px;
     display: flex;
     justify-content: space-between;
-    align-items: flex-start;
+    align-items: center;
 }
 
 .nav-left {
     display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-}
-
-.nav-links {
-    display: flex;
+    align-items: center;
 }
 
 nav a{
@@ -50,15 +45,6 @@ nav a{
 nav a:hover{
     color: #FFEB3B;
     transition:0.3s;
-}
-
-/* Styling Logo di bawah menu */
-.nav-logo {
-    height: 40px;
-    margin-top: 8px;
-    margin-left: 5px;
-    border-radius: 50%;
-    border: 2px solid white;
 }
 
 .container{
@@ -77,6 +63,14 @@ nav a:hover{
 
 h1,h2{
     text-align:center;
+}
+
+/* Styling Logo di bawah Library Intan */
+.dashboard-logo {
+    display: block;
+    margin: 20px auto;
+    max-width: 150px;
+    height: auto;
 }
 
 .link-box{
@@ -343,16 +337,12 @@ function openTab(evt, tabName) {
 <body>
 <div class="overlay">
 
-<!-- Navbar dengan Logo di bawah -->
+<!-- Navbar -->
 <nav>
 <div class="nav-left">
-    <div class="nav-links">
-        <a href="javascript:void(0)" onclick="showMenu('dashboard')">Dashboard</a>
-        <a href="javascript:void(0)" onclick="showMenu('katalog')">Katalog</a>
-        <a href="javascript:void(0)" onclick="showMenu('kegitan')">Kegiatan Literasi</a>
-    </div>
-    <!-- Logo Perpustakaan (di bawah menu) -->
-    <img src="https://cdn-icons-png.flaticon.com/512/3241/3241393.png" alt="Logo" class="nav-logo">
+    <a href="javascript:void(0)" onclick="showMenu('dashboard')">Dashboard</a>
+    <a href="javascript:void(0)" onclick="showMenu('katalog')">Katalog</a>
+    <a href="javascript:void(0)" onclick="showMenu('kegitan')">Kegiatan Literasi</a>
 </div>
 <a href="javascript:void(0)" onclick="showLoginForm()">Login</a>
 </nav>
@@ -415,6 +405,8 @@ function openTab(evt, tabName) {
 
 <div id="dashboard" class="section active">
 <h1>Library Intan</h1>
+<!-- Logo Perpustakaan di bawah Library Intan -->
+<img src="https://id.pngtree.com/so/logo-perpustakaan" alt="Logo Perpustakaan" class="dashboard-logo">
 <p style="text-align:center;">Selamat datang di perpustakaan Intan.</p>
 
 <div class="link-box">
