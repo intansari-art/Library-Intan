@@ -49,8 +49,8 @@ nav a:hover{
     transition:0.3s;
 }
 
-/* Styling untuk Logo di Navbar */
-.nav-icon {
+/* Styling Logo */
+.nav-logo {
     height: 24px;
     margin-right: 8px;
 }
@@ -103,7 +103,7 @@ iframe{
     max-width:100%;
 }
 
-/* Styling untuk modal form */
+/* Styling untuk Modal Form (Login & Daftar) */
 .modal {
     display: none;
     position: fixed;
@@ -155,7 +155,7 @@ iframe{
 
 .tab-btn {
     flex: 1;
-    padding: 10px;
+    padding: 12px;
     border: none;
     background: none;
     cursor: pointer;
@@ -190,8 +190,8 @@ iframe{
 
 .modal-content h3 {
     text-align: center;
-    margin-bottom: 20px;
     margin-top: 0;
+    margin-bottom: 20px;
 }
 
 .modal-content label {
@@ -229,13 +229,59 @@ iframe{
     background-color: #1565C0;
 }
 
-/* Styling Katalog & Kegiatan Literasi */
-/* Judul menjadi biru cerah */
-#katalog h2, #kactivities h2 {
-    color: #00E5FF !important; 
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+/* Warna putih cerah untuk elemen spesifik di dashboard */
+#dashboard h1 {
+    color: white;
 }
 
-/* Tulisan biasa menjadi putih */
-#katalog li, #katalog p, #katalog ul,
-#kegitan li, #kegitan p,
+#dashboard p {
+    color: white;
+}
+
+/* --- PERUBAHAN WARNA KATALOG & KEGIATAN LITERASI --- */
+/* Judul menjadi biru cerah */
+#katalog h2, #katalog h3,
+#kegitan h2, #kegitan h3 {
+    color: #00E5FF !important;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+}
+
+/* Tulisan biasa (list, paragraf) menjadi putih */
+#katalog li, #katalog p,
+#kegitan li, #kegitan p {
+    color: white !important;
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+/* --- FLOATING WHATSAPP BUTTON --- */
+.whatsapp-float {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 40px;
+    right: 40px;
+    background-color: #25d366;
+    color: #FFF;
+    border-radius: 50px;
+    text-align: center;
+    font-size: 30px;
+    box-shadow: 2px 2px 3px #999;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: transform 0.3s;
+}
+
+.whatsapp-float:hover {
+    transform: scale(1.1);
+    background-color: #20b857;
+}
+</style>
+
+<script>
+function showMenu(menu){
+    document.querySelectorAll('.section').forEach(sec=>{
+        sec.classList.remove('active');
