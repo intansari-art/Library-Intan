@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Intan Library</title>
+
 <style>
 body {
     margin:0;
@@ -25,7 +26,7 @@ nav{
     background-color: #1976D2;
     padding:15px;
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
     align-items: center;
 }
 
@@ -175,78 +176,4 @@ iframe{
 }
 
 .form-content {
-    display: none;
-    animation: fadeEffect 0.5s;
-}
-
-.form-content.active-form {
-    display: block;
-}
-
-@keyframes fadeEffect {
-    from {opacity: 0;}
-    to {opacity: 1;}
-}
-
-.modal-content h3 {
-    text-align: center;
-    margin-top: 0;
-    margin-bottom: 20px;
-}
-
-.modal-content label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: bold;
-    font-size: 14px;
-}
-
-.modal-content input[type="text"],
-.modal-content input[type="email"],
-.modal-content input[type="tel"],
-.modal-content input[type="password"] {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 15px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-}
-
-.modal-content button {
-    width: 100%;
-    padding: 10px;
-    background-color: #1976D2;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 16px;
-    font-weight: bold;
-}
-
-.modal-content button:hover {
-    background-color: #1565C0;
-}
-
-/* Warna putih cerah untuk elemen spesifik di dashboard */
-#dashboard h1 {
-    color: white;
-}
-
-#dashboard p {
-    color: white;
-}
-
-/* --- PERUBAHAN WARNA KATALOG & KEGIATAN LITERASI --- */
-/* Judul menjadi biru cerah */
-#katalog h2, #katalog h3,
-#kegitan h2, #kegitan h3 {
-    color: #00E5FF !important;
-    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
-}
-
-/* Tulisan biasa (list, paragraf) menjadi putih */
-#katalog li, #katalog p,
-#kegitan li, #kegitan p {
-    color: white !important;
+    display
