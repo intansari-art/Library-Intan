@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Services - The Rooted Library</title>
+<style>
+/* CSS sama + tambahan */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 40px;
+    max-width: 1200px;
+    margin: 60px auto;
+    padding: 0 20px;
+}
+
+.service-card {
+    background: rgba(255,255,255,0.95);
+    padding: 40px 30px;
+    border-radius: 25px;
+    text-align: center;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.1);
+    transition: all 0.4s;
+    position: relative;
+}
+.service-card::before {
+    content: attr(data-icon);
+    position: absolute;
+    top: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: linear-gradient(135deg, #1976D2, #42A5F5);
+    color: white;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2em;
+    box-shadow: 0 10px 30px rgba(25,118,210,0.4);
+}
+.service-card h3 {
+    color: #1976D2;
+    margin: 20px 0 15px;
+    font-size: 1.7em;
+}
+.service-cta {
+    background: linear-gradient(135deg, #1976D2, #42A5F5);
+    color: white;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 30px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: all 0.3s;
+}
+.service-cta:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 25px rgba(25,118,210,0.4);
+}
+</style>
+</head>
+
+<body>
+<div class="overlay">
+<!-- Navbar -->
+
+<div class="page-hero" style="background:linear-gradient(135deg,rgba(25,118,210,0.9),rgba(66,165,245,0.8));color:white;padding:80px 20px;text-align:center;">
+    <h1>⚡ Services</h1>
+    <p style="font-size:1.3em;">Layanan modern untuk pengalaman membaca terbaik</p>
+</div>
+
+<div class="services-grid">
+    <div class="service-card" data-icon="📱">
+        <h3>E-Book Reader</h3>
+        <p>Baca buku digital dengan fitur bookmark, highlight, dan night mode. Sinkronisasi antar device.</p>
+        <button class="service-cta" onclick="openReader()">Buka Reader</button>
+    </div>
+    
+    <div class="service-card" data-icon="⬇️">
+        <h3>Download Center</h3>
+        <p>Download PDF, EPUB, dan MOBI secara gratis. Offline reading kapan saja.</p>
+        <button class="service-cta" onclick="openDownloads()">Download</button>
+    </div>
+    
+    <div class="service-card" data-icon="📧">
+        <h3>Newsletter</h3>
+        <p>Dapatkan rekomendasi buku mingguan dan update koleksi terbaru langsung ke email.</p>
+        <button class="service-cta" onclick="subscribeNewsletter()">Berlangganan</button>
+    </div>
+    
+    <div class="service-card" data-icon="🎯">
+        <h3>Personal Recommendations</h3>
+        <p>Sistem AI yang menganalisis riwayat baca untuk rekomendasi buku yang tepat untuk Anda.</p>
+        <button class="service-cta" onclick="getRecommendations()">Dapatkan Rekomendasi</button>
+    </div>
+</div>
+
+<script>
+function openReader() { alert('📖 E-Book Reader akan terbuka!'); }
+function openDownloads() { alert('⬇️ Download Center'); }
+function subscribeNewsletter() { alert('📧 Berhasil berlangganan newsletter!'); }
+function getRecommendations() { alert('🎯 5 rekomendasi buku untuk Anda!'); }
+</script>
+</body>
+</html>
