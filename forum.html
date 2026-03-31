@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Forum - The Rooted Library</title>
+<style>
+/* CSS sama */
+.forum-container {
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+.forum-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+.new-post-form {
+    background: rgba(255,255,255,0.95);
+    padding: 40px;
+    border-radius: 20px;
+    margin-bottom: 40px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+}
+.new-post-form h3 {
+    color: #1976D2;
+    margin-bottom: 25px;
+}
+.form-group {
+    margin-bottom: 25px;
+}
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #333;
+}
+.form-group input, .form-group textarea {
+    width: 100%;
+    padding: 15px;
+    border: 2px solid #E3F2FD;
+    border-radius: 12px;
+    font-size: 16px;
+    transition: border-color 0.3s;
+    box-sizing: border-box;
+}
+.form-group input:focus, .form-group textarea:focus {
+    outline: none;
+    border-color: #1976D2;
+}
+
+.post-list {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+.post-card {
+    background: rgba(255,255,255,0.95);
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    border-left: 5px solid #1976D2;
+}
+.post-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+.post-author {
+    font-weight: bold;
+    color: #1976D2;
+}
+.post-date {
+    color: #888;
+    font-size: 0.9em;
+}
+.post-stats {
+    display: flex;
+    gap: 20px;
+    color: #666;
+    font-size: 0.9em;
+    margin-top: 15px;
+}
+</style>
+</head>
+
+<body>
+<div class="overlay">
+<!-- Navbar -->
+
+<div class="page-hero" style="background:linear-gradient(135deg,rgba(25,118,210,0.9),rgba(66,165,245,0.8));color:white;padding:80px 20px;text-align:center;">
+    <h1>💬 Forum Diskusi</h1>
+    <p style="font-size:1.3em;">Berbagi rekomendasi buku dan diskusi literasi</p>
+</div>
+
+<div class="forum-container">
+    <div class="new-post-form">
+        <h3>✍️ Buat Postingan Baru</h3>
+        <form>
+            <div class="form-group">
+                <label>Judul Diskusi</label>
+                <input type="text" placeholder="Contoh: Rekomendasi novel terbaik 2024">
+            </div>
+            <div class="form-group">
+                <label>Pesan</label>
+                <textarea rows="5" placeholder="Tulis diskusi Anda di sini..."></textarea>
+            </div>
+            <button type="submit" style="background:linear-gradient(135deg,#1976D2,#42A5F5);color:white;padding:15px 40px;border:none;border-radius:25px;font-size:18px;font-weight:bold;cursor:pointer;width:100%;">📤 Posting</button>
+        </form>
+    </div>
+
+    <div class="post-list">
+        <div class="post-card">
+            <div class="post-header">
+                <span class="post-author">@intansari</span>
+                <span class="post-date">2 jam yang lalu</span>
+            </div>
+            <h4>🔥 Rekomendasi Buku Web Development Terbaik</h4>
+            <p>Halo teman-teman! Ada yang punya rekomendasi buku web dev yang bagus untuk pemula? Saya sedang belajar HTML, CSS, JS...</p>
+            <div class="post-stats">
+                <span>💬 12 Komentar</span>
+                <span>❤️ 45 Suka</span>
+                <span>👁️ 1.2K dilihat</span>
+            </div>
+        </div>
+        
+        <div class="post-card">
+            <div class="post-header">
+                <span class="post-author">@budi_literasi</span>
+                <span class="post-date">1 hari yang lalu</span>
+            </div>
+            <h4>📚 Buku Klasik Wajib Baca</h4>
+            <p>Share dong buku klasik favorit kalian! Saya baru selesai "Laskar Pelangi"...</p>
+            <div class="post-stats">
+                <span>💬 28 Komentar</span>
+                <span>❤️ 89 Suka</span>
+                <span>👁️ 3.5K dilihat</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+document.querySelector('form').onsubmit = function(e) {
+    e.preventDefault();
+    alert('✅ Postingan berhasil dibuat!');
+};
+</script>
+</body>
+</html>
