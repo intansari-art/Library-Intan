@@ -3,12 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The Rooted Library</title>
+<title>The Rooted Library - Perpustakaan Digital</title>
 
 <style>
 body {
     margin:0;
-    font-family: Arial, sans-serif;
+    font-family: 'Arial', sans-serif;
     background-image: url('https://images.unsplash.com/photo-1481627834876-b7833e8f5570?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
     background-size: cover;
     background-position: center;
@@ -17,321 +17,145 @@ body {
     color: #0D47A1;
 }
 
-.overlay{
-    background-color: rgba(0,0,0,0.4);
-    min-height:100vh;
-}
+.overlay{ background-color: rgba(0,0,0,0.4); min-height:100vh; }
 
 nav{
-    background-color: #1976D2;
-    padding:15px;
+    background: linear-gradient(135deg, #1976D2 0%, #42A5F5 100%);
+    padding:15px 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.3);
 }
 
-.nav-left {
-    display: flex;
-    align-items: center;
-}
-
+.nav-left { display: flex; align-items: center; }
 nav a{
     color: white;
-    margin:0 15px;
+    margin:0 12px;
     text-decoration:none;
-    font-weight:bold;
+    font-weight:600;
+    padding:8px 16px;
+    border-radius:20px;
+    transition: all 0.3s;
+}
+nav a:hover{ 
+    color: #FFEB3B; 
+    background: rgba(255,255,255,0.2);
+    transform: translateY(-2px);
 }
 
-nav a:hover{
-    color: #FFEB3B;
-    transition:0.3s;
+.hero-section {
+    text-align: center;
+    padding: 100px 20px 60px;
+    color: white;
+}
+.hero-section h1 {
+    font-size: 3.8em;
+    margin-bottom: 20px;
+    text-shadow: 3px 3px 6px rgba(0,0,0,0.8);
+    background: linear-gradient(45deg, #FFEB3B, #FFF176);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+.hero-section .subtitle {
+    font-size: 1.4em;
+    margin-bottom: 30px;
+    opacity: 0.95;
 }
 
-.container{
-    padding:40px;
-    max-width:900px;
-    margin:auto;
-}
-
-.section{
-    display:none;
-}
-
-.active{
-    display:block;
-}
-
-h1,h2{
-    text-align:center;
-}
-
-/* Styling Logo di bawah The Rooted Library */
-.dashboard-logo {
+.logo-rooted {
     display: block;
-    margin: 20px auto;
-    max-width: 150px;
+    margin: 30px auto;
+    max-width: 200px;
     height: auto;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+    animation: pulse 2s infinite;
 }
 
-.link-box{
-    text-align:center;
-    margin-top:25px;
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
 }
 
-.link-box a{
-    display:block;
-    margin:10px;
-    color: white;
-    font-size:18px;
-    text-decoration:none;
+.philosophy {
+    max-width: 900px;
+    margin: 0 auto 60px;
+    padding: 30px;
+    background: rgba(255,255,255,0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    border: 1px solid rgba(255,255,255,0.2);
 }
 
-.link-box a:hover {
-    color: #FFEB3B;
+.featured-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 60px auto;
+    padding: 0 20px;
 }
 
-.video-box{
-    text-align:center;
-    margin-top:30px;
+.feature-card {
+    background: rgba(255,255,255,0.95);
+    padding: 35px 25px;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+    transition: all 0.4s;
+    position: relative;
+    overflow: hidden;
 }
-
-.video-box h3 {
-    color: white;
-}
-
-iframe{
-    max-width:100%;
-}
-
-/* Styling untuk Modal Form (Login & Daftar) */
-.modal {
-    display: none;
-    position: fixed;
-    z-index: 1;
-    left: 0;
+.feature-card::before {
+    content: '';
+    position: absolute;
     top: 0;
+    left: -100%;
     width: 100%;
     height: 100%;
-    overflow: auto;
-    background-color: rgba(0,0,0,0.5);
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+    transition: left 0.5s;
 }
-
-.modal-content {
-    background-color: rgba(255, 255, 255, 0.95);
-    margin: 10% auto;
-    padding: 25px;
-    border: 1px solid #888;
-    width: 80%;
-    max-width: 450px;
-    border-radius: 8px;
-    text-align: left;
-    color: #0D47A1;
-    position: relative;
+.feature-card:hover::before { left: 100%; }
+.feature-card:hover {
+    transform: translateY(-15px) scale(1.02);
+    box-shadow: 0 25px 60px rgba(0,0,0,0.3);
 }
-
-.close {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-    position: absolute;
-    right: 20px;
-    top: 10px;
-}
-
-.close:hover,
-.close:focus {
-    color: black;
-    text-decoration: none;
-    cursor: pointer;
-}
-
-/* Tab Styles */
-.tab-header {
-    display: flex;
-    border-bottom: 2px solid #ddd;
+.feature-card h3 { 
+    color: #1976D2; 
+    font-size: 1.6em; 
     margin-bottom: 20px;
 }
-
-.tab-btn {
-    flex: 1;
-    padding: 12px;
-    border: none;
-    background: none;
-    cursor: pointer;
-    font-size: 16px;
-    font-weight: bold;
-    color: #777;
-    outline: none;
+.feature-card p { 
+    color: #555; 
+    line-height: 1.7; 
+    font-size: 1.1em;
 }
 
-.tab-btn:hover {
-    color: #1976D2;
-}
-
-.tab-btn.active {
-    color: #1976D2;
-    border-bottom: 3px solid #1976D2;
-}
-
-.form-content {
-    display: none;
-    animation: fadeEffect 0.5s;
-}
-
-.form-content.active-form {
-    display: block;
-}
-
-@keyframes fadeEffect {
-    from {opacity: 0;}
-    to {opacity: 1;}
-}
-
-.modal-content h3 {
+.footer {
+    background: rgba(25,118,210,0.95);
+    color: white;
     text-align: center;
-    margin-top: 0;
-    margin-bottom: 20px;
+    padding: 40px 20px;
+    margin-top: 80px;
 }
-
-.modal-content label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: bold;
-    font-size: 14px;
+.social-links {
+    margin-top: 20px;
 }
-
-.modal-content input[type="text"],
-.modal-content input[type="email"],
-.modal-content input[type="tel"],
-.modal-content input[type="password"] {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 15px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-}
-
-.modal-content button {
-    width: 100%;
-    padding: 10px;
-    background-color: #1976D2;
+.social-links a {
     color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 16px;
-    font-weight: bold;
+    margin: 0 20px;
+    font-size: 1.8em;
+    transition: all 0.3s;
 }
-
-.modal-content button:hover {
-    background-color: #1565C0;
-}
-
-/* Warna putih cerah untuk elemen spesifik di dashboard */
-#dashboard h1 {
-    color: white;
-}
-
-#dashboard p {
-    color: white;
-}
-
-/* --- PERUBAHAN WARNA KATALOG & KEGIATAN LITERASI --- */
-/* Judul menjadi biru cerah */
-#katalog h2, #katalog h3,
-#kegitan h2, #kegitan h3 {
-    color: #00E5FF !important;
-    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
-}
-
-/* Tulisan biasa (list, paragraf) menjadi putih */
-#katalog li, #katalog p,
-#kegitan li, #kegitan p {
-    color: white !important;
-    font-size: 18px;
-    line-height: 1.6;
-}
-
-/* --- FLOATING WHATSAPP BUTTON --- */
-.whatsapp-float {
-    position: fixed;
-    width: 70px;
-    height: 70px;
-    bottom: 40px;
-    right: 40px;
-    background-color: transparent;
-    z-index: 100;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-decoration: none;
-    transition: transform 0.3s;
-}
-
-.whatsapp-float:hover {
-    transform: scale(1.1);
-}
-
-.whatsapp-float img {
-    width: 70px;
-    height: 70px;
-    border-radius: 50%;
-    box-shadow: 2px 2px 3px #999;
+.social-links a:hover { 
+    color: #FFEB3B; 
+    transform: scale(1.3);
 }
 </style>
-
-<script>
-function showMenu(menu){
-    document.querySelectorAll('.section').forEach(sec=>{
-        sec.classList.remove('active');
-    });
-    document.getElementById(menu).classList.add('active');
-}
-
-function showLoginForm(){
-    document.getElementById('loginModal').style.display = 'block';
-    // Default membuka tab Login saat modal dibuka
-    openTab(event, 'loginTab');
-}
-
-function closeModal(){
-    document.getElementById('loginModal').style.display = 'none';
-}
-
-// Tutup modal jika klik di luar area modal
-window.onclick = function(event) {
-    const modal = document.getElementById('loginModal');
-    if (event.target == modal) {
-        modal.style.display = 'none';
-    }
-}
-
-// Fungsi untuk mengganti tab di dalam modal
-function openTab(evt, tabName) {
-    var i, tabcontent, tablinks;
-    
-    // Sembunyikan semua isi form
-    tabcontent = document.getElementsByClassName("form-content");
-    for (i = 0; i < tabcontent.length; i++) {
-        tabcontent[i].style.display = "none";
-        tabcontent[i].classList.remove("active-form");
-    }
-    
-    // Hapus class active dari semua tombol tab
-    tablinks = document.getElementsByClassName("tab-btn");
-    for (i = 0; i < tablinks.length; i++) {
-        tablinks[i].className = tablinks[i].className.replace(" active", "");
-    }
-    
-    // Tampilkan tab yang dipilih dan tambahkan class active ke tombolnya
-    document.getElementById(tabName).style.display = "block";
-    document.getElementById(tabName).classList.add("active-form");
-    evt.currentTarget.className += " active";
-}
-</script>
-
 </head>
 
 <body>
@@ -339,130 +163,89 @@ function openTab(evt, tabName) {
 
 <!-- Navbar -->
 <nav>
-<div class="nav-left">
-    <a href="javascript:void(0)" onclick="showMenu('dashboard')">Dashboard</a>
-    <a href="javascript:void(0)" onclick="showMenu('katalog')">Katalog</a>
-    <a href="javascript:void(0)" onclick="showMenu('kegitan')">Kegiatan Literasi</a>
-</div>
-<a href="javascript:void(0)" onclick="showLoginForm()">Login</a>
+    <div class="nav-left">
+        <a href="index.html">🏠 Home</a>
+        <a href="about.html">About</a>
+        <a href="collections.html">Collections</a>
+        <a href="services.html">Services</a>
+        <a href="forum.html">Forum</a>
+        <a href="contact.html">Contact</a>
+    </div>
+    <a href="#" onclick="showLogin()" style="background:rgba(255,255,255,0.2);padding:12px 24px;border-radius:25px;font-weight:bold;">🔐 Login</a>
 </nav>
 
-<!-- Modal dengan Dua Opsi (Login & Daftar) -->
-<div id="loginModal" class="modal">
-<div class="modal-content">
-    <span class="close" onclick="closeModal()">&times;</span>
-    
-    <!-- Header Tab -->
-    <div class="tab-header">
-        <button class="tab-btn active" onclick="openTab(event, 'loginTab')">Login</button>
-        <button class="tab-btn" onclick="openTab(event, 'registerTab')">Daftar</button>
+<!-- Hero Section -->
+<div class="hero-section">
+    <img src="https://id.pngtree.com/so/logo-perpustakaan" alt="The Rooted Library Logo" class="logo-rooted">
+    <h1>The Rooted Library</h1>
+    <p class="subtitle">Ilmu pengetahuan adalah akar dari kemajuan peradaban. Dengan fondasi yang kuat, kita tumbuh menuju masa depan yang lebih baik.</p>
+</div>
+
+<!-- Philosophy -->
+<div class="philosophy">
+    <h2 style="text-align:center;color:white;font-size:2em;margin-bottom:20px;">🌱 Filosofi Kami</h2>
+    <p style="text-align:center;color:white;font-size:1.2em;line-height:1.8;">
+        Seperti pohon yang kokoh dengan akar yang dalam, The Rooted Library menyediakan fondasi pengetahuan yang kuat 
+        untuk semua. Kami percaya bahwa akses ilmu yang mudah dan merata adalah kunci kemajuan berkelanjutan.
+    </p>
+</div>
+
+<!-- Featured Sections -->
+<div class="featured-grid">
+    <div class="feature-card">
+        <h3>📚 10.000+ Koleksi Digital</h3>
+        <p>Buku, jurnal, artikel, dan multimedia dari berbagai disiplin ilmu siap diakses 24/7.</p>
     </div>
-
-    <!-- Form Login -->
-    <div id="loginTab" class="form-content active-form">
-        <h3>Masuk Akun</h3>
-        <form action="#" method="post">
-            <label for="loginUsername">Username:</label>
-            <input type="text" id="loginUsername" name="username" required>
-
-            <label for="loginPassword">Password:</label>
-            <input type="password" id="loginPassword" name="password" required>
-
-            <button type="submit">Login</button>
-        </form>
+    <div class="feature-card">
+        <h3>💬 Komunitas Aktif</h3>
+        <p>Forum diskusi dengan 5.000+ anggota. Berbagi rekomendasi dan pengalaman membaca.</p>
     </div>
-
-    <!-- Form Daftar (Username & Password di atas) -->
-    <div id="registerTab" class="form-content">
-        <h3>Daftar Anggota Baru</h3>
-        <form action="#" method="post">
-            <!-- Username dan Password ada di sini (sebelum First Name) -->
-            <label for="regUsername">Username:</label>
-            <input type="text" id="regUsername" name="username" required>
-
-            <label for="regPassword">Password:</label>
-            <input type="password" id="regPassword" name="password" required>
-
-            <label for="firstName">First Name:</label>
-            <input type="text" id="firstName" name="firstName" required>
-
-            <label for="lastName">Last Name:</label>
-            <input type="text" id="lastName" name="lastName" required>
-
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required>
-
-            <label for="noHp">No HP:</label>
-            <input type="tel" id="noHp" name="noHp" required>
-
-            <button type="submit">Daftar</button>
-        </form>
+    <div class="feature-card">
+        <h3>⚡ Layanan Cepat</h3>
+        <p>E-Book reader, download instan, dan personalisasi rekomendasi berbasis AI.</p>
+    </div>
+    <div class="feature-card">
+        <h3>🎓 Gratis untuk Semua</h3>
+        <p>Daftar gratis dan akses seluruh koleksi. Tidak ada biaya tersembunyi.</p>
     </div>
 </div>
-</div>
 
-<div class="container">
+<!-- Footer -->
+<footer class="footer">
+    <p><strong>&copy; 2024 The Rooted Library.</strong> Semua hak dilindungi. Dibuat dengan ❤️ untuk literasi Indonesia.</p>
+    <div class="social-links">
+        <a href="https://www.instagram.com/intan_soo?igsh=bzI5empoYjE5dGGl" target="_blank">📸 Instagram</a>
+        <a href="https://drive.google.com/file/d/1G5itB-_B9wnXcuPKdBqTAqtli1AWduhz/view?usp=sharing" target="_blank">📄 Biodata</a>
+        <a href="https://wa.me/6281226423048" target="_blank">💬 WhatsApp</a>
+    </div>
+</footer>
 
-<div id="dashboard" class="section active">
-<h1>The Rooted Library</h1>
-<!-- Logo Perpustakaan di bawah Library Intan -->
-<img src="https://id.pngtree.com/so/logo-perpustakaan" alt="Logo Perpustakaan" class="dashboard-logo">
-<p style="text-align:center;">Selamat datang di perpustakaan Intan.</p>
-
-<div class="link-box">
-<a href="https://www.instagram.com/intan_soo?igsh=bzI5empoYjE5dGGl" target="_blank">
-About Me
+<!-- WhatsApp Floating Button -->
+<a href="https://wa.me/6281226423048" class="whatsapp-float" target="_blank" style="
+    position:fixed;
+    bottom:25px;
+    right:25px;
+    width:70px;
+    height:70px;
+    z-index:1000;
+    animation: bounce 2s infinite;
+">
+    <img src="https://img.icons8.com/color/72/whatsapp--v1.png" style="width:70px;height:70px;border-radius:50%;box-shadow:0 8px 25px rgba(0,0,0,0.4);">
 </a>
 
-<a href="https://drive.google.com/file/d/1G5itB-_B9wnXcuPKdBqTAqtli1AWduhz/view?usp=sharing" target="_blank">
-My Biodata
-</a>
-</div>
+<style>
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+    40% { transform: translateY(-10px); }
+    60% { transform: translateY(-5px); }
+}
+</style>
 
-<div class="video-box">
-<h3>Video Profil</h3>
-
-<iframe width="560" height="315"
-src="https://www.youtube.com/embed/rxxNE-s2cSU"
-title="YouTube video"
-frameborder="0"
-allowfullscreen>
-</iframe>
-
-</div>
-
-</div>
-
-<!-- Bagian Katalog (Warna Biru Cerah & Putih) -->
-<div id="katalog" class="section">
-<h2>Daftar Buku</h2>
-<ul>
-<li>Dasar-dasar Web</li>
-<li>Perkembangan Web</li>
-<li>Skill Komunikasi</li>
-<li>Media Digital</li>
-</ul>
-</div>
-
-<!-- Bagian Kegiatan Literasi (Warna Biru Cerah & Putih) -->
-<div id="kegitan" class="section">
-<h2>Kegiatan Literasi</h2>
-
-<ul>
-<li>Bibingan Penerapan Web</li>
-<li>Sosialisasi Penggunaan Web</li>
-<li>Sosialisasi Manfaat Web</li>
-</ul>
-
-</div>
-
-</div>
-</div>
-
-<!-- Tombol Pop Up WhatsApp dengan Logo -->
-<a href="https://wa.me/6281226423048" class="whatsapp-float" target="_blank">
-    <img src="https://img.icons8.com/color/72/whatsapp--v1.png" alt="WhatsApp">
-</a>
+<script>
+function showLogin() {
+    alert('🚀 Fitur Login & Forum akan segera hadir!\nSementara hubungi admin via WhatsApp.');
+}
+</script>
 
 </body>
 </html>
