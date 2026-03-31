@@ -5,105 +5,327 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Services - The Rooted Library</title>
 <style>
-/* CSS sama + tambahan */
+body {
+    margin:0;
+    font-family: 'Arial', sans-serif;
+    background-image: url('https://images.unsplash.com/photo-1481627834876-b7833e8f5570?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    color: #0D47A1;
+}
+
+.overlay{ background-color: rgba(0,0,0,0.4); min-height:100vh; }
+
+nav{
+    background: linear-gradient(135deg, #1976D2 0%, #42A5F5 100%);
+    padding:15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+}
+
+.nav-left { display: flex; align-items: center; }
+nav a{
+    color: white;
+    margin:0 12px;
+    text-decoration:none;
+    font-weight:600;
+    padding:8px 16px;
+    border-radius:20px;
+    transition: all 0.3s;
+}
+nav a:hover{ 
+    color: #FFEB3B; 
+    background: rgba(255,255,255,0.2);
+    transform: translateY(-2px);
+}
+
+.page-hero {
+    background: linear-gradient(135deg, rgba(25,118,210,0.95), rgba(66,165,245,0.85));
+    color: white;
+    padding: 100px 20px;
+    text-align: center;
+}
+.page-hero h1 {
+    font-size: 3.5em;
+    margin-bottom: 15px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+.page-hero p {
+    font-size: 1.4em;
+    opacity: 0.95;
+}
+
+.breadcrumb {
+    font-size: 1.1em;
+    margin-top: 15px;
+}
+.breadcrumb a { color: #FFEB3B; text-decoration: none; }
+
 .services-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
     gap: 40px;
     max-width: 1200px;
-    margin: 60px auto;
+    margin: 80px auto;
     padding: 0 20px;
 }
 
 .service-card {
     background: rgba(255,255,255,0.95);
-    padding: 40px 30px;
+    padding: 45px 35px;
     border-radius: 25px;
     text-align: center;
     box-shadow: 0 20px 50px rgba(0,0,0,0.1);
     transition: all 0.4s;
     position: relative;
 }
+.service-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 30px 70px rgba(0,0,0,0.15);
+}
 .service-card::before {
     content: attr(data-icon);
     position: absolute;
-    top: -30px;
+    top: -35px;
     left: 50%;
     transform: translateX(-50%);
     background: linear-gradient(135deg, #1976D2, #42A5F5);
     color: white;
-    width: 70px;
-    height: 70px;
+    width: 80px;
+    height: 80px;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 2em;
-    box-shadow: 0 10px 30px rgba(25,118,210,0.4);
+    font-size: 2.2em;
+    box-shadow: 0 12px 35px rgba(25,118,210,0.4);
 }
 .service-card h3 {
     color: #1976D2;
-    margin: 20px 0 15px;
-    font-size: 1.7em;
+    margin: 25px 0 20px;
+    font-size: 1.8em;
+}
+.service-card p {
+    color: #555;
+    line-height: 1.7;
+    font-size: 1.1em;
 }
 .service-cta {
     background: linear-gradient(135deg, #1976D2, #42A5F5);
     color: white;
-    padding: 15px 30px;
+    padding: 16px 35px;
     border: none;
     border-radius: 30px;
     font-weight: bold;
     cursor: pointer;
-    margin-top: 20px;
+    margin-top: 25px;
+    font-size: 16px;
     transition: all 0.3s;
 }
 .service-cta:hover {
-    transform: scale(1.05);
-    box-shadow: 0 10px 25px rgba(25,118,210,0.4);
+    transform: scale(1.05) translateY(-3px);
+    box-shadow: 0 15px 35px rgba(25,118,210,0.4);
 }
+
+.footer {
+    background: rgba(25,118,210,0.95);
+    color: white;
+    text-align: center;
+    padding: 50px 20px;
+    margin-top: 100px;
+}
+
+.whatsapp-float {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    width: 70px;
+    height: 70px;
+    z-index: 1000;
+}
+.whatsapp-float img {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+    transition: transform 0.3s;
+}
+.whatsapp-float:hover img { transform: scale(1.1); }
 </style>
 </head>
 
 <body>
 <div class="overlay">
-<!-- Navbar -->
 
-<div class="page-hero" style="background:linear-gradient(135deg,rgba(25,118,210,0.9),rgba(66,165,245,0.8));color:white;padding:80px 20px;text-align:center;">
-    <h1>⚡ Services</h1>
-    <p style="font-size:1.3em;">Layanan modern untuk pengalaman membaca terbaik</p>
+<!-- Navbar -->
+<nav>
+    <div class="nav-left">
+        <a href="index.html">🏠 Home</a>
+        <a href="about.html">About</a>
+        <a href="collections.html">Collections</a>
+        <a href="services.html">Services</a>
+        <a href="forum.html">Forum</a>
+        <a href="contact.html">Contact</a>
+    </div>
+    <a href="#" onclick="showLoginForm()" id="loginBtn" style="background:rgba(255,255,255,0.2);padding:12px 24px;border-radius:25px;font-weight:bold;">🔐 Login</a>
+</nav>
+
+<!-- Page Hero -->
+<div class="page-hero">
+    <h1>⚡ Layanan Kami</h1>
+    <p>Fitur modern untuk pengalaman literasi digital terbaik</p>
+    <div class="breadcrumb">
+        <a href="index.html">Home</a> → <strong>Services</strong>
+    </div>
 </div>
 
+<!-- Services Grid (HANYA 3 LAYANAN) -->
 <div class="services-grid">
     <div class="service-card" data-icon="📱">
         <h3>E-Book Reader</h3>
-        <p>Baca buku digital dengan fitur bookmark, highlight, dan night mode. Sinkronisasi antar device.</p>
-        <button class="service-cta" onclick="openReader()">Buka Reader</button>
+        <p>Baca buku digital dengan fitur bookmark, highlight, night mode, dan sinkronisasi antar device otomatis.</p>
+        <button class="service-cta" onclick="openReader()">Buka E-Reader</button>
     </div>
     
     <div class="service-card" data-icon="⬇️">
         <h3>Download Center</h3>
-        <p>Download PDF, EPUB, dan MOBI secara gratis. Offline reading kapan saja.</p>
-        <button class="service-cta" onclick="openDownloads()">Download</button>
-    </div>
-    
-    <div class="service-card" data-icon="📧">
-        <h3>Newsletter</h3>
-        <p>Dapatkan rekomendasi buku mingguan dan update koleksi terbaru langsung ke email.</p>
-        <button class="service-cta" onclick="subscribeNewsletter()">Berlangganan</button>
+        <p>Download PDF, EPUB, dan MOBI secara gratis. Nikmati membaca offline kapan saja, di mana saja.</p>
+        <button class="service-cta" onclick="openDownloads()">Mulai Download</button>
     </div>
     
     <div class="service-card" data-icon="🎯">
-        <h3>Personal Recommendations</h3>
-        <p>Sistem AI yang menganalisis riwayat baca untuk rekomendasi buku yang tepat untuk Anda.</p>
-        <button class="service-cta" onclick="getRecommendations()">Dapatkan Rekomendasi</button>
+        <h3>Rekomendasi Pribadi</h3>
+        <p>Sistem pintar yang menganalisis riwayat baca untuk memberikan rekomendasi buku sesuai minat Anda.</p>
+        <button class="service-cta" onclick="getRecommendations()">Lihat Rekomendasi</button>
     </div>
 </div>
 
+<!-- Footer -->
+<footer class="footer">
+    <p><strong>&copy;The Rooted Library</strong><br>
+    Semua hak dilindungi </p>
+    <div style="margin-top:25px;">
+        <a href="https://www.instagram.com/intan_soo?igsh=bzI5empoYjE5dGGl" target="_blank" style="color:white;margin:0 25px;font-size:1.6em;">📸</a>
+        <a href="https://wa.me/6281226423048" target="_blank" style="color:white;margin:0 25px;font-size:1.6em;">💬</a>
+    </div>
+</footer>
+
+<!-- WhatsApp Float -->
+<a href="https://wa.me/6281226423048" class="whatsapp-float" target="_blank">
+    <img src="https://img.icons8.com/color/72/whatsapp--v1.png" alt="WhatsApp">
+</a>
+
+<!-- LOGIN MODAL -->
+<div id="loginModal" class="modal" style="display:none;">
+<div class="modal-content">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <div class="tab-header">
+        <button class="tab-btn active" onclick="openTab(event, 'loginTab')">Login</button>
+        <button class="tab-btn" onclick="openTab(event, 'registerTab')">Daftar</button>
+    </div>
+    <div id="loginTab" class="form-content active-form">
+        <h3>Masuk Akun</h3>
+        <form onsubmit="handleLogin(event)">
+            <label>Username:</label>
+            <input type="text" id="loginUsername" required>
+            <label>Password:</label>
+            <input type="password" id="loginPassword" required>
+            <button type="submit">🔐 Masuk</button>
+        </form>
+    </div>
+    <div id="registerTab" class="form-content">
+        <h3>Daftar Baru</h3>
+        <form onsubmit="handleRegister(event)">
+            <label>Username:</label>
+            <input type="text" id="regUsername" required>
+            <label>Password:</label>
+            <input type="password" id="regPassword" required>
+            <label>Nama:</label>
+            <input type="text" id="fullName" required>
+            <label>Email:</label>
+            <input type="email" id="regEmail" required>
+            <button type="submit">📝 Daftar</button>
+        </form>
+    </div>
+</div>
+</div>
+
 <script>
-function openReader() { alert('📖 E-Book Reader akan terbuka!'); }
-function openDownloads() { alert('⬇️ Download Center'); }
-function subscribeNewsletter() { alert('📧 Berhasil berlangganan newsletter!'); }
-function getRecommendations() { alert('🎯 5 rekomendasi buku untuk Anda!'); }
+// Login functions
+function showLoginForm() {
+    document.getElementById('loginModal').style.display = 'block';
+}
+
+function closeModal() {
+    document.getElementById('loginModal').style.display = 'none';
+}
+
+function openTab(evt, tabName) {
+    document.querySelectorAll('.form-content').forEach(el => {
+        el.style.display = 'none';
+        el.classList.remove('active-form');
+    });
+    document.querySelectorAll('.tab-btn').forEach(el => {
+        el.classList.remove('active');
+    });
+    document.getElementById(tabName).style.display = 'block';
+    document.getElementById(tabName).classList.add('active-form');
+    evt.currentTarget.classList.add('active');
+}
+
+function handleLogin(e) {
+    e.preventDefault();
+    const username = document.getElementById('loginUsername').value;
+    const password = document.getElementById('loginPassword').value;
+    if (username === 'intan' && password === '123') {
+        localStorage.setItem('user', username);
+        alert('✅ Selamat datang, ' + username + '!');
+        closeModal();
+        updateLoginStatus();
+    } else {
+        alert('❌ Salah username/password!');
+    }
+}
+
+function handleRegister(e) {
+    e.preventDefault();
+    alert('📝 Pendaftaran diterima! Admin akan hubungi Anda.');
+    closeModal();
+}
+
+function updateLoginStatus() {
+    const user = localStorage.getItem('user');
+    const loginBtn = document.getElementById('loginBtn');
+    if (user) {
+        loginBtn.innerHTML = `👋 ${user}`;
+        loginBtn.onclick = () => {
+            localStorage.removeItem('user');
+            location.reload();
+        };
+    }
+}
+
+window.onclick = (e) => {
+    if (e.target.id === 'loginModal') closeModal();
+};
+
+updateLoginStatus();
+
+// Service functions
+function openReader() { 
+    alert('📖 E-Book Reader siap digunakan!'); 
+}
+function openDownloads() { 
+    alert('⬇️ Buka Download Center...'); 
+}
+function getRecommendations() { 
+    alert('🎯 Rekomendasi buku untuk Anda:\n1. HTML & CSS\n2. JavaScript Dasar\n3. Web Design'); 
+}
 </script>
+
 </body>
 </html>
