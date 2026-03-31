@@ -5,7 +5,51 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Forum - The Rooted Library</title>
 <style>
-/* CSS sama */
+body {
+    margin:0;
+    font-family: 'Arial', sans-serif;
+    background-image: url('https://images.unsplash.com/photo-1481627834876-b7833e8f5570?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    color: #0D47A1;
+}
+
+.overlay{ background-color: rgba(0,0,0,0.4); min-height:100vh; }
+
+nav{
+    background: linear-gradient(135deg, #1976D2 0%, #42A5F5 100%);
+    padding:15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+}
+
+.nav-left { display: flex; align-items: center; }
+nav a{
+    color: white;
+    margin:0 12px;
+    text-decoration:none;
+    font-weight:600;
+    padding:8px 16px;
+    border-radius:20px;
+    transition: all 0.3s;
+}
+nav a:hover{ 
+    color: #FFEB3B; 
+    background: rgba(255,255,255,0.2);
+    transform: translateY(-2px);
+}
+
+.page-hero {
+    background: linear-gradient(135deg, rgba(25,118,210,0.95), rgba(66,165,245,0.85));
+    color: white;
+    padding: 80px 20px;
+    text-align: center;
+}
+
 .forum-container {
     max-width: 1000px;
     margin: 40px auto;
@@ -15,7 +59,9 @@
 .forum-header {
     text-align: center;
     margin-bottom: 50px;
+    color: white;
 }
+
 .new-post-form {
     background: rgba(255,255,255,0.95);
     padding: 40px;
@@ -82,36 +128,103 @@
     color: #666;
     font-size: 0.9em;
     margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px solid #eee;
+}
+
+/* Komentar Style */
+.comments-section {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 2px solid #F0F8FF;
+}
+.comment {
+    background: #F8FBFF;
+    padding: 15px 20px;
+    border-radius: 12px;
+    margin-bottom: 12px;
+    border-left: 4px solid #42A5F5;
+}
+.comment-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+    font-size: 0.95em;
+}
+.comment-author {
+    font-weight: bold;
+    color: #1976D2;
+}
+.comment-time {
+    color: #999;
+}
+.comment-text {
+    color: #555;
+    line-height: 1.5;
+    margin: 0;
+}
+
+.footer {
+    background: rgba(25,118,210,0.95);
+    color: white;
+    text-align: center;
+    padding: 40px 20px;
+    margin-top: 60px;
+}
+
+.whatsapp-float {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    width: 70px;
+    height: 70px;
+    z-index: 1000;
 }
 </style>
 </head>
 
 <body>
 <div class="overlay">
-<!-- Navbar -->
 
-<div class="page-hero" style="background:linear-gradient(135deg,rgba(25,118,210,0.9),rgba(66,165,245,0.8));color:white;padding:80px 20px;text-align:center;">
+<!-- Navbar -->
+<nav>
+    <div class="nav-left">
+        <a href="index.html">🏠 Home</a>
+        <a href="about.html">About</a>
+        <a href="collections.html">Collections</a>
+        <a href="services.html">Services</a>
+        <a href="forum.html">Forum</a>
+        <a href="contact.html">Contact</a>
+    </div>
+    <a href="#" onclick="showLogin()" style="background:rgba(255,255,255,0.2);padding:12px 24px;border-radius:25px;font-weight:bold;">🔐 Login</a>
+</nav>
+
+<!-- Page Hero -->
+<div class="page-hero">
     <h1>💬 Forum Diskusi</h1>
     <p style="font-size:1.3em;">Berbagi rekomendasi buku dan diskusi literasi</p>
 </div>
 
 <div class="forum-container">
+    <!-- New Post Form -->
     <div class="new-post-form">
         <h3>✍️ Buat Postingan Baru</h3>
-        <form>
+        <form onsubmit="createPost(event)">
             <div class="form-group">
                 <label>Judul Diskusi</label>
-                <input type="text" placeholder="Contoh: Rekomendasi novel terbaik 2024">
+                <input type="text" placeholder="Contoh: Rekomendasi novel terbaik 2024" required>
             </div>
             <div class="form-group">
                 <label>Pesan</label>
-                <textarea rows="5" placeholder="Tulis diskusi Anda di sini..."></textarea>
+                <textarea rows="5" placeholder="Tulis diskusi Anda di sini..." required></textarea>
             </div>
             <button type="submit" style="background:linear-gradient(135deg,#1976D2,#42A5F5);color:white;padding:15px 40px;border:none;border-radius:25px;font-size:18px;font-weight:bold;cursor:pointer;width:100%;">📤 Posting</button>
         </form>
     </div>
 
+    <!-- Post List -->
     <div class="post-list">
+        <!-- Post 1 -->
         <div class="post-card">
             <div class="post-header">
                 <span class="post-author">@intansari</span>
@@ -119,13 +232,33 @@
             </div>
             <h4>🔥 Rekomendasi Buku Web Development Terbaik</h4>
             <p>Halo teman-teman! Ada yang punya rekomendasi buku web dev yang bagus untuk pemula? Saya sedang belajar HTML, CSS, JS...</p>
+            
             <div class="post-stats">
-                <span>💬 12 Komentar</span>
-                <span>❤️ 45 Suka</span>
-                <span>👁️ 1.2K dilihat</span>
+                <span>💬 5 Komentar</span>
+                <span>❤️ 12 Suka</span>
+                <span>👁️ 50 dilihat</span>
+            </div>
+
+            <!-- Komentar -->
+            <div class="comments-section">
+                <div class="comment">
+                    <div class="comment-header">
+                        <span class="comment-author">@budi_dev</span>
+                        <span class="comment-time">1 jam lalu</span>
+                    </div>
+                    <p class="comment-text">"Eloquent JavaScript" dan "You Don't Know JS" series. Bagus untuk pemula!</p>
+                </div>
+                <div class="comment">
+                    <div class="comment-header">
+                        <span class="comment-author">@rina_web</span>
+                        <span class="comment-time">45 menit lalu</span>
+                    </div>
+                    <p class="comment-text">"HTML & CSS" by Jon Duckett. Visualnya keren dan mudah dipahami.</p>
+                </div>
             </div>
         </div>
         
+        <!-- Post 2 -->
         <div class="post-card">
             <div class="post-header">
                 <span class="post-author">@budi_literasi</span>
@@ -133,20 +266,54 @@
             </div>
             <h4>📚 Buku Klasik Wajib Baca</h4>
             <p>Share dong buku klasik favorit kalian! Saya baru selesai "Laskar Pelangi"...</p>
+            
             <div class="post-stats">
-                <span>💬 28 Komentar</span>
-                <span>❤️ 89 Suka</span>
-                <span>👁️ 3.5K dilihat</span>
+                <span>💬 3 Komentar</span>
+                <span>❤️ 50 Suka</span>
+                <span>👁️ 70 dilihat</span>
+            </div>
+
+            <!-- Komentar -->
+            <div class="comments-section">
+                <div class="comment">
+                    <div class="comment-header">
+                        <span class="comment-author">@sari_baca</span>
+                        <span class="comment-time">22 jam lalu</span>
+                    </div>
+                    <p class="comment-text">"Bumi Manusia" karya Pramoedya. Wajib banget!</p>
+                </div>
+                <div class="comment">
+                    <div class="comment-header">
+                        <span class="comment-author">@budi_literasi</span>
+                        <span class="comment-time">20 jam lalu</span>
+                    </div>
+                    <p class="comment-text">@sari_baca Sudah masuk list! Makasih 🙏</p>
+                </div>
             </div>
         </div>
     </div>
 </div>
 
+<!-- Footer -->
+<footer class="footer" style="background:rgba(25,118,210,0.95);color:white;text-align:center;padding:40px 20px;margin-top:60px;">
+    <p>&copy; The Rooted Library</p>
+</footer>
+
+<!-- WhatsApp -->
+<a href="https://wa.me/6281226423048" class="whatsapp-float" target="_blank" style="position:fixed;bottom:25px;right:25px;width:70px;height:70px;z-index:1000;">
+    <img src="https://img.icons8.com/color/72/whatsapp--v1.png" style="width:70px;height:70px;border-radius:50%;box-shadow:0 8px 25px rgba(0,0,0,0.4);">
+</a>
+
 <script>
-document.querySelector('form').onsubmit = function(e) {
+function createPost(e) {
     e.preventDefault();
     alert('✅ Postingan berhasil dibuat!');
-};
+}
+
+function showLogin() {
+    alert('🔐 Login untuk membuat post dan komentar!');
+}
 </script>
+
 </body>
 </html>
