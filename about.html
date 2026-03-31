@@ -5,62 +5,316 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>About - The Rooted Library</title>
 <style>
-/* Copy semua CSS dari index.html + tambahan ini */
-.about-hero {
-    background: linear-gradient(135deg, rgba(25,118,210,0.9), rgba(66,165,245,0.8));
+/* Copy CSS lengkap dari index.html + tambahan berikut */
+
+body {
+    margin:0;
+    font-family: 'Arial', sans-serif;
+    background-image: url('https://images.unsplash.com/photo-1481627834876-b7833e8f5570?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    color: #0D47A1;
+}
+
+.overlay{ background-color: rgba(0,0,0,0.4); min-height:100vh; }
+
+nav{
+    background: linear-gradient(135deg, #1976D2 0%, #42A5F5 100%);
+    padding:15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+}
+
+.nav-left { display: flex; align-items: center; }
+nav a{
     color: white;
-    padding: 80px 20px;
+    margin:0 12px;
+    text-decoration:none;
+    font-weight:600;
+    padding:8px 16px;
+    border-radius:20px;
+    transition: all 0.3s;
+}
+nav a:hover{ 
+    color: #FFEB3B; 
+    background: rgba(255,255,255,0.2);
+    transform: translateY(-2px);
+}
+
+.page-hero {
+    background: linear-gradient(135deg, rgba(25,118,210,0.95), rgba(66,165,245,0.85));
+    color: white;
+    padding: 100px 20px;
     text-align: center;
 }
-.about-hero h1 {
-    font-size: 3em;
-    margin-bottom: 20px;
+.page-hero h1 {
+    font-size: 3.2em;
+    margin-bottom: 15px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
 }
 .breadcrumb {
-    text-align: center;
-    margin-top: 20px;
     font-size: 1.1em;
+    opacity: 0.9;
 }
 .breadcrumb a { color: #FFEB3B; text-decoration: none; }
 .breadcrumb a:hover { text-decoration: underline; }
 
 .content-wrapper {
-    max-width: 1100px;
+    max-width: 1200px;
     margin: 0 auto;
-    padding: 40px 20px;
+    padding: 60px 30px;
 }
 
-/* Sisanya sama dengan CSS index.html */
+.philosophy-section {
+    text-align: center;
+    margin: 60px 0;
+    padding: 50px 40px;
+    background: rgba(255,255,255,0.95);
+    border-radius: 25px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.1);
+}
+.philosophy-section h2 {
+    color: #1976D2;
+    font-size: 2.8em;
+    margin-bottom: 30px;
+    background: linear-gradient(45deg, #1976D2, #42A5F5);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.philosophy-text {
+    font-size: 1.3em;
+    line-height: 1.8;
+    color: #333;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.vision-mission {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    margin: 80px 0;
+}
+.vm-card {
+    background: linear-gradient(135deg, rgba(25,118,210,0.95), rgba(66,165,245,0.85));
+    color: white;
+    padding: 50px 40px;
+    border-radius: 25px;
+    box-shadow: 0 25px 60px rgba(25,118,210,0.3);
+    position: relative;
+    overflow: hidden;
+}
+.vm-card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+    animation: rotate 20s linear infinite;
+}
+@keyframes rotate {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+.vm-icon {
+    font-size: 4em;
+    margin-bottom: 25px;
+    opacity: 0.9;
+}
+.vm-card h3 {
+    font-size: 2.2em;
+    margin-bottom: 25px;
+    font-weight: bold;
+}
+.vm-card ul {
+    font-size: 1.2em;
+    line-height: 1.8;
+    margin: 0;
+    padding-left: 0;
+}
+.vm-card li {
+    margin-bottom: 12px;
+    position: relative;
+    padding-left: 25px;
+}
+.vm-card li::before {
+    content: '🌱';
+    position: absolute;
+    left: 0;
+}
+
+.team-section {
+    background: rgba(255,255,255,0.95);
+    padding: 60px 40px;
+    border-radius: 25px;
+    margin: 80px 0;
+    text-align: center;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.1);
+}
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 40px;
+    margin-top: 40px;
+}
+.team-card {
+    padding: 30px 20px;
+    border: 3px solid transparent;
+    border-radius: 20px;
+    transition: all 0.4s;
+    cursor: pointer;
+}
+.team-card:hover {
+    border-color: #1976D2;
+    background: linear-gradient(135deg, #E3F2FD, white);
+    transform: translateY(-10px);
+}
+.team-card h4 { color: #1976D2; margin-bottom: 15px; }
+
+.footer {
+    background: rgba(25,118,210,0.95);
+    color: white;
+    text-align: center;
+    padding: 40px 20px;
+    margin-top: 80px;
+}
 </style>
 </head>
 
 <body>
 <div class="overlay">
-<!-- Navbar sama persis dengan index.html -->
 
-<nav><!-- copy navbar --></nav>
+<!-- Navbar -->
+<nav>
+    <div class="nav-left">
+        <a href="index.html">🏠 Home</a>
+        <a href="about.html">About</a>
+        <a href="collections.html">Collections</a>
+        <a href="services.html">Services</a>
+        <a href="forum.html">Forum</a>
+        <a href="contact.html">Contact</a>
+    </div>
+    <a href="#" onclick="showLogin()" style="background:rgba(255,255,255,0.2);padding:12px 24px;border-radius:25px;font-weight:bold;">🔐 Login</a>
+</nav>
 
-<div class="about-hero">
+<!-- Page Hero -->
+<div class="page-hero">
     <h1>About The Rooted Library</h1>
     <div class="breadcrumb">
-        <a href="index.html">Home</a> → About
+        <a href="index.html">Home</a> → <strong>About</strong>
     </div>
 </div>
 
 <div class="content-wrapper">
-    <!-- Konten About akan sama seperti sebelumnya tapi dengan nama "The Rooted Library" -->
-    <h2 style="color:#1976D2;text-align:center;">🌱 Filosofi "Rooted"</h2>
-    <p style="text-align:center;font-size:1.3em;color:#333;line-height:1.8;">
-        Ilmu pengetahuan adalah akar (root) yang menyokong pohon peradaban. Semakin dalam akarnya, semakin kokoh pohonnya.
-    </p>
-    <!-- Visi
-Menjadi pusat literasi digital terdepan yang mengakar kuat pada ilmu pengetahuan, menyediakan akses informasi tanpa batas untuk membangun generasi cerdas dan berkelanjutan di era teknologi. -->
+
+    <!-- Philosophy Section -->
+    <div class="philosophy-section">
+        <h2>🌱 Filosofi "Rooted"</h2>
+        <p class="philosophy-text">
+            Seperti pohon yang kokoh dengan akar yang dalam, <strong>The Rooted Library</strong> menyediakan fondasi 
+            pengetahuan yang kuat untuk semua. Kami percaya bahwa ilmu pengetahuan adalah akar dari kemajuan 
+            peradaban manusia yang berkelanjutan.
+        </p>
+    </div>
+
+    <!-- Visi Misi Section -->
+    <div class="vision-mission">
+        <div class="vm-card">
+            <div class="vm-icon">👁️</div>
+            <h3>Visi</h3>
+            <p style="font-size:1.25em;line-height:1.6;margin-bottom:25px;">
+                Menjadi pusat literasi digital terdepan yang mengakar kuat pada ilmu pengetahuan, menyediakan 
+                akses informasi tanpa batas untuk membangun generasi cerdas dan berkelanjutan di era teknologi.
+            </p>
+        </div>
+        
+        <div class="vm-card">
+            <div class="vm-icon">🎯</div>
+            <h3>Misi</h3>
+            <ul>
+                <li>Menyediakan koleksi digital berkualitas tinggi (e-book, jurnal, artikel) yang mudah diakses kapan saja dan di mana saja melalui website responsif.</li>
+                <li>Membangun fitur pencarian canggih, navigasi intuitif, dan tampilan menarik bertema alam untuk meningkatkan minat baca dan efisiensi pengguna.</li>
+                <li>Memberikan layanan prima berbasis teknologi (seperti e-reader dan newsletter) guna mendukung pendidikan, penelitian, serta literasi masyarakat Indonesia.</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Team Section -->
+    <div class="team-section">
+        <h2 style="color:#1976D2;font-size:2.5em;margin-bottom:20px;">👥 Tim Pengelola</h2>
+        <p style="font-size:1.2em;color:#666;margin-bottom:40px;">
+            Didukung oleh tim profesional yang berdedikasi untuk literasi digital Indonesia
+        </p>
+        <div class="team-grid">
+            <div class="team-card">
+                <h4>Intan Sari</h4>
+                <p><strong>Founder & Web Developer</strong><br>
+                Visioner di balik The Rooted Library</p>
+            </div>
+            <div class="team-card">
+                <h4>Dr. Budi Santoso</h4>
+                <p><strong>Kurator Konten</strong><br>
+                Ahli literatur dan pendidikan</p>
+            </div>
+            <div class="team-card">
+                <h4>Rina Permata</h4>
+                <p><strong>IT Specialist</strong><br>
+                Pengembang sistem digital</p>
+            </div>
+            <div class="team-card">
+                <h4>Tim Komunitas</h4>
+                <p><strong>Moderator Forum</strong><br>
+                20+volunteer aktif</p>
+            </div>
+        </div>
+    </div>
+
 </div>
-    <!--Misi
-- Menyediakan koleksi digital berkualitas tinggi (e-book, jurnal, artikel) yang mudah diakses kapan saja dan di mana saja melalui website responsif.
-- Membangun fitur pencarian canggih, navigasi intuitif, dan tampilan menarik bertema alam untuk meningkatkan minat baca dan efisiensi pengguna.
-- Memberikan layanan prima berbasis teknologi (seperti e-reader dan newsletter) guna mendukung pendidikan, penelitian, serta literasi masyarakat Indonesia.-->
+
+<!-- Footer -->
+<footer class="footer">
+    <p><strong>&copy; The Rooted Library.</strong> Semua hak dilindungi.</p>
+    <div style="margin-top:20px;">
+        <a href="https://www.instagram.com/intan_soo?igsh=bzI5empoYjE5dGGl" target="_blank" style="color:white;margin:0 20px;font-size:1.5em;">📸</a>
+        <a href="https://wa.me/6281226423048" target="_blank" style="color:white;margin:0 20px;font-size:1.5em;">💬</a>
+    </div>
+</footer>
+
+<!-- WhatsApp Float -->
+<a href="https://wa.me/6281226423048" style="
+    position:fixed;
+    bottom:25px;right:25px;width:70px;height:70px;z-index:1000;
+"><img src="https://img.icons8.com/color/72/whatsapp--v1.png" style="width:70px;height:70px;border-radius:50%;box-shadow:0 8px 25px rgba(0,0,0,0.4);"></a>
+
+<script>
+function showLogin() {
+    const username = prompt('Masukkan username:');
+    const password = prompt('Masukkan password:');
     
-<!-- Footer sama -->
-</body>
-</html>
+    if (username && password) {
+        if (username === 'intan' && password === 'library123') {
+            alert('✅ Selamat datang di The Rooted Library, ' + username + '!');
+            // Bisa tambah localStorage untuk simpan status login
+            localStorage.setItem('loggedIn', 'true');
+            location.reload();
+        } else {
+            alert('❌ Username atau password salah!');
+        }
+    }
+}
+
+// Auto check login status
+if (localStorage.getItem('loggedIn') === 'true') {
+    document.querySelector('a[href="#"][onclick="showLogin()"]').textContent = '👋 Logout';
+    document.querySelector('a[href="#"][onclick="showLogin()"]').onclick = function() {
+        localStorage.removeItem('loggedIn');
+        location.reload();
+    };
+}
+</script>
