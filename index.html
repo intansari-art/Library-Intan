@@ -6,6 +6,7 @@
 <title>The Rooted Library - Perpustakaan Digital</title>
 
 <style>
+/* Semua CSS dari sebelumnya + tambahan modal login */
 body {
     margin:0;
     font-family: 'Arial', sans-serif;
@@ -53,10 +54,6 @@ nav a:hover{
     font-size: 3.8em;
     margin-bottom: 20px;
     text-shadow: 3px 3px 6px rgba(0,0,0,0.8);
-    background: linear-gradient(45deg, #FFEB3B, #FFF176);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
 }
 .hero-section .subtitle {
     font-size: 1.4em;
@@ -71,25 +68,134 @@ nav a:hover{
     height: auto;
     border-radius: 15px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.4);
-    animation: pulse 2s infinite;
 }
 
-@keyframes pulse {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.05); }
-    100% { transform: scale(1); }
+/* LOGIN MODAL STYLES (dari kode lama) */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.5);
 }
 
-.philosophy {
-    max-width: 900px;
-    margin: 0 auto 60px;
+.modal-content {
+    background-color: rgba(255, 255, 255, 0.98);
+    margin: 8% auto;
     padding: 30px;
-    background: rgba(255,255,255,0.1);
-    backdrop-filter: blur(10px);
+    border: none;
+    width: 90%;
+    max-width: 500px;
     border-radius: 20px;
-    border: 1px solid rgba(255,255,255,0.2);
+    text-align: left;
+    color: #0D47A1;
+    position: relative;
+    box-shadow: 0 25px 60px rgba(0,0,0,0.4);
+    backdrop-filter: blur(10px);
 }
 
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 32px;
+    font-weight: bold;
+    position: absolute;
+    right: 20px;
+    top: 15px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.close:hover { color: #1976D2; transform: scale(1.1); }
+
+.tab-header {
+    display: flex;
+    border-bottom: 3px solid #E3F2FD;
+    margin-bottom: 25px;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.tab-btn {
+    flex: 1;
+    padding: 15px;
+    border: none;
+    background: #F5F5F5;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    color: #666;
+    transition: all 0.3s;
+}
+
+.tab-btn:hover { background: #E3F2FD; color: #1976D2; }
+.tab-btn.active { 
+    background: #1976D2; 
+    color: white; 
+}
+
+.form-content { display: none; }
+.form-content.active-form { display: block; animation: fadeIn 0.4s; }
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.modal-content h3 {
+    text-align: center;
+    margin: 0 0 25px 0;
+    color: #1976D2;
+    font-size: 1.5em;
+}
+
+.modal-content label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #333;
+}
+
+.modal-content input {
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 2px solid #E3F2FD;
+    border-radius: 12px;
+    box-sizing: border-box;
+    font-size: 16px;
+    transition: all 0.3s;
+}
+
+.modal-content input:focus {
+    outline: none;
+    border-color: #1976D2;
+    box-shadow: 0 0 15px rgba(25,118,210,0.2);
+}
+
+.modal-content button {
+    width: 100%;
+    padding: 15px;
+    background: linear-gradient(135deg, #1976D2, #42A5F5);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: all 0.3s;
+}
+
+.modal-content button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(25,118,210,0.4);
+}
+
+/* Sisanya CSS sama seperti sebelumnya */
 .featured-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -106,34 +212,9 @@ nav a:hover{
     text-align: center;
     box-shadow: 0 15px 40px rgba(0,0,0,0.2);
     transition: all 0.4s;
-    position: relative;
-    overflow: hidden;
 }
-.feature-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
-    transition: left 0.5s;
-}
-.feature-card:hover::before { left: 100%; }
-.feature-card:hover {
-    transform: translateY(-15px) scale(1.02);
-    box-shadow: 0 25px 60px rgba(0,0,0,0.3);
-}
-.feature-card h3 { 
-    color: #1976D2; 
-    font-size: 1.6em; 
-    margin-bottom: 20px;
-}
-.feature-card p { 
-    color: #555; 
-    line-height: 1.7; 
-    font-size: 1.1em;
-}
+.feature-card:hover { transform: translateY(-15px); }
+.feature-card h3 { color: #1976D2; margin-bottom: 20px; }
 
 .footer {
     background: rgba(25,118,210,0.95);
@@ -142,18 +223,20 @@ nav a:hover{
     padding: 40px 20px;
     margin-top: 80px;
 }
-.social-links {
-    margin-top: 20px;
+
+.whatsapp-float {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    width: 70px;
+    height: 70px;
+    z-index: 1000;
 }
-.social-links a {
-    color: white;
-    margin: 0 20px;
-    font-size: 1.8em;
-    transition: all 0.3s;
-}
-.social-links a:hover { 
-    color: #FFEB3B; 
-    transform: scale(1.3);
+.whatsapp-float img {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.4);
 }
 </style>
 </head>
@@ -171,80 +254,167 @@ nav a:hover{
         <a href="forum.html">Forum</a>
         <a href="contact.html">Contact</a>
     </div>
-    <a href="#" onclick="showLogin()" style="background:rgba(255,255,255,0.2);padding:12px 24px;border-radius:25px;font-weight:bold;">🔐 Login</a>
+    <a href="#" onclick="showLoginForm()" id="loginBtn" style="background:rgba(255,255,255,0.2);padding:12px 24px;border-radius:25px;font-weight:bold;">🔐 Login</a>
 </nav>
+
+<!-- LOGIN MODAL (dari kode lama) -->
+<div id="loginModal" class="modal">
+<div class="modal-content">
+    <span class="close" onclick="closeModal()">&times;</span>
+    
+    <!-- Header Tab -->
+    <div class="tab-header">
+        <button class="tab-btn active" onclick="openTab(event, 'loginTab')">Login</button>
+        <button class="tab-btn" onclick="openTab(event, 'registerTab')">Daftar</button>
+    </div>
+
+    <!-- Form Login -->
+    <div id="loginTab" class="form-content active-form">
+        <h3>Masuk ke Akun</h3>
+        <form onsubmit="handleLogin(event)">
+            <label>Username:</label>
+            <input type="text" id="loginUsername" required>
+
+            <label>Password:</label>
+            <input type="password" id="loginPassword" required>
+
+            <button type="submit">🔐 Masuk</button>
+        </form>
+    </div>
+
+    <!-- Form Daftar -->
+    <div id="registerTab" class="form-content">
+        <h3>Daftar Anggota Baru</h3>
+        <form onsubmit="handleRegister(event)">
+            <label>Username:</label>
+            <input type="text" id="regUsername" required>
+
+            <label>Password:</label>
+            <input type="password" id="regPassword" required>
+
+            <label>Nama Lengkap:</label>
+            <input type="text" id="fullName" required>
+
+            <label>Email:</label>
+            <input type="email" id="regEmail" required>
+
+            <label>No. HP:</label>
+            <input type="tel" id="regPhone" required>
+
+            <button type="submit">📝 Daftar</button>
+        </form>
+    </div>
+</div>
+</div>
 
 <!-- Hero Section -->
 <div class="hero-section">
     <img src="https://id.pngtree.com/so/logo-perpustakaan" alt="The Rooted Library Logo" class="logo-rooted">
     <h1>The Rooted Library</h1>
-    <p class="subtitle">Ilmu pengetahuan adalah akar dari kemajuan peradaban. Dengan fondasi yang kuat, kita tumbuh menuju masa depan yang lebih baik.</p>
+    <p class="subtitle">Ilmu pengetahuan adalah akar dari kemajuan peradaban</p>
 </div>
 
-<!-- Philosophy -->
-<div class="philosophy">
-    <h2 style="text-align:center;color:white;font-size:2em;margin-bottom:20px;">🌱 Filosofi Kami</h2>
-    <p style="text-align:center;color:white;font-size:1.2em;line-height:1.8;">
-        Seperti pohon yang kokoh dengan akar yang dalam, The Rooted Library menyediakan fondasi pengetahuan yang kuat 
-        untuk semua. Kami percaya bahwa akses ilmu yang mudah dan merata adalah kunci kemajuan berkelanjutan.
-    </p>
-</div>
-
-<!-- Featured Sections -->
+<!-- Featured Grid -->
 <div class="featured-grid">
     <div class="feature-card">
-        <h3>📚 10.000+ Koleksi Digital</h3>
-        <p>Buku, jurnal, artikel, dan multimedia dari berbagai disiplin ilmu siap diakses 24/7.</p>
+        <h3>📚 Koleksi Digital</h3>
+        <p>500+ buku, jurnal, dan artikel siap diakses 24/7</p>
     </div>
     <div class="feature-card">
-        <h3>💬 Komunitas Aktif</h3>
-        <p>Forum diskusi dengan 5.000+ anggota. Berbagi rekomendasi dan pengalaman membaca.</p>
+        <h3>💬 Forum Diskusi</h3>
+        <p>Berdiskusi dengan komunitas pecinta buku</p>
     </div>
     <div class="feature-card">
-        <h3>⚡ Layanan Cepat</h3>
-        <p>E-Book reader, download instan, dan personalisasi rekomendasi berbasis AI.</p>
-    </div>
-    <div class="feature-card">
-        <h3>🎓 Gratis untuk Semua</h3>
-        <p>Daftar gratis dan akses seluruh koleksi. Tidak ada biaya tersembunyi.</p>
+        <h3>⚡ Layanan Modern</h3>
+        <p>E-Book reader & download gratis</p>
     </div>
 </div>
 
 <!-- Footer -->
 <footer class="footer">
-    <p><strong>&copy; 2024 The Rooted Library.</strong> Semua hak dilindungi. Dibuat dengan ❤️ untuk literasi Indonesia.</p>
-    <div class="social-links">
-        <a href="https://www.instagram.com/intan_soo?igsh=bzI5empoYjE5dGGl" target="_blank">📸 Instagram</a>
-        <a href="https://drive.google.com/file/d/1G5itB-_B9wnXcuPKdBqTAqtli1AWduhz/view?usp=sharing" target="_blank">📄 Biodata</a>
-        <a href="https://wa.me/6281226423048" target="_blank">💬 WhatsApp</a>
-    </div>
+    <p>&copy; The Rooted Library</p>
+    <a href="https://www.instagram.com/intan_soo?igsh=bzI5empoYjE5dGGl" target="_blank">📸 Instagram</a>
 </footer>
 
-<!-- WhatsApp Floating Button -->
-<a href="https://wa.me/6281226423048" class="whatsapp-float" target="_blank" style="
-    position:fixed;
-    bottom:25px;
-    right:25px;
-    width:70px;
-    height:70px;
-    z-index:1000;
-    animation: bounce 2s infinite;
-">
-    <img src="https://img.icons8.com/color/72/whatsapp--v1.png" style="width:70px;height:70px;border-radius:50%;box-shadow:0 8px 25px rgba(0,0,0,0.4);">
+<!-- WhatsApp -->
+<a href="https://wa.me/6281226423048" class="whatsapp-float" target="_blank">
+    <img src="https://img.icons8.com/color/72/whatsapp--v1.png" alt="WhatsApp">
 </a>
 
-<style>
-@keyframes bounce {
-    0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
-    40% { transform: translateY(-10px); }
-    60% { transform: translateY(-5px); }
-}
-</style>
-
 <script>
-function showLogin() {
-    alert('🚀 Fitur Login & Forum akan segera hadir!\nSementara hubungi admin via WhatsApp.');
+// Fungsi modal (dari kode lama)
+function showLoginForm(){
+    document.getElementById('loginModal').style.display = 'block';
+    openTab({currentTarget: document.querySelector('.tab-btn.active')}, 'loginTab');
 }
+
+function closeModal(){
+    document.getElementById('loginModal').style.display = 'none';
+}
+
+function openTab(evt, tabName) {
+    var i, tabcontent, tablinks;
+    
+    tabcontent = document.getElementsByClassName("form-content");
+    for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+        tabcontent[i].classList.remove("active-form");
+    }
+    
+    tablinks = document.getElementsByClassName("tab-btn");
+    for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+    
+    document.getElementById(tabName).style.display = "block";
+    document.getElementById(tabName).classList.add("active-form");
+    evt.currentTarget.className += " active";
+}
+
+// Tutup modal klik luar
+window.onclick = function(event) {
+    const modal = document.getElementById('loginModal');
+    if (event.target == modal) modal.style.display = 'none';
+}
+
+// Handle Login/Register
+function handleLogin(e) {
+    e.preventDefault();
+    const username = document.getElementById('loginUsername').value;
+    const password = document.getElementById('loginPassword').value;
+    
+    if (username === 'intan' && password === '123') {
+        localStorage.setItem('user', username);
+        alert('✅ Login berhasil, ' + username + '!');
+        closeModal();
+        updateLoginStatus();
+    } else {
+        alert('❌ Username/password salah!');
+    }
+}
+
+function handleRegister(e) {
+    e.preventDefault();
+    alert('📝 Pendaftaran akan diproses oleh admin. Terima kasih!');
+    closeModal();
+}
+
+// Update tombol login status
+function updateLoginStatus() {
+    const user = localStorage.getItem('user');
+    const loginBtn = document.getElementById('loginBtn');
+    
+    if (user) {
+        loginBtn.innerHTML = `👋 ${user} <br><small>Logout</small>`;
+        loginBtn.onclick = function() {
+            localStorage.removeItem('user');
+            location.reload();
+        };
+    }
+}
+
+// Check status saat load
+updateLoginStatus();
 </script>
 
 </body>
