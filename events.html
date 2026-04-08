@@ -1,285 +1,74 @@
-<!DOCTYPE html>
-<html lang="id">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Events - Perpustakaan Khusus Budaya Intansari Art</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Georgia', serif;
-            line-height: 1.6;
-            color: #333;
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-        }
-
-        header {
-            background: linear-gradient(135deg, #8B4513 0%, #D2691E 100%);
-            color: white;
-            padding: 1rem 0;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-
-        nav {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0 2rem;
-        }
-
-        .logo {
-            font-size: 1.5rem;
-            font-weight: bold;
-        }
-
-        nav ul {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-        }
-
-        nav a {
-            color: white;
-            text-decoration: none;
-            padding: 0.5rem 1rem;
-            border-radius: 5px;
-            transition: background 0.3s;
-        }
-
-        nav a:hover {
-            background: rgba(255,255,255,0.2);
-        }
-
-        main {
-            margin-top: 80px;
-            padding: 2rem;
-            max-width: 1200px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .hero {
-            text-align: center;
-            background: linear-gradient(rgba(139,69,19,0.8), rgba(210,105,30,0.8)), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 200"><rect fill="%23f5f7fa" width="1000" height="200"/><path fill="%238B4513" opacity="0.3" d="M0 100 Q250 50 500 100 T1000 100 V200 H0 Z"/></svg>');
-            padding: 4rem 2rem;
-            border-radius: 20px;
-            margin-bottom: 3rem;
-            color: white;
-        }
-
-        .hero h1 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-        }
-
-        .events-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
-            margin-bottom: 3rem;
-        }
-
-        .event-card {
-            background: white;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-
-        .event-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
-        }
-
-        .event-image {
-            width: 100%;
-            height: 250px;
-            object-fit: cover;
-        }
-
-        .event-content {
-            padding: 2rem;
-        }
-
-        .event-date {
-            background: linear-gradient(135deg, #FF6B6B, #FF8E53);
-            color: white;
-            padding: 0.5rem 1rem;
-            border-radius: 25px;
-            font-weight: bold;
-            display: inline-block;
-            margin-bottom: 1rem;
-            font-size: 0.9rem;
-        }
-
-        .event-title {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            color: #8B4513;
-        }
-
-        .event-meta {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 1rem;
-            font-size: 0.9rem;
-            color: #666;
-        }
-
-        .register-btn {
-            background: linear-gradient(135deg, #8B4513, #D2691E);
-            color: white;
-            border: none;
-            padding: 1rem 2rem;
-            border-radius: 50px;
-            font-size: 1rem;
-            cursor: pointer;
-            width: 100%;
-            transition: transform 0.3s;
-        }
-
-        .register-btn:hover {
-            transform: scale(1.05);
-        }
-
-        .past-events {
-            background: white;
-            padding: 3rem;
-            border-radius: 20px;
-            margin-top: 3rem;
-        }
-
-        @media (max-width: 768px) {
-            nav ul {
-                flex-direction: column;
-                gap: 1rem;
-            }
+<!-- EVENTS SECTION - TAMBAHKAN INI DI index.html -->
+<section class="events-preview" id="events-preview">
+    <div style="max-width: 1200px; margin: 3rem auto; padding: 0 2rem;">
+        <h2 style="text-align: center; color: #8B4513; font-size: 2.5rem; margin-bottom: 3rem;">
+            🎭 Kegiatan Terbaru
+        </h2>
+        
+        <div class="events-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
             
-            .hero h1 {
-                font-size: 2rem;
-            }
-        }
-    </style>
-</head>
-<body>
-    <header>
-        <nav>
-            <div class="logo">📚 Perpustakaan Intansari Art</div>
-            <ul>
-                <li><a href="index.html">Beranda</a></li>
-                <li><a href="about.html">Tentang</a></li>
-                <li><a href="collections.html">Koleksi</a></li>
-                <li><a href="events.html">Kegiatan</a></li>
-                <li><a href="services.html">Layanan</a></li>
-                <li><a href="forum.html">Forum</a></li>
-                <li><a href="contact.html">Kontak</a></li>
-            </ul>
-        </nav>
-    </header>
-
-    <main>
-        <section class="hero">
-            <h1>🎭 Kegiatan Budaya</h1>
-            <p>Gabungkan diri Anda dalam berbagai acara menarik perpustakaan budaya kami!</p>
-        </section>
-
-        <section class="events-section">
-            <h2 style="text-align: center; margin-bottom: 3rem; color: #8B4513; font-size: 2.5rem;">Kegiatan Mendatang</h2>
-            
-            <div class="events-grid">
-                <!-- Event 1: Malam Puisi -->
-                <div class="event-card">
-                    <img src="https://images.unsplash.com/photo-1518627026898-b1e6b8d7e23a?w=400&h=250&fit=crop&crop=center" alt="Malam Puisi" class="event-image">
-                    <div class="event-content">
-                        <div class="event-date">📅 20 Desember 2024</div>
-                        <h3 class="event-title">Malam Puisi Nusantara</h3>
-                        <div class="event-meta">
-                            <span>🕕 19:00 - 21:00 WIB</span>
-                            <span>💰 Gratis</span>
-                        </div>
-                        <p>Hadirkan suara-suara puitis dari berbagai penyair Indonesia. Tema: "Warisan Budaya dalam Puisi".</p>
-                        <button class="register-btn" onclick="alert('Pendaftaran dibuka! Hubungi WhatsApp: 0812-3456-7890')">Daftar Sekarang</button>
+            <!-- Event 1 - Highlight -->
+            <div class="event-card" style="background: white; border-radius: 20px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1); transition: transform 0.3s;">
+                <img src="https://images.unsplash.com/photo-1518627026898-b1e6b8d7e23a?w=400&h=200&fit=crop" 
+                     alt="Malam Puisi" style="width: 100%; height: 200px; object-fit: cover;">
+                <div style="padding: 1.5rem;">
+                    <div style="background: linear-gradient(135deg, #FF6B6B, #FF8E53); color: white; padding: 0.3rem 1rem; border-radius: 20px; display: inline-block; font-size: 0.9rem; font-weight: bold; margin-bottom: 1rem;">
+                        📅 20 Desember 2024
                     </div>
-                </div>
-
-                <!-- Event 2: Workshop Batik -->
-                <div class="event-card">
-                    <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=400&h=250&fit=crop&crop=center" alt="Workshop Batik" class="event-image">
-                    <div class="event-content">
-                        <div class="event-date">📅 28 Desember 2024</div>
-                        <h3 class="event-title">Workshop Membatik Tradisional</h3>
-                        <div class="event-meta">
-                            <span>🕐 09:00 - 15:00 WIB</span>
-                            <span>💰 Rp 150.000</span>
-                        </div>
-                        <p>Belajar teknik membatik asli Jawa dengan pengrajin berpengalaman. Bawa pulang karya Anda sendiri!</p>
-                        <button class="register-btn" onclick="alert('Pendaftaran dibuka! Hubungi WhatsApp: 0812-3456-7890')">Daftar Sekarang</button>
-                    </div>
-                </div>
-
-                <!-- Event 3: Diskusi Buku -->
-                <div class="event-card">
-                    <img src="https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=400&h=250&fit=crop&crop=center" alt="Diskusi Buku" class="event-image">
-                    <div class="event-content">
-                        <div class="event-date">📅 5 Januari 2025</div>
-                        <h3 class="event-title">Buku Klub: "Negeri 5 Menara"</h3>
-                        <div class="event-meta">
-                            <span>🕕 16:00 - 18:00 WIB</span>
-                            <span>💰 Gratis</span>
-                        </div>
-                        <p>Diskusi mendalam tentang nilai-nilai persahabatan dan pendidikan dalam novel Ahmad Fuadi.</p>
-                        <button class="register-btn" onclick="alert('Pendaftaran dibuka! Hubungi WhatsApp: 0812-3456-7890')">Daftar Sekarang</button>
-                    </div>
-                </div>
-
-                <!-- Event 4: Pameran Mini -->
-                <div class="event-card">
-                    <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=250&fit=crop&crop=center" alt="Pameran Mini" class="event-image">
-                    <div class="event-content">
-                        <div class="event-date">📅 15 Januari 2025</div>
-                        <h3 class="event-title">Pameran Mini Seni Rupa Lokal</h3>
-                        <div class="event-meta">
-                            <span>🕐 10:00 - 17:00 WIB</span>
-                            <span>💰 Gratis</span>
-                        </div>
-                        <p>Menampilkan karya seniman muda lokal dengan tema "Identitas Budaya Nusantara".</p>
-                        <button class="register-btn" onclick="alert('Acara terbuka untuk umum!')">Info Lengkap</button>
-                    </div>
+                    <h3 style="color: #8B4513; margin-bottom: 0.5rem;">Malam Puisi Nusantara</h3>
+                    <p style="color: #666; font-size: 0.95rem; margin-bottom: 1rem;">
+                        Suara puitis dari berbagai penyair Indonesia
+                    </p>
+                    <a href="events.html" style="background: linear-gradient(135deg, #8B4513, #D2691E); color: white; padding: 0.8rem 1.5rem; text-decoration: none; border-radius: 25px; display: inline-block; font-weight: bold;">Lihat Semua Kegiatan →</a>
                 </div>
             </div>
-        </section>
 
-        <section class="past-events">
-            <h2 style="text-align: center; margin-bottom: 2rem; color: #8B4513;">Kegiatan Sebelumnya</h2>
-            <div style="display: flex; gap: 1rem; overflow-x: auto; padding: 1rem 0;">
-                <div style="min-width: 200px; text-align: center;">
-                    <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=200&h=150&fit=crop" style="border-radius: 10px;">
-                    <p><strong>Lomba Mewarnai Anak</strong><br>Oktober 2024</p>
-                </div>
-                <div style="min-width: 200px; text-align: center;">
-                    <img src="https://images.unsplash.com/photo-1517457373958-b7bdd4587206?w=200&h=150&fit=crop" style="border-radius: 10px;">
-                    <p><strong>Kelas Kaligrafi Arab</strong><br>November 2024</p>
-                </div>
-                <div style="min-width: 200px; text-align: center;">
-                    <img src="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=200&h=150&fit=crop" style="border-radius: 10px;">
-                    <p><strong>Storytelling Dongeng</strong><br>November 2024</p>
+            <!-- Event 2 -->
+            <div class="event-card" style="background: white; border-radius: 20px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
+                <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=400&h=200&fit=crop" 
+                     alt="Workshop Batik" style="width: 100%; height: 200px; object-fit: cover;">
+                <div style="padding: 1.5rem;">
+                    <div style="background: linear-gradient(135deg, #4ECDC4, #44A08D); color: white; padding: 0.3rem 1rem; border-radius: 20px; display: inline-block; font-size: 0.9rem; font-weight: bold; margin-bottom: 1rem;">
+                        📅 28 Desember
+                    </div>
+                    <h3 style="color: #8B4513; margin-bottom: 0.5rem; font-size: 1.2rem;">Workshop Membatik</h3>
+                    <p style="color: #666; font-size: 0.9rem;">Rp 150.000/peserta</p>
                 </div>
             </div>
-        </section>
-    </main>
-</body>
-</html>
+
+            <!-- Event 3 -->
+            <div class="event-card" style="background: white; border-radius: 20px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
+                <img src="https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=400&h=200&fit=crop" 
+                     alt="Buku Klub" style="width: 100%; height: 200px; object-fit: cover;">
+                <div style="padding: 1.5rem;">
+                    <div style="background: linear-gradient(135deg, #A8E6CF, #88D8A3); color: #2d5a27; padding: 0.3rem 1rem; border-radius: 20px; display: inline-block; font-size: 0.9rem; font-weight: bold; margin-bottom: 1rem;">
+                        📅 5 Januari 2025
+                    </div>
+                    <h3 style="color: #8B4513; margin-bottom: 0.5rem; font-size: 1.2rem;">Buku Klub</h3>
+                    <p style="color: #666; font-size: 0.9rem;">"Negeri 5 Menara"</p>
+                </div>
+            </div>
+
+        </div>
+        
+        <!-- CTA Button -->
+        <div style="text-align: center; margin-top: 3rem;">
+            <a href="events.html" style="
+                background: linear-gradient(135deg, #8B4513, #D2691E); 
+                color: white; 
+                padding: 1.2rem 3rem; 
+                text-decoration: none; 
+                border-radius: 50px; 
+                font-size: 1.2rem; 
+                font-weight: bold; 
+                display: inline-block;
+                box-shadow: 0 10px 30px rgba(139,69,19,0.3);
+                transition: transform 0.3s;
+            " 
+            onmouseover="this.style.transform='scale(1.05)'"
+            onmouseout="this.style.transform='scale(1)'">
+                🎉 Lihat Semua Kegiatan →
+            </a>
+        </div>
+    </div>
+</section>
