@@ -1,4 +1,4 @@
-# `event.html` - File Lengkap Event Perpustakaan Kebudayaan
+# `event.html` - File Lengkap dengan Events + Kegiatan Sebelumnya
 
 ```html
 <!DOCTYPE html>
@@ -10,16 +10,12 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Poppins', sans-serif;
-            line-height: 1.6;
-            color: #333;
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            font-family: 'Poppins', sans-serif; 
+            line-height: 1.6; 
+            color: #333; 
+            overflow-x: hidden;
         }
 
         /* Header */
@@ -32,7 +28,6 @@
             z-index: 1000;
             box-shadow: 0 2px 20px rgba(0,0,0,0.1);
         }
-
         .nav-container {
             max-width: 1200px;
             margin: 0 auto;
@@ -41,38 +36,20 @@
             align-items: center;
             padding: 0 2rem;
         }
-
-        .logo {
-            font-size: 1.8rem;
-            font-weight: 700;
+        .logo { font-size: 1.8rem; font-weight: 700; }
+        .nav-menu { display: flex; list-style: none; gap: 2rem; }
+        .nav-menu a { 
+            color: white; 
+            text-decoration: none; 
+            font-weight: 500; 
+            transition: opacity 0.3s ease; 
         }
+        .nav-menu a:hover { opacity: 0.8; }
+        .mobile-menu { display: none; font-size: 1.5rem; cursor: pointer; }
 
-        .nav-menu {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-        }
-
-        .nav-menu a {
-            color: white;
-            text-decoration: none;
-            font-weight: 500;
-            transition: opacity 0.3s ease;
-        }
-
-        .nav-menu a:hover {
-            opacity: 0.8;
-        }
-
-        .mobile-menu {
-            display: none;
-            font-size: 1.5rem;
-            cursor: pointer;
-        }
-
-        /* Hero Section */
+        /* Hero */
         .hero {
-            background: linear-gradient(rgba(102, 126, 234, 0.9), rgba(118, 75, 162, 0.9)), 
+            background: linear-gradient(rgba(102,126,234,0.9), rgba(118,75,162,0.9)), 
                         url('https://images.unsplash.com/photo-1507842217343-583bb7278b66?w=1920&h=1080&fit=crop');
             background-size: cover;
             background-position: center;
@@ -80,22 +57,8 @@
             text-align: center;
             padding: 6rem 2rem;
         }
-
-        .hero h1 {
-            font-size: 3.5rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-        }
-
-        .hero p {
-            font-size: 1.3rem;
-            margin-bottom: 2rem;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
+        .hero h1 { font-size: 3.5rem; font-weight: 700; margin-bottom: 1rem; text-shadow: 2px 2px 4px rgba(0,0,0,0.3); }
+        .hero p { font-size: 1.3rem; margin-bottom: 2rem; max-width: 600px; margin-left: auto; margin-right: auto; }
         .cta-btn {
             display: inline-block;
             background: white;
@@ -108,24 +71,11 @@
             transition: all 0.3s ease;
             box-shadow: 0 10px 30px rgba(255,255,255,0.3);
         }
+        .cta-btn:hover { transform: translateY(-3px); box-shadow: 0 15px 40px rgba(255,255,255,0.4); }
 
-        .cta-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 40px rgba(255,255,255,0.4);
-        }
-
-        /* Events Section */
-        .events-section {
-            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-            padding: 4rem 0;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-
+        /* Container */
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+        .text-center { text-align: center; }
         .section-title {
             font-size: 2.8rem;
             font-weight: 700;
@@ -133,7 +83,6 @@
             margin-bottom: 1rem;
             position: relative;
         }
-
         .section-title::after {
             content: '';
             position: absolute;
@@ -145,21 +94,19 @@
             background: linear-gradient(135deg, #667eea, #764ba2);
             border-radius: 2px;
         }
+        .section-subtitle { font-size: 1.2rem; color: #666; max-width: 600px; margin: 0 auto; }
 
-        .section-subtitle {
-            font-size: 1.2rem;
-            color: #666;
-            max-width: 600px;
-            margin: 0 auto;
+        /* Events Section */
+        .events-section { 
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 4rem 0; 
         }
-
         .events-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
             gap: 2rem;
             margin-top: 4rem;
         }
-
         .event-card {
             position: relative;
             border-radius: 20px;
@@ -170,64 +117,66 @@
             background: white;
             cursor: pointer;
         }
-
         .event-card:hover {
             transform: translateY(-10px);
             box-shadow: 0 20px 40px rgba(0,0,0,0.15);
         }
-
-        .event-image {
-            height: 250px;
-            width: 100%;
-            object-fit: cover;
-            transition: transform 0.4s ease;
-        }
-
-        .event-card:hover .event-image {
-            transform: scale(1.1);
-        }
-
+        .event-image { height: 250px; width: 100%; object-fit: cover; transition: transform 0.4s ease; }
+        .event-card:hover .event-image { transform: scale(1.1); }
         .event-overlay {
             position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
+            bottom: 0; left: 0; right: 0;
             background: linear-gradient(transparent, rgba(0,0,0,0.9));
             color: white;
             padding: 2rem 1.5rem 1.5rem;
             transform: translateY(100%);
             transition: transform 0.4s ease;
         }
+        .event-card:hover .event-overlay { transform: translateY(0); }
+        .event-title { font-size: 1.4rem; font-weight: 700; margin-bottom: 0.5rem; }
+        .event-date { font-size: 0.95rem; opacity: 0.9; margin-bottom: 0.5rem; }
+        .event-short-desc { font-size: 0.9rem; opacity: 0.9; line-height: 1.5; }
 
-        .event-card:hover .event-overlay {
-            transform: translateY(0);
+        /* Past Events */
+        .past-events-container {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 0.8s ease 0.3s forwards;
         }
-
-        .event-title {
-            font-size: 1.4rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
+        @keyframes fadeInUp {
+            to { opacity: 1; transform: translateY(0); }
         }
-
-        .event-date {
-            font-size: 0.95rem;
-            opacity: 0.9;
-            margin-bottom: 0.5rem;
+        .past-event-card {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            background: linear-gradient(145deg, #fff, #f8f9fa);
+            height: 100%;
         }
-
-        .event-short-desc {
+        .past-event-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.12);
+        }
+        .past-event-image { height: 200px; width: 100%; object-fit: cover; }
+        .past-event-content { padding: 1.5rem; }
+        .past-event-title { font-size: 1.3rem; font-weight: 600; color: #333; margin-bottom: 0.5rem; }
+        .past-event-date { color: #667eea; font-weight: 500; margin-bottom: 0.8rem; }
+        .past-event-desc { color: #666; font-size: 0.95rem; line-height: 1.6; margin-bottom: 1rem; }
+        .past-event-stats {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
             font-size: 0.9rem;
-            opacity: 0.9;
-            line-height: 1.5;
+            color: #888;
         }
+        .past-event-stats i { color: #28a745; margin-right: 0.3rem; }
 
         /* Modal */
         .event-modal {
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
             background: rgba(0,0,0,0.95);
             display: none;
             z-index: 9999;
@@ -236,11 +185,7 @@
             align-items: center;
             justify-content: center;
         }
-
-        .event-modal.active {
-            display: flex;
-        }
-
+        .event-modal.active { display: flex; }
         .modal-content {
             background: white;
             border-radius: 20px;
@@ -250,78 +195,40 @@
             overflow: hidden;
             animation: modalSlideIn 0.4s ease;
         }
-
         @keyframes modalSlideIn {
-            from {
-                opacity: 0;
-                transform: scale(0.8) translateY(-30px);
-            }
-            to {
-                opacity: 1;
-                transform: scale(1) translateY(0);
-            }
+            from { opacity: 0; transform: scale(0.8) translateY(-30px); }
+            to { opacity: 1; transform: scale(1) translateY(0); }
         }
-
         .modal-header {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
             padding: 2rem;
             position: relative;
         }
-
         .modal-close {
             position: absolute;
-            top: 1.5rem;
-            right: 2rem;
-            background: none;
-            border: none;
-            color: white;
-            font-size: 2rem;
+            top: 1.5rem; right: 2rem;
+            background: none; border: none;
+            color: white; font-size: 2rem;
             cursor: pointer;
-            width: 40px;
-            height: 40px;
+            width: 40px; height: 40px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             transition: background 0.3s ease;
         }
-
-        .modal-close:hover {
-            background: rgba(255,255,255,0.2);
-        }
-
-        .modal-body {
-            padding: 2.5rem;
-            max-height: 60vh;
-            overflow-y: auto;
-        }
-
-        .event-full-title {
-            font-size: 2rem;
-            margin-bottom: 1rem;
-            color: #333;
-        }
-
+        .modal-close:hover { background: rgba(255,255,255,0.2); }
+        .modal-body { padding: 2.5rem; max-height: 60vh; overflow-y: auto; }
+        .event-full-title { font-size: 2rem; margin-bottom: 1rem; color: #333; }
         .event-meta {
-            display: flex;
-            gap: 1.5rem;
+            display: flex; gap: 1.5rem;
             margin-bottom: 1.5rem;
-            font-size: 0.95rem;
-            color: #666;
+            font-size: 0.95rem; color: #666;
             flex-wrap: wrap;
         }
-
-        .event-meta span {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .event-meta i {
-            color: #667eea;
-            width: 18px;
-        }
+        .event-meta span { display: flex; align-items: center; gap: 0.5rem; }
+        .event-meta i { color: #667eea; width: 18px; }
 
         /* Footer */
         .footer {
@@ -331,37 +238,14 @@
             padding: 3rem 2rem 1.5rem;
         }
 
-        .footer p {
-            margin-bottom: 1rem;
-        }
-
         /* Responsive */
         @media (max-width: 768px) {
-            .mobile-menu {
-                display: block;
-            }
-
-            .nav-menu {
-                display: none;
-            }
-
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-
-            .events-grid {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
-            }
-
-            .event-image {
-                height: 200px;
-            }
-
-            .modal-body {
-                padding: 1.5rem;
-                max-height: 50vh;
-            }
+            .mobile-menu { display: block; }
+            .nav-menu { display: none; }
+            .hero h1 { font-size: 2.5rem; }
+            .events-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+            .past-event-stats { flex-direction: column; gap: 0.5rem; text-align: center; }
+            .modal-body { padding: 1.5rem; max-height: 50vh; }
         }
     </style>
 </head>
@@ -372,7 +256,7 @@
             <div class="logo">📚 Perpustakaan Intan</div>
             <ul class="nav-menu">
                 <li><a href="index.html">Beranda</a></li>
-                <li><a href="#events" class="active">Event</a></li>
+                <li><a href="#events">Event</a></li>
                 <li><a href="books.html">Koleksi</a></li>
                 <li><a href="contact.html">Kontak</a></li>
             </ul>
@@ -384,129 +268,70 @@
     <section class="hero">
         <div class="container">
             <h1>Event Kebudayaan</h1>
-            <p>Ikuti berbagai kegiatan literasi, seni, dan pelestarian budaya Nusantara di Perpustakaan Kebudayaan Intan</p>
-            <a href="#events" class="cta-btn">Lihat Jadwal Event</a>
+            <p>Ikuti kegiatan literasi, seni, dan pelestarian budaya Nusantara</p>
+            <a href="#events" class="cta-btn">Lihat Jadwal</a>
         </div>
     </section>
 
     <!-- Events Section -->
     <section id="events" class="events-section">
         <div class="container">
+            <!-- Events Mendatang -->
             <div class="text-center mb-5">
-                <h2 class="section-title">Jadwal Kegiatan Bulan Maret 2025</h2>
-                <p class="section-subtitle">Pilih event yang menarik dan daftarkan diri Anda sekarang!</p>
+                <h2 class="section-title">Jadwal Maret-April 2025</h2>
+                <p class="section-subtitle">Daftarkan diri sekarang!</p>
             </div>
-            
-            <div class="events-grid" id="eventsContainer">
-                <!-- Events akan dimuat via JavaScript -->
+            <div class="events-grid" id="eventsContainer"></div>
+
+            <!-- Kegiatan Sebelumnya -->
+            <div class="text-center mb-5 mt-5">
+                <h3 class="section-title" style="font-size: 2rem;">Kegiatan yang Pernah Dilaksanakan</h3>
+                <p class="section-subtitle">Rekor kegiatan sukses Perpustakaan Kebudayaan</p>
             </div>
+            <div class="row past-events-container" id="pastEventsContainer"></div>
         </div>
     </section>
 
-    <!-- Event Modal -->
+    <!-- Modal -->
     <div id="eventModal" class="event-modal"></div>
 
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <p>&copy; 2025 Perpustakaan Kebudayaan Intan. Melestarikan Warisan Budaya Nusantara.</p>
+            <p>© 2025 Perpustakaan Kebudayaan Intan</p>
             <p>📧 events@perpustakaansari.id | 📱 0812-3456-7890</p>
         </div>
     </footer>
 
     <script>
+        // Events Mendatang
         const eventsData = [
             {
-                id: 1,
-                title: "Malam Puisi Sastra Nusantara",
-                date: "Sabtu, 15 Maret 2025",
-                time: "19:00 - 21:00 WIB",
-                location: "Auditorium Perpustakaan Kebudayaan",
-                image: "https://images.unsplash.com/photo-1518627027688-d9bd651b2b4e?w=800&h=500&fit=crop",
-                shortDesc: "Kumpul penyair dari berbagai daerah membacakan karya bertema kebudayaan lokal.",
-                category: "Sastra & Puisi",
-                fullDesc: `
-                    <div class="event-full-title">Malam Puisi Sastra Nusantara</div>
-                    <div class="event-meta">
-                        <span><i class="fas fa-calendar-alt"></i>${this.date}</span>
-                        <span><i class="fas fa-clock"></i>${this.time}</span>
-                        <span><i class="fas fa-map-marker-alt"></i>${this.location}</span>
-                    </div>
-                    <p><strong>Tentang Acara:</strong></p>
-                    <p>Gelar seni membaca puisi bertema "Kearifan Lokal dalam Sastra Modern". Menampilkan 15 penyair terpilih dari Jawa, Sumatra, Kalimantan, dan Papua. Dilengkapi diskusi interaktif dengan penonton.</p>
-                    
-                    <p><strong>Narasumber:</strong></p>
-                    <ul>
-                        <li>Putu Semiarta - Penyair Bali</li>
-                        <li>Siti Nurhaliza - Penyair Aceh</li>
-                        <li>Bambang Setiawan - Penyair Jawa Tengah</li>
-                    </ul>
-                    
-                    <p><strong>Fasilitas:</strong> Gratis • Pendaftaran terbatas 100 orang • Live music gamelan</p>
-                    <div style="margin-top: 2rem; padding-top: 2rem; border-top: 2px solid #eee;">
-                        <p><strong>Hubungi:</strong> <a href="mailto:events@perpustakaansari.id" style="color: #667eea;">events@perpustakaansari.id</a></p>
-                    </div>
-                `
+                id: 1, title: "Malam Puisi Sastra Nusantara", date: "Sabtu, 15 Maret", time: "19:00 WIB",
+                location: "Auditorium", image: "https://images.unsplash.com/photo-1518627027688-d9bd651b2b4e?w=800&h=500&fit=crop",
+                shortDesc: "15 penyair dari berbagai daerah", category: "Sastra",
+                fullDesc: `<div class="event-full-title">Malam Puisi Sastra Nusantara</div><div class="event-meta"><span><i class="fas fa-calendar-alt"></i>Sabtu, 15 Maret</span><span><i class="fas fa-clock"></i>19:00 WIB</span><span><i class="fas fa-map-marker-alt"></i>Auditorium</span></div><p>Gelar seni membaca puisi "Kearifan Lokal". Gratis, terbatas 100 orang.</p>`
             },
             {
-                id: 2,
-                title: "Workshop Kaligrafi Arab Melayu",
-                date: "Minggu, 22 Maret 2025",
-                time: "10:00 - 14:00 WIB",
-                location: "Ruang Workshop Lt. 2",
-                image: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=800&h=500&fit=crop",
-                shortDesc: "Pelajari seni kaligrafi tradisional Melayu dengan ahli dari Riau.",
-                category: "Seni Kaligrafi",
-                fullDesc: `
-                    <div class="event-full-title">Workshop Kaligrafi Arab Melayu</div>
-                    <div class="event-meta">
-                        <span><i class="fas fa-calendar-alt"></i>${this.date}</span>
-                        <span><i class="fas fa-clock"></i>${this.time}</span>
-                        <span><i class="fas fa-map-marker-alt"></i>${this.location}</span>
-                    </div>
-                    <p>Workshop praktik langsung membuat kaligrafi Arab Melayu dengan teknik khas pesantren Riau. Peserta akan membuat 3 karya kaligrafi dengan bimbingan ustadz kaligrafer berpengalaman 20 tahun.</p>
-                    
-                    <p><strong>Yang Dipelajari:</strong></p>
-                    <ul>
-                        <li>Teknik Jawi Melayu klasik</li>
-                        <li>Penggunaan tinta tradisional</li>
-                        <li>Komposisi huruf dan makna spiritual</li>
-                    </ul>
-                    
-                    <p><strong>Biaya:</strong> Rp 150.000 (termasuk alat, makan siang) • Maksimal 20 peserta</p>
-                `
+                id: 2, title: "Workshop Kaligrafi Arab Melayu", date: "Minggu, 22 Maret", time: "10:00 WIB",
+                location: "Ruang Workshop", image: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=800&h=500&fit=crop",
+                shortDesc: "Seni kaligrafi tradisional Melayu", category: "Seni",
+                fullDesc: `<div class="event-full-title">Workshop Kaligrafi Arab Melayu</div><div class="event-meta"><span><i class="fas fa-calendar-alt"></i>Minggu, 22 Maret</span><span><i class="fas fa-clock"></i>10:00 WIB</span><span><i class="fas fa-map-marker-alt"></i>Ruang Workshop</span></div><p>Buat 3 karya kaligrafi. Rp150rb termasuk alat.</p>`
             },
             {
-                id: 3,
-                title: "Lomba Baca Puisi Anak Nusantara",
-                date: "Sabtu, 29 Maret 2025",
-                time: "08:00 - 12:00 WIB",
-                location: "Halaman Perpustakaan",
-                image: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=800&h=500&fit=crop",
-                shortDesc: "Kompetisi baca puisi untuk anak usia 7-12 tahun bertema tokoh legenda daerah.",
-                category: "Anak & Keluarga",
-                fullDesc: `
-                    <div class="event-full-title">Lomba Baca Puisi Anak Nusantara</div>
-                    <div class="event-meta">
-                        <span><i class="fas fa-calendar-alt"></i>${this.date}</span>
-                        <span><i class="fas fa-clock"></i>${this.time}</span>
-                        <span><i class="fas fa-map-marker-alt"></i>${this.location}</span>
-                    </div>
-                    <p>Lomba membaca puisi untuk membangkitkan minat baca anak dan melestarikan legenda daerah. Tema: "Pahlawan dan Tokoh Legenda Nusantara".</p>
-                    
-                    <p><strong>Kategori:</strong></p>
-                    <ul>
-                        <li>Usia 7-9 tahun (TK-SD)</li>
-                        <li>Usia 10-12 tahun (SD)</li>
-                    </ul>
-                    
-                    <p><strong>Hadiah:</strong> Total Rp 10.000.000 + piala + sertifikat • <strong>Pendaftaran gratis!</strong></p>
-                `
+                id: 3, title: "Lomba Baca Puisi Anak", date: "Sabtu, 29 Maret", time: "08:00 WIB",
+                location: "Halaman Perpustakaan", image: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=800&h=500&fit=crop",
+                shortDesc: "Usia 7-12 tahun, hadiah Rp10jt", category: "Anak",
+                fullDesc: `<div class="event-full-title">Lomba Baca Puisi Anak Nusantara</div><div class="event-meta"><span><i class="fas fa-calendar-alt"></i>Sabtu, 29 Maret</span><span><i class="fas fa-clock"></i>08:00 WIB</span><span><i class="fas fa-map-marker-alt"></i>Halaman Perpustakaan</span></div><p>Tema legenda daerah. Gratis! Hadiah total Rp10.000.000</p>`
             },
             {
-                id: 4,
-                title: "Diskusi 'Sejarah Kerajaan Sriwijaya'",
-                date: "Rabu, 2 April 2025",
-                time: "16:00 - 18:00 WIB",
-                location: "Ruang Diskusi Lt. 3",
-                image: "https://images.unsplash.com/photo-1469362102473-8622cfb973cd?w=
+                id: 4, title: "Diskusi Sejarah Sriwijaya", date: "Rabu, 2 April", time: "16:00 WIB",
+                location: "Ruang Diskusi", image: "https://images.unsplash.com/photo-1469362102473-8622cfb973cd?w=800&h=500&fit=crop",
+                shortDesc: "Bersama sejarawan UI", category: "Sejarah",
+                fullDesc: `<div class="event-full-title">Diskusi Sejarah Kerajaan Sriwijaya</div><div class="event-meta"><span><i class="fas fa-calendar-alt"></i>Rabu, 2 April</span><span><i class="fas fa-clock"></i>16:00 WIB</span><span><i class="fas fa-map-marker-alt"></i>Ruang Diskusi</span></div><p>Dr. Ahmad Yani (UI). Gratis dengan reservasi.</p>`
+            }
+        ];
+
+        // Kegiatan Sebelumnya
+        const pastEventsData = [
+            { title: "Pameran Naskah Kuno", date: "15-20 Feb 2025", image: "https://images.unsplash.com/photo-1585826989156-90ae8e54b352?w=800&h=500&fit=crop", desc: "50 naskah abad 16-19", participants: "1.247 pengunjung", category: "Pameran
