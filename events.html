@@ -3,28 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Event Kebudayaan - Perpustakaan Intan</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <title>Event Perpustakaan - Arsip Kegiatan</title>
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { 
-            font-family: 'Poppins', sans-serif; 
-            line-height: 1.6; 
-            color: #333; 
-            overflow-x: hidden;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
 
-        /* Header */
-        .header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 1rem 0;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
         }
+
+        /* NAVBAR */
+        nav {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 1rem 0;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
         .nav-container {
             max-width: 1200px;
             margin: 0 auto;
@@ -33,302 +37,313 @@
             align-items: center;
             padding: 0 2rem;
         }
-        .logo { font-size: 1.8rem; font-weight: 700; }
-        .nav-menu { display: flex; list-style: none; gap: 2rem; }
-        .nav-menu a { 
-            color: white; 
-            text-decoration: none; 
-            font-weight: 500; 
-            transition: opacity 0.3s ease; 
-        }
-        .nav-menu a:hover { opacity: 0.8; }
-        .mobile-menu { display: none; font-size: 1.5rem; cursor: pointer; }
 
-        /* Hero */
-        .hero {
-            background: linear-gradient(rgba(102,126,234,0.9), rgba(118,75,162,0.9)), 
-                        url('https://images.unsplash.com/photo-1507842217343-583bb7278b66?w=1920&h=1080&fit=crop');
-            background-size: cover;
-            background-position: center;
+        .logo {
             color: white;
-            text-align: center;
-            padding: 6rem 2rem;
+            font-size: 1.8rem;
+            font-weight: bold;
         }
-        .hero h1 { font-size: 3.5rem; font-weight: 700; margin-bottom: 1rem; text-shadow: 2px 2px 4px rgba(0,0,0,0.3); }
-        .hero p { font-size: 1.3rem; margin-bottom: 2rem; max-width: 600px; margin-left: auto; margin-right: auto; }
-        .cta-btn {
-            display: inline-block;
-            background: white;
-            color: #667eea;
-            padding: 1rem 2.5rem;
-            border-radius: 50px;
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: white;
             text-decoration: none;
-            font-weight: 600;
-            font-size: 1.1rem;
-            transition: all 0.3s ease;
-            box-shadow: 0 10px 30px rgba(255,255,255,0.3);
+            font-weight: 500;
+            transition: opacity 0.3s;
         }
-        .cta-btn:hover { transform: translateY(-3px); box-shadow: 0 15px 40px rgba(255,255,255,0.4); }
 
-        /* Container */
-        .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
-        .text-center { text-align: center; }
-        .section-title {
-            font-size: 2.8rem;
-            font-weight: 700;
-            color: #333;
-            margin-bottom: 1rem;
-            position: relative;
+        .nav-links a:hover {
+            opacity: 0.8;
         }
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 4px;
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            border-radius: 2px;
-        }
-        .section-subtitle { font-size: 1.2rem; color: #666; max-width: 600px; margin: 0 auto; }
 
-        /* Events Section */
-        .events-section { 
-            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-            padding: 4rem 0; 
+        /* MAIN CONTENT */
+        main {
+            margin-top: 80px;
+            padding: 2rem;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
         }
+
         .events-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
             gap: 2rem;
-            margin-top: 4rem;
+            margin-top: 2rem;
         }
+
         .event-card {
-            position: relative;
+            background: white;
             border-radius: 20px;
             overflow: hidden;
             box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            transition: all 0.4s ease;
-            height: 100%;
-            background: white;
+            transition: all 0.3s ease;
             cursor: pointer;
+            position: relative;
         }
+
         .event-card:hover {
             transform: translateY(-10px);
             box-shadow: 0 20px 40px rgba(0,0,0,0.15);
         }
-        .event-image { height: 250px; width: 100%; object-fit: cover; transition: transform 0.4s ease; }
-        .event-card:hover .event-image { transform: scale(1.1); }
-        .event-overlay {
-            position: absolute;
-            bottom: 0; left: 0; right: 0;
-            background: linear-gradient(transparent, rgba(0,0,0,0.9));
-            color: white;
-            padding: 2rem 1.5rem 1.5rem;
-            transform: translateY(100%);
-            transition: transform 0.4s ease;
-        }
-        .event-card:hover .event-overlay { transform: translateY(0); }
-        .event-title { font-size: 1.4rem; font-weight: 700; margin-bottom: 0.5rem; }
-        .event-date { font-size: 0.95rem; opacity: 0.9; margin-bottom: 0.5rem; }
-        .event-short-desc { font-size: 0.9rem; opacity: 0.9; line-height: 1.5; }
 
-        /* Past Events */
-        .past-events-container {
-            opacity: 0;
-            transform: translateY(30px);
-            animation: fadeInUp 0.8s ease 0.3s forwards;
+        .event-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
         }
-        @keyframes fadeInUp {
-            to { opacity: 1; transform: translateY(0); }
-        }
-        .past-event-card {
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
-            transition: all 0.3s ease;
-            background: linear-gradient(145deg, #fff, #f8f9fa);
-            height: 100%;
-        }
-        .past-event-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 15px 35px rgba(0,0,0,0.12);
-        }
-        .past-event-image { height: 200px; width: 100%; object-fit: cover; }
-        .past-event-content { padding: 1.5rem; }
-        .past-event-title { font-size: 1.3rem; font-weight: 600; color: #333; margin-bottom: 0.5rem; }
-        .past-event-date { color: #667eea; font-weight: 500; margin-bottom: 0.8rem; }
-        .past-event-desc { color: #666; font-size: 0.95rem; line-height: 1.6; margin-bottom: 1rem; }
-        .past-event-stats {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-size: 0.9rem;
-            color: #888;
-        }
-        .past-event-stats i { color: #28a745; margin-right: 0.3rem; }
 
-        /* Modal */
-        .event-modal {
-            position: fixed;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
-            background: rgba(0,0,0,0.95);
-            display: none;
-            z-index: 9999;
-            overflow-y: auto;
-            padding: 2rem;
-            align-items: center;
-            justify-content: center;
-        }
-        .event-modal.active { display: flex; }
-        .modal-content {
-            background: white;
-            border-radius: 20px;
-            max-width: 800px;
-            width: 90%;
-            max-height: 90vh;
-            overflow: hidden;
-            animation: modalSlideIn 0.4s ease;
-        }
-        @keyframes modalSlideIn {
-            from { opacity: 0; transform: scale(0.8) translateY(-30px); }
-            to { opacity: 1; transform: scale(1) translateY(0); }
-        }
-        .modal-header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 2rem;
+        .event-content {
+            padding: 1.5rem;
             position: relative;
         }
-        .modal-close {
-            position: absolute;
-            top: 1.5rem; right: 2rem;
-            background: none; border: none;
-            color: white; font-size: 2rem;
-            cursor: pointer;
-            width: 40px; height: 40px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: background 0.3s ease;
-        }
-        .modal-close:hover { background: rgba(255,255,255,0.2); }
-        .modal-body { padding: 2.5rem; max-height: 60vh; overflow-y: auto; }
-        .event-full-title { font-size: 2rem; margin-bottom: 1rem; color: #333; }
-        .event-meta {
-            display: flex; gap: 1.5rem;
-            margin-bottom: 1.5rem;
-            font-size: 0.95rem; color: #666;
-            flex-wrap: wrap;
-        }
-        .event-meta span { display: flex; align-items: center; gap: 0.5rem; }
-        .event-meta i { color: #667eea; width: 18px; }
 
-        /* Footer */
-        .footer {
-            background: #333;
+        .event-date {
+            background: linear-gradient(135deg, #ff6b6b, #feca57);
             color: white;
-            text-align: center;
-            padding: 3rem 2rem 1.5rem;
+            padding: 0.3rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: bold;
+            display: inline-block;
+            margin-bottom: 1rem;
         }
 
-        /* Responsive */
+        .event-title {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: #2c3e50;
+        }
+
+        .event-summary {
+            color: #7f8c8d;
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+        }
+
+        .event-details {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease;
+            margin-top: 1rem;
+        }
+
+        .event-details.active {
+            max-height: 500px;
+        }
+
+        .event-details p {
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        .read-more {
+            color: #667eea;
+            font-weight: 500;
+            cursor: pointer;
+            font-size: 0.9rem;
+            margin: 1rem 0;
+            transition: color 0.3s;
+        }
+
+        .read-more:hover {
+            color: #764ba2;
+        }
+
+        .stats {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid #ecf0f1;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+
+        .stat-label {
+            font-size: 0.8rem;
+            color: #7f8c8d;
+        }
+
         @media (max-width: 768px) {
-            .mobile-menu { display: block; }
-            .nav-menu { display: none; }
-            .hero h1 { font-size: 2.5rem; }
-            .events-grid { grid-template-columns: 1fr; gap: 1.5rem; }
-            .past-event-stats { flex-direction: column; gap: 0.5rem; text-align: center; }
-            .modal-body { padding: 1.5rem; max-height: 50vh; }
+            .events-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            
+            .nav-links {
+                display: none;
+            }
         }
     </style>
 </head>
 <body>
-    <!-- Header -->
-    <header class="header">
-        <nav class="nav-container">
-            <div class="logo">📚 Perpustakaan Intan</div>
-            <ul class="nav-menu">
-                <li><a href="index.html">Beranda</a></li>
+    <!-- NAVBAR -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo">📚 Perpustakaan Digital</div>
+            <ul class="nav-links">
+                <li><a href="#home">Beranda</a></li>
                 <li><a href="#events">Event</a></li>
-                <li><a href="books.html">Koleksi</a></li>
-                <li><a href="contact.html">Kontak</a></li>
+                <li><a href="#gallery">Galeri</a></li>
+                <li><a href="#contact">Kontak</a></li>
             </ul>
-            <div class="mobile-menu">☰</div>
-        </nav>
-    </header>
-
-    <!-- Hero -->
-    <section class="hero">
-        <div class="container">
-            <h1>Event Kebudayaan</h1>
-            <p>Ikuti kegiatan literasi, seni, dan pelestarian budaya Nusantara</p>
-            <a href="#events" class="cta-btn">Lihat Jadwal</a>
         </div>
-    </section>
+    </nav>
 
-    <!-- Events Section -->
-    <section id="events" class="events-section">
-        <div class="container">
-            <!-- Events Mendatang -->
-            <div class="text-center mb-5">
-                <h2 class="section-title">Jadwal Maret-April 2025</h2>
-                <p class="section-subtitle">Daftarkan diri sekarang!</p>
+    <main>
+        <h1 style="text-align: center; margin-bottom: 1rem; color: #2c3e50; font-size: 2.5rem;">Arsip Kegiatan Perpustakaan</h1>
+        <p style="text-align: center; color: #7f8c8d; margin-bottom: 3rem;">Momen-momen berharga dari berbagai event literasi yang pernah kami selenggarakan</p>
+
+        <div class="events-grid">
+            
+            <!-- EVENT 1: Storytelling dan Membaca Bersama -->
+            <div class="event-card" onclick="toggleDetails(this)">
+                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=200&fit=crop" class="event-image" alt="Storytelling">
+                <div class="event-content">
+                    <div class="event-date">22 Sep 2024</div>
+                    <h3 class="event-title">Storytelling dan Membaca Bersama</h3>
+                    <p class="event-summary">Cerita Rakyat Sumatera Utara: 150+ anak terpikat dengan dongeng legenda lokal</p>
+                    
+                    <!-- DETAIL PANJANG -->
+                    <div class="event-details">
+                        <p><strong>📖 Latar Belakang:</strong> Kegiatan ini bertujuan menghidupkan kembali cerita rakyat Sumatera Utara melalui storytelling interaktif. Cerita legenda seperti "Si Borobudur" dan "Putri Gandiwa" disampaikan dengan gaya dramatis oleh pendongeng profesional.</p>
+                        
+                        <p><strong>🏆 Sorotan Kegiatan:</strong><br>
+                        - 150+ peserta anak usia 4-12 tahun<br>
+                        - 5 cerita rakyat Sumut dipresentasikan<br>
+                        - Sesi membaca bersama 30 menit<br>
+                        - Workshop menggambar karakter cerita</p>
+                        
+                        <p><strong>🎉 Testimoni:</strong> "Anak saya sekarang hafal cerita Si Raja Hutan! Seru sekali!" - Ibu Sari, peserta. Kegiatan ditutup dengan parade dongeng mini oleh anak-anak peserta.</p>
+                    </div>
+                    
+                    <div class="read-more" onclick="event.stopPropagation()">▼ Baca detail lengkap</div>
+                    <div class="stats">
+                        <div class="stat">
+                            <div class="stat-number">150+</div>
+                            <div class="stat-label">Peserta</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">5</div>
+                            <div class="stat-label">Cerita</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">98%</div>
+                            <div class="stat-label">Kepuasan</div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="events-grid" id="eventsContainer"></div>
 
-            <!-- Kegiatan Sebelumnya -->
-            <div class="text-center mb-5 mt-5">
-                <h3 class="section-title" style="font-size: 2rem;">Kegiatan yang Pernah Dilaksanakan</h3>
-                <p class="section-subtitle">Rekor kegiatan sukses Perpustakaan Kebudayaan</p>
+            <!-- EVENT 2: Lokakarya Pengelolaan Perpustakaan -->
+            <div class="event-card" onclick="toggleDetails(this)">
+                <img src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=400&h=200&fit=crop" class="event-image" alt="Lokakarya">
+                <div class="event-content">
+                    <div class="event-date">10 Okt 2024</div>
+                    <h3 class="event-title">Lokakarya Pengelolaan Perpustakaan Khusus</h3>
+                    <p class="event-summary">Wilayah Sumatera: 75 pengelola perpustakaan tingkatkan skill digitalisasi</p>
+                    
+                    <!-- DETAIL PANJANG -->
+                    <div class="event-details">
+                        <p><strong>💻 Latar Belakang:</strong> Pelatihan intensif untuk pengelola perpustakaan khusus di wilayah Sumatera. Fokus pada pengelolaan koleksi digital, katalogisasi online, dan strategi promosi literasi modern.</p>
+                        
+                        <p><strong>📚 Materi Pelatihan:</strong><br>
+                        - Digitalisasi koleksi arsip<br>
+                        - Penggunaan SLiMS (Senayan Library Management System)<br>
+                        - Marketing perpustakaan di era digital<br>
+                        - Analisis data pengunjung perpustakaan</p>
+                        
+                        <p><strong>🎓 Hasil:</strong> 100% peserta berhasil membuat katalog digital sederhana. "Pelatihan ini membuka mata kami akan potensi perpustakaan digital!" - Pak Budi, Pengelola Perpustakaan Desa.</p>
+                    </div>
+                    
+                    <div class="read-more" onclick="event.stopPropagation()">▼ Baca detail lengkap</div>
+                    <div class="stats">
+                        <div class="stat">
+                            <div class="stat-number">75</div>
+                            <div class="stat-label">Peserta</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">4</div>
+                            <div class="stat-label">Hari</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">100%</div>
+                            <div class="stat-label">Sertifikat</div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="row past-events-container" id="pastEventsContainer"></div>
-        </div>
-    </section>
 
-    <!-- Modal -->
-    <div id="eventModal" class="event-modal"></div>
+            <!-- EVENT 3: Deklarasi Gerakan Budaya Baca -->
+            <div class="event-card" onclick="toggleDetails(this)">
+                <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=400&h=200&fit=crop" class="event-image" alt="Deklarasi">
+                <div class="event-content">
+                    <div class="event-date">30 Nov 2024</div>
+                    <h3 class="event-title">Deklarasi Gerakan Budaya Baca</h3>
+                    <p class="event-summary">200+ komunitas dan instansi komitmen tingkatkan angka baca masyarakat</p>
+                    
+                    <!-- DETAIL PANJANG -->
+                    <div class="event-details">
+                        <p><strong>📢 Latar Belakang:</strong> Puncak dari rangkaian sosialisasi Gerakan Nasional Indonesia Baca. Melibatkan pemerintah daerah, sekolah, komunitas literasi, dan perusahaan lokal dalam komitmen nyata.</p>
+                        
+                        <p><strong>✍️ Komitmen Utama:</strong><br>
+                        - Sekolah: 30 menit baca harian wajib<br>
+                        - Dinas: Anggaran literasi +20%<br>
+                        - Komunitas: 12 klub baca baru<br>
+                        - Perusahaan: Donasi 5000 buku</p>
+                        
+                        <p><strong>🎊 Highlight:</strong> Penandatanganan deklarasi oleh 25 tokoh masyarakat, flashmob baca massal, dan penyerahan 1000 buku gratis. "Ini adalah titik balik budaya baca Sumatera Utara!" - Kepala Dinas Pendidikan.</p>
+                    </div>
+                    
+                    <div class="read-more" onclick="event.stopPropagation()">▼ Baca detail lengkap</div>
+                    <div class="stats">
+                        <div class="stat">
+                            <div class="stat-number">200+</div>
+                            <div class="stat-label">Instansi</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">25</div>
+                            <div class="stat-label">Tokoh</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">1000</div>
+                            <div class="stat-label">Buku</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <p>© 2025 Perpustakaan Kebudayaan Intan</p>
-            <p>📧 events@perpustakaansari.id | 📱 0812-3456-7890</p>
         </div>
-    </footer>
+    </main>
 
     <script>
-        // Events Mendatang
-        const eventsData = [
-            {
-                id: 1, title: "Malam Puisi Sastra Nusantara", date: "Sabtu, 15 Maret", time: "19:00 WIB",
-                location: "Auditorium", image: "https://images.unsplash.com/photo-1518627027688-d9bd651b2b4e?w=800&h=500&fit=crop",
-                shortDesc: "15 penyair dari berbagai daerah", category: "Sastra",
-                fullDesc: `<div class="event-full-title">Malam Puisi Sastra Nusantara</div><div class="event-meta"><span><i class="fas fa-calendar-alt"></i>Sabtu, 15 Maret</span><span><i class="fas fa-clock"></i>19:00 WIB</span><span><i class="fas fa-map-marker-alt"></i>Auditorium</span></div><p>Gelar seni membaca puisi "Kearifan Lokal". Gratis, terbatas 100 orang.</p>`
-            },
-            {
-                id: 2, title: "Workshop Kaligrafi Arab Melayu", date: "Minggu, 22 Maret", time: "10:00 WIB",
-                location: "Ruang Workshop", image: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=800&h=500&fit=crop",
-                shortDesc: "Seni kaligrafi tradisional Melayu", category: "Seni",
-                fullDesc: `<div class="event-full-title">Workshop Kaligrafi Arab Melayu</div><div class="event-meta"><span><i class="fas fa-calendar-alt"></i>Minggu, 22 Maret</span><span><i class="fas fa-clock"></i>10:00 WIB</span><span><i class="fas fa-map-marker-alt"></i>Ruang Workshop</span></div><p>Buat 3 karya kaligrafi. Rp150rb termasuk alat.</p>`
-            },
-            {
-                id: 3, title: "Lomba Baca Puisi Anak", date: "Sabtu, 29 Maret", time: "08:00 WIB",
-                location: "Halaman Perpustakaan", image: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=800&h=500&fit=crop",
-                shortDesc: "Usia 7-12 tahun, hadiah Rp10jt", category: "Anak",
-                fullDesc: `<div class="event-full-title">Lomba Baca Puisi Anak Nusantara</div><div class="event-meta"><span><i class="fas fa-calendar-alt"></i>Sabtu, 29 Maret</span><span><i class="fas fa-clock"></i>08:00 WIB</span><span><i class="fas fa-map-marker-alt"></i>Halaman Perpustakaan</span></div><p>Tema legenda daerah. Gratis! Hadiah total Rp10.000.000</p>`
-            },
-            {
-                id: 4, title: "Diskusi Sejarah Sriwijaya", date: "Rabu, 2 April", time: "16:00 WIB",
-                location: "Ruang Diskusi", image: "https://images.unsplash.com/photo-1469362102473-8622cfb973cd?w=800&h=500&fit=crop",
-                shortDesc: "Bersama sejarawan UI", category: "Sejarah",
-                fullDesc: `<div class="event-full-title">Diskusi Sejarah Kerajaan Sriwijaya</div><div class="event-meta"><span><i class="fas fa-calendar-alt"></i>Rabu, 2 April</span><span><i class="fas fa-clock"></i>16:00 WIB</span><span><i class="fas fa-map-marker-alt"></i>Ruang Diskusi</span></div><p>Dr. Ahmad Yani (UI). Gratis dengan reservasi.</p>`
+        function toggleDetails(card) {
+            const details = card.querySelector('.event-details');
+            const readMore = card.querySelector('.read-more');
+            
+            details.classList.toggle('active');
+            
+            if (details.classList.contains('active')) {
+                readMore.textContent = '▲ Tutup detail';
+            } else {
+                readMore.textContent = '▼ Baca detail lengkap';
             }
-        ];
-
-        // Kegiatan Sebelumnya
-        const pastEventsData = [
-            { title: "Pameran Naskah Kuno", date: "15-20 Feb 2025", image: "https://images.unsplash.com/photo-1585826989156-90ae8e54b352?w=800&h=500&fit=crop", desc: "50 naskah abad 16-19", participants: "1.247 pengunjung", category: "Pameran
+        }
+    </script>
+</body>
+</html>
