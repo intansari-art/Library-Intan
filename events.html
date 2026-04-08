@@ -1,315 +1,95 @@
-<!DOCTYPE html>
-<html lang="id">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Past Events - The Rooted Library</title>
-<style>
-body {
-    margin:0;
-    font-family: 'Arial', sans-serif;
-    background-image: url('https://images.unsplash.com/photo-1481627834876-b7833e8f5570?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    color: #0D47A1;
-}
-.overlay{ background-color: rgba(0,0,0,0.4); min-height:100vh; }
-
-nav{
-    background: linear-gradient(135deg, #1976D2 0%, #42A5F5 100%);
-    padding:15px 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.3);
-}
-.nav-left { display: flex; align-items: center; }
-nav a{
-    color: white;
-    margin:0 12px;
-    text-decoration:none;
-    font-weight:600;
-    padding:8px 16px;
-    border-radius:20px;
-    transition: all 0.3s;
-}
-nav a:hover{ 
-    color: #FFEB3B; 
-    background: rgba(255,255,255,0.2);
-    transform: translateY(-2px);
-}
-
-.events-hero {
-    text-align: center;
-    padding: 120px 20px 80px;
-    color: white;
-}
-.events-hero h1 {
-    font-size: 3.5em;
-    margin-bottom: 20px;
-    text-shadow: 3px 3px 6px rgba(0,0,0,0.8);
-}
-
-.events-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: 30px;
-    max-width: 1200px;
-    margin: 0 auto 60px;
-    padding: 0 20px;
-}
-
-.event-card {
-    background: rgba(255,255,255,0.95);
-    border-radius: 20px;
-    overflow: hidden;
-    box-shadow: 0 15px 40px rgba(0,0,0,0.2);
-    transition: all 0.4s;
-    cursor: pointer;
-}
-.event-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 25px 60px rgba(25,118,210,0.3);
-}
-
-.event-image {
-    width: 100%;
-    height: 250px;
-    object-fit: cover;
-}
-
-.event-content {
-    padding: 30px;
-}
-.event-date {
-    background: linear-gradient(135deg, #FF9800, #F57C00);
-    color: white;
-    padding: 8px 16px;
-    border-radius: 25px;
-    font-weight: bold;
-    font-size: 14px;
-    margin-bottom: 15px;
-}
-.event-title {
-    color: #1976D2;
-    font-size: 1.6em;
-    margin-bottom: 10px;
-}
-.event-summary {
-    color: #666;
-    font-size: 15px;
-    margin-bottom: 20px;
-    line-height: 1.5;
-}
-.event-details {
-    max-height: 0;
-    overflow: hidden;
-    transition: all 0.4s ease;
-    background: rgba(25,118,210,0.05);
-    padding: 0 10px;
-    border-radius: 10px;
-}
-.event-details.active {
-    max-height: 300px;
-    padding: 20px;
-}
-.read-more {
-    color: #1976D2;
-    font-weight: bold;
-    cursor: pointer;
-    font-size: 14px;
-    transition: 0.3s;
-}
-.read-more:hover {
-    color: #0D47A1;
-}
-
-.stats {
-    display: flex;
-    justify-content: space-around;
-    margin-top: 15px;
-    padding-top: 15px;
-    border-top: 1px solid #E3F2FD;
-}
-.stat {
-    text-align: center;
-    color: #666;
-}
-.stat-number {
-    font-size: 1.5em;
-    font-weight: bold;
-    color: #1976D2;
-}
-
-.footer {
-    background: rgba(25,118,210,0.95);
-    color: white;
-    text-align: center;
-    padding: 40px 20px;
-}
-</style>
-</head>
-<body>
-<div class="overlay">
-
-<nav>
-    <div class="nav-left">
-        <a href="index.html">🏠 Home</a>
-        <a href="about.html">About</a>
-        <a href="collections.html">Collections</a>
-        <a href="events.html">📜 Past Events</a>
-        <a href="services.html">Services</a>
-        <a href="forum.html">Forum</a>
-        <a href="contact.html">Contact</a>
+<!-- EVENT 1: Storytelling Sumut -->
+<div class="event-card" onclick="toggleDetails(this)">
+    <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&h=250&fit=crop" class="event-image" alt="Storytelling Sumut">
+    <div class="event-content">
+        <div class="event-date">12 Oktober 2024</div>
+        <h3 class="event-title">Storytelling & Membaca Bersama<br><small>Cerita Rakyat Sumut</small></h3>
+        <p class="event-summary">Dongeng legend Batak memikat 150 anak & orang tua</p>
+        
+        <div class="event-details">
+            <p><strong>📜 Dongeng Legendaris:</strong> Si Raja Batak, Si Boraspati, Legend Danau Toba, dan cerita adat Karo disampaikan dengan teknik storytelling interaktif oleh tim pendongeng lokal Medan.</p>
+            
+            <p><strong>🎯 Target & Dampak:</strong> 150 peserta (100 anak + 50 orang tua) dari 8 sekolah dasar di Kecamatan Medan. Setiap anak mendapat buku cerita rakyat Sumut + sertifikat "Pecinta Cerita Batak".</p>
+            
+            <p><strong>✨ Highlight:</strong> Penampilan tortor Batak oleh anak-anak + pembacaan bersama "Legenda Danau Toba". 95% peserta minta diadakan rutin setiap bulan. Durasi: 3 jam penuh kebahagiaan!</p>
+        </div>
+        
+        <div class="read-more" onclick="event.stopPropagation()">▼ Baca lengkap</div>
+        <div class="stats">
+            <div class="stat"><div class="stat-number">150</div><div>Peserta</div></div>
+            <div class="stat"><div class="stat-number">4</div><div>Dongeng</div></div>
+        </div>
     </div>
-    <a href="#" style="background:rgba(255,255,255,0.2);padding:12px 24px;border-radius:25px;font-weight:bold;">🔐 Login</a>
-</nav>
-
-<div class="events-hero">
-    <h1>📜 Jejak Kegiatan Budaya</h1>
-    <p>Memori indah dari berbagai acara perpustakaan khusus budaya kami</p>
 </div>
 
-<div class="events-grid">
-    
-    <!-- EVENT 1: Lomba Mewarnai -->
-    <div class="event-card" onclick="toggleDetails(this)">
-        <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=400&h=250&fit=crop" class="event-image" alt="Lomba Mewarnai">
-        <div class="event-content">
-            <div class="event-date">15 Okt 2024</div>
-            <h3 class="event-title">Lomba Mewarnai Tema Budaya</h3>
-            <p class="event-summary">100+ anak berbakat mewarnai motif batik tradisional</p>
+<!-- EVENT 2: Lokakarya Pengelolaan Perpustakaan -->
+<div class="event-card" onclick="toggleDetails(this)">
+    <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=400&h=250&fit=crop" class="event-image" alt="Lokakarya Perpustakaan">
+    <div class="event-content">
+        <div class="event-date">25 Oktober 2024</div>
+        <h3 class="event-title">Lokakarya Pengelolaan Perpustakaan Khusus<br><small>Wilayah Sumatera</small></h3>
+        <p class="event-summary">65 pengelola perpustakaan khusus dilatih</p>
+        
+        <div class="event-details">
+            <p><strong>👨‍🏫 Trainer Profesional:</strong> Pak Budi Santoso (Direktur Perpusnas) + Ibu Lina (Konsultan Perpustakaan Khusus Sumatera). Materi: Digitalisasi koleksi budaya, klasifikasi Dewey budaya lokal, pengelolaan anggota digital.</p>
             
-            <div class="event-details">
-                <p><strong>Peserta:</strong> 120 anak usia 4-12 tahun dari 5 sekolah lokal</p>
-                <p><strong>Juara 1:</strong> Salsabila (SDN 01) - Motif Kawung</p>
-                <p><strong>Hiburan:</strong> Dongeng Batik oleh Mbok Sari</p>
-            </div>
+            <p><strong>🌟 Peserta Unggulan:</strong> 65 pengelola dari Aceh, Sumut, Sumbar, Riau, Jambi, Sumsel, Bengkulu, Lampung. Praktik langsung: katalogisasi buku adat Batak + setup OPAC sederhana.</p>
             
-            <div class="read-more" onclick="event.stopPropagation(); toggleDetails(this.parentElement.parentElement)">▼ Baca detail</div>
-            
-            <div class="stats">
-                <div class="stat">
-                    <div class="stat-number">120</div>
-                    <div>Peserta</div>
-                </div>
-                <div class="stat">
-                    <div class="stat-number">3</div>
-                    <div>Juara</div>
-                </div>
-            </div>
+            <p><strong>📋 Output Nyata:</strong> 65 Action Plan Perpustakaan + grup WhatsApp "Perpus Khusus Sumatera" (500+ anggota aktif). Sertifikat diterima langsung oleh Gubernur Sumut secara simbolis.</p>
+        </div>
+        
+        <div class="read-more" onclick="event.stopPropagation()">▼ Baca lengkap</div>
+        <div class="stats">
+            <div class="stat"><div class="stat-number">65</div><div>Pengelola</div></div>
+            <div class="stat"><div class="stat-number">8</div><div>Provinsi</div></div>
         </div>
     </div>
-
-    <!-- EVENT 2: Kelas Kaligrafi -->
-    <div class="event-card" onclick="toggleDetails(this)">
-        <img src="https://images.unsplash.com/photo-1517457373958-b7bdd4587206?w=400&h=250&fit=crop" class="event-image" alt="Kelas Kaligrafi">
-        <div class="event-content">
-            <div class="event-date">8 Nov 2024</div>
-            <h3 class="event-title">Kelas Kaligrafi Arab Dasar</h3>
-            <p class="event-summary">45 peserta belajar seni kaligrafi Islami klasik</p>
-            
-            <div class="event-details">
-                <p><strong>Pengajar:</strong> Ustadz Ahmad Kaligrafi Master</p>
-                <p><strong>Materi:</strong> Huruf Hijaiyah + Ayat Kursi</p>
-                <p><strong>Hasil:</strong> 40 karya dipajang di perpustakaan</p>
-            </div>
-            
-            <div class="read-more" onclick="event.stopPropagation(); toggleDetails(this.parentElement.parentElement)">▼ Baca detail</div>
-            
-            <div class="stats">
-                <div class="stat">
-                    <div class="stat-number">45</div>
-                    <div>Peserta</div>
-                </div>
-                <div class="stat">
-                    <div class="stat-number">40</div>
-                    <div>Karya</div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- EVENT 3: Storytelling -->
-    <div class="event-card" onclick="toggleDetails(this)">
-        <img src="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=400&h=250&fit=crop" class="event-image" alt="Storytelling">
-        <div class="event-content">
-            <div class="event-date">22 Nov 2024</div>
-            <h3 class="event-title">Storytelling Legenda Nusantara</h3>
-            <p class="event-summary">Dongeng Malin Kundang & Timun Mas memukau 80 anak</p>
-            
-            <div class="event-details">
-                <p><strong>Narator:</strong> Ibu Sari - Penutur Dongeng</p>
-                <p><strong>Dongeng:</strong> 4 legenda dari Sumatra, Jawa, Bali</p>
-                <p><strong>Interaktif:</strong> Anak-anak berpartisipasi akting</p>
-            </div>
-            
-            <div class="read-more" onclick="event.stopPropagation(); toggleDetails(this.parentElement.parentElement)">▼ Baca detail</div>
-            
-            <div class="stats">
-                <div class="stat">
-                    <div class="stat-number">80</div>
-                    <div>Anak</div>
-                </div>
-                <div class="stat">
-                    <div class="stat-number">4</div>
-                    <div>Dongeng</div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- EVENT 4: Diskusi Budaya -->
-    <div class="event-card" onclick="toggleDetails(this)">
-        <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=250&fit=crop" class="event-image" alt="Diskusi">
-        <div class="event-content">
-            <div class="event-date">30 Nov 2024</div>
-            <h3 class="event-title">Diskusi "Budaya Lokal vs Global"</h3>
-            <p class="event-summary">25 intelektual budaya berdebat pelestarian tradisi</p>
-            
-            <div class="event-details">
-                <p><strong>Narasumber:</strong> 3 pakar antropologi UI</p>
-                <p><strong>Peserta:</strong> Dosen, seniman, aktivis budaya</p>
-                <p><strong>Output:</strong> Buku kecil "Jejak Budaya 2024"</p>
-            </div>
-            
-            <div class="read-more" onclick="event.stopPropagation(); toggleDetails(this.parentElement.parentElement)">▼ Baca detail</div>
-            
-            <div class="stats">
-                <div class="stat">
-                    <div class="stat-number">25</div>
-                    <div>Peserta</div>
-                </div>
-                <div class="stat">
-                    <div class="stat-number">1</div>
-                    <div>Buku</div>
-                </div>
-            </div>
-        </div>
-    </div>
-
 </div>
 
-<footer class="footer">
-    <p>&copy; 2024 The Rooted Library - Perpustakaan Khusus Budaya</p>
-</footer>
-
-<script>
-function toggleDetails(element) {
-    const details = element.querySelector('.event-details');
-    const readMore = element.querySelector('.read-more');
-    
-    details.classList.toggle('active');
-    if (details.classList.contains('active')) {
-        readMore.innerHTML = '▲ Tutup detail';
-    } else {
-        readMore.innerHTML = '▼ Baca detail';
-    }
-}
-</script>
-
+<!-- EVENT 3: Deklarasi Gerakan Budaya Baca -->
+<div class="event-card" onclick="toggleDetails(this)">
+    <img src="https://images.unsplash.com/photo-1511632765486-a01980e01a18?w=400&h=250&fit=crop" class="event-image" alt="Deklarasi Budaya Baca">
+    <div class="event-content">
+        <div class="event-date">10 November 2024</div>
+        <h3 class="event-title">Deklarasi Gerakan Budaya Baca Sumatera Utara</h3>
+        <p class="event-summary">300 orang deklarasi komitmen baca 24 buku/tahun</p>
+        
+        <div class="event-details">
+            <p><strong>🎯 Visi Besar:</strong> Gubernur Sumut, Kepala Dinas Pendidikan, Rektor USU, dan 20 tokoh budaya menandatangani Deklarasi. Target: Sumut jadi provinsi dengan indeks budaya baca tertinggi di Sumatera.</p>
+            
+            <p><strong>📚 Komitmen Konkret:</strong> 300 peserta (guru, dosen, aktivis, pejabat) komitmen baca 24 buku/tahun + review di grup "Sumut Baca". Launching aplikasi "BacaSumut" untuk tracking progress.</p>
+            
+            <p><strong>🔥 Momentum Historis:</strong> Diakhiri flashmob baca massal + penyerahan 1.000 buku cerita rakyat Sumut ke 50 SD. Live streaming ditonton 5.000 orang. Headline koran lokal 3 hari berturut!</p>
+        </div>
+        
+        <div class="read-more" onclick="event.stopPropagation()">▼ Baca lengkap</div>
+        <div class="stats">
+            <div class="stat"><div class="stat-number">300</div><div>Penyatakan</div></div>
+            <div class="stat"><div class="stat-number">24</div><div>Buku/Tahun</div></div>
+        </div>
+    </div>
 </div>
-</body>
-</html>
+
+<!-- EVENT 4: Night of Batak Culture -->
+<div class="event-card" onclick="toggleDetails(this)">
+    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=400&h=250&fit=crop" class="event-image" alt="Night Batak">
+    <div class="event-content">
+        <div class="event-date">28 November 2024</div>
+        <h3 class="event-title">Malam Budaya Batak Toba</h3>
+        <p class="event-summary">Gondang + tortor memukau 200 penikmat budaya</p>
+        
+        <div class="event-details">
+            <p><strong>🎺 Penampilan Istimewa:</strong> Grup gondang Naposo Sinaga (45 musisi) + tortor massal 100 penari. Demo ulos tenun Samosir + seminar "Adat Batak di Era Digital".</p>
+            
+            <p><strong>👥 Tamu Istimeara:</strong> Raja Sisingamangaraja ke-15, budayawan terkenal, 10 kepala suku Batak. 200 peserta dari berbagai marga Batak Toba, Karo, Simalungun, Pakpak, Angkola, Mandailing.</p>
+            
+            <p><strong>🌟 Dampak Luar Biasa:</strong> Hasil penjualan ulos didonasikan untuk perpustakaan desa. Video viral YouTube (50K views). Rencana tur budaya Batak ke 10 kota Sumatera.</p>
+        </div>
+        
+        <div class="read-more" onclick="event.stopPropagation()">▼ Baca lengkap</div>
+        <div class="stats">
+            <div class="stat"><div class="stat-number">200</div><div>Peserta</div></div>
+            <div class="stat"><div class="stat-number">6</div><div>Marga Batak</div></div>
+        </div>
+    </div>
+</div>
