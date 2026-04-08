@@ -3,9 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Events - The Rooted Library</title>
+<title>Past Events - The Rooted Library</title>
 <style>
-/* GUNAKAN CSS SAMA PERSIS kayak index.html kamu */
 body {
     margin:0;
     font-family: 'Arial', sans-serif;
@@ -42,7 +41,6 @@ nav a:hover{
     transform: translateY(-2px);
 }
 
-/* EVENTS SPECIFIC CSS */
 .events-hero {
     text-align: center;
     padding: 120px 20px 80px;
@@ -52,10 +50,6 @@ nav a:hover{
     font-size: 3.5em;
     margin-bottom: 20px;
     text-shadow: 3px 3px 6px rgba(0,0,0,0.8);
-}
-.events-hero p {
-    font-size: 1.3em;
-    opacity: 0.95;
 }
 
 .events-grid {
@@ -73,9 +67,10 @@ nav a:hover{
     overflow: hidden;
     box-shadow: 0 15px 40px rgba(0,0,0,0.2);
     transition: all 0.4s;
+    cursor: pointer;
 }
 .event-card:hover {
-    transform: translateY(-15px);
+    transform: translateY(-10px);
     box-shadow: 0 25px 60px rgba(25,118,210,0.3);
 }
 
@@ -89,39 +84,63 @@ nav a:hover{
     padding: 30px;
 }
 .event-date {
-    background: linear-gradient(135deg, #FF6B6B, #FF8E53);
+    background: linear-gradient(135deg, #FF9800, #F57C00);
     color: white;
-    padding: 10px 20px;
-    border-radius: 30px;
+    padding: 8px 16px;
+    border-radius: 25px;
     font-weight: bold;
-    display: inline-block;
-    margin-bottom: 15px;
     font-size: 14px;
+    margin-bottom: 15px;
 }
 .event-title {
     color: #1976D2;
-    font-size: 1.5em;
-    margin-bottom: 15px;
+    font-size: 1.6em;
+    margin-bottom: 10px;
 }
-.event-meta {
+.event-summary {
     color: #666;
-    margin-bottom: 15px;
-    font-size: 14px;
+    font-size: 15px;
+    margin-bottom: 20px;
+    line-height: 1.5;
 }
-.event-btn {
-    background: linear-gradient(135deg, #1976D2, #42A5F5);
-    color: white;
-    border: none;
-    padding: 15px 30px;
-    border-radius: 30px;
+.event-details {
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.4s ease;
+    background: rgba(25,118,210,0.05);
+    padding: 0 10px;
+    border-radius: 10px;
+}
+.event-details.active {
+    max-height: 300px;
+    padding: 20px;
+}
+.read-more {
+    color: #1976D2;
     font-weight: bold;
     cursor: pointer;
-    width: 100%;
-    transition: all 0.3s;
+    font-size: 14px;
+    transition: 0.3s;
 }
-.event-btn:hover {
-    transform: scale(1.05);
-    box-shadow: 0 10px 30px rgba(25,118,210,0.4);
+.read-more:hover {
+    color: #0D47A1;
+}
+
+.stats {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px solid #E3F2FD;
+}
+.stat {
+    text-align: center;
+    color: #666;
+}
+.stat-number {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #1976D2;
 }
 
 .footer {
@@ -129,78 +148,167 @@ nav a:hover{
     color: white;
     text-align: center;
     padding: 40px 20px;
-    margin-top: 80px;
 }
 </style>
 </head>
 <body>
 <div class="overlay">
 
-<!-- NAVBAR SAMA PERSIS -->
 <nav>
     <div class="nav-left">
         <a href="index.html">🏠 Home</a>
         <a href="about.html">About</a>
         <a href="collections.html">Collections</a>
-        <a href="events.html">🎭 Events</a>
+        <a href="events.html">📜 Past Events</a>
         <a href="services.html">Services</a>
         <a href="forum.html">Forum</a>
         <a href="contact.html">Contact</a>
     </div>
-    <a href="#" onclick="alert('Fitur login segera hadir!')" style="background:rgba(255,255,255,0.2);padding:12px 24px;border-radius:25px;font-weight:bold;">🔐 Login</a>
+    <a href="#" style="background:rgba(255,255,255,0.2);padding:12px 24px;border-radius:25px;font-weight:bold;">🔐 Login</a>
 </nav>
 
-<!-- EVENTS HERO -->
 <div class="events-hero">
-    <h1>🎭 Kegiatan Budaya</h1>
-    <p>Gabung dalam acara perpustakaan kami yang penuh inspirasi!</p>
+    <h1>📜 Jejak Kegiatan Budaya</h1>
+    <p>Memori indah dari berbagai acara perpustakaan khusus budaya kami</p>
 </div>
 
-<!-- EVENTS GRID -->
 <div class="events-grid">
     
-    <!-- EVENT 1 -->
-    <div class="event-card">
-        <img src="https://images.unsplash.com/photo-1518627026898-b1e6b8d7e23a?w=400&h=250&fit=crop" class="event-image" alt="Malam Puisi">
+    <!-- EVENT 1: Lomba Mewarnai -->
+    <div class="event-card" onclick="toggleDetails(this)">
+        <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=400&h=250&fit=crop" class="event-image" alt="Lomba Mewarnai">
         <div class="event-content">
-            <div class="event-date">20 Des 2024 • 19:00 WIB</div>
-            <h3 class="event-title">Malam Puisi Nusantara</h3>
-            <div class="event-meta">📍 Ruang Serbaguna • Gratis</div>
-            <p>Tema: "Warisan Budaya dalam Puisi Modern"</p>
-            <button class="event-btn" onclick="alert('Daftar WA: 0812-2642-3048')">Daftar Sekarang</button>
+            <div class="event-date">15 Okt 2024</div>
+            <h3 class="event-title">Lomba Mewarnai Tema Budaya</h3>
+            <p class="event-summary">100+ anak berbakat mewarnai motif batik tradisional</p>
+            
+            <div class="event-details">
+                <p><strong>Peserta:</strong> 120 anak usia 4-12 tahun dari 5 sekolah lokal</p>
+                <p><strong>Juara 1:</strong> Salsabila (SDN 01) - Motif Kawung</p>
+                <p><strong>Hiburan:</strong> Dongeng Batik oleh Mbok Sari</p>
+            </div>
+            
+            <div class="read-more" onclick="event.stopPropagation(); toggleDetails(this.parentElement.parentElement)">▼ Baca detail</div>
+            
+            <div class="stats">
+                <div class="stat">
+                    <div class="stat-number">120</div>
+                    <div>Peserta</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">3</div>
+                    <div>Juara</div>
+                </div>
+            </div>
         </div>
     </div>
 
-    <!-- EVENT 2 -->
-    <div class="event-card">
-        <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=400&h=250&fit=crop" class="event-image" alt="Workshop Batik">
+    <!-- EVENT 2: Kelas Kaligrafi -->
+    <div class="event-card" onclick="toggleDetails(this)">
+        <img src="https://images.unsplash.com/photo-1517457373958-b7bdd4587206?w=400&h=250&fit=crop" class="event-image" alt="Kelas Kaligrafi">
         <div class="event-content">
-            <div class="event-date">28 Des 2024 • 09:00 WIB</div>
-            <h3 class="event-title">Workshop Membatik</h3>
-            <div class="event-meta">🎨 Studio Seni • Rp 150.000</div>
-            <p>Bawa pulang kain batik hasil karya sendiri!</p>
-            <button class="event-btn" onclick="alert('Daftar WA: 0812-2642-3048')">Daftar Sekarang</button>
+            <div class="event-date">8 Nov 2024</div>
+            <h3 class="event-title">Kelas Kaligrafi Arab Dasar</h3>
+            <p class="event-summary">45 peserta belajar seni kaligrafi Islami klasik</p>
+            
+            <div class="event-details">
+                <p><strong>Pengajar:</strong> Ustadz Ahmad Kaligrafi Master</p>
+                <p><strong>Materi:</strong> Huruf Hijaiyah + Ayat Kursi</p>
+                <p><strong>Hasil:</strong> 40 karya dipajang di perpustakaan</p>
+            </div>
+            
+            <div class="read-more" onclick="event.stopPropagation(); toggleDetails(this.parentElement.parentElement)">▼ Baca detail</div>
+            
+            <div class="stats">
+                <div class="stat">
+                    <div class="stat-number">45</div>
+                    <div>Peserta</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">40</div>
+                    <div>Karya</div>
+                </div>
+            </div>
         </div>
     </div>
 
-    <!-- EVENT 3 -->
-    <div class="event-card">
-        <img src="https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=400&h=250&fit=crop" class="event-image" alt="Buku Klub">
+    <!-- EVENT 3: Storytelling -->
+    <div class="event-card" onclick="toggleDetails(this)">
+        <img src="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=400&h=250&fit=crop" class="event-image" alt="Storytelling">
         <div class="event-content">
-            <div class="event-date">5 Jan 2025 • 16:00 WIB</div>
-            <h3 class="event-title">Buku Klub</h3>
-            <div class="event-meta">📖 Ruang Baca • Gratis</div>
-            <p>Bahas "Negeri 5 Menara" - Ahmad Fuadi</p>
-            <button class="event-btn" onclick="alert('Daftar WA: 0812-2642-3048')">Daftar Sekarang</button>
+            <div class="event-date">22 Nov 2024</div>
+            <h3 class="event-title">Storytelling Legenda Nusantara</h3>
+            <p class="event-summary">Dongeng Malin Kundang & Timun Mas memukau 80 anak</p>
+            
+            <div class="event-details">
+                <p><strong>Narator:</strong> Ibu Sari - Penutur Dongeng</p>
+                <p><strong>Dongeng:</strong> 4 legenda dari Sumatra, Jawa, Bali</p>
+                <p><strong>Interaktif:</strong> Anak-anak berpartisipasi akting</p>
+            </div>
+            
+            <div class="read-more" onclick="event.stopPropagation(); toggleDetails(this.parentElement.parentElement)">▼ Baca detail</div>
+            
+            <div class="stats">
+                <div class="stat">
+                    <div class="stat-number">80</div>
+                    <div>Anak</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">4</div>
+                    <div>Dongeng</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- EVENT 4: Diskusi Budaya -->
+    <div class="event-card" onclick="toggleDetails(this)">
+        <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=250&fit=crop" class="event-image" alt="Diskusi">
+        <div class="event-content">
+            <div class="event-date">30 Nov 2024</div>
+            <h3 class="event-title">Diskusi "Budaya Lokal vs Global"</h3>
+            <p class="event-summary">25 intelektual budaya berdebat pelestarian tradisi</p>
+            
+            <div class="event-details">
+                <p><strong>Narasumber:</strong> 3 pakar antropologi UI</p>
+                <p><strong>Peserta:</strong> Dosen, seniman, aktivis budaya</p>
+                <p><strong>Output:</strong> Buku kecil "Jejak Budaya 2024"</p>
+            </div>
+            
+            <div class="read-more" onclick="event.stopPropagation(); toggleDetails(this.parentElement.parentElement)">▼ Baca detail</div>
+            
+            <div class="stats">
+                <div class="stat">
+                    <div class="stat-number">25</div>
+                    <div>Peserta</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">1</div>
+                    <div>Buku</div>
+                </div>
+            </div>
         </div>
     </div>
 
 </div>
 
-<!-- FOOTER -->
 <footer class="footer">
-    <p>&copy; 2024 The Rooted Library - Perpustakaan Digital</p>
+    <p>&copy; 2024 The Rooted Library - Perpustakaan Khusus Budaya</p>
 </footer>
+
+<script>
+function toggleDetails(element) {
+    const details = element.querySelector('.event-details');
+    const readMore = element.querySelector('.read-more');
+    
+    details.classList.toggle('active');
+    if (details.classList.contains('active')) {
+        readMore.innerHTML = '▲ Tutup detail';
+    } else {
+        readMore.innerHTML = '▼ Baca detail';
+    }
+}
+</script>
 
 </div>
 </body>
