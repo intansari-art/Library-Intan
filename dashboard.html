@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <!-- Same Batak head -->
+    <title>Dashboard - The Rooted Library</title>
+</head>
+<body>
+    <!-- Navbar dengan user logged in -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3">
+        <!-- ... navbar sama tapi loginBtn jadi "Horas, Intan! 👋" -->
+    </nav>
+
+    <section class="hero-section py-5 text-center" style="padding-top: 120px;">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="alert alert-success shadow-lg border-0 rounded-4 p-5">
+                        <i class="fas fa-check-circle fs-1 text-success mb-4 d-block"></i>
+                        <h1 class="display-4 fw-bold mb-4">Horas, Intan! 👋</h1>
+                        <p class="lead mb-5">Selamat datang di Dashboard Perpustakaan Batak Toba</p>
+                        <div class="row g-3">
+                            <div class="col-md-3"><a href="collections.html" class="btn btn-batak w-100 py-3">📚 Koleksi</a></div>
+                            <div class="col-md-3"><a href="forum.html" class="btn btn-outline-light w-100 py-3">💬 Forum</a></div>
+                            <div class="col-md-3"><a href="services.html" class="btn btn-warning w-100 py-3 text-dark fw-bold">⚡ Layanan</a></div>
+                            <div class="col-md-3"><a href="#" class="btn btn-outline-warning w-100 py-3 border-warning text-warning fw-bold" onclick="logout()">Logout</a></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        function logout() {
+            localStorage.removeItem('user');
+            window.location.href = 'index.html';
+        }
+    </script>
+</body>
+</html>
