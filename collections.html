@@ -65,6 +65,95 @@
                         </div>
                     </div>
                 </div>
+                                            <div class="d-grid gap-2">
+                                <button class="btn btn-batak py-2" onclick="readPustaha('Hukum Adat Batak')">Baca</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- STATS COLLECTIONS -->
+        <section class="py-5 bg-dark text-white">
+            <div class="container">
+                <div class="row text-center g-4">
+                    <div class="col-md-3 col-6">
+                        <div class="display-4 fw-bold text-warning mb-2">1.247</div>
+                        <div class="h5 text-light">Total Dokumen</div>
+                    </div>
+                    <div class="col-md-3 col-6">
+                        <div class="display-4 fw-bold text-warning mb-2">52</div>
+                        <div class="h5 text-light">Pustaha Asli</div>
+                    </div>
+                    <div class="col-md-3 col-6">
+                        <div class="display-4 fw-bold text-warning mb-2">289K</div>
+                        <div class="h5 text-light">Unduhan</div>
+                    </div>
+                    <div class="col-md-3 col-6">
+                        <div class="display-4 fw-bold text-warning mb-2">98%</div>
+                        <div class="h5 text-light">Kepuasan</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FOOTER IDENTIK -->
+        <!-- COPY dari index.html -->
+
+        <!-- WHATSAPP FLOAT IDENTIK -->
+        <!-- LOGIN MODAL IDENTIK -->
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // SCROLLTO FUNCTION
+        document.querySelectorAll('.scrollto').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            });
+        });
+
+        // SEARCH FUNCTION
+        function searchPustaka() {
+            const query = document.getElementById('searchInput').value.toLowerCase();
+            const results = document.getElementById('searchResults');
+            
+            if(query.length < 2) {
+                results.innerHTML = '';
+                return;
+            }
+            
+            results.innerHTML = `
+                <div class="alert alert-warning shadow-sm border-0">
+                    <div class="d-flex align-items-center">
+                        <i class="fas fa-search fs-3 me-3 text-warning"></i>
+                        <div>
+                            <h6 class="mb-1 fw-bold">${Math.floor(Math.random()*20)+3} hasil untuk "${query}"</h6>
+                            <small class="text-muted">Pustaha Na Bolon, Kamus Batak, Dalihan Na Tolu</small>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        // BOOK FUNCTIONS
+        function readPustaha(bookName) {
+            alert(`📖 Membuka "${bookName}" di E-Reader Batak Toba...\n\n✅ Font aksara Batak aktif\n✅ TTS Batak tersedia\n✅ Kamus otomatis\n\nFitur lengkap segera hadir!`);
+        }
+
+        function downloadPustaha(bookName) {
+            alert(`⬇️ Mengunduh "${bookName}"...\n\n📄 Format: PDF Aksara Batak\n💾 Ukuran: 4-12 MB\n⏱️ Selesai dalam 10 detik`);
+        }
+
+        // LOGIN FUNCTIONS (sama seperti index)
+        function showLogin() { /* sama */ }
+        // ... copy semua login functions dari index.html
+    </script>
+</body>
+</html>
             </div>
         </section>
 
