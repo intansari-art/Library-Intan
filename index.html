@@ -152,3 +152,154 @@
                     </div>
                     <div class="col-lg-3">
                         <h6 class="fw-bold
+                                                    <h6 class="fw-bold mb-3 text-warning">Kontak Cepat</h6>
+                        <div class="mb-3">
+                            <i class="fas fa-phone me-2 text-warning"></i>
+                            <a href="https://wa.me/6281226423048" class="text-light">0812-2642-3048</a>
+                        </div>
+                        <div>
+                            <i class="fas fa-map-marker-alt me-2 text-warning"></i>
+                            <span class="text-light">Sianjur Mungkut, Danau Toba</span>
+                        </div>
+                    </div>
+                </div>
+                <hr class="border-warning opacity-50">
+                <div class="text-center">
+                    <p class="mb-0 text-light">&copy; 2026 The Rooted Library - Perpustakaan Khusus Batak Toba. <strong class="text-warning">Horas!</strong></p>
+                </div>
+            </div>
+        </footer>
+
+        <!-- WHATSAPP FLOAT -->
+        <a href="https://wa.me/6281226423048" class="whatsapp-float">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+
+        <!-- LOGIN MODAL -->
+        <div class="modal fade" id="loginModal" tabindex="-1">
+            <div class="modal-dialog modal-dialog-centered modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header border-0" style="background: linear-gradient(45deg, var(--batak-red), var(--batak-gold)); color: white;">
+                        <h5 class="modal-title fw-bold m-0">
+                            <i class="fas fa-user-shield me-3"></i>Akses Perpustakaan Batak
+                        </h5>
+                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body p-5">
+                        <ul class="nav nav-tabs nav-justified mb-4" id="authTabs" role="tablist">
+                            <li class="nav-item">
+                                <a class="nav-link active fw-bold" id="login-tab" data-bs-toggle="tab" href="#login">🔐 Login</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link fw-bold" id="register-tab" data-bs-toggle="tab" href="#register">📝 Daftar</a>
+                            </li>
+                        </ul>
+                        <div class="tab-content" id="authTabContent">
+                            <!-- LOGIN FORM -->
+                            <div class="tab-pane fade show active" id="login">
+                                <form onsubmit="handleLogin(event)" class="row g-3">
+                                    <div class="col-12">
+                                        <label class="form-label fw-bold fs-5">Username Batak</label>
+                                        <input type="text" class="form-control form-control-lg rounded-pill px-4 py-3" id="loginUsername" placeholder="Contoh: saur_matua" required>
+                                    </div>
+                                    <div class="col-12">
+                                        <label class="form-label fw-bold fs-5">Kata Sandi</label>
+                                        <input type="password" class="form-control form-control-lg rounded-pill px-4 py-3" id="loginPassword" placeholder="******" required>
+                                    </div>
+                                    <div class="col-12">
+                                        <button type="submit" class="btn btn-batak w-100 py-3 fw-bold fs-5 rounded-pill">
+                                            <i class="fas fa-sign-in-alt me-2"></i>Masuk Horas!
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
+                            <!-- REGISTER FORM -->
+                            <div class="tab-pane fade" id="register">
+                                <form onsubmit="handleRegister(event)" class="row g-3">
+                                    <div class="col-md-6">
+                                        <label class="form-label fw-bold">Username</label>
+                                        <input type="text" class="form-control form-control-lg rounded-pill px-4 py-3" id="regUsername" required>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label fw-bold">Nama Batak</label>
+                                        <input type="text" class="form-control form-control-lg rounded-pill px-4 py-3" id="regFullname" placeholder="Nama lengkap Anda" required>
+                                    </div>
+                                    <div class="col-12">
+                                        <label class="form-label fw-bold">Email</label>
+                                        <input type="email" class="form-control form-control-lg rounded-pill px-4 py-3" id="regEmail" required>
+                                    </div>
+                                    <div class="col-12">
+                                        <label class="form-label fw-bold">Kata Sandi</label>
+                                        <input type="password" class="form-control form-control-lg rounded-pill px-4 py-3" id="regPassword" required>
+                                    </div>
+                                    <div class="col-12">
+                                        <button type="submit" class="btn btn-success w-100 py-3 fw-bold fs-5 rounded-pill">
+                                            <i class="fas fa-user-plus me-2"></i>Daftar Anggota Baru
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // GLOBAL FUNCTIONS
+        function showLogin() {
+            new bootstrap.Modal(document.getElementById('loginModal')).show();
+        }
+
+        function handleLogin(e) {
+            e.preventDefault();
+            const username = document.getElementById('loginUsername').value;
+            const password = document.getElementById('loginPassword').value;
+            
+            if (username === 'intan' && password === 'library123') {
+                localStorage.setItem('user', username);
+                alert('✅ Horas! Selamat datang ' + username + ' di Perpustakaan Batak Toba!');
+                bootstrap.Modal.getInstance(document.getElementById('loginModal')).hide();
+                updateLoginStatus();
+                window.location.href = 'dashboard.html';
+            } else {
+                alert('❌ Username/password salah! Coba: intan / library123');
+            }
+        }
+
+        function handleRegister(e) {
+            e.preventDefault();
+            alert('📝 Pendaftaran berhasil! Admin akan verifikasi dalam 24 jam. Horas!');
+            bootstrap.Modal.getInstance(document.getElementById('loginModal')).hide();
+        }
+
+        function updateLoginStatus() {
+            const user = localStorage.getItem('user');
+            const loginBtn = document.getElementById('loginBtn');
+            if (user) {
+                loginBtn.innerHTML = `<i class="fas fa-user-check me-2"></i>Horas, ${user}!`;
+                loginBtn.onclick = function() {
+                    if(confirm('Logout?')) {
+                        localStorage.removeItem('user');
+                        location.reload();
+                    }
+                };
+            }
+        }
+
+        // INIT
+        updateLoginStatus();
+        window.addEventListener('scroll', () => {
+            document.querySelectorAll('.feature-card').forEach((card, i) => {
+                const rect = card.getBoundingClientRect();
+                if(rect.top < window.innerHeight - 100) {
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
