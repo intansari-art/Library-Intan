@@ -1,44 +1,75 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Contact - The Rooted Library</title>
-<style>
-/* CSS sama */
-.contact-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 50px;
-    max-width: 1100px;
-    margin: 60px auto;
-    padding: 0 20px;
-}
+    <!-- Same head -->
+    <title>Kontak - The Rooted Library</title>
+</head>
+<body>
+    <!-- Navbar -->
 
-.contact-form-section, .contact-info {
-    background: rgba(255,255,255,0.95);
-    padding: 40px;
-    border-radius: 25px;
-    box-shadow: 0 20px 50px rgba(0,0,0,0.1);
-}
+    <!-- Hero Contact -->
+    <section class="hero-section py-5 text-center">
+        <div class="container">
+            <h1 class="display-4 fw-bold mb-4">📞 Hubungi Kami</h1>
+            <p class="lead">Siap membantu pelestarian budaya Batak Toba</p>
+        </div>
+    </section>
 
-.contact-form-section h2, .contact-info h2 {
-    color: #1976D2;
-    margin-bottom: 25px;
-    text-align: center;
-}
+    <!-- Contact Grid -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row g-5">
+                <!-- Contact Form -->
+                <div class="col-lg-6">
+                    <div class="card shadow-lg border-0 p-5 rounded-4 h-100">
+                        <h2 class="fw-bold text-primary mb-4">Kirim Pesan Horas!</h2>
+                        <form>
+                            <div class="mb-4">
+                                <label class="form-label fw-bold">Nama Lengkap</label>
+                                <input type="text" class="form-control rounded-pill px-4 py-3" required>
+                            </div>
+                            <div class="row g-3 mb-4">
+                                <div class="col-md-6">
+                                    <label class="form-label fw-bold">No. HP</label>
+                                    <input type="tel" class="form-control rounded-pill px-4 py-3" placeholder="0812-xxx-xxxx">
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label fw-bold">Email</label>
+                                    <input type="email" class="form-control rounded-pill px-4 py-3">
+                                </div>
+                            </div>
+                            <div class="mb-4">
+                                <label class="form-label fw-bold">Pesan</label>
+                                <textarea class="form-control rounded-4 py-3 px-4" rows="5" 
+                                          placeholder="Ceritakan tentang kebutuhan Batak Anda..."></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-batak w-100 py-3 rounded-pill fw-bold fs-5">
+                                <i class="fas fa-paper-plane me-2"></i>Kirim Horas!
+                            </button>
+                        </form>
+                    </div>
+                </div>
 
-.contact-form {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-.contact-form input, .contact-form textarea {
-    padding: 18px;
-    border: 2px solid #E3F2FD;
-    border-radius: 15px;
-    font-size: 16px;
-    transition: all 0.3s;
-}
-.contact-form input:focus, .contact-form textarea:focus {
-   
+                <!-- Contact Info Batak -->
+                <div class="col-lg-6">
+                    <div class="row g-4 h-100">
+                        <div class="col-md-6">
+                            <div class="card h-100 shadow border-0 text-center p-4">
+                                <div class="feature-icon mb-3 text-warning fs-1"><i class="fas fa-map-marker-alt"></i></div>
+                                <h5 class="fw-bold text-dark mb-3">Lokasi</h5>
+                                <p class="text-muted mb-0">Sianjur Mungkut, <br>Danau Toba, <br>Sumatera Utara</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="card h-100 shadow border-0 text-center p-4">
+                                <div class="feature-icon mb-3 text-success fs-1"><i class="fab fa-whatsapp"></i></div>
+                                <h5 class="fw-bold text-dark mb-3">WhatsApp</h5>
+                                <a href="https://wa.me/6281226423048" class="btn btn-success w-100 rounded-pill fw-bold">
+                                    <i class="fab fa-whatsapp me-2"></i>0812-2642-3048
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="card h-100 shadow border-0 text-center p-4">
+                                <div class="feature-icon mb-3 text-primary fs-1"><i class="fas fa-clock"></i></div>
+                                <h5 class="fw-bold text-dark mb-3">Jam Operasional
