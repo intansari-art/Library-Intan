@@ -1,300 +1,123 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>About - The Rooted Library</title>
-<style>
-/* Copy CSS lengkap dari index.html + tambahan berikut */
-
-body {
-    margin:0;
-    font-family: 'Arial', sans-serif;
-    background-image: url('https://images.unsplash.com/photo-1481627834876-b7833e8f5570?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    color: #0D47A1;
-}
-
-.overlay{ background-color: rgba(0,0,0,0.4); min-height:100vh; }
-
-nav{
-    background: linear-gradient(135deg, #1976D2 0%, #42A5F5 100%);
-    padding:15px 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.3);
-}
-
-.nav-left { display: flex; align-items: center; }
-nav a{
-    color: white;
-    margin:0 12px;
-    text-decoration:none;
-    font-weight:600;
-    padding:8px 16px;
-    border-radius:20px;
-    transition: all 0.3s;
-}
-nav a:hover{ 
-    color: #FFEB3B; 
-    background: rgba(255,255,255,0.2);
-    transform: translateY(-2px);
-}
-
-.page-hero {
-    background: linear-gradient(135deg, rgba(25,118,210,0.95), rgba(66,165,245,0.85));
-    color: white;
-    padding: 100px 20px;
-    text-align: center;
-}
-.page-hero h1 {
-    font-size: 3.2em;
-    margin-bottom: 15px;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-}
-.breadcrumb {
-    font-size: 1.1em;
-    opacity: 0.9;
-}
-.breadcrumb a { color: #FFEB3B; text-decoration: none; }
-.breadcrumb a:hover { text-decoration: underline; }
-
-.content-wrapper {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 60px 30px;
-}
-
-.philosophy-section {
-    text-align: center;
-    margin: 60px 0;
-    padding: 50px 40px;
-    background: rgba(255,255,255,0.95);
-    border-radius: 25px;
-    box-shadow: 0 20px 50px rgba(0,0,0,0.1);
-}
-.philosophy-section h2 {
-    color: #1976D2;
-    font-size: 2.8em;
-    margin-bottom: 30px;
-    background: linear-gradient(45deg, #1976D2, #42A5F5);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-.philosophy-text {
-    font-size: 1.3em;
-    line-height: 1.8;
-    color: #333;
-    max-width: 900px;
-    margin: 0 auto;
-}
-
-.vision-mission {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 50px;
-    margin: 80px 0;
-}
-.vm-card {
-    background: linear-gradient(135deg, rgba(25,118,210,0.95), rgba(66,165,245,0.85));
-    color: white;
-    padding: 50px 40px;
-    border-radius: 25px;
-    box-shadow: 0 25px 60px rgba(25,118,210,0.3);
-    position: relative;
-    overflow: hidden;
-}
-.vm-card::before {
-    content: '';
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
-    animation: rotate 20s linear infinite;
-}
-@keyframes rotate {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-}
-.vm-icon {
-    font-size: 4em;
-    margin-bottom: 25px;
-    opacity: 0.9;
-}
-.vm-card h3 {
-    font-size: 2.2em;
-    margin-bottom: 25px;
-    font-weight: bold;
-}
-.vm-card ul {
-    font-size: 1.2em;
-    line-height: 1.8;
-    margin: 0;
-    padding-left: 0;
-}
-.vm-card li {
-    margin-bottom: 12px;
-    position: relative;
-    padding-left: 25px;
-}
-.vm-card li::before {
-    content: '🌱';
-    position: absolute;
-    left: 0;
-}
-
-.team-section {
-    background: rgba(255,255,255,0.95);
-    padding: 60px 40px;
-    border-radius: 25px;
-    margin: 80px 0;
-    text-align: center;
-    box-shadow: 0 20px 50px rgba(0,0,0,0.1);
-}
-.team-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 40px;
-    margin-top: 40px;
-}
-.team-card {
-    padding: 30px 20px;
-    border: 3px solid transparent;
-    border-radius: 20px;
-    transition: all 0.4s;
-    cursor: pointer;
-}
-.team-card:hover {
-    border-color: #1976D2;
-    background: linear-gradient(135deg, #E3F2FD, white);
-    transform: translateY(-10px);
-}
-.team-card h4 { color: #1976D2; margin-bottom: 15px; }
-
-.footer {
-    background: rgba(25,118,210,0.95);
-    color: white;
-    text-align: center;
-    padding: 40px 20px;
-    margin-top: 80px;
-}
-</style>
+    <!-- Same head Batak theme -->
+    <title>Tentang Kami - The Rooted Library</title>
 </head>
-
 <body>
-<div class="overlay">
+    <!-- Navbar -->
 
-<!-- Navbar -->
-<nav>
-    <div class="nav-left">
-        <a href="index.html">🏠 Home</a>
-        <a href="about.html">About</a>
-        <a href="collections.html">Collections</a>
-        <a href="events.html">🎭 Events</a>
-        <a href="services.html">Services</a>
-        <a href="forum.html">Forum</a>
-        <a href="contact.html">Contact</a>
-    </div>
-    <a href="#" onclick="showLogin()" style="background:rgba(255,255,255,0.2);padding:12px 24px;border-radius:25px;font-weight:bold;">🔐 Login</a>
-</nav>
-
-<!-- Page Hero -->
-<div class="page-hero">
-    <h1>About The Rooted Library</h1>
-    <div class="breadcrumb">
-        <a href="index.html">Home</a> → <strong>About</strong>
-    </div>
-</div>
-
-<div class="content-wrapper">
-
-    <!-- Philosophy Section -->
-    <div class="philosophy-section">
-        <h2>🌱 Filosofi "Rooted"</h2>
-        <p class="philosophy-text">
-            Seperti pohon yang kokoh dengan akar yang dalam, <strong>The Rooted Library</strong> menyediakan fondasi 
-            pengetahuan yang kuat untuk semua. Kami percaya bahwa ilmu pengetahuan adalah akar dari kemajuan 
-            peradaban manusia yang berkelanjutan.
-        </p>
-    </div>
-
-    <!-- Visi Misi Section -->
-    <div class="vision-mission">
-        <div class="vm-card">
-            <div class="vm-icon">👁️</div>
-            <h3>Visi</h3>
-            <p style="font-size:1.25em;line-height:1.6;margin-bottom:25px;">
-                Menjadi pusat literasi digital terdepan yang mengakar kuat pada ilmu pengetahuan, menyediakan 
-                akses informasi tanpa batas untuk membangun generasi cerdas dan berkelanjutan di era teknologi.
-            </p>
+    <!-- Hero About -->
+    <section class="hero-section py-5 text-center">
+        <div class="container">
+            <h1 class="display-4 fw-bold mb-4">Tentang Perpustakaan Batak Toba</h1>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb justify-content-center mb-0">
+                    <li class="breadcrumb-item"><a href="index.html" class="text-warning">Beranda</a></li>
+                    <li class="breadcrumb-item active text-white" aria-current="page">Tentang</li>
+                </ol>
+            </nav>
         </div>
-        
-        <div class="vm-card">
-            <div class="vm-icon">🎯</div>
-            <h3>Misi</h3>
-            <ul>
-                <li>Menyediakan koleksi digital berkualitas tinggi (e-book, jurnal, artikel) yang mudah diakses kapan saja dan di mana saja melalui website responsif.</li>
-                <li>Membangun fitur pencarian canggih, navigasi intuitif, dan tampilan menarik bertema alam untuk meningkatkan minat baca dan efisiensi pengguna.</li>
-                <li>Memberikan layanan prima berbasis teknologi (seperti e-reader dan newsletter) guna mendukung pendidikan, penelitian, serta literasi masyarakat Indonesia.</li>
-            </ul>
-        </div>
-    </div>
+    </section>
 
-    <!-- Team Section -->
-    <div class="team-section">
-        <h2 style="color:#1976D2;font-size:2.5em;margin-bottom:20px;">👥 Tim Pengelola</h2>
-        <p style="font-size:1.2em;color:#666;margin-bottom:40px;">
-            Didukung oleh tim profesional yang berdedikasi untuk literasi digital Indonesia
+    <!-- Filosofi Rooted Batak -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-4">
+                    <img src="https://images.unsplash.com/photo-1578632352464-359f4f0d721c?w=600&fit=crop" 
+                         alt="Batak Toba" class="img-fluid rounded-4 shadow-lg">
+                </div>
+                <div class="col-lg-6">
+                    <h2 class="display-6 fw-bold mb-4 text-dark" style="color: var(--batak-red) !important;">
+                        <i class="fas fa-seedling me-2"></i>Filosofi "Rooted" Batak
+                    </h2>
+                    <p class="lead text-muted mb-4">
+                        Seperti pohon waru yang kokoh dengan akar dalam di tanah Batak, 
+                        <strong>The Rooted Library</strong> melestarikan fondasi budaya Batak Toba 
+                        untuk generasi mendatang.
+                    </p>
+                    <div class="row g-3 mb-4">
+                        <div class="col-md-6">
+                            <div class="d-flex align-items-center">
+                                <div class="bg-warning rounded-circle p-3 me-3">
+                                    <i class="fas fa-leaf text-dark fs-4"></i>
+                                </div>
+                                <div>
+                                    <h6 class="fw-bold mb-1">Akar Budaya</h6>
+                                    <p class="text-muted mb-0 small">Preservasi adat Batak</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="d-flex align-items-center">
+                                <div class="bg-warning rounded-circle p-3 me-3">
+                                    <i class="fas fa-globe text-dark fs-4"></i>
+                                </div>
+                                <div>
+                                    <h6 class="fw-bold mb-1">Digital Akses</h6>
+                                    <p class="text-muted mb-0 small">24/7 dari mana saja</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
+    </section>
 
-</div>
+    <!-- Visi Misi Batak -->
+    <section class="py-5" style="background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);">
+        <div class="container">
+            <h2 class="text-center display-5 fw-bold mb-5" style="color: var(--batak-red) !important;">
+                Visi & Misi Kami
+            </h2>
+            <div class="row g-5">
+                <div class="col-lg-6">
+                    <div class="text-center text-lg-start p-5 rounded-4 shadow-lg" style="background: linear-gradient(135deg, var(--batak-red), var(--batak-gold)); color: white;">
+                        <div class="display-6 mb-4">
+                            <i class="fas fa-eye me-3"></i><strong>Visi</strong>
+                        </div>
+                        <p class="lead mb-0">
+                            Menjadi pusat pelestarian digital budaya Batak Toba terdepan di dunia, 
+                            mengakar kuat pada adat Dalihan Na Tolu dan kearifan lokal Sumatera Utara.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="text-center text-lg-start p-5 rounded-4 shadow-lg bg-white border border-warning">
+                        <div class="display-6 mb-4 text-warning">
+                            <i class="fas fa-bullseye me-3"></i><strong>Misi</strong>
+                        </div>
+                        <ul class="lead list-unstyled">
+                            <li class="mb-3"><i class="fas fa-check-circle text-warning me-3"></i>Digitalisasi 1000+ pustaha Batak</li>
+                            <li class="mb-3"><i class="fas fa-check-circle text-warning me-3"></i>Pelestarian bahasa Batak Toba</li>
+                            <li class="mb-3"><i class="fas fa-check-circle text-warning me-3"></i>Edukasi generasi muda Batak</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<!-- Footer -->
-<footer class="footer">
-    <p><strong>&copy; The Rooted Library.</strong> Semua hak dilindungi.</p>
-    <div style="margin-top:20px;">
-        <a href="https://www.instagram.com/intan_soo?igsh=bzI5empoYjE5dGGl" target="_blank" style="color:white;margin:0 20px;font-size:1.5em;">📸</a>
-        <a href="https://wa.me/6281226423048" target="_blank" style="color:white;margin:0 20px;font-size:1.5em;">💬</a>
-    </div>
-</footer>
+    <!-- Tim Batak (placeholder) -->
+    <section class="py-5">
+        <div class="container">
+            <h2 class="text-center display-5 fw-bold mb-5 text-dark">👥 Tim Pengelola</h2>
+            <div class="row g-4">
+                <div class="col-lg-3 col-md-6">
+                    <div class="card h-100 text-center p-4 border-0 shadow-lg">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face" 
+                             class="rounded-circle mx-auto mb-3 shadow" style="width: 120px; height: 120px;">
+                        <h5 class="fw-bold text-primary">Intan Sari</h5>
+                        <p class="text-muted">Pendiri & Ahli Adat Batak</p>
+                    </div>
+                </div>
+                <!-- Tambah tim lainnya -->
+            </div>
+        </div>
+    </section>
 
-<!-- WhatsApp Float -->
-<a href="https://wa.me/6281226423048" style="
-    position:fixed;
-    bottom:25px;right:25px;width:70px;height:70px;z-index:1000;
-"><img src="https://img.icons8.com/color/72/whatsapp--v1.png" style="width:70px;height:70px;border-radius:50%;box-shadow:0 8px 25px rgba(0,0,0,0.4);"></a>
-
-<script>
-function showLogin() {
-    const username = prompt('Masukkan username:');
-    const password = prompt('Masukkan password:');
-    
-    if (username && password) {
-        if (username === 'intan' && password === 'library123') {
-            alert('✅ Selamat datang di The Rooted Library, ' + username + '!');
-            // Bisa tambah localStorage untuk simpan status login
-            localStorage.setItem('loggedIn', 'true');
-            location.reload();
-        } else {
-            alert('❌ Username atau password salah!');
-        }
-    }
-}
-
-// Auto check login status
-if (localStorage.getItem('loggedIn') === 'true') {
-    document.querySelector('a[href="#"][onclick="showLogin()"]').textContent = '👋 Logout';
-    document.querySelector('a[href="#"][onclick="showLogin()"]').onclick = function() {
-        localStorage.removeItem('loggedIn');
-        location.reload();
-    };
-}
-</script>
+    <!-- Footer sama -->
+</body>
+</html>
