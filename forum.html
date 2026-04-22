@@ -1,319 +1,91 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Forum - The Rooted Library</title>
-<style>
-body {
-    margin:0;
-    font-family: 'Arial', sans-serif;
-    background-image: url('https://images.unsplash.com/photo-1481627834876-b7833e8f5570?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    color: #0D47A1;
-}
-
-.overlay{ background-color: rgba(0,0,0,0.4); min-height:100vh; }
-
-nav{
-    background: linear-gradient(135deg, #1976D2 0%, #42A5F5 100%);
-    padding:15px 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.3);
-}
-
-.nav-left { display: flex; align-items: center; }
-nav a{
-    color: white;
-    margin:0 12px;
-    text-decoration:none;
-    font-weight:600;
-    padding:8px 16px;
-    border-radius:20px;
-    transition: all 0.3s;
-}
-nav a:hover{ 
-    color: #FFEB3B; 
-    background: rgba(255,255,255,0.2);
-    transform: translateY(-2px);
-}
-
-.page-hero {
-    background: linear-gradient(135deg, rgba(25,118,210,0.95), rgba(66,165,245,0.85));
-    color: white;
-    padding: 80px 20px;
-    text-align: center;
-}
-
-.forum-container {
-    max-width: 1000px;
-    margin: 40px auto;
-    padding: 0 20px;
-}
-
-.forum-header {
-    text-align: center;
-    margin-bottom: 50px;
-    color: white;
-}
-
-.new-post-form {
-    background: rgba(255,255,255,0.95);
-    padding: 40px;
-    border-radius: 20px;
-    margin-bottom: 40px;
-    box-shadow: 0 15px 40px rgba(0,0,0,0.1);
-}
-.new-post-form h3 {
-    color: #1976D2;
-    margin-bottom: 25px;
-}
-.form-group {
-    margin-bottom: 25px;
-}
-.form-group label {
-    display: block;
-    margin-bottom: 8px;
-    font-weight: bold;
-    color: #333;
-}
-.form-group input, .form-group textarea {
-    width: 100%;
-    padding: 15px;
-    border: 2px solid #E3F2FD;
-    border-radius: 12px;
-    font-size: 16px;
-    transition: border-color 0.3s;
-    box-sizing: border-box;
-}
-.form-group input:focus, .form-group textarea:focus {
-    outline: none;
-    border-color: #1976D2;
-}
-
-.post-list {
-    display: flex;
-    flex-direction: column;
-    gap: 25px;
-}
-.post-card {
-    background: rgba(255,255,255,0.95);
-    border-radius: 20px;
-    padding: 30px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-    border-left: 5px solid #1976D2;
-}
-.post-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 15px;
-}
-.post-author {
-    font-weight: bold;
-    color: #1976D2;
-}
-.post-date {
-    color: #888;
-    font-size: 0.9em;
-}
-.post-stats {
-    display: flex;
-    gap: 20px;
-    color: #666;
-    font-size: 0.9em;
-    margin-top: 15px;
-    padding-top: 15px;
-    border-top: 1px solid #eee;
-}
-
-/* Komentar Style */
-.comments-section {
-    margin-top: 20px;
-    padding-top: 20px;
-    border-top: 2px solid #F0F8FF;
-}
-.comment {
-    background: #F8FBFF;
-    padding: 15px 20px;
-    border-radius: 12px;
-    margin-bottom: 12px;
-    border-left: 4px solid #42A5F5;
-}
-.comment-header {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 8px;
-    font-size: 0.95em;
-}
-.comment-author {
-    font-weight: bold;
-    color: #1976D2;
-}
-.comment-time {
-    color: #999;
-}
-.comment-text {
-    color: #555;
-    line-height: 1.5;
-    margin: 0;
-}
-
-.footer {
-    background: rgba(25,118,210,0.95);
-    color: white;
-    text-align: center;
-    padding: 40px 20px;
-    margin-top: 60px;
-}
-
-.whatsapp-float {
-    position: fixed;
-    bottom: 25px;
-    right: 25px;
-    width: 70px;
-    height: 70px;
-    z-index: 1000;
-}
-</style>
+    <!-- Same head -->
+    <title>Forum Batak - The Rooted Library</title>
 </head>
-
 <body>
-<div class="overlay">
+    <!-- Navbar -->
 
-<!-- Navbar -->
-<nav>
-    <div class="nav-left">
-        <a href="index.html">🏠 Home</a>
-        <a href="about.html">About</a>
-        <a href="collections.html">Collections</a>
-        <a href="services.html">Services</a>
-        <a href="forum.html">Forum</a>
-        <a href="contact.html">Contact</a>
-    </div>
-    <a href="#" onclick="showLogin()" style="background:rgba(255,255,255,0.2);padding:12px 24px;border-radius:25px;font-weight:bold;">🔐 Login</a>
-</nav>
+    <!-- Hero Forum -->
+    <section class="hero-section py-5 text-center">
+        <div class="container">
+            <h1 class="display-4 fw-bold mb-4">💬 Forum Batak Toba</h1>
+            <p class="lead">Diskusi adat, bahasa, dan budaya Batak Toba</p>
+        </div>
+    </section>
 
-<!-- Page Hero -->
-<div class="page-hero">
-    <h1>💬 Forum Diskusi</h1>
-    <p style="font-size:1.3em;">Berbagi rekomendasi buku dan diskusi literasi</p>
-</div>
-
-<div class="forum-container">
-    <!-- New Post Form -->
-    <div class="new-post-form">
-        <h3>✍️ Buat Postingan Baru</h3>
-        <form onsubmit="createPost(event)">
-            <div class="form-group">
-                <label>Judul Diskusi</label>
-                <input type="text" placeholder="Contoh: Rekomendasi novel terbaik 2024" required>
-            </div>
-            <div class="form-group">
-                <label>Pesan</label>
-                <textarea rows="5" placeholder="Tulis diskusi Anda di sini..." required></textarea>
-            </div>
-            <button type="submit" style="background:linear-gradient(135deg,#1976D2,#42A5F5);color:white;padding:15px 40px;border:none;border-radius:25px;font-size:18px;font-weight:bold;cursor:pointer;width:100%;">📤 Posting</button>
-        </form>
-    </div>
-
-    <!-- Post List -->
-    <div class="post-list">
-        <!-- Post 1 -->
-        <div class="post-card">
-            <div class="post-header">
-                <span class="post-author">@intansari</span>
-                <span class="post-date">2 jam yang lalu</span>
-            </div>
-            <h4>🔥 Rekomendasi Buku Web Development Terbaik</h4>
-            <p>Halo teman-teman! Ada yang punya rekomendasi buku web dev yang bagus untuk pemula? Saya sedang belajar HTML, CSS, JS...</p>
-            
-            <div class="post-stats">
-                <span>💬 5 Komentar</span>
-                <span>❤️ 12 Suka</span>
-                <span>👁️ 50 dilihat</span>
-            </div>
-
-            <!-- Komentar -->
-            <div class="comments-section">
-                <div class="comment">
-                    <div class="comment-header">
-                        <span class="comment-author">@budi_dev</span>
-                        <span class="comment-time">1 jam lalu</span>
+    <!-- Forum Container -->
+    <section class="py-5">
+        <div class="container">
+            <!-- New Post Form -->
+            <div class="row justify-content-center">
+                <div class="col-lg-8 mb-5">
+                    <div class="card shadow-lg border-0 rounded-4 p-5 bg-white">
+                        <h3 class="fw-bold text-primary mb-4 text-center">✍️ Buat Diskusi Batak</h3>
+                        <form onsubmit="createBatakPost(event)">
+                            <div class="mb-4">
+                                <label class="form-label fw-bold">Judul Diskusi</label>
+                                <input type="text" class="form-control rounded-pill px-4 py-3" 
+                                       placeholder="Contoh: Arti 'Horas' dalam adat Batak?" required>
+                            </div>
+                            <div class="mb-4">
+                                <label class="form-label fw-bold">Diskusi Anda</label>
+                                <textarea class="form-control rounded-4 py-3 px-4" rows="5" 
+                                          placeholder="Tulis pertanyaan atau sharing tentang budaya Batak..." required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-batak w-100 py-3 rounded-pill fw-bold fs-5">
+                                <i class="fas fa-paper-plane me-2"></i>Posting Horas!
+                            </button>
+                        </form>
                     </div>
-                    <p class="comment-text">"Eloquent JavaScript" dan "You Don't Know JS" series. Bagus untuk pemula!</p>
                 </div>
-                <div class="comment">
-                    <div class="comment-header">
-                        <span class="comment-author">@rina_web</span>
-                        <span class="comment-time">45 menit lalu</span>
+            </div>
+
+            <!-- Forum Posts Batak -->
+            <div class="row g-4">
+                <!-- Post 1: Rekomendasi Pustaha -->
+                <div class="col-lg-8">
+                    <div class="card post-card shadow-lg border-start border-5 border-warning p-4 mb-4">
+                        <div class="d-flex justify-content-between align-items-start mb-3">
+                            <span class="fw-bold text-primary">@saur_matua_batak</span>
+                            <span class="text-muted small">2 jam lalu</span>
+                        </div>
+                        <h4 class="fw-bold mb-3">🔥 Rekomendasi Pustaha Terbaik untuk Pemula</h4>
+                        <p class="text-dark mb-4">Horas! Ada yang punya rekomendasi pustaha Batak untuk pemula? Ingin belajar aksara dan makna adat dasar...</p>
+                        <div class="d-flex gap-4 text-muted small mb-4">
+                            <span><i class="fas fa-comment me-1"></i>12 Balasan</span>
+                            <span><i class="fas fa-heart me-1 text-danger"></i>45 Suka</span>
+                            <span><i class="fas fa-eye me-1"></i>123 Dilihat</span>
+                        </div>
                     </div>
-                    <p class="comment-text">"HTML & CSS" by Jon Duckett. Visualnya keren dan mudah dipahami.</p>
+                </div>
+
+                <!-- Post 2: Arti Dalihan Na Tolu -->
+                <div class="col-lg-8">
+                    <div class="card post-card shadow-lg border-start border-5 border-warning p-4 mb-4">
+                        <div class="d-flex justify-content-between align-items-start mb-3">
+                            <span class="fw-bold text-primary">@anak_batak_toba</span>
+                            <span class="text-muted small">1 hari lalu</span>
+                        </div>
+                        <h4 class="fw-bold mb-3">🤔 Penjelasan Lengkap Dalihan Na Tolu</h4>
+                        <p class="text-dark mb-4">Bisa jelaskan dong filosofi Dalihan Na Tolu dalam kehidupan sehari-hari Batak modern? Sharing pengalaman!</p>
+                        <div class="d-flex gap-4 text-muted small mb-4">
+                            <span><i class="fas fa-comment me-1"></i>28 Balasan</span>
+                            <span><i class="fas fa-heart me-1 text-danger"></i>156 Suka</span>
+                            <span><i class="fas fa-eye me-1"></i>890 Dilihat</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-        
-        <!-- Post 2 -->
-        <div class="post-card">
-            <div class="post-header">
-                <span class="post-author">@budi_literasi</span>
-                <span class="post-date">1 hari yang lalu</span>
-            </div>
-            <h4>📚 Buku Klasik Wajib Baca</h4>
-            <p>Share dong buku klasik favorit kalian! Saya baru selesai "Laskar Pelangi"...</p>
-            
-            <div class="post-stats">
-                <span>💬 3 Komentar</span>
-                <span>❤️ 50 Suka</span>
-                <span>👁️ 70 dilihat</span>
-            </div>
+    </section>
 
-            <!-- Komentar -->
-            <div class="comments-section">
-                <div class="comment">
-                    <div class="comment-header">
-                        <span class="comment-author">@sari_baca</span>
-                        <span class="comment-time">22 jam lalu</span>
-                    </div>
-                    <p class="comment-text">"Bumi Manusia" karya Pramoedya. Wajib banget!</p>
-                </div>
-                <div class="comment">
-                    <div class="comment-header">
-                        <span class="comment-author">@budi_literasi</span>
-                        <span class="comment-time">20 jam lalu</span>
-                    </div>
-                    <p class="comment-text">@sari_baca Sudah masuk list! Makasih 🙏</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- Footer -->
-<footer class="footer" style="background:rgba(25,118,210,0.95);color:white;text-align:center;padding:40px 20px;margin-top:60px;">
-    <p>&copy; The Rooted Library</p>
-</footer>
-
-<!-- WhatsApp -->
-<a href="https://wa.me/6281226423048" class="whatsapp-float" target="_blank" style="position:fixed;bottom:25px;right:25px;width:70px;height:70px;z-index:1000;">
-    <img src="https://img.icons8.com/color/72/whatsapp--v1.png" style="width:70px;height:70px;border-radius:50%;box-shadow:0 8px 25px rgba(0,0,0,0.4);">
-</a>
-
-<script>
-function createPost(e) {
-    e.preventDefault();
-    alert('✅ Postingan berhasil dibuat!');
-}
-
-function showLogin() {
-    alert('🔐 Login untuk membuat post dan komentar!');
-}
-</script>
-
+    <script>
+        function createBatakPost(e) {
+            e.preventDefault();
+            alert('✅ Postingan Batak berhasil diposting! Horas! 🙌');
+        }
+    </script>
 </body>
 </html>
