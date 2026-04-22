@@ -6,300 +6,149 @@
     <title>The Rooted Library - Perpustakaan Batak Toba</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Noto+Sans+Batak:wght@400;500;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --batak-red: #D32F2F;
-            --batak-gold: #FBC02D;
-            --batak-black: #212121;
-            --batak-white: #FFFFFF;
-            --batak-dark: #1A1A1A;
-        }
-        body {
-            font-family: 'Poppins', 'Noto Sans Batak', sans-serif;
-            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 50%, #D32F2F 100%);
-            min-height: 100vh;
-        }
-        .navbar {
-            background: rgba(255,255,255,0.95) !important;
-            backdrop-filter: blur(20px);
-            box-shadow: 0 4px 30px rgba(0,0,0,0.2);
-        }
-        .navbar-brand {
-            font-weight: 700;
-            font-size: 1.8rem;
-            background: linear-gradient(45deg, var(--batak-red), var(--batak-gold));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        .hero-section {
-            background: linear-gradient(135deg, rgba(211,47,47,0.95), rgba(245,192,45,0.85));
-            color: white;
-            padding: 150px 0 100px;
-            position: relative;
-            overflow: hidden;
-        }
-        .hero-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('https://images.unsplash.com/photo-1578632352464-359f4f0d721c?w=1920&auto=format') center/cover;
-            opacity: 0.1;
-            z-index: 0;
-        }
-        .hero-content { position: relative; z-index: 1; }
-        .hero-section h1 {
-            font-size: 4.5rem;
-            font-weight: 800;
-            text-shadow: 3px 3px 10px rgba(0,0,0,0.5);
-            background: linear-gradient(45deg, white, var(--batak-gold));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        .batak-pattern {
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="%23ffffff" opacity="0.1"/><circle cx="75" cy="75" r="1.5" fill="%23D32F2F" opacity="0.2"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
-        }
-        .feature-card {
-            background: rgba(255,255,255,0.95);
-            backdrop-filter: blur(15px);
-            border-radius: 25px;
-            padding: 40px 30px;
-            text-align: center;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
-            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-            border: 2px solid transparent;
-            position: relative;
-            overflow: hidden;
-        }
-        .feature-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(245,192,45,0.2), transparent);
-            transition: left 0.6s;
-        }
-        .feature-card:hover::before { left: 100%; }
-        .feature-card:hover {
-            transform: translateY(-20px) scale(1.02);
-            border-color: var(--batak-gold);
-            box-shadow: 0 35px 80px rgba(0,0,0,0.25);
-        }
-        .feature-icon {
-            font-size: 4rem;
-            margin-bottom: 25px;
-            background: linear-gradient(45deg, var(--batak-red), var(--batak-gold));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        .btn-batak {
-            background: linear-gradient(45deg, var(--batak-red), var(--batak-gold));
-            border: none;
-            border-radius: 50px;
-            padding: 15px 40px;
-            font-weight: 600;
-            color: white;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: all 0.3s ease;
-        }
-        .btn-batak:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 40px rgba(211,47,47,0.4);
-            color: white;
-        }
-        .footer {
-            background: linear-gradient(135deg, var(--batak-black), var(--batak-red));
-            color: white;
-            padding: 60px 0 30px;
-        }
-        .whatsapp-float {
-            background: #25D366;
-            width: 70px;
-            height: 70px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 10px 30px rgba(37,211,102,0.4);
-            transition: all 0.3s ease;
-        }
-        .whatsapp-float:hover {
-            transform: scale(1.1);
-            box-shadow: 0 15px 40px rgba(37,211,102,0.6);
-        }
-        @media (max-width: 768px) {
-            .hero-section h1 { font-size: 3rem; }
-        }
-    </style>
+    <link href="style.css" rel="stylesheet">
 </head>
 <body>
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3">
-        <div class="container">
-            <a class="navbar-brand fw-bold" href="index.html">
-                <i class="fas fa-seedling me-2"></i>The Rooted Library
-            </a>
-            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link px-3 py-2 fw-medium" href="index.html">🏠 Beranda</a></li>
-                    <li class="nav-item"><a class="nav-link px-3 py-2 fw-medium" href="about.html">Tentang</a></li>
-                    <li class="nav-item"><a class="nav-link px-3 py-2 fw-medium" href="collections.html">📚 Koleksi</a></li>
-                    <li class="nav-item"><a class="nav-link px-3 py-2 fw-medium" href="events.html">🎭 Acara</a></li>
-                    <li class="nav-item"><a class="nav-link px-3 py-2 fw-medium" href="services.html">Layanan</a></li>
-                    <li class="nav-item"><a class="nav-link px-3 py-2 fw-medium" href="forum.html">💬 Forum</a></li>
-                    <li class="nav-item"><a class="nav-link px-3 py-2 fw-medium" href="contact.html">Kontak</a></li>
-                    <li class="nav-item ms-2">
-                        <a class="btn btn-batak btn-sm px-4 py-2 fw-medium" href="#" onclick="showLogin()" id="loginBtn">
-                            <i class="fas fa-user me-1"></i> Masuk
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-
-    <!-- Hero Section -->
-    <section class="hero-section">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-7">
-                    <div class="hero-content">
-                        <h1 class="display-3 fw-bold mb-4">Perpustakaan Khusus <br><span class="text-warning">Batak Toba</span></h1>
-                        <p class="lead fs-4 mb-5">Mengakar kuat pada warisan budaya Batak Toba. <br>Preservasi adat, bahasa, dan kearifan lokal Sumatera Utara.</p>
-                        <div class="d-flex flex-column flex-sm-row gap-3">
-                            <a href="collections.html" class="btn btn-batak btn-lg px-5">
-                                <i class="fas fa-book me-2"></i>Koleksi Batak
+    <div class="overlay">
+        <!-- NAVBAR -->
+        <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3">
+            <div class="container">
+                <a class="navbar-brand fw-bold" href="index.html">
+                    <i class="fas fa-seedling me-2"></i>The Rooted Library
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item"><a class="nav-link" href="index.html">🏠 Beranda</a></li>
+                        <li class="nav-item"><a class="nav-link" href="about.html">Tentang</a></li>
+                        <li class="nav-item"><a class="nav-link" href="collections.html">📚 Koleksi</a></li>
+                        <li class="nav-item"><a class="nav-link" href="events.html">🎭 Acara</a></li>
+                        <li class="nav-item"><a class="nav-link" href="services.html">⚡ Layanan</a></li>
+                        <li class="nav-item"><a class="nav-link" href="forum.html">💬 Forum</a></li>
+                        <li class="nav-item"><a class="nav-link" href="contact.html">📞 Kontak</a></li>
+                        <li class="nav-item ms-3">
+                            <a class="btn btn-batak px-4 py-2" href="#" onclick="showLogin()" id="loginBtn">
+                                <i class="fas fa-user me-2"></i>Masuk
                             </a>
-                            <a href="about.html" class="btn btn-outline-light btn-lg px-5">
-                                <i class="fas fa-info-circle me-2"></i>Tentang Kami
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <!-- HERO -->
+        <section class="hero-section">
+            <div class="container">
+                <div class="row align-items-center min-vh-100">
+                    <div class="col-lg-6">
+                        <h1>Horas! Selamat Datang</h1>
+                        <p class="lead mb-5">Perpustakaan digital khusus <strong>Batak Toba</strong> - Pusaka budaya, adat, bahasa, dan kearifan lokal dalam genggaman Anda.</p>
+                        <div class="d-flex gap-3 flex-wrap">
+                            <a href="collections.html" class="btn btn-batak btn-lg px-5 py-3">
+                                <i class="fas fa-book-open me-3"></i>Mulai Baca
+                            </a>
+                            <a href="about.html" class="btn btn-outline-light btn-lg px-5 py-3">
+                                <i class="fas fa-info-circle me-3"></i>Tentang Kami
                             </a>
                         </div>
                     </div>
-                </div>
-                <div class="col-lg-5 text-center">
-                    <img src="https://images.unsplash.com/photo-1578632352464-359f4f0d721c?w=500&h=400&fit=crop" 
-                         alt="Batak Toba Culture" class="img-fluid rounded-4 shadow-lg" style="max-height: 400px; object-fit: cover;">
+                    <div class="col-lg-6 text-center">
+                        <img src="https://images.unsplash.com/photo-1578632352464-359f4f0d721c?w=500&fit=crop" 
+                             alt="Batak Toba" class="img-fluid rounded-4 shadow-lg" style="max-height: 400px; object-fit: cover;">
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Features Batak Toba -->
-    <section class="py-5 batak-pattern">
-        <div class="container">
-            <div class="row text-center mb-5">
-                <div class="col-lg-8 mx-auto">
+        <!-- FEATURES -->
+        <section class="py-5">
+            <div class="container">
+                <div class="text-center mb-5">
                     <h2 class="display-5 fw-bold mb-4" style="background: linear-gradient(45deg, var(--batak-red), var(--batak-gold)); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Pusaka Digital Batak Toba</h2>
-                    <p class="lead text-muted">Koleksi lengkap warisan budaya Batak Toba dalam format digital modern</p>
+                    <p class="lead text-muted">Koleksi lengkap warisan budaya Batak dalam format modern</p>
                 </div>
-            </div>
-            <div class="row g-4">
-                <div class="col-lg-4 col-md-6">
-                    <div class="feature-card h-100">
-                        <div class="feature-icon">📜</div>
-                        <h3 class="h4 fw-bold text-dark mb-3">Pustaha Batak</h3>
-                        <p class="text-muted">Naskah kuno Batak Toba, adat, ramalan, dan pengobatan tradisional</p>
-                        <a href="collections.html# pustaha" class="btn btn-batak mt-3">Jelajahi</a>
+                <div class="row g-4">
+                    <div class="col-lg-4 col-md-6">
+                        <div class="feature-card h-100 text-center p-5">
+                            <div style="font-size: 4.5rem; background: linear-gradient(45deg, var(--batak-red), var(--batak-gold)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 2rem;">📜</div>
+                            <h3 class="h4 fw-bold mb-4 text-dark">Pustaha Batak</h3>
+                            <p class="text-muted mb-4 lead">Naskah kuno Batak Toba tentang ramalan, pengobatan tradisional, dan hukum adat</p>
+                            <a href="collections.html#pustaha" class="btn btn-batak w-100">Jelajahi Pustaha</a>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="feature-card h-100 text-center p-5">
+                            <div style="font-size: 4.5rem; background: linear-gradient(45deg, var(--batak-red), var(--batak-gold)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 2rem;">🗣️</div>
+                            <h3 class="h4 fw-bold mb-4 text-dark">Bahasa Batak</h3>
+                            <p class="text-muted mb-4 lead">Kamus lengkap, tata bahasa, dongeng Batak Toba, dan sastra lisan</p>
+                            <a href="collections.html#bahasa" class="btn btn-batak w-100">Pelajari Bahasa</a>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="feature-card h-100 text-center p-5">
+                            <div style="font-size: 4.5rem; background: linear-gradient(45deg, var(--batak-red), var(--batak-gold)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 2rem;">👑</div>
+                            <h3 class="h4 fw-bold mb-4 text-dark">Adat & Istiadat</h3>
+                            <p class="text-muted mb-4 lead">Dalihan Na Tolu, upacara adat, rumah Bolon, dan filsafat Batak</p>
+                            <a href="collections.html#adat" class="btn btn-batak w-100">Pelajari Adat</a>
+                        </div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="feature-card h-100">
-                        <div class="feature-icon">🗣️</div>
-                        <h3 class="h4 fw-bold text-dark mb-3">Bahasa Batak</h3>
-                        <p class="text-muted">Kamus, tata bahasa, dongeng, dan puisi Batak Toba lengkap</p>
-                        <a href="collections.html#bahasa" class="btn btn-batak mt-3">Pelajari</a>
+            </div>
+        </section>
+
+        <!-- STATS -->
+        <section class="py-5 bg-dark text-white">
+            <div class="container">
+                <div class="row text-center g-4">
+                    <div class="col-md-3 col-6">
+                        <div class="display-4 fw-bold text-warning mb-2">1.200+</div>
+                        <div class="h5 text-muted">Dokumen Batak</div>
+                    </div>
+                    <div class="col-md-3 col-6">
+                        <div class="display-4 fw-bold text-warning mb-2">50+</div>
+                        <div class="h5 text-muted">Pustaha Digital</div>
+                    </div>
+                    <div class="col-md-3 col-6">
+                        <div class="display-4 fw-bold text-warning mb-2">15.000+</div>
+                        <div class="h5 text-muted">Pengguna Aktif</div>
+                    </div>
+                    <div class="col-md-3 col-6">
+                        <div class="display-4 fw-bold text-warning mb-2">24/7</div>
+                        <div class="h5 text-muted">Akses Online</div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="feature-card h-100">
-                        <div class="feature-icon">🎵</div>
-                        <h3 class="h4 fw-bold text-dark mb-3">Seni & Adat</h3>
-                        <p class="text-muted">Gondang, tortor, rumah Bolon, dan upacara adat Batak Toba</p>
-                        <a href="collections.html#seni" class="btn btn-batak mt-3">Lihat Koleksi</a>
+            </div>
+        </section>
+
+        <!-- FOOTER -->
+        <footer class="footer">
+            <div class="container">
+                <div class="row g-4">
+                    <div class="col-lg-4">
+                        <h5 class="mb-4"><i class="fas fa-seedling me-2 text-warning"></i>The Rooted Library</h5>
+                        <p class="text-light mb-3">Perpustakaan digital khusus Batak Toba. Horas mauliate!</p>
+                        <div class="d-flex gap-3">
+                            <a href="https://wa.me/6281226423048" class="text-warning fs-4"><i class="fab fa-whatsapp"></i></a>
+                            <a href="#" class="text-warning fs-4"><i class="fab fa-instagram"></i></a>
+                        </div>
                     </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-4 mb-4">
-                    <h5 class="fw-bold mb-3"><i class="fas fa-seedling me-2"></i>The Rooted Library</h5>
-                    <p class="text-light">Pusat pelestarian budaya Batak Toba digital. Mengakar kuat pada adat dan kearifan lokal.</p>
-                </div>
-                <div class="col-lg-2 col-md-6 mb-4">
-                    <h6 class="fw-bold mb-3">Koleksi</h6>
-                    <ul class="list-unstyled">
-                        <li><a href="collections.html" class="text-light text-decoration-none">Pustaha Batak</a></li>
-                        <li><a href="collections.html" class="text-light text-decoration-none">Bahasa Batak</a></li>
-                        <li><a href="collections.html" class="text-light text-decoration-none">Adat Istiadat</a></li>
-                    </ul>
-                </div>
-                <div class="col-lg-3 col-md-6 mb-4">
-                    <h6 class="fw-bold mb-3">Layanan</h6>
-                    <ul class="list-unstyled">
-                        <li><a href="services.html" class="text-light text-decoration-none">E-Reader Batak</a></li>
-                        <li><a href="forum.html" class="text-light text-decoration-none">Diskusi Budaya</a></li>
-                        <li><a href="events.html" class="text-light text-decoration-none">Acara Adat</a></li>
-                    </ul>
-                </div>
-                <div class="col-lg-3 mb-4">
-                    <h6 class="fw-bold mb-3">Hubungi Kami</h6>
-                    <div class="d-flex gap-3 mb-3">
-                        <a href="https://wa.me/6281226423048" class="text-light fs-4"><i class="fab fa-whatsapp"></i></a>
-                        <a href="https://instagram.com/intan_soo" class="text-light fs-4"><i class="fab fa-instagram"></i></a>
+                    <div class="col-lg-2 col-md-6">
+                        <h6 class="fw-bold mb-3 text-warning">Koleksi</h6>
+                        <ul class="list-unstyled">
+                            <li><a href="collections.html" class="text-light">Pustaha Batak</a></li>
+                            <li><a href="collections.html" class="text-light">Bahasa Batak</a></li>
+                            <li><a href="collections.html" class="text-light">Adat Istiadat</a></li>
+                        </ul>
                     </div>
-                    <p><strong>📍</strong> Sumatera Utara</p>
-                </div>
-            </div>
-            <hr class="border-warning">
-            <div class="text-center">
-                <p class="mb-0 text-light">&copy; 2026 The Rooted Library - Perpustakaan Khusus Batak Toba. Horas!</p>
-            </div>
-        </div>
-    </footer>
-
-    <!-- WhatsApp Float -->
-    <a href="https://wa.me/6281226423048" class="whatsapp-float position-fixed bottom-4 end-4 text-white fs-2 shadow-lg" 
-       style="z-index: 1000; text-decoration: none;">
-        <i class="fab fa-whatsapp"></i>
-    </a>
-
-    <!-- Login Modal (sama seperti sebelumnya tapi dengan tema Batak) -->
-    <div class="modal fade" id="loginModal" tabindex="-1">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content border-0 shadow-lg" style="border-radius: 20px;">
-                <div class="modal-header border-0" style="background: linear-gradient(45deg, var(--batak-red), var(--batak-gold)); color: white;">
-                    <h5 class="modal-title fw-bold"><i class="fas fa-user-shield me-2"></i>Masuk ke Perpustakaan Batak</h5>
-                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
-                </div>
-                <!-- Form login/register sama seperti sebelumnya -->
-            </div>
-        </div>
-    </div>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-    <script>
-        // Login functions sama seperti sebelumnya
-        function showLogin() {
-            new bootstrap.Modal(document.getElementById('loginModal')).show();
-        }
-        // ... rest of login/register functions
-    </script>
-</body>
-</html>
+                    <div class="col-lg-3 col-md-6">
+                        <h6 class="fw-bold mb-3 text-warning">Layanan</h6>
+                        <ul class="list-unstyled">
+                            <li><a href="services.html" class="text-light">E-Reader Batak</a></li>
+                            <li><a href="forum.html" class="text-light">Forum Diskusi</a></li>
+                            <li><a href="events.html" class="text-light">Acara Budaya</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-3">
+                        <h6 class="fw-bold
