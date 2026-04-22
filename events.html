@@ -1,512 +1,98 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Event Perpustakaan - Arsip Kegiatan</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Poppins', sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background: #f8fafc;
-            overflow-x: hidden;
-        }
-
-        /* NAVBAR - Mengikuti style intansari-art */
-        .navbar {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            padding: 1rem 0;
-            position: fixed;
-            top: 0;
-            width: 100%;
-            z-index: 1000;
-            box-shadow: 0 2px 20px rgba(0,0,0,0.08);
-            transition: all 0.3s ease;
-        }
-
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0 2rem;
-        }
-
-        .logo {
-            font-size: 1.8rem;
-            font-weight: 700;
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .nav-menu {
-            display: flex;
-            list-style: none;
-            gap: 2.5rem;
-        }
-
-        .nav-link {
-            color: #475569;
-            text-decoration: none;
-            font-weight: 500;
-            position: relative;
-            transition: all 0.3s ease;
-            padding: 0.5rem 0;
-        }
-
-        .nav-link:hover {
-            color: #667eea;
-        }
-
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: 0;
-            left: 0;
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            transition: width 0.3s ease;
-        }
-
-        .nav-link:hover::after {
-            width: 100%;
-        }
-
-        .hamburger {
-            display: none;
-            flex-direction: column;
-            cursor: pointer;
-            gap: 4px;
-        }
-
-        .hamburger span {
-            width: 25px;
-            height: 3px;
-            background: #667eea;
-            transition: 0.3s;
-        }
-
-        /* HERO SECTION */
-        .hero {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 120px 2rem 80px;
-            text-align: center;
-        }
-
-        .hero h1 {
-            font-size: 3rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            opacity: 0;
-            animation: fadeInUp 1s ease forwards;
-        }
-
-        .hero p {
-            font-size: 1.2rem;
-            opacity: 0.9;
-            max-width: 600px;
-            margin: 0 auto 2rem;
-            animation: fadeInUp 1s ease 0.2s forwards;
-            opacity: 0;
-        }
-
-        /* EVENTS GRID */
-        .events-section {
-            padding: 80px 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            background: linear-gradient(135deg, #2c3e50, #34495e);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .section-subtitle {
-            text-align: center;
-            color: #64748b;
-            font-size: 1.1rem;
-            margin-bottom: 4rem;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .events-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
-            gap: 2rem;
-        }
-
-        .event-card {
-            background: white;
-            border-radius: 24px;
-            overflow: hidden;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.08);
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            cursor: pointer;
-            position: relative;
-            border: 1px solid rgba(255,255,255,0.2);
-        }
-
-        .event-card:hover {
-            transform: translateY(-12px);
-            box-shadow: 0 30px 60px rgba(0,0,0,0.15);
-        }
-
-        .event-image {
-            width: 100%;
-            height: 220px;
-            object-fit: cover;
-            transition: transform 0.4s ease;
-        }
-
-        .event-card:hover .event-image {
-            transform: scale(1.05);
-        }
-
-        .event-content {
-            padding: 2rem;
-            position: relative;
-        }
-
-        .event-date {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            color: white;
-            padding: 0.5rem 1.2rem;
-            border-radius: 50px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            margin-bottom: 1.2rem;
-        }
-
-        .event-title {
-            font-size: 1.4rem;
-            font-weight: 600;
-            margin-bottom: 0.8rem;
-            color: #1e293b;
-            line-height: 1.3;
-        }
-
-        .event-summary {
-            color: #64748b;
-            font-size: 0.95rem;
-            margin-bottom: 1.5rem;
-            line-height: 1.6;
-        }
-
-        .event-details {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.5s ease;
-            margin-top: 1.5rem;
-        }
-
-        .event-details.active {
-            max-height: 600px;
-        }
-
-        .event-details p {
-            margin-bottom: 1.2rem;
-            font-size: 0.9rem;
-            line-height: 1.7;
-            color: #475569;
-        }
-
-        .read-more {
-            color: #667eea;
-            font-weight: 500;
-            cursor: pointer;
-            font-size: 0.9rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            margin: 1.5rem 0 1rem;
-            transition: all 0.3s ease;
-        }
-
-        .read-more:hover {
-            color: #764ba2;
-            transform: translateX(4px);
-        }
-
-        .stats {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 1.5rem;
-            padding-top: 1.5rem;
-            border-top: 1px solid #e2e8f0;
-            gap: 1rem;
-        }
-
-        .stat {
-            flex: 1;
-            text-align: center;
-        }
-
-        .stat-number {
-            font-size: 1.3rem;
-            font-weight: 700;
-            color: #1e293b;
-            margin-bottom: 0.3rem;
-        }
-
-        .stat-label {
-            font-size: 0.8rem;
-            color: #64748b;
-            font-weight: 500;
-        }
-
-        /* ANIMATIONS */
-        @keyframes fadeInUp {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* RESPONSIVE */
-        @media (max-width: 768px) {
-            .hamburger {
-                display: flex;
-            }
-            
-            .nav-menu {
-                position: fixed;
-                left: -100%;
-                top: 70px;
-                flex-direction: column;
-                background-color: white;
-                width: 100%;
-                text-align: center;
-                transition: 0.3s;
-                box-shadow: 0 10px 27px rgba(0,0,0,0.05);
-                padding: 2rem 0;
-            }
-
-            .nav-menu.active {
-                left: 0;
-            }
-
-            .hero h1 {
-                font-size: 2rem;
-            }
-
-            .events-grid {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
-            }
-        }
-    </style>
+    <!-- Same head -->
+    <title>Acara Batak - The Rooted Library</title>
 </head>
 <body>
-    <!-- NAVBAR - Style mirip intansari-art -->
-    <nav class="navbar">
-        <div class="nav-container">
-            <div class="logo">
-                <i class="fas fa-book-open"></i> Perpustakaan
-            </div>
-            <ul class="nav-menu">
-                <li><a href="#" class="nav-link">Beranda</a></li>
-                <li><a href="#" class="nav-link active">Event</a></li>
-                <li><a href="#" class="nav-link">Galeri</a></li>
-                <li><a href="#" class="nav-link">Kontak</a></li>
-            </ul>
-            <div class="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-        </div>
-    </nav>
+    <!-- Navbar -->
 
-    <!-- HERO SECTION -->
-    <section class="hero">
-        <h1>Arsip Kegiatan</h1>
-        <p>Momen-momen berharga dari berbagai event literasi yang pernah kami selenggarakan untuk masyarakat pencinta buku</p>
+    <!-- Hero Events -->
+    <section class="hero-section py-5 text-center">
+        <div class="container">
+            <h1 class="display-4 fw-bold mb-4">🎭 Acara Budaya Batak</h1>
+            <p class="lead">Festival adat, workshop pustaha, dan gondang naposo</p>
+        </div>
     </section>
 
-    <!-- EVENTS SECTION -->
-    <section class="events-section">
-        <h2 class="section-title">Event Terbaru</h2>
-        <p class="section-subtitle">Kegiatan perpustakaan yang telah berhasil menginspirasi ribuan orang untuk mencintai membaca</p>
+    <!-- Events Grid Batak -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row g-4">
+                <!-- Event 1: Festival Adat -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="card event-card shadow-lg h-100 overflow-hidden border-0" onclick="toggleEventDetails(this)">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=250&fit=crop" 
+                             class="card-img-top event-image" alt="Festival Batak">
+                        <div class="card-body p-4">
+                            <div class="event-date bg-warning text-dark px-3 py-2 rounded-pill d-inline-block mb-3 fw-bold small">
+                                <i class="fas fa-calendar-day me-1"></i>15 Des 2024
+                            </div>
+                            <h5 class="card-title fw-bold mb-3">Festival Adat Dalihan Na Tolu</h5>
+                            <p class="text-muted mb-3">Upacara adat lengkap Batak Toba di tepi Danau Toba</p>
+                            <div class="read-more" onclick="event.stopPropagation()">
+                                <i class="fas fa-chevron-down me-2"></i>Lihat Detail
+                            </div>
+                            <div class="stats mt-3">
+                                <div class="stat"><div class="stat-number fw-bold text-primary">500+</div><div class="stat-label small">Peserta</div></div>
+                                <div class="stat"><div class="stat-number fw-bold text-primary">3</div><div class="stat-label small">Hari</div></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-        <div class="events-grid">
-            
-            <!-- EVENT 1 -->
-            <div class="event-card" onclick="toggleDetails(this)">
-                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=220&fit=crop" class="event-image" alt="Storytelling">
-                <div class="event-content">
-                    <div class="event-date">
-                        <i class="fas fa-calendar-day"></i>
-                        22 Sep 2024
-                    </div>
-                    <h3 class="event-title">Storytelling dan Membaca Bersama</h3>
-                    <p class="event-summary">Cerita Rakyat Sumatera Utara: 150+ anak terpikat dengan dongeng legenda lokal</p>
-                    
-                    <div class="event-details">
-                        <p><strong><i class="fas fa-book"></i> Latar Belakang:</strong> Kegiatan ini bertujuan menghidupkan kembali cerita rakyat Sumatera Utara melalui storytelling interaktif. Cerita legenda seperti "Si Borobudur" dan "Putri Gandiwa" disampaikan dengan gaya dramatis.</p>
-                        
-                        <p><strong><i class="fas fa-trophy"></i> Sorotan:</strong><br>
-                        • 150+ peserta anak usia 4-12 tahun<br>
-                        • 5 cerita rakyat Sumut dipresentasikan<br>
-                        • Workshop menggambar karakter cerita</p>
-                        
-                        <p><strong><i class="fas fa-quote-left"></i> Testimoni:</strong> "Anak saya sekarang hafal cerita Si Raja Hutan! Seru sekali!" - Ibu Sari, peserta.</p>
-                    </div>
-                    
-                    <div class="read-more" onclick="event.stopPropagation()">
-                        <i class="fas fa-chevron-down"></i>
-                        Baca detail lengkap
-                    </div>
-                    
-                    <div class="stats">
-                        <div class="stat">
-                            <div class="stat-number">150+</div>
-                            <div class="stat-label">Peserta</div>
+                <!-- Event 2: Workshop Pustaha -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="card event-card shadow-lg h-100 overflow-hidden border-0" onclick="toggleEventDetails(this)">
+                        <img src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=400&h=250&fit=crop" 
+                             class="card-img-top event-image" alt="Workshop Pustaha">
+                        <div class="card-body p-4">
+                            <div class="event-date bg-warning text-dark px-3 py-2 rounded-pill d-inline-block mb-3 fw-bold small">
+                                <i class="fas fa-calendar-day me-1"></i>22 Jan 2025
+                            </div>
+                            <h5 class="card-title fw-bold mb-3">Workshop Membuat Pustaha</h5>
+                            <p class="text-muted mb-3">Pelatihan menulis aksara Batak di daun Lontar</p>
+                            <div class="read-more" onclick="event.stopPropagation()">
+                                <i class="fas fa-chevron-down me-2"></i>Lihat Detail
+                            </div>
+                            <div class="stats mt-3">
+                                <div class="stat"><div class="stat-number fw-bold text-primary">50</div><div class="stat-label small">Slot</div></div>
+                                <div class="stat"><div class="stat-number fw-bold text-primary">Rp250rb</div><div class="stat-label small">Biaya</div></div>
+                            </div>
                         </div>
-                        <div class="stat">
-                            <div class="stat-number">5</div>
-                            <div class="stat-label">Cerita</div>
-                        </div>
-                        <div class="stat">
-                            <div class="stat-number">98%</div>
-                            <div class="stat-label">Kepuasan</div>
+                    </div>
+                </div>
+
+                <!-- Event 3: Gondang Naposo -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="card event-card shadow-lg h-100 overflow-hidden border-0" onclick="toggleEventDetails(this)">
+                        <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=400&h=250&fit=crop" 
+                             class="card-img-top event-image" alt="Gondang Naposo">
+                        <div class="card-body p-4">
+                            <div class="event-date bg-warning text-dark px-3 py-2 rounded-pill d-inline-block mb-3 fw-bold small">
+                                <i class="fas fa-calendar-day me-1"></i>8 Feb 2025
+                            </div>
+                            <h5 class="card-title fw-bold mb-3">Gondang Naposo Live</h5>
+                            <p class="text-muted mb-3">Pertunjukan musik tradisional Batak Toba</p>
+                            <div class="read-more" onclick="event.stopPropagation()">
+                                <i class="fas fa-chevron-down me-2"></i>Lihat Detail
+                            </div>
+                            <div class="stats mt-3">
+                                <div class="stat"><div class="stat-number fw-bold text-primary">200+</div><div class="stat-label small">Penonton</div></div>
+                                <div class="stat"><div class="stat-number fw-bold text-primary">Gratis</div><div class="stat-label small">Masuk</div></div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-
-            <!-- EVENT 2 -->
-            <div class="event-card" onclick="toggleDetails(this)">
-                <img src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=400&h=220&fit=crop" class="event-image" alt="Lokakarya">
-                <div class="event-content">
-                    <div class="event-date">
-                        <i class="fas fa-calendar-day"></i>
-                        10 Okt 2024
-                    </div>
-                    <h3 class="event-title">Lokakarya Pengelolaan Perpustakaan Khusus</h3>
-                    <p class="event-summary">Wilayah Sumatera: 75 pengelola perpustakaan tingkatkan skill digitalisasi</p>
-                    
-                    <div class="event-details">
-                        <p><strong><i class="fas fa-laptop"></i> Latar Belakang:</strong> Pelatihan intensif untuk pengelola perpustakaan khusus di wilayah Sumatera. Fokus pada pengelolaan koleksi digital dan katalogisasi online.</p>
-                        
-                        <p><strong><i class="fas fa-list"></i> Materi Pelatihan:</strong><br>
-                        • Digitalisasi koleksi arsip<br>
-                        • SLiMS (Senayan Library Management System)<br>
-                        • Marketing perpustakaan digital</p>
-                        
-                        <p><strong><i class="fas fa-graduation-cap"></i> Hasil:</strong> 100% peserta berhasil membuat katalog digital. "Pelatihan ini membuka mata kami!" - Pak Budi.</p>
-                    </div>
-                    
-                    <div class="read-more" onclick="event.stopPropagation()">
-                        <i class="fas fa-chevron-down"></i>
-                        Baca detail lengkap
-                    </div>
-                    
-                    <div class="stats">
-                        <div class="stat">
-                            <div class="stat-number">75</div>
-                            <div class="stat-label">Peserta</div>
-                        </div>
-                        <div class="stat">
-                            <div class="stat-number">4</div>
-                            <div class="stat-label">Hari</div>
-                        </div>
-                        <div class="stat">
-                            <div class="stat-number">100%</div>
-                            <div class="stat-label">Sertifikat</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- EVENT 3 -->
-            <div class="event-card" onclick="toggleDetails(this)">
-                <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=400&h=220&fit=crop" class="event-image" alt="Deklarasi">
-                <div class="event-content">
-                    <div class="event-date">
-                        <i class="fas fa-calendar-day"></i>
-                        30 Nov 2024
-                    </div>
-                    <h3 class="event-title">Deklarasi Gerakan Budaya Baca</h3>
-                    <p class="event-summary">200+ komunitas dan instansi komitmen tingkatkan angka baca masyarakat</p>
-                    
-                    <div class="event-details">
-                        <p><strong><i class="fas fa-hands-pressing"></i> Latar Belakang:</strong> Puncak sosialisasi Gerakan Nasional Indonesia Baca. Melibatkan pemerintah, sekolah, dan komunitas dalam komitmen nyata.</p>
-                        
-                        <p><strong><i class="fas fa-check-circle"></i> Komitmen:</strong><br>
-                        • Sekolah: 30 menit baca harian<br>
-                        • Dinas: Anggaran literasi +20%<br>
-                        • Donasi 1000 buku gratis</p>
-                        
-                        <p><strong><i class="fas fa-star"></i> Highlight:</strong> Penandatanganan deklarasi 25 tokoh, flashmob baca massal. "Titik balik budaya baca Sumut!"</p>
-                    </div>
-                    
-                    <div class="read-more" onclick="event.stopPropagation()">
-                        <i class="fas fa-chevron-down"></i>
-                        Baca detail lengkap
-                    </div>
-                    
-                    <div class="stats">
-                        <div class="stat">
-                            <div class="stat-number">200+</div>
-                            <div class="stat-label">Instansi</div>
-                        </div>
-                        <div class="stat">
-                            <div class="stat-number">25</div>
-                            <div class="stat-label">Tokoh</div>
-                        </div>
-                        <div class="stat">
-                            <div class="stat-number">1000</div>
-                            <div class="stat-label">Buku</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
         </div>
     </section>
 
     <script>
-        // Toggle Event Details
-        function toggleDetails(card) {
-            const details = card.querySelector('.event-details');
-            const readMore = card.querySelector('.read-more');
-            const icon = readMore.querySelector('i');
-            
+        function toggleEventDetails(card) {
+            const details = card.querySelector('.event-details') || card.querySelector('.read-more');
             details.classList.toggle('active');
-            
-            if (details.classList.contains('active')) {
-                readMore.innerHTML = '<i class="fas fa-chevron-up"></i> Tutup detail';
-            } else {
-                readMore.innerHTML = '<i class="fas fa-chevron-down"></i> Baca detail lengkap';
-            }
         }
-
-        // Mobile Menu Toggle
-        const hamburger = document.query
+    </script>
+</body>
+</html>
