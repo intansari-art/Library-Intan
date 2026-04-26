@@ -1,41 +1,264 @@
+/* GLOBAL */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* BACKGROUND LIBRARY RETRO (GAMBAR RAK BUKU) */
 body {
-    font-family: 'Poppins', sans-serif;
-    color: #2c3e50;
+  font-family: 'Poppins', sans-serif;
+  color: #2c3e50;
 
-    /* BACKGROUND RAK BUKU */
-    background-image: url('https://i.pinimg.com/736x/c8/b0/7e/c8b07e380215edaaa1903769586a61dc.jpg');
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-    background-repeat: no-repeat;
+  /* GUNAKAN URL GAMBAR RAK BUKU / RETRO LIBRARY KAMU */
+  background-image: url('https://i.pinimg.com/564x/90/42/39/90423905006633548.jpg'); /* Ganti dengan URL yang benar dari pin */
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
 }
 
-/* OVERLAY TIPIS BIAR TEKS TETAP KEBACA */
+/* OVERLAY TIPIS DI BODY SUPAYA TETAP NYAMAN DIBACA, TAPI BACKGROUND KELIHATAN */
 body::before {
-    content: "";
-    position: fixed;
-    inset: 0;
-    background: rgba(0,0,0,0.25); /* gelap tipis */
-    z-index: -1;
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.3); /* hitam tipis */
+  z-index: -1;
 }
 
-/* SECTION BIAR GAK PUTIH PEKAT */
-section, .uji-section {
-    background: rgba(255,255,255,0.45); /* TRANSPARAN */
-    backdrop-filter: blur(5px); /* efek kaca */
-    -webkit-backdrop-filter: blur(5px);
-
-    margin: 30px 0;
-    padding: 30px;
-    border-radius: 20px;
-
-    border: 1px solid rgba(255,255,255,0.3);
+/* NAVBAR DI ATAS */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.2rem 2.5rem;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  z-index: 999;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
 }
 
-/* HERO BIAR NYATU */
+nav a {
+  color: white;
+  text-decoration: none;
+  margin: 0 0.8rem;
+  font-weight: 500;
+  font-size: 0.95rem;
+}
+
+nav a:hover {
+  color: #a8e6cf;
+  text-shadow: 0 0 5px rgba(168, 230, 207, 0.6);
+}
+
+.login-btn {
+  color: #fff;
+  background: #007bff;
+  border: none;
+  padding: 0.6rem 1.1rem;
+  border-radius: 50px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background 0.2s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.login-btn:hover {
+  background: #0056b3;
+}
+
+/* HERO / HEADER UTAMA */
 .hero {
+  text-align: center;
+  color: white;
+  padding: 100px 0;
+  text-shadow: 0 3px 10px rgba(0, 0, 0, 0.8);
+
+  background: rgba(0, 0, 0, 0.4);
+  border-radius: 20px;
+  margin: 80px 20px 30px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  max-width: 900px;
+  margin-inline: auto;
+}
+
+/* SECTION: TRANSPARAN, EFEK KACA, TIDAK SOLID PUTIH */
+section, .uji-section {
+  background: rgba(255, 255, 255, 0.45); /* TRANSPARAN */
+  backdrop-filter: blur(7px);          /* efek kaca */
+  -webkit-backdrop-filter: blur(7px);
+
+  margin: 30px 20px;
+  padding: 30px;
+  border-radius: 20px;
+
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+section h2,
+section h3 {
+  margin-bottom: 1rem;
+  color: #2c3e50;
+}
+
+/* POPUP LOGIN (modal) */
+.login-modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  align-items: center;
+  justify-content: center;
+  z-index: 9000;
+}
+
+.login-box {
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(10px);
+  padding: 2rem;
+  border-radius: 20px;
+  width: 340px;
+  position: relative;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+}
+
+.login-box h3 {
+  margin-bottom: 1rem;
+  color: #2c3e50;
+  text-align: center;
+}
+
+.input-field {
+  width: 100%;
+  padding: 0.7rem 0.9rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.85);
+  font-size: 0.95rem;
+}
+
+.input-field:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.2);
+}
+
+.submit-btn {
+  width: 100%;
+  padding: 0.7rem;
+  background: #007bff;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  cursor: pointer;
+}
+
+.submit-btn:hover {
+  background: #0056b3;
+}
+
+.login-box span {
+  font-size: 0.85rem;
+  color: #495057;
+}
+
+.login-box span a {
+  color: #007bff;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255, 255, 255, 0.8);
+  font-size: 1.1rem;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.close-btn:hover {
+  background: #ff6b6b;
+  color: white;
+}
+
+/* POPUP WHATSAPP (kanan bawah) */
+.whatsapp-float {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 8999;
+}
+
+.whatsapp-float a {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #25d366;
+  color: white;
+  padding: 10px 16px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.9rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  transition: background 0.2s ease;
+}
+
+.whatsapp-float a:hover {
+  background: #128c7e;
+}
+
+/* RESPONSIF: MOBILE */
+@media (max-width: 768px) {
+  nav {
+    flex-direction: column;
+    padding: 1rem;
+    gap: 0.5rem;
+  }
+
+  nav div {
+    margin: 0.5rem 0;
     text-align: center;
-    color: white;
-    padding: 80px 0;
-    text-shadow: 0 3px 10px rgba(0,0,0,0.8);
+  }
+
+  nav a {
+    margin: 0 0.5rem;
+    font-size: 0.9rem;
+  }
+
+  .hero {
+    margin: 120px 15px 25px;
+    padding: 60px 15px;
+  }
+
+  section, .uji-section {
+    margin: 20px 10px;
+    padding: 20px;
+    border-radius: 15px;
+  }
 }
