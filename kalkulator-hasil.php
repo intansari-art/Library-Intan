@@ -1,56 +1,31 @@
 <!DOCTYPE html>
-<html lang="id">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hasil Kalkulator</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <nav class="navbar">
-        <div class="nav-brand">The Rooted Library</div>
-        <a href="uji-coba.html" class="login-btn">← Kembali</a>
-    </nav>
-
-    <section class="hero">
-        <div class="container">
-            <h1>📊 Hasil Perhitungan</h1>
-            <div id="hasilDisplay" class="hasil-box">
-                <p>Memuat hasil...</p>
-            </div>
-        </div>
-    </section>
+    <div class="container" style="text-align: center; padding: 100px 20px;">
+        <h1 style="color: #ff9800; font-size: 48px;">HASIL</h1>
+        <div id="result" style="font-size: 36px; margin: 40px 0; color: #2196f3;"></div>
+        <a href="uji-coba.html" class="cta-btn" style="display: inline-block;">Kembali</a>
+    </div>
 
     <script>
-        const a1 = sessionStorage.getItem('calc_a1');
-        const a2 = sessionStorage.getItem('calc_a2');
-        const op = sessionStorage.getItem('calc_op');
-        
-        const display = document.getElementById('hasilDisplay');
+        const urlParams = new URLSearchParams(window.location.search);
+        const a1 = urlParams.get('a1');
+        const a2 = urlParams.get('a2');
+        const op = urlParams.get('op');
         
         if (a1 && a2 && op) {
-            let hasil, operator;
-            const num1 = parseFloat(a1);
-            const num2 = parseFloat(a2);
-            
+            let hasil;
             switch(op) {
-                case '+': hasil = num1 + num2; operator = '+'; break;
-                case '-': hasil = num1 - num2; operator = '-'; break;
-                case '*': hasil = num1 * num2; operator = '×'; break;
-                case '/': 
-                    hasil = num2 !== 0 ? num1 / num2 : 'Error: Tidak bisa dibagi nol';
-                    operator = '÷'; 
-                    break;
+                case '+': hasil = parseFloat(a1) + parseFloat(a2); break;
+                case '-': hasil = parseFloat(a1) - parseFloat(a2); break;
+                case '*': hasil = parseFloat(a1) * parseFloat(a2); break;
+                case '/': hasil = parseFloat(a1) / parseFloat(a2); break;
             }
-            
-            display.innerHTML = `
-                <h2 style="font-size: 3rem; color: #ff6b35;">
-                    ${a1} ${operator} ${a2} = <strong>${hasil}</strong>
-                </h2>
-                <p style="font-size: 1.5rem;">Hasil: <span style="color:#ff6b35;">${hasil}</span></p>
-            `;
-        } else {
-            display.innerHTML = '<h2>❌ Tidak ada data perhitungan</h2><p>Kembali ke <a href="uji-coba.html">Uji Coba</a></p>';
+            document.getElementById('result').textContent = `${a1} ${op} ${a2} = ${hasil}`;
         }
     </script>
 </body>
