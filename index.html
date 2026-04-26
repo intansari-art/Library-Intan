@@ -1,46 +1,114 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-<meta charset="UTF-8">
-<title>The Rooted Library</title>
-<link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Rooted Library - Perpustakaan Budaya Batak Toba</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 </head>
-
 <body>
+    <!-- Header -->
+    <header>
+        <nav class="navbar">
+            <div class="nav-brand">
+                <h2>The Rooted Library</h2>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="dashboard.html">Dashboard</a></li>
+                <li><a href="katalog.html">Katalog</a></li>
+                <li><a href="event.html">Event</a></li>
+                <li><a href="diskusi.html">Diskusi</a></li>
+                <li><a href="uji-coba.html">Uji Coba</a></li>
+            </ul>
+            <div class="nav-right">
+                <a href="login.html" class="login-btn">Login Anggota</a>
+            </div>
+        </nav>
+    </header>
 
-<header>
-<h1>The Rooted Library</h1>
-<p>Perpustakaan Digital Budaya Batak Toba</p>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>The Rooted Library</h1>
+            <p>Perpustakaan Digital Khusus Budaya Batak Toba</p>
+            <a href="katalog.html" class="cta-btn">Jelajahi Katalog</a>
+        </div>
+    </section>
 
-<nav>
-<a href="index.html">Dashboard</a>
-<a href="about.html">About Us</a>
-<a href="katalog.html">Katalog</a>
-<a href="event.html">Event</a>
-<a href="ulasan.html">Diskusi</a>
-<a href="uji-coba/belajar.php">Uji Coba</a>
-</nav>
+    <!-- About Section -->
+    <section class="about">
+        <div class="container">
+            <h2>Tentang Kami</h2>
+            <div class="about-grid">
+                <div class="about-card">
+                    <h3>Visi</h3>
+                    <p>Menjadi pusat literasi budaya Batak Toba berbasis digital yang terdepan dan terpercaya.</p>
+                </div>
+                <div class="about-card">
+                    <h3>Misi</h3>
+                    <ul>
+                        <li>Melestarikan warisan budaya Batak Toba melalui literasi digital</li>
+                        <li>Menyediakan akses mudah ke sumber pengetahuan budaya Batak</li>
+                        <li>Mendorong generasi muda mencintai dan memahami identitas Batak Toba</li>
+                        <li>Membangun komunitas pecinta budaya Batak yang aktif berdiskusi</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<div class="login">Login Anggota</div>
-</header>
+    <!-- Katalog Preview -->
+    <section class="katalog-preview">
+        <div class="container">
+            <h2>Katalog Terpilih</h2>
+            <div class="katalog-grid">
+                <div class="book-card">
+                    <h4>Budaya Batak - Siregar</h4>
+                    <p>Penulis: S. Siregar</p>
+                    <a href="katalog.html">Lihat Detail</a>
+                </div>
+                <div class="book-card">
+                    <h4>Sejarah Toba - Hutapea</h4>
+                    <p>Penulis: R. Hutapea</p>
+                    <a href="katalog.html">Lihat Detail</a>
+                </div>
+                <div class="book-card">
+                    <h4>Media Digital - Lestari</h4>
+                    <p>Penulis: A. Lestari</p>
+                    <a href="katalog.html">Lihat Detail</a>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<section class="hero">
-<h2>Selamat datang di Perpustakaan Digital The Rooted Library</h2>
-<p>Platform literasi digital untuk melestarikan budaya Batak Toba melalui buku, diskusi, dan kegiatan budaya.</p>
-</section>
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>The Rooted Library</h3>
+                    <p>Perpustakaan Khusus Budaya Batak Toba</p>
+                </div>
+                <div class="footer-section">
+                    <h4>About Me</h4>
+                    <p>Dibuat dengan ❤️ untuk melestarikan budaya Batak Toba</p>
+                    <a href="https://www.youtube.com/watch?v=Vu-5KnFsIKw" target="_blank">Tonton Adat Batak Toba</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 The Rooted Library. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
 
-<footer>
-<div class="about-me">
-<p>About Me: Mahasiswa pembelajar PHP & Web Development</p>
+    <!-- WhatsApp Chat Button -->
+    <div class="whatsapp-btn">
+        <a href="https://wa.me/6281226423048" target="_blank">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+        </a>
+    </div>
 
-<iframe width="300" src="https://www.youtube.com/embed/Vu-5KnFsIKw"></iframe>
-</div>
-
-<p>The Rooted Library | Perpustakaan Khusus Budaya Batak Toba</p>
-</footer>
-
-<!-- WA FLOAT -->
-<a href="https://wa.me/6281226423048" class="wa">Chat</a>
-
+    <script src="script.js"></script>
 </body>
 </html>
