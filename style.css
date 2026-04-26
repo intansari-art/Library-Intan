@@ -1,27 +1,96 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: 
-        url('https://img3.pngtree.com/background/20240610/original/pngtree-a-library-with-books-and-lights-tranquil-setting-glowing-bookshelves-picture-image_18915938.jpg') center/cover fixed !important;
+    /* BACKGROUND RAK BUKU FULL NO OVERLAY */
+    background-image: url('https://img3.pngtree.com/background/20240610/original/pngtree-a-library-with-books-and-lights-tranquil-setting-glowing-bookshelves-picture-image_18915938.jpg');
+    background-size: cover;
+    background-position: center;
     background-attachment: fixed;
     color: #333;
+    min-height: 100vh;
 }
 
-/* KOTAK TRANSPARENT TIPIS */
+/* NAVBAR FIX - NGGAK NGUMPUL */
+.navbar {
+    background: rgba(0,0,0,0.85);
+    padding: 15px 5%;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 15px rgba(0,0,0,0.3);
+}
+
+.nav-brand {
+    color: #ffd700;
+    font-size: 28px;
+    font-weight: bold;
+    flex: 1;
+    text-align: center;
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+    flex: 2;
+    justify-content: center;
+}
+
+.nav-menu a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 16px;
+    white-space: nowrap;
+}
+
+.nav-menu a.active {
+    color: #ffd700;
+}
+
+.login-btn {
+    background: #25D366;
+    color: white !important;
+    padding: 12px 25px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+/* CONTAINER */
+.container {
+    max-width: 1100px;
+    margin: 120px auto 0;
+    padding: 0 20px;
+    min-height: calc(100vh - 200px);
+}
+
+/* KOTAK TIPIS BANGET - BACKGROUND 100% VISIBLE */
 .uji-section {
-    background: rgba(255,255,255,0.8);
-    backdrop-filter: blur(3px);
-    margin: 25px 0;
+    background: rgba(255,255,255,0.7);
+    backdrop-filter: blur(2px);
+    margin: 30px 0;
     padding: 25px;
-    border-radius: 12px;
-    border: 2px solid rgba(255,255,255,0.4);
-    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    border-radius: 15px;
+    border: 1px solid rgba(255,255,255,0.5);
+    box-shadow: 0 3px 15px rgba(0,0,0,0.15);
 }
 
-/* WARNA BORDER EGANLIB */
-.uji-section.blue { border-color: #3498db; }
-.uji-section.orange { border-color: #e67e22; }
-.uji-section.green { border-color: #27ae60; }
-.uji-section.purple { border-color: #9b59b6; }
+/* WARNA BORDER */
+.uji-section.blue { border-color: rgba(52,152,219,0.8); }
+.uji-section.orange { border-color: rgba(230,126,34,0.8); }
+.uji-section.green { border-color: rgba(39,174,96,0.8); }
+.uji-section.purple { border-color: rgba(155,89,182,0.8); }
 
 .uji-section h2 {
     font-size: 22px;
@@ -30,9 +99,10 @@ body {
     color: #2c3e50;
     font-weight: bold;
     border-bottom: 3px solid;
-    padding-bottom: 8px;
+    padding-bottom: 10px;
     width: fit-content;
-    margin: 0 auto 20px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .uji-section.blue h2 { border-color: #3498db; }
@@ -40,57 +110,116 @@ body {
 .uji-section.green h2 { border-color: #27ae60; }
 .uji-section.purple h2 { border-color: #9b59b6; }
 
-/* PHP BOX BIRU TIPIS */
+/* PHP BOX */
 .php-box {
     background: rgba(227,242,253,0.9);
     border-left: 5px solid #3498db;
     padding: 20px;
     margin: 15px 0;
-    max-height: 400px;
+    max-height: 420px;
     overflow-y: auto;
     font-family: 'Courier New', monospace;
     font-size: 15px;
-    line-height: 1.8;
-    border-radius: 8px;
+    line-height: 1.9;
+    border-radius: 10px;
 }
 
-/* FORM KOMPAK */
+/* FORM */
 input, select {
     width: 100%;
-    padding: 12px;
+    padding: 12px 15px;
     margin: 8px 0;
-    border: 2px solid #ddd;
+    border: 2px solid #bdc3c7;
     border-radius: 8px;
     font-size: 15px;
+    background: rgba(255,255,255,0.9);
 }
 
 button {
-    background: #3498db;
+    background: linear-gradient(45deg, #3498db, #2980b9);
     color: white;
-    padding: 12px 24px;
+    padding: 12px 25px;
     border: none;
-    border-radius: 20px;
+    border-radius: 22px;
     font-weight: 600;
     cursor: pointer;
-    margin: 3px;
+    margin: 5px;
 }
 
-/* TABLE KOMPAK */
+/* TABLE */
 .crud-table {
     width: 100%;
     border-collapse: collapse;
-    margin-top: 15px;
+    margin-top: 20px;
     font-size: 14px;
 }
 
 .crud-table th {
-    background: #9b59b6;
+    background: linear-gradient(45deg, #9b59b6, #8e44ad);
     color: white;
-    padding: 12px 8px;
+    padding: 13px 10px;
 }
 
 .crud-table td {
-    padding: 10px 8px;
+    padding: 12px 10px;
 }
 
-/* SEMUA LAINNYA SAMA */
+/* FOOTER */
+footer {
+    background: rgba(0,0,0,0.9);
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 40px;
+}
+
+.footer-content {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 20px;
+    font-size: 16px;
+}
+
+/* WA */
+.whatsapp-btn {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    z-index: 1000;
+}
+
+.whatsapp-btn a {
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    background: #25D366;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* RESPONSIVE NAVBAR FIX */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        gap: 10px;
+        padding: 15px 20px;
+    }
+    
+    .nav-menu {
+        order: 3;
+        width: 100%;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+    
+    .login-btn {
+        order: 2;
+    }
+    
+    .uji-section {
+        margin: 20px 10px;
+        padding: 20px;
+    }
+}
