@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <!-- NAVBAR SIMPEL -->
     <nav class="navbar">
         <div class="nav-brand">The Rooted Library</div>
         <ul class="nav-menu">
@@ -17,62 +18,53 @@
     </nav>
 
     <div class="container">
-        <!-- 1. BELAJAR PHP -->
-        <section style="background: rgba(255,255,255,0.95); padding: 40px; border-radius: 20px; margin: 40px 0;">
-            <h2 style="text-align: center; color: #2196f3; border-bottom: 4px solid #2196f3; padding-bottom: 15px;">
-                1. Belajar PHP 1000 Hari
-            </h2>
-            <div class="php-box" id="phpDays" style="background: #e3f2fd; border-left: 6px solid #2196f3; padding: 25px; font-family: monospace; font-size: 16px; line-height: 2; max-height: 500px; overflow-y: auto; border-radius: 12px;">
-                Loading...
+        
+        <!-- 1. BELAJAR PHP - BIRU -->
+        <div class="uji-section blue">
+            <h2>1. Belajar PHP</h2>
+            <div class="php-box" id="phpDays">
+                Loading 1000 hari...
             </div>
-        </section>
+        </div>
 
-        <!-- 2. KALKULATOR -->
-        <section style="background: rgba(255,255,255,0.95); padding: 40px; border-radius: 20px; margin: 40px 0;">
-            <h2 style="text-align: center; color: #ff9800; border-bottom: 4px solid #ff9800; padding-bottom: 15px;">
-                2. Kalkulator Operasi Bilangan
-            </h2>
-            <form action="kalkulator-hasil.html" method="GET" style="max-width: 500px; margin: 0 auto;">
-                <input type="number" name="a1" placeholder="Masukkan Angka 1" required style="margin-bottom: 15px;">
-                <select name="op" style="margin-bottom: 15px;">
+        <!-- 2. KALKULATOR - ORANYE -->
+        <div class="uji-section orange">
+            <h2>Kalkulator Operasi Bilangan</h2>
+            <form action="kalkulator-hasil.html" method="GET">
+                <input type="number" name="a1" placeholder="Masukkan Angka 1" required>
+                <select name="op">
                     <option value="+">Tambah (+)</option>
                     <option value="-">Kurang (-)</option>
                     <option value="*">Kali (*)</option>
                     <option value="/">Bagi (/)</option>
                 </select>
-                <input type="number" name="a2" placeholder="Masukkan Angka 2" required style="margin-bottom: 20px;">
-                <button type="submit" style="width: 100%;">Hitung</button>
-                <p style="text-align: center; margin-top: 15px; font-size: 14px; color: #666;">
-                    Pilih angka dan klik hitung
-                </p>
+                <input type="number" name="a2" placeholder="Masukkan Angka 2" required>
+                <button type="submit">Hitung</button>
+                <p>Pilih angka dan klik hitung (menu berhitung)</p>
             </form>
-        </section>
+        </div>
 
-        <!-- 3. LOGIN -->
-        <section style="background: rgba(255,255,255,0.95); padding: 40px; border-radius: 20px; margin: 40px 0;">
-            <h2 style="text-align: center; color: #4caf50; border-bottom: 4px solid #4caf50; padding-bottom: 15px;">
-                3. Sistem Login
-            </h2>
-            <form style="max-width: 400px; margin: 0 auto;">
-                <input type="text" name="user" placeholder="Username" required>
-                <input type="password" name="pass" placeholder="Password" required>
+        <!-- 3. LOGIN - HIJAU -->
+        <div class="uji-section green">
+            <h2>Menu Login</h2>
+            <form>
+                <input type="text" name="username" placeholder="Username">
+                <input type="password" name="password" placeholder="Password">
                 <button type="submit">Login</button>
             </form>
-        </section>
+        </div>
 
-        <!-- 4. CRUD -->
-        <section style="background: rgba(255,255,255,0.95); padding: 40px; border-radius: 20px; margin: 40px 0;">
-            <h2 style="text-align: center; color: #9c27b0; border-bottom: 4px solid #9c27b0; padding-bottom: 15px;">
-                4. Sistem Manajemen Database (CRUD)
-            </h2>
-            <form style="max-width: 500px; margin: 0 auto 30px;">
+        <!-- 4. DATABASE - UNGU -->
+        <div class="uji-section purple">
+            <h2>Sistem Manajemen Database (CRUD)</h2>
+            <form style="margin-bottom: 20px;">
                 <input type="text" name="judul" placeholder="Judul Buku...">
                 <input type="text" name="penulis" placeholder="Penulis...">
                 <input type="number" name="tahun" placeholder="Tahun">
                 <button type="submit">Tambah</button>
             </form>
             
-            <table class="crud-table" style="width: 100%; margin: 0 auto;">
+            <table class="crud-table">
                 <thead>
                     <tr>
                         <th>ID</th>
@@ -88,25 +80,24 @@
                         <td>E</td>
                         <td>Siregar</td>
                         <td>2023</td>
-                        <td><button>Simpan</button> <button style="background: #f44336; color: white;">Hapus</button></td>
+                        <td><button>Simpan</button> <button>Hapus</button></td>
                     </tr>
                     <tr>
                         <td>5</td>
                         <td>Lask</td>
                         <td>Hutapea</td>
                         <td>2022</td>
-                        <td><button>Simpan</button> <button style="background: #f44336; color: white;">Hapus</button></td>
+                        <td><button>Simpan</button> <button>Hapus</button></td>
                     </tr>
                 </tbody>
             </table>
-        </section>
+        </div>
+
     </div>
 
     <footer>
-        <div class="footer-content">
-            <div>The Rooted Library<br>Perpustakaan Khusus Budaya Batak Toba</div>
-        </div>
-        <div class="footer-bottom">&copy; 2025</div>
+        <div class="footer-content">The Rooted Library<br>Perpustakaan Khusus Budaya Batak Toba</div>
+        <div class="footer-bottom">&copy; 2026</div>
     </footer>
 
     <div class="whatsapp-btn">
@@ -116,18 +107,18 @@
     </div>
 
     <script>
-        // EXACT 1000 HARI FORMAT
+        // 1000 HARI EXACT
         const phpBox = document.getElementById('phpDays');
-        let i = 1;
-        const timer = setInterval(() => {
-            if (i <= 1000) {
-                phpBox.innerHTML += `Ini adalah hari ke-${i} belajar PHP<br>`;
-                i++;
+        let day = 1;
+        const interval = setInterval(() => {
+            if (day <= 1000) {
+                phpBox.innerHTML += `Ini adalah hari ke-${day} belajar PHP<br>`;
+                day++;
                 phpBox.scrollTop = phpBox.scrollHeight;
             } else {
-                clearInterval(timer);
+                clearInterval(interval);
             }
-        }, 2);
+        }, 3);
     </script>
 </body>
 </html>
