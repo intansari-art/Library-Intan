@@ -7,102 +7,127 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- NAVBAR SAMA -->
+    <nav class="navbar">
+        <div class="nav-brand">The Rooted Library</div>
+        <ul class="nav-menu">
+            <li><a href="index.html">Dashboard</a></li>
+            <li><a href="uji-coba.html" class="active">Uji Coba</a></li>
+        </ul>
+        <a href="login.html" class="login-btn">Login Anggota</a>
+    </nav>
 
     <div class="container">
-        <section>
-            <h1>🧪 Ruang Uji Coba</h1>
+        <!-- 1. BELAJAR PHP -->
+        <section style="background: rgba(255,255,255,0.95); padding: 40px; border-radius: 20px; margin: 40px 0;">
+            <h2 style="text-align: center; color: #2196f3; border-bottom: 4px solid #2196f3; padding-bottom: 15px;">
+                1. Belajar PHP 1000 Hari
+            </h2>
+            <div class="php-box" id="phpDays" style="background: #e3f2fd; border-left: 6px solid #2196f3; padding: 25px; font-family: monospace; font-size: 16px; line-height: 2; max-height: 500px; overflow-y: auto; border-radius: 12px;">
+                Loading...
+            </div>
+        </section>
+
+        <!-- 2. KALKULATOR -->
+        <section style="background: rgba(255,255,255,0.95); padding: 40px; border-radius: 20px; margin: 40px 0;">
+            <h2 style="text-align: center; color: #ff9800; border-bottom: 4px solid #ff9800; padding-bottom: 15px;">
+                2. Kalkulator Operasi Bilangan
+            </h2>
+            <form action="kalkulator-hasil.html" method="GET" style="max-width: 500px; margin: 0 auto;">
+                <input type="number" name="a1" placeholder="Masukkan Angka 1" required style="margin-bottom: 15px;">
+                <select name="op" style="margin-bottom: 15px;">
+                    <option value="+">Tambah (+)</option>
+                    <option value="-">Kurang (-)</option>
+                    <option value="*">Kali (*)</option>
+                    <option value="/">Bagi (/)</option>
+                </select>
+                <input type="number" name="a2" placeholder="Masukkan Angka 2" required style="margin-bottom: 20px;">
+                <button type="submit" style="width: 100%;">Hitung</button>
+                <p style="text-align: center; margin-top: 15px; font-size: 14px; color: #666;">
+                    Pilih angka dan klik hitung
+                </p>
+            </form>
+        </section>
+
+        <!-- 3. LOGIN -->
+        <section style="background: rgba(255,255,255,0.95); padding: 40px; border-radius: 20px; margin: 40px 0;">
+            <h2 style="text-align: center; color: #4caf50; border-bottom: 4px solid #4caf50; padding-bottom: 15px;">
+                3. Sistem Login
+            </h2>
+            <form style="max-width: 400px; margin: 0 auto;">
+                <input type="text" name="user" placeholder="Username" required>
+                <input type="password" name="pass" placeholder="Password" required>
+                <button type="submit">Login</button>
+            </form>
+        </section>
+
+        <!-- 4. CRUD -->
+        <section style="background: rgba(255,255,255,0.95); padding: 40px; border-radius: 20px; margin: 40px 0;">
+            <h2 style="text-align: center; color: #9c27b0; border-bottom: 4px solid #9c27b0; padding-bottom: 15px;">
+                4. Sistem Manajemen Database (CRUD)
+            </h2>
+            <form style="max-width: 500px; margin: 0 auto 30px;">
+                <input type="text" name="judul" placeholder="Judul Buku...">
+                <input type="text" name="penulis" placeholder="Penulis...">
+                <input type="number" name="tahun" placeholder="Tahun">
+                <button type="submit">Tambah</button>
+            </form>
             
-            <!-- 1. BELAJAR PHP 1000 HARI -->
-            <div class="uji-section">
-                <h2>1. Belajar PHP 1000 Hari</h2>
-                <div class="php-box" id="phpDays">
-                    Loading 1000 hari belajar PHP...
-                </div>
-            </div>
-
-            <!-- 2. KALKULATOR -->
-            <div class="uji-section">
-                <h2>2. Kalkulator Operasi Bilangan</h2>
-                <form class="kalkulator-form">
-                    <input type="number" name="angka1" placeholder="Masukkan Angka 1" required>
-                    <select name="operasi">
-                        <option value="+">Tambah (+)</option>
-                        <option value="-">Kurang (-)</option>
-                        <option value="*">Kali (*)</option>
-                        <option value="/">Bagi (/)</option>
-                    </select>
-                    <input type="number" name="angka2" placeholder="Masukkan Angka 2" required>
-                    <button type="submit">Hitung</button>
-                </form>
-            </div>
-
-            <!-- 3. LOGIN -->
-            <div class="uji-section">
-                <h2>3. Sistem Login</h2>
-                <form class="login-form">
-                    <input type="text" name="username" placeholder="Username">
-                    <input type="password" name="password" placeholder="Password">
-                    <button type="submit">Login</button>
-                    <p style="font-size: 14px; color: #666;">Demo: admin / batak123</p>
-                </form>
-            </div>
-
-            <!-- 4. CRUD -->
-            <div class="uji-section">
-                <h2>4. Sistem Manajemen Database (CRUD)</h2>
-                <form class="crud-form">
-                    <input type="text" name="judul" placeholder="Judul Buku">
-                    <input type="text" name="penulis" placeholder="Penulis">
-                    <input type="number" name="tahun" placeholder="Tahun">
-                    <button type="submit">Tambah</button>
-                </form>
-                <table class="crud-table">
-                    <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>Judul Buku</th>
-                            <th>Penulis</th>
-                            <th>Tahun</th>
-                            <th>Aksi</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>7</td>
-                            <td>E</td>
-                            <td>Siregar</td>
-                            <td>2023</td>
-                            <td><button>Simpan</button><button>Hapus</button></td>
-                        </tr>
-                        <tr>
-                            <td>5</td>
-                            <td>Lask</td>
-                            <td>Hutapea</td>
-                            <td>2022</td>
-                            <td><button>Simpan</button><button>Hapus</button></td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+            <table class="crud-table" style="width: 100%; margin: 0 auto;">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Judul Buku</th>
+                        <th>Penulis</th>
+                        <th>Tahun</th>
+                        <th>Aksi</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>7</td>
+                        <td>E</td>
+                        <td>Siregar</td>
+                        <td>2023</td>
+                        <td><button>Simpan</button> <button style="background: #f44336; color: white;">Hapus</button></td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>Lask</td>
+                        <td>Hutapea</td>
+                        <td>2022</td>
+                        <td><button>Simpan</button> <button style="background: #f44336; color: white;">Hapus</button></td>
+                    </tr>
+                </tbody>
+            </table>
         </section>
     </div>
 
-    <!-- FOOTER & WA -->
+    <footer>
+        <div class="footer-content">
+            <div>The Rooted Library<br>Perpustakaan Khusus Budaya Batak Toba</div>
+        </div>
+        <div class="footer-bottom">&copy; 2025</div>
+    </footer>
+
+    <div class="whatsapp-btn">
+        <a href="https://wa.me/6281226423048" target="_blank">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg">
+        </a>
+    </div>
 
     <script>
-        // 1000 HARI PHP EXACT FORMAT
+        // EXACT 1000 HARI FORMAT
         const phpBox = document.getElementById('phpDays');
-        let day = 1;
-        const interval = setInterval(() => {
-            if (day <= 1000) {
-                phpBox.innerHTML += `Ini adalah hari ke-${day} belajar PHP<br>`;
-                day++;
+        let i = 1;
+        const timer = setInterval(() => {
+            if (i <= 1000) {
+                phpBox.innerHTML += `Ini adalah hari ke-${i} belajar PHP<br>`;
+                i++;
                 phpBox.scrollTop = phpBox.scrollHeight;
             } else {
-                clearInterval(interval);
+                clearInterval(timer);
             }
-        }, 3);
+        }, 2);
     </script>
 </body>
 </html>
