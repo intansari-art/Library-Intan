@@ -1,27 +1,17 @@
 # 🌿 The Rooted Library
 
-Perpustakaan Digital Khusus Budaya Batak Toba
+Perpustakaan Digital Khusus Budaya **Batak Toba** - Preserving Batak Heritage
 
-[![GitHub stars](https://img.shields.io/github/stars/YOUR_USERNAME/the-rooted-library?style=social)](https://github.com/YOUR_USERNAME/the-rooted-library)
-[![GitHub forks](https://img.shields.io/github/forks/YOUR_USERNAME/the-rooted-library?style=social)](https://github.com/YOUR_USERNAME/the-rooted-library)
+[![Deploy to GitHub Pages](https://github.com/login?return_to=https%3A%2F%2Fgithub.com%2FUSER%2FREPO%2Fdeployments)](https://github.com/login?return_to=https%3A%2F%2Fgithub.com%2FUSER%2FREPO%2Fdeployments)
 
-## 📱 Demo
-[Live Demo](https://YOUR_USERNAME.github.io/the-rooted-library/)
+## 🚀 Fitur Lengkap
 
-## ✨ Fitur
-- ✅ **Dashboard** lengkap dengan statistik
-- ✅ **About Us** dengan visi & misi budaya Batak Toba
-- ✅ **Katalog Buku** dengan 8+ buku Batak + search
-- ✅ **Event** budaya Batak
-- ✅ **Ulasan & Diskusi** interaktif
-- ✅ **Ruang Uji Coba** (PHP, Calculator, Database Login)
-- ✅ **Login Modal** responsive
-- ✅ **WhatsApp Chat** (081226423048)
-- ✅ **Responsive Web Design** (Mobile First)
-- ✅ **Smooth Scrolling** & Animations
+- ✅ **6 Menu**: Dashboard, About Us, Katalog (5+ buku Batak), Event, Ulasan (interaktif), Uji Coba
+- ✅ **Login Anggota**: Modal lengkap + demo (admin/batak123)
+- ✅ **WhatsApp**: 081226423048 (kanan bawah, animasi)
+- ✅ **Responsive**: Mobile-first design
+- ✅ **Interaktif**: Search buku, tambah komentar, login validasi
+- ✅ **Background**: Perpustakaan aesthetic
+- ✅ **Batak Theme**: Warna coklat-emas khas Batak Toba
 
-## 🚀 Cara Menjalankan
-
-1. Clone repository ini:
-```bash
-git clone https://github.com/YOUR_USERNAME/the-rooted-library.git
+## 📱 Demo Credentials
