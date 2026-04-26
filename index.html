@@ -1,54 +1,71 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Rooted Library</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <title>The Rooted Library</title>
+  <link rel="stylesheet" href="style.css" />
+  <!-- Google Fonts: Poppins -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
 </head>
 <body>
-    <nav class="navbar">
-        <div class="nav-brand">The Rooted Library</div>
-        <ul class="nav-menu">
-            <li><a href="index.html" class="active">Dashboard</a></li>
-            <li><a href="about.html">About Us</a></li>
-            <li><a href="katalog.html">Katalog</a></li>
-            <li><a href="event.html">Event</a></li>
-            <li><a href="diskusi.html">Diskusi</a></li>
-            <li><a href="uji-coba.html">Uji Coba</a></li>
-        </ul>
-        <a href="login.html" class="login-btn">Login Anggota</a>
-    </nav>
 
-    <div class="container">
-        <section class="hero">
-            <h1>The Rooted Library</h1>
-            <p>Perpustakaan Khusus Budaya Batak Toba</p>
-            <a href="katalog.html" class="cta-btn">Jelajahi Katalog</a>
-        </section>
-
-        <!-- YOUTUBE EMBED -->
-        <section style="background: rgba(255,255,255,0.95); padding: 40px; border-radius: 20px; margin: 40px 0;">
-            <h2 style="text-align: center; margin-bottom: 30px;">🎥 Adat Batak Toba</h2>
-            <iframe width="100%" height="400" src="https://www.youtube.com/embed/Vu-5KnFsIKw" 
-                title="Batak Toba Budaya" frameborder="0" 
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                allowfullscreen style="border-radius: 15px;">
-            </iframe>
-        </section>
+  <!-- NAVBAR -->
+  <nav>
+    <a href=""><b>The Rooted Library</b></a>
+    <div>
+      <a href="">Dashboard</a>
+      <a href="about.html">About Us</a>
+      <a href="katalog.html">Katalog</a>
+      <a href="event.html">Event</a>
+      <a href="ulasan.html">Ulasan</a>
+      <a href="uji_coba.html">Uji Coba</a>
     </div>
+    <button class="login-btn" onclick="openLogin()">
+      Login
+    </button>
+  </nav>
 
-    <footer>
-        <div class="footer-content">
-            <div>The Rooted Library<br>Perpustakaan Khusus Budaya Batak Toba</div>
-        </div>
-        <div class="footer-bottom">&copy; 2025</div>
-    </footer>
+  <!-- HERO / DASHBOARD -->
+  <section class="hero">
+    <h1>The Rooted Library</h1>
+    <p>Perpustakaan digital khusus budaya Batak Toba: adat, sejarah, literatur, dan musik.</p>
+  </section>
 
-    <div class="whatsapp-btn">
-        <a href="https://wa.me/6281226423048" target="_blank">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WA">
-        </a>
+  <!-- CONTOH KONTEN LAIN (KOLEKSI) -->
+  <section>
+    <h2>Koleksi Utama</h2>
+    <p>Kumpulan buku, artikel, dan media digital tentang budaya Batak Toba, bisa diakses langsung oleh anggota.</p>
+  </section>
+
+  <!-- POPUP LOGIN -->
+  <div id="login-modal" class="login-modal">
+    <div class="login-box">
+      <h3>Login Anggota</h3>
+      <form>
+        <label>Username / ID</label><br />
+        <input type="text" class="input-field" /><br /><br />
+        <label>Password</label><br />
+        <input type="password" class="input-field" /><br /><br />
+        <button type="submit" class="submit-btn">LOGIN SEKARANG</button><br /><br />
+        <span>Belum punya akun? <a href="index.html#daftar">Daftar di sini</a></span>
+      </form>
+      <button onclick="closeLogin()" class="close-btn">×</button>
     </div>
+  </div>
+
+  <!-- POPUP WHATSAPP (pojok kanan bawah) -->
+  <div class="whatsapp-float">
+    <a href="https://wa.me/6281226423048" target="_blank">Hubungi kami via WhatsApp</a>
+  </div>
+
+  <script>
+    function openLogin() {
+      document.getElementById("login-modal").style.display = "flex";
+    }
+    function closeLogin() {
+      document.getElementById("login-modal").style.display = "none";
+    }
+  </script>
+
 </body>
 </html>
