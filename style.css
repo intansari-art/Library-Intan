@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
 * {
     margin: 0;
     padding: 0;
@@ -5,99 +7,150 @@
 }
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    /* BACKGROUND RAK BUKU FULL NO OVERLAY */
-    background-image: url('https://img3.pngtree.com/background/20240610/original/pngtree-a-library-with-books-and-lights-tranquil-setting-glowing-bookshelves-picture-image_18915938.jpg');
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-    color: #333;
-    min-height: 100vh;
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    color: #2c3e50;
+    /* BACKGROUND BARU PINTEREST */
+    background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
+                url('https://i.pinimg.com/originals/c8/b0/7e/c8b07e380215edaaa1903769586a61dc.jpg') center/cover fixed;
 }
 
-/* NAVBAR FIX - NGGAK NGUMPUL */
+/* NAVBAR SEJAJAR KE SAMPING */
 .navbar {
-    background: rgba(0,0,0,0.85);
+    background: rgba(0,0,0,0.92);
     padding: 15px 5%;
     position: fixed;
     top: 0;
     width: 100%;
     z-index: 1000;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
-    box-shadow: 0 2px 15px rgba(0,0,0,0.3);
+    gap: 0;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
 }
 
 .nav-brand {
+    position: absolute;
+    left: 5%;
     color: #ffd700;
-    font-size: 28px;
-    font-weight: bold;
-    flex: 1;
-    text-align: center;
+    font-size: 26px;
+    font-weight: 700;
 }
 
 .nav-menu {
     display: flex;
     list-style: none;
-    gap: 30px;
-    flex: 2;
-    justify-content: center;
+    gap: 35px;
+    margin: 0;
+    padding: 0;
 }
 
 .nav-menu a {
-    color: #fff;
+    color: #e0e0e0;
     text-decoration: none;
     font-weight: 500;
     font-size: 16px;
+    transition: all 0.3s ease;
     white-space: nowrap;
 }
 
+.nav-menu a:hover,
 .nav-menu a.active {
     color: #ffd700;
+    text-shadow: 0 0 10px rgba(255,215,0,0.5);
 }
 
 .login-btn {
-    background: #25D366;
+    position: absolute;
+    right: 5%;
+    background: linear-gradient(45deg, #25D366, #128C7E);
     color: white !important;
-    padding: 12px 25px;
+    padding: 12px 28px;
     border-radius: 25px;
     text-decoration: none;
     font-weight: 600;
-    white-space: nowrap;
+    font-size: 15px;
+    box-shadow: 0 4px 15px rgba(37,211,102,0.4);
+    transition: all 0.3s ease;
+}
+
+.login-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(37,211,102,0.5);
 }
 
 /* CONTAINER */
 .container {
     max-width: 1100px;
-    margin: 120px auto 0;
+    margin: 110px auto 0;
     padding: 0 20px;
-    min-height: calc(100vh - 200px);
 }
 
-/* KOTAK TIPIS BANGET - BACKGROUND 100% VISIBLE */
-.uji-section {
-    background: rgba(255,255,255,0.7);
-    backdrop-filter: blur(2px);
-    margin: 30px 0;
-    padding: 25px;
-    border-radius: 15px;
-    border: 1px solid rgba(255,255,255,0.5);
-    box-shadow: 0 3px 15px rgba(0,0,0,0.15);
+/* HERO */
+.hero {
+    text-align: center;
+    color: white;
+    padding: 80px 0;
 }
 
-/* WARNA BORDER */
-.uji-section.blue { border-color: rgba(52,152,219,0.8); }
-.uji-section.orange { border-color: rgba(230,126,34,0.8); }
-.uji-section.green { border-color: rgba(39,174,96,0.8); }
-.uji-section.purple { border-color: rgba(155,89,182,0.8); }
+.hero h1 {
+    font-size: 48px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    text-shadow: 0 3px 15px rgba(0,0,0,0.7);
+}
 
-.uji-section h2 {
+.hero p {
     font-size: 22px;
+    margin-bottom: 40px;
+    font-weight: 300;
+    opacity: 0.95;
+}
+
+.cta-btn {
+    display: inline-block;
+    background: linear-gradient(45deg, #ffd700, #ffed4a);
+    color: #333;
+    padding: 18px 40px;
+    border-radius: 35px;
+    font-size: 20px;
+    font-weight: 600;
+    text-decoration: none;
+    box-shadow: 0 6px 25px rgba(255,215,0,0.4);
+    transition: all 0.3s;
+}
+
+.cta-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 30px rgba(255,215,0,0.5);
+}
+
+/* SECTIONS - TIPIS */
+section, .uji-section {
+    background: rgba(255,255,255,0.88);
+    backdrop-filter: blur(8px);
+    margin: 30px 0;
+    padding: 30px;
+    border-radius: 20px;
+    border: 1px solid rgba(255,255,255,0.4);
+    box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+}
+
+h1 {
+    font-size: 34px;
+    text-align: center;
+    margin-bottom: 25px;
+    color: #2c3e50;
+    font-weight: 600;
+}
+
+h2 {
+    font-size: 24px;
     text-align: center;
     margin-bottom: 20px;
-    color: #2c3e50;
-    font-weight: bold;
+    color: #34495e;
+    font-weight: 600;
     border-bottom: 3px solid;
     padding-bottom: 10px;
     width: fit-content;
@@ -105,6 +158,7 @@ body {
     margin-right: auto;
 }
 
+/* UJI COBA COLORS */
 .uji-section.blue h2 { border-color: #3498db; }
 .uji-section.orange h2 { border-color: #e67e22; }
 .uji-section.green h2 { border-color: #27ae60; }
@@ -112,65 +166,104 @@ body {
 
 /* PHP BOX */
 .php-box {
-    background: rgba(227,242,253,0.9);
-    border-left: 5px solid #3498db;
-    padding: 20px;
-    margin: 15px 0;
-    max-height: 420px;
+    background: rgba(227,242,253,0.95);
+    border-left: 6px solid #3498db;
+    padding: 22px;
+    margin: 18px 0;
+    max-height: 450px;
     overflow-y: auto;
     font-family: 'Courier New', monospace;
     font-size: 15px;
     line-height: 1.9;
-    border-radius: 10px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(52,152,219,0.2);
 }
 
-/* FORM */
+/* FORM ELEMENTS */
 input, select {
     width: 100%;
-    padding: 12px 15px;
-    margin: 8px 0;
-    border: 2px solid #bdc3c7;
-    border-radius: 8px;
-    font-size: 15px;
-    background: rgba(255,255,255,0.9);
+    padding: 13px 16px;
+    margin: 10px 0;
+    border: 2px solid #e1e8ed;
+    border-radius: 10px;
+    font-size: 16px;
+    font-family: 'Poppins', sans-serif;
+    transition: all 0.3s;
+}
+
+input:focus, select:focus {
+    border-color: #3498db;
+    box-shadow: 0 0 0 3px rgba(52,152,219,0.1);
+    outline: none;
 }
 
 button {
     background: linear-gradient(45deg, #3498db, #2980b9);
     color: white;
-    padding: 12px 25px;
+    padding: 13px 28px;
     border: none;
-    border-radius: 22px;
+    border-radius: 25px;
     font-weight: 600;
+    font-size: 16px;
     cursor: pointer;
     margin: 5px;
+    transition: all 0.3s;
+    font-family: 'Poppins', sans-serif;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(52,152,219,0.4);
 }
 
 /* TABLE */
 .crud-table {
     width: 100%;
     border-collapse: collapse;
-    margin-top: 20px;
-    font-size: 14px;
+    margin-top: 22px;
+    font-size: 15px;
+    background: rgba(255,255,255,0.9);
+    border-radius: 12px;
+    overflow: hidden;
 }
 
 .crud-table th {
     background: linear-gradient(45deg, #9b59b6, #8e44ad);
     color: white;
-    padding: 13px 10px;
+    padding: 15px 12px;
+    font-weight: 600;
 }
 
 .crud-table td {
-    padding: 12px 10px;
+    padding: 14px 12px;
+    border-bottom: 1px solid #ecf0f1;
 }
 
-/* FOOTER */
+.crud-table button {
+    padding: 8px 16px;
+    font-size: 13px;
+    margin: 0 2px;
+}
+
+.crud-table button:last-child {
+    background: linear-gradient(45deg, #e74c3c, #c0392b);
+}
+
+/* SEARCH */
+.search-box {
+    max-width: 450px;
+    margin: 0 auto 25px;
+    display: flex;
+    gap: 12px;
+}
+
+/* FOOTER MINI */
 footer {
-    background: rgba(0,0,0,0.9);
+    background: rgba(0,0,0,0.95);
     color: #fff;
     text-align: center;
     padding: 20px 0;
-    margin-top: 40px;
+    margin-top: 50px;
 }
 
 .footer-content {
@@ -178,9 +271,16 @@ footer {
     margin: 0 auto;
     padding: 0 20px;
     font-size: 16px;
+    line-height: 1.4;
 }
 
-/* WA */
+.footer-bottom {
+    margin-top: 12px;
+    font-size: 14px;
+    color: #bbb;
+}
+
+/* WHATSAPP */
 .whatsapp-btn {
     position: fixed;
     bottom: 25px;
@@ -189,37 +289,64 @@ footer {
 }
 
 .whatsapp-btn a {
-    width: 55px;
-    height: 55px;
+    width: 56px;
+    height: 56px;
     border-radius: 50%;
-    background: #25D366;
+    background: linear-gradient(45deg, #25D366, #128C7E);
     display: flex;
     align-items: center;
     justify-content: center;
+    box-shadow: 0 5px 20px rgba(37,211,102,0.4);
+    transition: all 0.3s;
 }
 
-/* RESPONSIVE NAVBAR FIX */
+.whatsapp-btn img {
+    width: 32px;
+    height: 32px;
+}
+
+.whatsapp-btn a:hover {
+    transform: scale(1.1);
+}
+
+/* RESPONSIVE */
+@media (max-width: 1024px) {
+    .nav-menu {
+        gap: 20px;
+    }
+    
+    .nav-menu a {
+        font-size: 15px;
+    }
+}
+
 @media (max-width: 768px) {
     .navbar {
         flex-direction: column;
-        gap: 10px;
+        gap: 12px;
         padding: 15px 20px;
     }
     
+    .nav-brand {
+        position: static;
+    }
+    
     .nav-menu {
-        order: 3;
-        width: 100%;
-        justify-content: center;
         flex-wrap: wrap;
         gap: 15px;
+        justify-content: center;
     }
     
     .login-btn {
-        order: 2;
+        position: static;
     }
     
-    .uji-section {
+    .hero h1 {
+        font-size: 36px;
+    }
+    
+    section {
         margin: 20px 10px;
-        padding: 20px;
+        padding: 25px 20px;
     }
 }
