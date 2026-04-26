@@ -1,9 +1,56 @@
-<h2>Katalog Buku</h2>
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Katalog - The Rooted Library</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navigation -->
+    
+    <section class="katalog">
+        <div class="container">
+            <h1>Katalog Buku</h1>
+            <div class="search-box">
+                <input type="text" placeholder="Cari judul buku atau penulis...">
+                <button>Cari</button>
+            </div>
+            <div class="katalog-grid">
+                <div class="book-card full">
+                    <h3>Budaya Batak</h3>
+                    <p>Oleh: S. Siregar</p>
+                    <p>2023 | 250 halaman</p>
+                    <button>Baca Sekarang</button>
+                </div>
+                <div class="book-card full">
+                    <h3>Sejarah Toba</h3>
+                    <p>Oleh: R. Hutapea</p>
+                    <p>2022 | 180 halaman</p>
+                    <button>Baca Sekarang</button>
+                </div>
+                <div class="book-card full">
+                    <h3>Media Digital Batak</h3>
+                    <p>Oleh: A. Lestari</p>
+                    <p>2024 | 300 halaman</p>
+                    <button>Baca Sekarang</button>
+                </div>
+                <div class="book-card full">
+                    <h3>Adat Istiadat Batak</h3>
+                    <p>Oleh: T. Simanjuntak</p>
+                    <p>2021 | 220 halaman</p>
+                    <button>Baca Sekarang</button>
+                </div>
+                <div class="book-card full">
+                    <h3>Pusaka Batak Toba</h3>
+                    <p>Oleh: M. Sitorus</p>
+                    <p>2023 | 190 halaman</p>
+                    <button>Baca Sekarang</button>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<input type="text" placeholder="Cari buku...">
-
-<div class="buku">
-<p>Budaya Batak - Siregar</p>
-<p>Sejarah Toba - Hutapea</p>
-<p>Media Digital - Lestari</p>
-</div>
+    <!-- Footer & WhatsApp -->
+</body>
+</html>
