@@ -20,8 +20,7 @@ body {
     font-family: 'Georgia', 'Times New Roman', serif;
     background-image: url('https://image.pngtree.com/background/20240314/original/pngtree-library-background-image-with-books-and-shelves-picture-image_14064857.jpg');
     background-size: cover;
-    background-position
-    background-position: center;
+    background-position    background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed;
     color: var(--batak-brown);
@@ -384,8 +383,7 @@ h2 {
 }
 
 .comment-form button {
-    width:
-            width: 100%;
+    width:    width: 100%;
     padding: 1.25rem 2rem;
     background: linear-gradient(135deg, var(--batak-orange), var(--batak-gold));
     color: white;
@@ -852,27 +850,4 @@ footer p {
         --batak-brown: #5D4037;
         --batak-orange: #E65100;
     }
-}
-
-/* FIX Navigation Active */
-.nav-active {
-    background: rgba(255,255,255,0.3) !important;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-}
-
-/* Pastikan sections visible saat active */
-.section.active {
-    display: block !important;
-    opacity: 1 !important;
-}
-
-/* Loading state */
-.loading {
-    text-align: center;
-    padding: 4rem 2rem;
-    color: var(--batak-brown);
-    font-size: 1.2rem;
-    background: rgba(255,255,255,0.8);
-    border-radius: 1rem;
-    grid-column: 1 / -1;
 }
