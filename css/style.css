@@ -853,6 +853,7 @@ footer p {
         --batak-orange: #E65100;
     }
 }
+
 /* FIX Navigation Active */
 .nav-active {
     background: rgba(255,255,255,0.3) !important;
