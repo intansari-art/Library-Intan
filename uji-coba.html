@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Uji Coba</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+<div class="overlay">
+<div class="container">
+
+<h2>Ruang Uji Coba</h2>
+
+<div class="box">
+<h3>Belajar PHP</h3>
+<div id="php"></div>
+
+<script>
+for(let i=1;i<=1000;i++){
+document.getElementById("php").innerHTML += 
+"Ini adalah hari ke-"+i+" aku belajar PHP <br>";
+}
+</script>
+</div>
+
+<div class="box">
+<h3>Kalkulator</h3>
+<input id="a">
+<select id="op">
+<option>+</option>
+<option>-</option>
+<option>*</option>
+<option>/</option>
+</select>
+<input id="b">
+<button onclick="hitung()">Hitung</button>
+<p id="hasil"></p>
+
+<script>
+function hitung(){
+let a=parseFloat(document.getElementById("a").value);
+let b=parseFloat(document.getElementById("b").value);
+let op=document.getElementById("op").value;
+
+let h;
+if(op=="+")h=a+b;
+if(op=="-")h=a-b;
+if(op=="*")h=a*b;
+if(op=="/")h=a/b;
+
+hasil.innerText="Hasil: "+h;
+}
+</script>
+</div>
+
+<div class="box">
+<h3>CRUD Database</h3>
+
+<input id="judul" placeholder="Judul">
+<input id="penulis" placeholder="Penulis">
+<input id="tahun" placeholder="Tahun">
+
+<button onclick="tambah()">Tambah</button>
+
+<table border="1" width="100%" id="tabel">
+<tr><th>Judul</th><th>Penulis</th><th>Tahun</th><th>Aksi</th></tr>
+</table>
+
+<script>
+function tambah(){
+let row=tabel.insertRow();
+row.insertCell(0).innerText=judul.value;
+row.insertCell(1).innerText=penulis.value;
+row.insertCell(2).innerText=tahun.value;
+row.insertCell(3).innerHTML='<button onclick="this.parentElement.parentElement.remove()">Hapus</button>';
+}
+</script>
+
+</div>
+
+</div>
+</div>
+</body>
+</html>
