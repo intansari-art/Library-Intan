@@ -1,0 +1,9 @@
+<h2>Katalog Buku</h2>
+
+<input type="text" placeholder="Cari buku...">
+
+<div class="buku">
+<p>Budaya Batak - Siregar</p>
+<p>Sejarah Toba - Hutapea</p>
+<p>Media Digital - Lestari</p>
+</div>
