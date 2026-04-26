@@ -1,228 +1,86 @@
-// Data Buku (akan dimuat saat katalog dibuka)
-const booksData = [
-    {
-        title: "Tarombo ni Raja Sisingamangaraja",
-        author: "Dr. Parulian Simanjuntak",
-        description: "Sejarah lengkap keturunan Raja Sisingamangaraja XII"
-    },
-    {
-        title: "Adat Batak Toba",
-        author: "Mangaradja Onggang Parlindungan",
-        description: "Pedoman lengkap adat istiadat Batak Toba"
-    },
-    {
-        title: "Gorga dan Maknanya",
-        author: "Dr. S. Situmorang",
-        description: "Filosofi motif ukiran tradisional Batak"
-    },
-    {
-        title: "Saur Matua ni Batak",
-        author: "Pdt. Dr. J. L. S. Hutabarat",
-        description: "Kearifan lokal Batak dalam kehidupan modern"
-    },
-    {
-        title: "Marga-Marga Batak Toba",
-        author: "Tim Peneliti Budaya Batak",
-        description: "Daftar lengkap marga dan asal-usulnya"
-    }
-];
-
-// Data Komentar Awal
-let comments = [
-    {
-        author: "Sangap Sian Toraja",
-        text: "Koleksi bukunya sangat lengkap! Banyak referensi tentang adat Batak yang susah ditemukan di perpustakaan biasa.",
-        date: "2 hari lalu",
-        username: "@bataktoba_lover"
-    },
-    {
-        author: "Juan Siagian",
-        text: "Platform yang sangat membantu pelestarian budaya Batak Toba. Terima kasih!",
-        date: "5 hari lalu",
-        username: ""
-    },
-    {
-        author: "Maria Lumban Tobing",
-        text: "Mudah digunakan dan responsif di HP. Saya sering pinjam buku tentang gorga untuk tugas kuliah.",
-        date: "1 minggu lalu",
-        username: ""
-    }
-];
-
-// Inisialisasi saat halaman dimuat
-document.addEventListener('DOMContentLoaded', function() {
-    loadBooks();
-    loadComments();
-    setupEventListeners();
-});
-
 // Navigation
-function showMenu(menuId) {
-    // Hide all sections
-    document.querySelectorAll('.section').forEach(section => {
-        section.classList.remove('active');
+function showMenu(menu) {
+    document.querySelectorAll('.section').forEach(sec => {
+        sec.classList.remove('active');
     });
+    document.getElementById(menu).classList.add('active');
     
-    // Show target section
-    document.getElementById(menuId).classList.add('active');
-    
-    // Smooth scroll to top
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-    
-    // Load content if needed
-    if (menuId === 'katalog') loadBooks();
-    if (menuId === 'ulasan') loadComments();
+    document.querySelectorAll('.nav-link').forEach(link => {
+        link.classList.remove('active');
+    });
+    event.target.closest('.nav-link').classList.add('active');
 }
 
-// Modal Functions
+// Modal functions
 function showLoginForm() {
     document.getElementById('loginModal').style.display = 'block';
-    document.getElementById('username').focus();
 }
 
 function closeModal() {
     document.getElementById('loginModal').style.display = 'none';
-    document.getElementById('loginForm').reset();
 }
 
-// Search Books
-function searchBooks() {
-    const query = document.getElementById('searchInput').value.toLowerCase();
-    const bookGrid = document.getElementById('bookGrid');
-    
-    const filteredBooks = booksData.filter(book => 
-        book.title.toLowerCase().includes(query) || 
-        book.author.toLowerCase().includes(query)
-    );
-    
-    renderBooks(filteredBooks);
+function showRegisterModal() {
+    document.getElementById('loginModal').style.display = 'none';
+    document.getElementById('registerModal').style.display = 'block';
 }
 
-// Render Books
-function loadBooks(filteredBooks = booksData) {
-    const bookGrid = document.getElementById('bookGrid');
-    bookGrid.innerHTML = '';
-    
-    filteredBooks.forEach(book => {
-        const bookCard = document.createElement('div');
-        bookCard.className = 'book-card';
-        bookCard.innerHTML = `
-            <h3>${book.title}</h3>
-            <p><strong>Penulis:</strong> ${book.author}</p>
-            <p>${book.description}</p>
-        `;
-        bookCard.onclick = () => alert(`Buku "${book.title}" oleh ${book.author}\nFitur peminjaman akan segera hadir!`);
-        bookGrid.appendChild(bookCard);
-    });
+function closeRegisterModal() {
+    document.getElementById('registerModal').style.display = 'none';
 }
 
-// Comments Functions
-function addComment() {
-    const commentInput = document.getElementById('commentInput');
-    const text = commentInput.value.trim();
+// Close modals when clicking outside
+window.onclick = function(event) {
+    const loginModal = document.getElementById('loginModal');
+    const registerModal = document.getElementById('registerModal');
     
-    if (!text) {
-        alert('Mohon tulis ulasan terlebih dahulu!');
-        commentInput.focus();
-        return;
+    if (event.target == loginModal) {
+        loginModal.style.display = 'none';
     }
-    
-    // Tambah komentar baru
-    const newComment = {
-        author: `Pengunjung ${Math.floor(Math.random() * 1000)}`,
-        text: text,
-        date: 'Baru saja',
-        username: ''
-    };
-    
-    comments.unshift(newComment);
-    commentInput.value = '';
-    
-    loadComments();
-    alert('✅ Ulasan berhasil dikirim! Terima kasih telah berpartisipasi.');
+    if (event.target == registerModal) {
+        registerModal.style.display = 'none';
+    }
 }
 
-function loadComments() {
-    const container = document.getElementById('commentsContainer');
-    container.innerHTML = '';
-    
-    comments.forEach(comment => {
-        const commentBox = document.createElement('div');
-        commentBox.className = 'comment-box';
-        commentBox.innerHTML = `
-            <h4>${comment.author}</h4>
-            <p>${comment.text}</p>
-            <small>${comment.username}${comment.username ? ' - ' : ''}${comment.date}</small>
-        `;
-        container.appendChild(commentBox);
-    });
-}
-
-// Login Handler
+// Login form
 document.getElementById('loginForm').addEventListener('submit', function(e) {
     e.preventDefault();
-    
     const username = document.getElementById('username').value;
     const password = document.getElementById('password').value;
     
     if (!username || !password) {
-        alert('❌ Input tidak lengkap! Mohon isi username dan password.');
+        alert('ID dan Password tidak boleh kosong!');
         return;
     }
     
-    // Demo credentials: admin / batak123
+    // Demo login - ganti dengan logic backend
     if (username === 'admin' && password === 'batak123') {
-        alert('🎉 Login sukses! Selamat datang di dashboard anggota The Rooted Library.');
+        alert('Login sukses! Selamat datang ' + username);
+        document.getElementById('loginBtn').innerHTML = '<i class="fas fa-user-check"></i> ' + username;
         closeModal();
-        showMenu('dashboard');
     } else {
-        alert('❌ Login gagal! Username atau Password salah.\n💡 Coba: admin / batak123');
+        alert('Login gagal! ID atau Password salah.');
     }
 });
 
-// Event Listeners
-function setupEventListeners() {
-    // Close modal on outside click
-    window.onclick = function(event) {
-        const modal = document.getElementById('loginModal');
-        if (event.target === modal) {
-            closeModal();
-        }
-    };
-    
-    // Enter key for search
-    document.getElementById('searchInput').addEventListener('keypress', function(e) {
-        if (e.key === 'Enter') {
-            searchBooks();
-        }
-    });
-    
-    // Enter key for comment
-    document.getElementById('commentInput').addEventListener('keypress', function(e) {
-        if (e.key === 'Enter' && e.ctrlKey) {
-            addComment();
-        }
-    });
-    
-    // Book cards hover effect
-    document.addEventListener('mouseover', function(e) {
-        if (e.target.closest('.book-card')) {
-            e.target.closest('.book-card').style.transform = 'translateY(-10px)';
-        }
-    });
-    
-    document.addEventListener('mouseout', function(e) {
-        if (e.target.closest('.book-card')) {
-            e.target.closest('.book-card').style.transform = 'translateY(0)';
-        }
-    });
+// Register form
+document.getElementById('registerForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    alert('Pendaftaran berhasil! Silakan login dengan akun baru Anda.');
+    closeRegisterModal();
+    document.getElementById('loginModal').style.display = 'block';
+});
+
+// Generate PHP progress (sampai hari ke-1000 dengan scroll)
+function generatePHPProgress() {
+    const phpBox = document.getElementById('phpProgress');
+    let html = '';
+    for (let i = 1; i <= 1000; i++) {
+        html += `Ini adalah hari ke-${i} aku belajar PHP<br>`;
+    }
+    phpBox.innerHTML = html;
 }
 
-// PWA Service Worker (Optional - untuk GitHub Pages)
-if ('serviceWorker' in navigator) {
-    window.addEventListener('load', function() {
-        navigator.serviceWorker.register('/sw.js')
-            .then(reg => console.log('SW registered'))
-            .catch(err => console.log('SW registration failed'));
-    });
-}
+// Calculator
+function calculate() {
+   
