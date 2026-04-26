@@ -1,178 +1,115 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ruang Uji Coba</title>
-
-<style>
-body{
-font-family: Arial;
-background:#f5f5f5;
-padding:20px;
-}
-
-h2{
-text-align:center;
-}
-
-/* BOX BIRU */
-.box{
-background:#2196F3;
-color:white;
-padding:20px;
-border-radius:10px;
-max-height:300px;
-overflow:auto;
-}
-
-/* FORM */
-input, select, button{
-padding:10px;
-margin:5px;
-}
-
-/* TABLE */
-table{
-width:100%;
-margin-top:20px;
-border-collapse:collapse;
-}
-
-td,th{
-border:1px solid #ccc;
-padding:10px;
-text-align:center;
-}
-
-button{
-cursor:pointer;
-}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uji Coba - The Rooted Library</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
+    <!-- Navigation -->
 
-<h2>Ruang Uji Coba</h2>
+    <section class="uji-coba">
+        <div class="container">
+            <h1>Ruang Uji Coba</h1>
+            
+            <!-- 1. Belajar PHP 1000 Hari -->
+            <div class="uji-section">
+                <h2>1. Belajar PHP 1000 Hari</h2>
+                <div class="php-box">
+                    <?php
+                    for($i=1; $i<=1000; $i++) {
+                        echo "Ini adalah hari ke-$i aku belajar PHP<br>";
+                    }
+                    ?>
+                </div>
+            </div>
 
-<h3>1. Belajar PHP</h3>
+            <!-- 2. Kalkulator -->
+            <div class="uji-section">
+                <h2>2. Kalkulator Operasi Bilangan</h2>
+                <form action="kalkulator-hasil.php" method="POST" class="kalkulator-form">
+                    <input type="number" name="angka1" placeholder="Masukkan Angka 1" required>
+                    <select name="operasi">
+                        <option value="+">Tambah (+)</option>
+                        <option value="-">Kurang (-)</option>
+                        <option value="*">Kali (*)</option>
+                        <option value="/">Bagi (/)</option>
+                    </select>
+                    <input type="number" name="angka2" placeholder="Masukkan Angka 2" required>
+                    <button type="submit">Hitung</button>
+                </form>
+            </div>
 
-<div class="box" id="hari"></div>
+            <!-- 3. Login Form -->
+            <div class="uji-section">
+                <h2>3. Sistem Login</h2>
+                <form method="POST" class="login-form">
+                    <input type="text" name="username" placeholder="Username" required>
+                    <input type="password" name="password" placeholder="Password" required>
+                    <button type="submit">Login</button>
+                    <?php
+                    if($_POST) {
+                        $username = $_POST['username'];
+                        $password = $_POST['password'];
+                        
+                        if(empty($username) || empty($password)) {
+                            echo '<p style="color:red;">Input tidak lengkap!</p>';
+                        } elseif($username == "admin" && $password == "batak123") {
+                            echo '<p style="color:green;">Login sukses! Selamat datang Admin</p>';
+                        } else {
+                            echo '<p style="color:red;">Login gagal! Username atau password salah</p>';
+                        }
+                    }
+                    ?>
+                </form>
+            </div>
 
-<h3>2. Menu Berhitung</h3>
-
-<input id="a" placeholder="Angka 1">
-<select id="op">
-<option value="+">Tambah (+)</option>
-<option value="-">Kurang (-)</option>
-<option value="*">Kali (*)</option>
-<option value="/">Bagi (/)</option>
-</select>
-<input id="b" placeholder="Angka 2">
-
-<button onclick="hitung()">Hitung</button>
-
-<h3>3. Login</h3>
-
-<input id="user" placeholder="Username">
-<input id="pass" type="password" placeholder="Password">
-
-<button onclick="login()">Login</button>
-
-<p id="hasilLogin"></p>
-
-<h3>4. Sistem Database (CRUD)</h3>
-
-<input id="judul" placeholder="Judul Buku">
-<input id="penulis" placeholder="Penulis">
-<input id="tahun" placeholder="Tahun">
-
-<button onclick="tambah()">Tambah</button>
-
-<table>
-<tr>
-<th>ID</th>
-<th>Judul</th>
-<th>Penulis</th>
-<th>Tahun</th>
-<th>Aksi</th>
-</tr>
-
-<tbody id="data"></tbody>
-
-</table>
-
-<script>
-
-/* 1. AUTO 1-1000 */
-for(let i=1;i<=1000;i++){
-document.getElementById("hari").innerHTML +=
-"Ini adalah hari ke-"+i+" aku belajar PHP<br>";
-}
-
-/* 2. KALKULATOR */
-function hitung(){
-let a=parseFloat(document.getElementById("a").value);
-let b=parseFloat(document.getElementById("b").value);
-let op=document.getElementById("op").value;
-
-if(isNaN(a)||isNaN(b)){
-alert("Isi angka dulu");
-return;
-}
-
-let hasil;
-
-if(op=="+") hasil=a+b;
-if(op=="-") hasil=a-b;
-if(op=="*") hasil=a*b;
-if(op=="/") hasil=a/b;
-
-alert("Hasil: "+hasil);
-}
-
-/* 3. LOGIN */
-function login(){
-let u=document.getElementById("user").value;
-let p=document.getElementById("pass").value;
-
-if(u==""||p==""){
-hasilLogin.innerText="Input tidak lengkap";
-}else if(u=="admin" && p=="123"){
-hasilLogin.innerText="Login sukses";
-}else{
-hasilLogin.innerText="Login gagal";
-}
-}
-
-/* 4. CRUD */
-let no=1;
-
-function tambah(){
-let j=document.getElementById("judul").value;
-let p=document.getElementById("penulis").value;
-let t=document.getElementById("tahun").value;
-
-let row=`
-<tr>
-<td>${no++}</td>
-<td contenteditable="true">${j}</td>
-<td contenteditable="true">${p}</td>
-<td contenteditable="true">${t}</td>
-<td>
-<button onclick="hapus(this)">Hapus</button>
-</td>
-</tr>
-`;
-
-document.getElementById("data").innerHTML += row;
-}
-
-function hapus(btn){
-btn.parentElement.parentElement.remove();
-}
-
-</script>
-
+            <!-- 4. CRUD Database -->
+            <div class="uji-section">
+                <h2>4. Sistem Manajemen Database (CRUD)</h2>
+                <form method="POST" class="crud-form">
+                    <input type="text" name="judul" placeholder="Judul Buku">
+                    <input type="text" name="penulis" placeholder="Penulis">
+                    <input type="number" name="tahun" placeholder="Tahun">
+                    <button type="submit" name="tambah">Tambah</button>
+                </form>
+                
+                <table class="crud-table">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Judul Buku</th>
+                            <th>Penulis</th>
+                            <th>Tahun</th>
+                            <th>Aksi</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php
+                        // Simulasi database dengan array
+                        $buku = [
+                            ['id'=>1, 'judul'=>'E', 'penulis'=>'Siregar', 'tahun'=>2023],
+                            ['id'=>2, 'judul'=>'Lask', 'penulis'=>'Hutapea', 'tahun'=>2022]
+                        ];
+                        
+                        foreach($buku as $b) {
+                            echo "<tr>
+                                <td>{$b['id']}</td>
+                                <td>{$b['judul']}</td>
+                                <td>{$b['penulis']}</td>
+                                <td>{$b['tahun']}</td>
+                                <td>
+                                    <button>Edit</button>
+                                    <button>Hapus</button>
+                                </td>
+                            </tr>";
+                        }
+                        ?>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
 </body>
 </html>
