@@ -1,221 +1,101 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Rooted Library - Perpustakaan Khusus Budaya Batak Toba</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Rooted Library</title>
+
+<link rel="stylesheet" href="css/style.css">
+<script src="js/script.js"></script>
 </head>
+
 <body>
-    <div class="overlay">
-        <!-- Navigation Premium -->
-        <nav class="navbar">
-            <div class="nav-left">
-                <a href="#" onclick="showSection('dashboard')" class="nav-link active">
-                    <i class="fas fa-home"></i> Dashboard
-                </a>
-                <a href="#" onclick="showSection('about')" class="nav-link">
-                    <i class="fas fa-info-circle"></i> About Us
-                </a>
-                <a href="#" onclick="showSection('katalog')" class="nav-link">
-                    <i class="fas fa-book"></i> Katalog
-                </a>
-                <a href="#" onclick="showSection('event')" class="nav-link">
-                    <i class="fas fa-calendar-alt"></i> Event
-                </a>
-                <a href="#" onclick="showSection('ulasan')" class="nav-link">
-                    <i class="fas fa-comments"></i> Ulasan
-                </a>
-                <a href="#" onclick="showSection('uji')" class="nav-link">
-                    <i class="fas fa-flask"></i> Uji Coba
-                </a>
-            </div>
-            <a href="#" onclick="toggleLogin()" class="login-btn" id="loginBtn">
-                <i class="fas fa-user"></i> Login Anggota
-            </a>
-        </nav>
+<div class="overlay">
 
-        <!-- Login Modal Premium -->
-        <div id="loginModal" class="modal">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h3><i class="fas fa-lock"></i> Login Anggota</h3>
-                    <span class="close" onclick="closeModal()">&times;</span>
-                </div>
-                <form id="loginForm">
-                    <div class="form-group">
-                        <label>Username / ID</label>
-                        <input type="text" id="username" placeholder="Masukkan Username/ID" required>
-                    </div>
-                    <div class="form-group">
-                        <label>Password</label>
-                        <input type="password" id="password" placeholder="Masukkan Password" required>
-                    </div>
-                    <button type="submit" class="btn-primary">LOGIN SEKARANG</button>
-                    <p class="register-link">Belum punya akun? <a href="#">Daftar di sini</a></p>
-                    <small class="demo-info">💡 Demo: admin / batak123</small>
-                </form>
-            </div>
-        </div>
+<nav>
+<div>
+<a onclick="showMenu('dashboard')">Dashboard</a>
+<a onclick="showMenu('about')">About Us</a>
+<a onclick="showMenu('katalog')">Katalog</a>
+<a onclick="showMenu('event')">Event</a>
+<a onclick="showMenu('ulasan')">Ulasan</a>
+<a href="uji_coba.html">Uji Coba</a>
+</div>
 
-        <!-- Main Container -->
-        <div class="container">
-            <!-- Dashboard -->
-            <section id="dashboard" class="section active">
-                <div class="hero">
-                    <h1 class="hero-title">🌿 The Rooted Library</h1>
-                    <p class="hero-subtitle">Selamat datang di Perpustakaan Digital Khusus Budaya Batak Toba</p>
-                    <p class="hero-desc">Temukan kekayaan warisan leluhur Batak Toba - adat, sejarah, sastra, dan seni dalam format digital modern yang mudah diakses.</p>
-                    <div class="stats">
-                        <div class="stat"><i class="fas fa-book"></i> 500+ Buku</div>
-                        <div class="stat"><i class="fas fa-users"></i> 2.5K Anggota</div>
-                        <div class="stat"><i class="fas fa-comments"></i> 1.2K Ulasan</div>
-                    </div>
-                </div>
-            </section>
+<a onclick="openLogin()">Login Anggota</a>
+</nav>
 
-            <!-- About Us -->
-            <section id="about" class="section">
-                <h2 class="section-title"><i class="fas fa-info-circle"></i> Tentang Kami</h2>
-                <div class="about-grid">
-                    <div class="card premium">
-                        <div class="card-icon"><i class="fas fa-eye"></i></div>
-                        <h3>🌀 Visi</h3>
-                        <p>Menjadi pusat referensi utama budaya Batak Toba yang diakui secara nasional dan internasional, melestarikan warisan leluhur untuk generasi mendatang melalui teknologi digital terkini.</p>
-                    </div>
-                    <div class="card premium">
-                        <div class="card-icon"><i class="fas fa-bullseye"></i></div>
-                        <h3>🎯 Misi</h3>
-                        <ul>
-                            <li>✦ Digitalisasi lengkap literatur Batak Toba</li>
-                            <li>✦ Akses gratis 24/7 untuk semua kalangan</li>
-                            <li>✦ Event edukasi budaya rutin</li>
-                            <li>✦ Konten multimedia interaktif</li>
-                            <li>✦ Kolaborasi global komunitas Batak</li>
-                        </ul>
-                    </div>
-                </div>
-            </section>
+<div class="container">
 
-            <!-- Katalog -->
-            <section id="katalog" class="section">
-                <h2 class="section-title"><i class="fas fa-book"></i> Katalog Buku</h2>
-                <div class="search-container">
-                    <div class="search-box">
-                        <input type="text" id="searchInput" class="search-input" placeholder="Cari judul buku atau penulis...">
-                        <button class="search-btn"><i class="fas fa-search"></i></button>
-                    </div>
-                </div>
-                <div class="books-grid" id="booksGrid">
-                    <!-- Books loaded by JS -->
-                </div>
-            </section>
+<!-- DASHBOARD -->
+<div id="dashboard" class="section active">
+<h1>The Rooted Library</h1>
+<p style="text-align:center;">Selamat datang di Perpustakaan Digital The Rooted Library</p>
+</div>
 
-            <!-- Event -->
-            <section id="event" class="section">
-                <h2 class="section-title"><i class="fas fa-calendar-alt"></i> Event & Kegiatan</h2>
-                <div class="events-grid">
-                    <div class="event-card">
-                        <div class="event-date">15 Des 2024</div>
-                        <h3>Diskusi Budaya Batak Toba</h3>
-                        <p>Forum diskusi mendalam tentang adat istiadat dan perkembangan budaya Batak modern</p>
-                    </div>
-                    <div class="event-card">
-                        <div class="event-date">20 Jan 2025</div>
-                        <h3>Lomba Seni Gorga Digital</h3>
-                        <p>Kompetisi desain motif gorga Batak dengan software digital</p>
-                    </div>
-                    <div class="event-card">
-                        <div class="event-date">10 Feb 2025</div>
-                        <h3>Seminar Tarombo Online</h3>
-                        <p>Mengenal silsilah keluarga dan marga-marga Batak Toba</p>
-                    </div>
-                </div>
-            </section>
+<!-- ABOUT -->
+<div id="about" class="section">
+<h2>Tentang Kami</h2>
+<div class="box">
+<h3>Visi</h3>
+<p>Menjadi pusat literasi budaya Batak Toba berbasis digital.</p>
 
-            <!-- Ulasan -->
-            <section id="ulasan" class="section">
-                <h2 class="section-title"><i class="fas fa-comments"></i> Ulasan & Diskusi</h2>
-                <div class="ulasan-container">
-                    <div class="ulasan-form">
-                        <h3>Tulis Ulasan Anda</h3>
-                        <form id="ulasanForm">
-                            <input type="text" id="ulasanName" placeholder="Nama Anda *" required>
-                            <textarea id="ulasanText" placeholder="Bagikan pengalaman Anda tentang budaya Batak Toba..." required></textarea>
-                            <button type="submit">Kirim Ulasan <i class="fas fa-paper-plane"></i></button>
-                        </form>
-                    </div>
-                    <div class="ulasan-list" id="ulasanList">
-                        <!-- Reviews loaded by JS -->
-                    </div>
-                </div>
-            </section>
+<h3>Misi</h3>
+<ul>
+<li>Melestarikan budaya Batak Toba</li>
+<li>Menyediakan akses literasi</li>
+<li>Mendorong generasi muda</li>
+</ul>
+</div>
+</div>
 
-            <!-- Uji Coba -->
-            <section id="uji" class="section">
-                <h2 class="section-title"><i class="fas fa-flask"></i> Ruang Uji Coba</h2>
-                <div class="uji-grid">
-                    <div class="uji-card">
-                        <h3>📚 Belajar PHP (1-1000)</h3>
-                        <div class="php-container">
-                            <div class="php-progress" id="phpProgress"></div>
-                        </div>
-                    </div>
-                    <div class="uji-card">
-                        <h3>🧮 Menu Berhitung</h3>
-                        <div class="calc-container">
-                            <input type="number" id="calcNum1" placeholder="Angka 1">
-                            <select id="calcOp">
-                                <option value="+">Tambah (+)</option>
-                                <option value="-">Kurang (-)</option>
-                                <option value="*">Kali (×)</option>
-                                <option value="/">Bagi (÷)</option>
-                            </select>
-                            <input type="number" id="calcNum2" placeholder="Angka 2">
-                            <button onclick="doCalc()">Hitung</button>
-                            <div id="calcResult"></div>
-                        </div>
-                    </div>
-                    <div class="uji-card">
-                        <h3>💾 Menu Database (CRUD)</h3>
-                        <div class="db-container">
-                            <input type="text" id="dbJudul" placeholder="Judul Buku">
-                            <input type="text" id="dbPenulis" placeholder="Penulis">
-                            <input type="number" id="dbTahun" placeholder="Tahun">
-                            <button onclick="addDbBook()">Tambah</button>
-                            <table id="dbTable">
-                                <thead>
-                                    <tr><th>ID</th><th>Judul</th><th>Penulis</th><th>Tahun</th><th>Aksi</th></tr>
-                                </thead>
-                                <tbody></tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-            </section>
-        </div>
+<!-- KATALOG -->
+<div id="katalog" class="section">
+<h2>Katalog Buku</h2>
+<input id="search" onkeyup="cari()" placeholder="Cari buku...">
 
-        <!-- Footer Premium -->
-        <footer class="footer">
-            <div class="footer-content">
-                <div class="about-me">
-                    <a href="#" onclick="alert('About Me - Creator The Rooted Library')">
-                        <i class="fas fa-user-circle"></i> About Me
-                    </a>
-                </div>
-                <p><strong>The Rooted Library</strong> | Perpustakaan Khusus Budaya Batak Toba</p>
-            </div>
-        </footer>
+<div class="box buku">Budaya Batak - Siregar</div>
+<div class="box buku">Sejarah Toba - Hutapea</div>
+<div class="box buku">Media Digital - Lestari</div>
+</div>
 
-        <!-- WhatsApp Premium -->
-        <a href="https://wa.me/6281226423048?text=Halo%20The%20Rooted%20Library%2C%20saya%20tertarik%20dengan%20perpustakaan%20digital%20Batak%20Toba" 
-           class="whatsapp-btn" target="_blank">
-            <i class="fab fa-whatsapp"></i>
-        </a>
-    </div>
+<!-- EVENT -->
+<div id="event" class="section">
+<h2>Event</h2>
+<div class="box">Tambahkan foto kegiatan di sini</div>
+</div>
 
-    <script src="script.js"></script>
+<!-- ULASAN -->
+<div id="ulasan" class="section">
+<h2>Ulasan</h2>
+<textarea id="komen"></textarea>
+<button onclick="kirim()">Kirim</button>
+<div id="list"></div>
+</div>
+
+</div>
+
+<!-- LOGIN -->
+<div id="login" class="modal">
+<div class="modal-content">
+<h3>Login Anggota</h3>
+
+<input id="user" placeholder="Username / ID">
+<input id="pass" type="password" placeholder="Password">
+
+<button onclick="login()">LOGIN SEKARANG</button>
+<p>Belum punya akun? Daftar di sini</p>
+
+<button onclick="closeLogin()">Tutup</button>
+</div>
+</div>
+
+<footer style="text-align:center;">
+The Rooted Library | Perpustakaan Khusus Budaya Batak Toba
+</footer>
+
+<a class="wa" href="https://wa.me/6281226423048">💬</a>
+
+</div>
 </body>
 </html>
