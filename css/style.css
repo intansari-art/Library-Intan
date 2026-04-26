@@ -33,7 +33,8 @@ body {
 }
 
 /* Navigation Premium */
-.navbar.navbar {
+.navbar
+.navbar {
     background: var(--secondary-gradient);
     padding: 1.5rem 5%;
     display: flex;
@@ -747,3 +748,128 @@ body {
 }
 
 .whatsapp
+.whatsapp-btn:hover {
+    transform: translateY(-10px) scale(1.15);
+    box-shadow: 0 20px 40px rgba(37, 211, 102, 0.5);
+}
+
+/* Responsive Premium */
+@media (max-width: 1024px) {
+    .stats {
+        gap: 2rem;
+    }
+    
+    .about-grid,
+    .books-grid,
+    .events-grid,
+    .uji-grid {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        gap: 1.5rem;
+        padding: 1.5rem 3%;
+    }
+    
+    .nav-left {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .nav-link {
+        padding: 0.8rem 1.5rem;
+        font-size: 0.95rem;
+    }
+    
+    .container {
+        padding: 3rem 3%;
+    }
+    
+    .hero {
+        padding: 3rem 2rem;
+    }
+    
+    .stats {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+    
+    .uji-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .whatsapp-btn {
+        width: 60px;
+        height: 60px;
+        font-size: 1.6rem;
+        bottom: 2rem;
+        right: 2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-title {
+        font-size: 2.5rem;
+    }
+    
+    .section-title {
+        font-size: 2rem;
+    }
+    
+    .card,
+    .book-card,
+    .event-card,
+    .uji-card {
+        padding: 2rem;
+    }
+    
+    .modal-content {
+        margin: 5% auto;
+        width: 95%;
+    }
+}
+
+/* Scrollbar Custom */
+.php-progress::-webkit-scrollbar {
+    width: 8px;
+}
+
+.php-progress::-webkit-scrollbar-track {
+    background: rgba(255,255,255,0.2);
+    border-radius: 10px;
+}
+
+.php-progress::-webkit-scrollbar-thumb {
+    background: rgba(255,255,255,0.5);
+    border-radius: 10px;
+}
+
+.php-progress::-webkit-scrollbar-thumb:hover {
+    background: white;
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* Print */
+@media print {
+    .navbar, .whatsapp-btn, .modal, .footer {
+        display: none !important;
+    }
+    
+    .section:not(.active) {
+        display: none !important;
+    }
+}
