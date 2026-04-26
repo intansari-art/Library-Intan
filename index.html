@@ -12,18 +12,33 @@
 
 <body>
 <div class="overlay">
-   <!-- Navigation - FIXED -->
-<nav>
-    <div class="nav-left">
-        <a href="javascript:void(0)" onclick="showMenu('dashboard')" class="nav-active">🏠 Dashboard</a>
-        <a href="javascript:void(0)" onclick="showMenu('about')">ℹ️ About Us</a>
-        <a href="javascript:void(0)" onclick="showMenu('katalog')">📚 Katalog</a>
-        <a href="javascript:void(0)" onclick="showMenu('event')">📅 Event</a>
-        <a href="javascript:void(0)" onclick="showMenu('ulasan')">💬 Ulasan</a>
-        <a href="javascript:void(0)" onclick="showMenu('uji')">🧪 Uji Coba</a>
-    </div>
-    <a href="javascript:void(0)" onclick="showLoginForm()" class="login-btn">👤 Login Anggota</a>
-</nav>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-left">
+            <a href="javascript:void(0)" onclick="showMenu('dashboard')">
+                <span>🏠</span> Dashboard
+            </a>
+            <a href="javascript:void(0)" onclick="showMenu('about')">
+                <span>ℹ️</span> About Us
+            </a>
+            <a href="javascript:void(0)" onclick="showMenu('katalog')">
+                <span>📚</span> Katalog
+            </a>
+            <a href="javascript:void(0)" onclick="showMenu('event')">
+                <span>📅</span> Event
+            </a>
+            <a href="javascript:void(0)" onclick="showMenu('ulasan')">
+                <span>💬</span> Ulasan
+            </a>
+            <a href="javascript:void(0)" onclick="showMenu('uji')">
+                <span>🧪</span> Uji Coba
+            </a>
+        </div>
+        <a href="javascript:void(0)" onclick="showLoginForm()" class="login-btn">
+            👤 Login Anggota
+        </a>
+    </nav>
+
     <!-- Modal Login Anggota -->
     <div id="loginModal" class="modal">
         <div class="modal-content">
