@@ -1,76 +1,45 @@
-// ============================================
-// The Rooted Library - Premium JavaScript
-// ============================================
-
-// Data Premium
-const booksData = [
-    {
-        id: 1,
-        title: "Tarombo ni Raja Sisingamangaraja XII",
-        author: "Dr. Parulian Simanjuntak",
-        year: 2015,
-        desc: "Sejarah lengkap silsilah Raja Sisingamangaraja XII dan keturunannya yang heroik"
-    },
-    {
-        id: 2,
-        title: "Adat Alem Batak Toba",
-        author: "Mangaradja Onggang Parlindungan",
-        year: 1998,
-        desc: "Pedoman lengkap adat istiadat dan upacara adat Batak Toba tradisional"
-    },
-    {
-        id: 3,
-        title: "Gorga Batak: Seni dan Filosofinya",
-        author: "Dr. Sautmegin Situmorang",
-        year: 2020,
-        desc: "Studi mendalam tentang motif ukiran gorga dan makna filosofisnya"
-    },
-    {
-        id: 4,
-        title: "Saur Matua ni Batak Toba",
-        author: "Pdt. Dr. J. L. S. Hutabarat",
-        year: 1985,
-        desc: "Kumpulan 500+ pepatah bijak Batak Toba beserta tafsir lengkap"
-    },
-    {
-        id: 5,
-        title: "Marga-Marga Batak Toba Lengkap",
-        author: "Tim Peneliti Budaya Batak",
-        year: 2022,
-        desc: "Daftar lengkap 119 marga Batak Toba beserta asal-usul dan distribusi global"
-    }
-];
-
-let reviews = [
-    {
-        name: "Sangap Sian Toraja",
-        text: "Koleksi buku Batak Toba paling lengkap yang pernah saya temukan! Sangat membantu penelitian adat saya.",
-        time: "3 jam lalu"
-    },
-    {
-        name: "Juan Siagian",
-        text: "Platform digital premium untuk pelestarian budaya Batak. UI/UX sangat modern dan responsif!",
-        time: "1 hari lalu"
-    }
-];
-
-let dbBooks = [
-    {id: 1, judul: "Tarombo Batak", penulis: "Sutan", tahun: 2005},
-    {id: 2, judul: "Gorga Tradisional", penulis: "Parada", tahun: 2018}
-];
-
-// Initialize Premium
-document.addEventListener('DOMContentLoaded', function() {
-    initApp();
-});
-
-function initApp() {
-    loadBooks();
-    loadReviews();
-    renderDbTable();
-    setupEventListeners();
+// MENU
+function showMenu(menu){
+    document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
+    document.getElementById(menu).classList.add('active');
 }
 
-// Navigation Premium
-function showSection(sectionId)
-NEXT
+// LOGIN MODAL
+function openLogin(){
+    document.getElementById('login').style.display='block';
+}
+function closeLogin(){
+    document.getElementById('login').style.display='none';
+}
+
+// LOGIN VALIDASI
+function login(){
+    let u = document.getElementById("user").value;
+    let p = document.getElementById("pass").value;
+
+    if(u==""||p==""){
+        alert("Input tidak lengkap");
+    }else if(u=="admin" && p=="123"){
+        alert("Login sukses");
+    }else{
+        alert("Login gagal");
+    }
+}
+
+// ULASAN
+function kirim(){
+    let isi = document.getElementById("komen").value;
+    let p = document.createElement("p");
+    p.innerText = isi;
+    document.getElementById("list").appendChild(p);
+}
+
+// KATALOG SEARCH
+function cari(){
+    let input = document.getElementById("search").value.toLowerCase();
+    let buku = document.querySelectorAll(".buku");
+
+    buku.forEach(b=>{
+        b.style.display = b.innerText.toLowerCase().includes(input) ? "block" : "none";
+    });
+}
