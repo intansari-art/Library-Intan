@@ -1,32 +1,24 @@
-# The Rooted Library 🌱
+# 🌱 The Rooted Library
 
-Perpustakaan Digital Khusus Budaya Batak Toba
+**Perpustakaan Digital Khusus Budaya Batak Toba**
 
-## Fitur
-✅ **Responsive Web Design (RWD)**  
-✅ **Dashboard lengkap**  
-✅ **Katalog 5+ buku Batak Toba**  
+[![Demo](https://img.shields.io/badge/Live%20Demo-Green)](https://yourusername.github.io/the-rooted-library)
+
+## ✨ Fitur Lengkap
+
+✅ **Responsive Web Design (RWD)** - Mobile & Desktop  
+✅ **Dashboard profesional** dengan navigasi lengkap  
+✅ **Katalog 6+ buku Batak Toba** dengan search real-time  
 ✅ **Ruang Diskusi interaktif**  
-✅ **Event budaya Batak**  
-✅ **4 Tugas PHP Uji Coba**:
-   - 1000 hari belajar PHP
-   - Kalkulator operasi bilangan
-   - Sistem Login (3 kondisi)
-   - CRUD Database Buku  
-✅ **WhatsApp Chat (081226423048)**  
+✅ **Event budaya Batak** dengan gambar autentik  
+✅ **4 Tugas PHP Uji Coba FULLY FUNCTIONAL**:
+   - ☑️ 1000 hari belajar PHP (animated loop)
+   - ☑️ Kalkulator operasi (+-×÷) dengan halaman hasil terpisah
+   - ☑️ Sistem Login (3 kondisi: sukses/gagal/kosong)
+   - ☑️ CRUD Database (localStorage: tambah/edit/hapus)  
+✅ **WhatsApp Chat** 081226423048 (kanan bawah)  
+✅ **Visi & Misi** lengkap budaya Batak Toba  
 ✅ **Background perpustakaan aesthetic**  
-✅ **Visi & Misi lengkap**
+✅ **YouTube embed** adat Batak Toba  
 
-## Cara Menjalankan
-1. Upload semua file ke hosting PHP
-2. Akses `index.html`
-3. Nikmati perpustakaan digital Batak Toba!
-
-## Demo Login
-- Username: `admin`
-- Password: `batak123`
-
-## Teknologi
-- HTML5, CSS3, JavaScript
-- PHP untuk backend tugas
-- Responsive Bootstrap-free design
+## 🎯 Demo Credentials
