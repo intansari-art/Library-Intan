@@ -1,63 +1,49 @@
 <!DOCTYPE html>
-<html lang="id">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Katalog Buku - The Rooted Library</title>
+    <title>Katalog - The Rooted Library</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="navbar"><!-- sama --></nav>
+    <!-- NAVBAR -->
 
-    <section class="katalog-section">
-        <div class="container">
-            <h1>📚 Katalog Buku Batak Toba</h1>
+    <div class="container">
+        <section>
+            <h1>Katalog Buku Batak Toba</h1>
             <div class="search-box">
-                <input type="text" id="searchInput" placeholder="🔍 Cari judul buku atau penulis...">
-                <button onclick="searchBooks()">Cari</button>
+                <input type="text" placeholder="Cari judul buku atau penulis...">
+                <button>Cari</button>
             </div>
-            <div class="katalog-grid" id="katalogGrid">
-                <!-- Buku dimuat via JS -->
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer & WhatsApp -->
-    <script>
-        const books = [
-            {title: "Budaya Batak", author: "S. Siregar", year: 2023, pages: 250},
-            {title: "Sejarah Toba", author: "R. Hutapea", year: 2022, pages: 180},
-            {title: "Media Digital Batak", author: "A. Lestari", year: 2024, pages: 300},
-            {title: "Adat Istiadat Batak", author: "T. Simanjuntak", year: 2021, pages: 220},
-            {title: "Pusaka Batak Toba", author: "M. Sitorus", year: 2023, pages: 190},
-            {title: "Tortor dan Gondang", author: "J. Sinaga", year: 2020, pages: 150}
-        ];
-
-        function loadBooks(filteredBooks = books) {
-            const grid = document.getElementById('katalogGrid');
-            grid.innerHTML = filteredBooks.map(book => `
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px;">
                 <div class="book-card">
-                    <h3>${book.title}</h3>
-                    <p><strong>Oleh:</strong> ${book.author}</p>
-                    <p>${book.year} | ${book.pages} halaman</p>
-                    <button class="read-btn">📖 Baca</button>
+                    <h3>Budaya Batak</h3>
+                    <p><strong>Oleh:</strong> S. Siregar</p>
+                    <p>2023 | 250 halaman</p>
+                    <button>Baca Sekarang</button>
                 </div>
-            `).join('');
-        }
+                <div class="book-card">
+                    <h3>Sejarah Toba</h3>
+                    <p><strong>Oleh:</strong> R. Hutapea</p>
+                    <p>2022 | 180 halaman</p>
+                    <button>Baca Sekarang</button>
+                </div>
+                <div class="book-card">
+                    <h3>Media Digital</h3>
+                    <p><strong>Oleh:</strong> A. Lestari</p>
+                    <p>2024 | 300 halaman</p>
+                    <button>Baca Sekarang</button>
+                </div>
+                <div class="book-card">
+                    <h3>Adat Istiadat</h3>
+                    <p><strong>Oleh:</strong> T. Simanjuntak</p>
+                    <p>2021 | 220 halaman</p>
+                    <button>Baca Sekarang</button>
+                </div>
+            </div>
+        </section>
+    </div>
 
-        function searchBooks() {
-            const query = document.getElementById('searchInput').value.toLowerCase();
-            const filtered = books.filter(b => 
-                b.title.toLowerCase().includes(query) || b.author.toLowerCase().includes(query)
-            );
-            loadBooks(filtered);
-        }
-
-        document.addEventListener('DOMContentLoaded', () => {
-            loadBooks();
-            document.getElementById('searchInput').addEventListener('input', searchBooks);
-        });
-    </script>
+    <!-- FOOTER 2026 -->
 </body>
 </html>
