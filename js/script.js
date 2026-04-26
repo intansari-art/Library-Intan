@@ -85,6 +85,9 @@ function initApp() {
 }
 
 // Navigation
+function showMenu(menuId) {
+    // Hide all sections
+    document.querySelectorAll('.section').forEach(section
     document.querySelectorAll('.section').forEach(section => {
         section.classList.remove('active');
     });
@@ -360,6 +363,3 @@ window.closeModal = closeModal;
 window.searchBooks = searchBooks;
 window.addComment = addComment;
 window.borrowBook = borrowBook;
-function showMenu(menuId) {
-    // Hide all sections
-    document.querySelectorAll('.section').forEach(section
