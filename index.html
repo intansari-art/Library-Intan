@@ -8,24 +8,19 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Header -->
-    <header>
-        <nav class="navbar">
-            <div class="nav-brand">
-                <h2>The Rooted Library</h2>
-            </div>
-            <ul class="nav-menu">
-                <li><a href="dashboard.html">Dashboard</a></li>
-                <li><a href="katalog.html">Katalog</a></li>
-                <li><a href="event.html">Event</a></li>
-                <li><a href="diskusi.html">Diskusi</a></li>
-                <li><a href="uji-coba.html">Uji Coba</a></li>
-            </ul>
-            <div class="nav-right">
-                <a href="login.html" class="login-btn">Login Anggota</a>
-            </div>
-        </nav>
-    </header>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-brand">The Rooted Library</div>
+        <ul class="nav-menu">
+            <li><a href="index.html" class="active">Dashboard</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="katalog.html">Katalog</a></li>
+            <li><a href="event.html">Event</a></li>
+            <li><a href="diskusi.html">Diskusi</a></li>
+            <li><a href="uji-coba.html">Uji Coba</a></li>
+        </ul>
+        <a href="login.html" class="login-btn">Login Anggota</a>
+    </nav>
 
     <!-- Hero Section -->
     <section class="hero">
@@ -36,48 +31,15 @@
         </div>
     </section>
 
-    <!-- About Section -->
-    <section class="about">
+    <!-- Quick Links -->
+    <section class="quick-links">
         <div class="container">
-            <h2>Tentang Kami</h2>
-            <div class="about-grid">
-                <div class="about-card">
-                    <h3>Visi</h3>
-                    <p>Menjadi pusat literasi budaya Batak Toba berbasis digital yang terdepan dan terpercaya.</p>
-                </div>
-                <div class="about-card">
-                    <h3>Misi</h3>
-                    <ul>
-                        <li>Melestarikan warisan budaya Batak Toba melalui literasi digital</li>
-                        <li>Menyediakan akses mudah ke sumber pengetahuan budaya Batak</li>
-                        <li>Mendorong generasi muda mencintai dan memahami identitas Batak Toba</li>
-                        <li>Membangun komunitas pecinta budaya Batak yang aktif berdiskusi</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Katalog Preview -->
-    <section class="katalog-preview">
-        <div class="container">
-            <h2>Katalog Terpilih</h2>
-            <div class="katalog-grid">
-                <div class="book-card">
-                    <h4>Budaya Batak - Siregar</h4>
-                    <p>Penulis: S. Siregar</p>
-                    <a href="katalog.html">Lihat Detail</a>
-                </div>
-                <div class="book-card">
-                    <h4>Sejarah Toba - Hutapea</h4>
-                    <p>Penulis: R. Hutapea</p>
-                    <a href="katalog.html">Lihat Detail</a>
-                </div>
-                <div class="book-card">
-                    <h4>Media Digital - Lestari</h4>
-                    <p>Penulis: A. Lestari</p>
-                    <a href="katalog.html">Lihat Detail</a>
-                </div>
+            <h2>Quick Access</h2>
+            <div class="links-grid">
+                <a href="katalog.html" class="link-card">📚 Katalog Buku</a>
+                <a href="event.html" class="link-card">🎉 Event Budaya</a>
+                <a href="diskusi.html" class="link-card">💬 Ruang Diskusi</a>
+                <a href="uji-coba.html" class="link-card">🧪 Uji Coba PHP</a>
             </div>
         </div>
     </section>
@@ -93,7 +55,7 @@
                 <div class="footer-section">
                     <h4>About Me</h4>
                     <p>Dibuat dengan ❤️ untuk melestarikan budaya Batak Toba</p>
-                    <a href="https://www.youtube.com/watch?v=Vu-5KnFsIKw" target="_blank">Tonton Adat Batak Toba</a>
+                    <a href="https://www.youtube.com/watch?v=Vu-5KnFsIKw" target="_blank" class="yt-link">🎥 Adat Batak Toba</a>
                 </div>
             </div>
             <div class="footer-bottom">
@@ -102,12 +64,10 @@
         </div>
     </footer>
 
-    <!-- WhatsApp Chat Button -->
-    <div class="whatsapp-btn">
-        <a href="https://wa.me/6281226423048" target="_blank">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
-        </a>
-    </div>
+    <!-- WhatsApp Button -->
+    <a href="https://wa.me/6281226423048" class="whatsapp-btn" target="_blank">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+    </a>
 
     <script src="script.js"></script>
 </body>
