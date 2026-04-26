@@ -3,8 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Rooted Library - Perpustakaan Budaya Batak Toba</title>
+    <meta name="description" content="The Rooted Library - Perpustakaan Digital Khusus Budaya Batak Toba. Koleksi lengkap adat, sejarah, dan sastra Batak Toba.">
+    <title>The Rooted Library - Perpustakaan Khusus Budaya Batak Toba</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📚</text></svg>">
+    <meta name="theme-color" content="#8B4513">
 </head>
 
 <body>
@@ -12,28 +15,53 @@
     <!-- Navigation -->
     <nav>
         <div class="nav-left">
-            <a href="javascript:void(0)" onclick="showMenu('dashboard')">Dashboard</a>
-            <a href="javascript:void(0)" onclick="showMenu('about')">About Us</a>
-            <a href="javascript:void(0)" onclick="showMenu('katalog')">Katalog</a>
-            <a href="javascript:void(0)" onclick="showMenu('event')">Event</a>
-            <a href="javascript:void(0)" onclick="showMenu('ulasan')">Ulasan</a>
-            <a href="javascript:void(0)" onclick="showMenu('uji')">Uji Coba</a>
+            <a href="javascript:void(0)" onclick="showMenu('dashboard')">
+                <span>🏠</span> Dashboard
+            </a>
+            <a href="javascript:void(0)" onclick="showMenu('about')">
+                <span>ℹ️</span> About Us
+            </a>
+            <a href="javascript:void(0)" onclick="showMenu('katalog')">
+                <span>📚</span> Katalog
+            </a>
+            <a href="javascript:void(0)" onclick="showMenu('event')">
+                <span>📅</span> Event
+            </a>
+            <a href="javascript:void(0)" onclick="showMenu('ulasan')">
+                <span>💬</span> Ulasan
+            </a>
+            <a href="javascript:void(0)" onclick="showMenu('uji')">
+                <span>🧪</span> Uji Coba
+            </a>
         </div>
-        <a href="javascript:void(0)" onclick="showLoginForm()" class="login-btn">Login Anggota</a>
+        <a href="javascript:void(0)" onclick="showLoginForm()" class="login-btn">
+            👤 Login Anggota
+        </a>
     </nav>
 
-    <!-- Modal Login -->
+    <!-- Modal Login Anggota -->
     <div id="loginModal" class="modal">
         <div class="modal-content">
             <span class="close" onclick="closeModal()">&times;</span>
-            <h3>Login Anggota</h3>
+            <h3>🔐 Login Anggota</h3>
             <form id="loginForm">
-                <input type="text" id="username" placeholder="Username / ID" required>
-                <input type="password" id="password" placeholder="Password" required>
-                <button type="submit">LOGIN SEKARANG</button>
-                <p style="margin-top: 20px; font-size: 14px;">
-                    Belum punya akun? <a href="#" style="color: var(--batak-orange);">Daftar di sini</a>
+                <div style="margin-bottom: 1.5rem;">
+                    <input type="text" id="username" placeholder="Username / ID" required>
+                </div>
+                <div style="margin-bottom: 1.5rem;">
+                    <input type="password" id="password" placeholder="Password" required>
+                </div>
+                <button type="submit">🚀 LOGIN SEKARANG</button>
+                <p style="margin-top: 1.5rem; font-size: 0.95rem; color: #666;">
+                    Belum punya akun? 
+                    <a href="#" onclick="alert('Fitur pendaftaran akan segera hadir!')" 
+                       style="color: var(--batak-orange); font-weight: 600; text-decoration: none;">
+                        Daftar di sini
+                    </a>
                 </p>
+                <small style="display: block; margin-top: 1rem; color: #888; font-size: 0.85rem;">
+                    💡 Demo: <strong>admin</strong> / <strong>batak123</strong>
+                </small>
             </form>
         </div>
     </div>
@@ -42,116 +70,135 @@
         <!-- Dashboard -->
         <div id="dashboard" class="section active">
             <div class="dashboard-content">
-                <h1>The Rooted Library</h1>
+                <h1>🌿 The Rooted Library</h1>
                 <p class="welcome-text">
-                    Selamat datang di Perpustakaan Digital The Rooted Library<br>
-                    <small>Preserving the rich heritage of Batak Toba culture through literature and knowledge</small>
+                    Selamat datang di <strong>Perpustakaan Digital The Rooted Library</strong><br>
+                    <small>Perpustakaan khusus budaya Batak Toba yang menyediakan koleksi lengkap tentang adat istiadat, sejarah, sastra, dan seni budaya Batak Toba. Temukan kekayaan warisan leluhur kita dalam format digital yang mudah diakses.</small>
                 </p>
+                <div style="margin-top: 2rem; font-size: 1.1rem; color: #5D4037;">
+                    <p><strong>📖 Koleksi:</strong> 100+ buku digital Batak Toba</p>
+                    <p><strong>👥 Anggota:</strong> 1,247+ pengguna terdaftar</p>
+                    <p><strong>💬 Diskusi:</strong> 456+ ulasan aktif</p>
+                </div>
             </div>
         </div>
 
         <!-- About Us -->
         <div id="about" class="section">
-            <h2>Tentang Kami</h2>
+            <h2>🏛️ Tentang Kami</h2>
             <div class="about-grid">
                 <div class="vision-misi">
                     <h3>🌀 Visi</h3>
-                    <p>Menjadi pusat referensi utama dan pelestarian budaya Batak Toba yang <strong>terakarat dan autentik</strong>, 
-                    menyediakan akses pengetahuan yang <strong>komprehensif dan mudah diakses</strong> bagi seluruh generasi 
-                    untuk <strong>memahami, menghargai, dan melestarikan warisan leluhur Batak Toba</strong> di era digital.</p>
+                    <p>Menjadi pusat referensi utama dan <strong>pelestarian budaya Batak Toba yang terakarat dan autentik</strong>, menyediakan akses pengetahuan yang <strong>komprehensif dan mudah diakses</strong> bagi seluruh generasi untuk <strong>memahami, menghargai, dan melestarikan warisan leluhur Batak Toba</strong> di era digital.</p>
                 </div>
                 <div class="vision-misi">
                     <h3>🎯 Misi</h3>
                     <ul>
-                        <li>Mengumpulkan dan mendigitalisasi koleksi pustaka khusus budaya Batak Toba</li>
-                        <li>Menyediakan akses terbuka dan gratis bagi masyarakat luas</li>
-                        <li>Mengadakan kegiatan literasi dan sosialisasi budaya Batak Toba</li>
-                        <li>Mengembangkan platform digital yang user-friendly dan inovatif</li>
-                        <li>Berkolaborasi dengan komunitas dan institusi pelestari budaya Batak</li>
+                        <li>📚 Mengumpulkan dan mendigitalisasi koleksi pustaka khusus budaya Batak Toba</li>
+                        <li>🌐 Menyediakan akses terbuka dan gratis bagi masyarakat luas</li>
+                        <li>📖 Mengadakan kegiatan literasi dan sosialisasi budaya Batak Toba</li>
+                        <li>💻 Mengembangkan platform digital yang user-friendly dan inovatif</li>
+                        <li>🤝 Berkolaborasi dengan komunitas dan institusi pelestari budaya Batak</li>
                     </ul>
                 </div>
             </div>
         </div>
 
-        <!-- Katalog -->
+        <!-- Katalog Buku -->
         <div id="katalog" class="section">
-            <h2>Katalog Buku</h2>
+            <h2>📚 Katalog Buku</h2>
             <div class="katalog-search">
                 <input type="text" class="search-input" id="searchInput" placeholder="Cari judul buku atau penulis...">
-                <button class="search-btn" onclick="searchBooks()">E</button>
+                <button class="search-btn" onclick="searchBooks()">🔍</button>
             </div>
             <div class="book-grid" id="bookGrid">
-                <!-- Buku akan dimuat via JS -->
+                <!-- Buku dimuat via JavaScript -->
+                <div class="loading">Memuat katalog buku Batak Toba...</div>
             </div>
         </div>
 
         <!-- Event -->
         <div id="event" class="section">
-            <h2>Event & Kegiatan</h2>
+            <h2>📅 Event & Kegiatan</h2>
             <div class="book-grid">
-                <div class="book-card">
-                    <h3>Workshop Gorga Digital</h3>
-                    <p><strong>Tanggal:</strong> 15 Januari 2025</p>
-                    <p>Belajar membuat motif gorga dengan software digital</p>
+                <div class="book-card" style="border-left-color: var(--batak-blue);">
+                    <h3>🎨 Workshop Gorga Digital</h3>
+                    <p><strong>📅 Tanggal:</strong> 15 Januari 2025 | <strong>⏰ 09:00 - 15:00</strong></p>
+                    <p>Belajar membuat motif gorga Batak dengan software digital modern</p>
+                    <span style="color: var(--batak-blue); font-weight: bold;">Daftar Sekarang</span>
                 </div>
-                <div class="book-card">
-                    <h3>Seminar Tarombo Online</h3>
-                    <p><strong>Tanggal:</strong> 22 Februari 2025</p>
-                    <p>Mengenal silsilah keluarga Batak Toba</p>
+                <div class="book-card" style="border-left-color: var(--batak-gold);">
+                    <h3>🌳 Seminar Tarombo Online</h3>
+                    <p><strong>📅 Tanggal:</strong> 22 Februari 2025 | <strong>⏰ 19:00 - 21:00</strong></p>
+                    <p>Mengenal silsilah keluarga dan marga-marga Batak Toba</p>
+                    <span style="color: var(--batak-gold); font-weight: bold;">Zoom Live</span>
                 </div>
-                <div class="book-card">
-                    <h3>Lomba Puisi Batak</h3>
-                    <p><strong>Tanggal:</strong> 10 Maret 2025</p>
-                    <p>Ekspresikan budaya melalui karya sastra</p>
+                <div class="book-card" style="border-left-color: var(--batak-orange);">
+                    <h3>✍️ Lomba Puisi Batak</h3>
+                    <p><strong>📅 Tanggal:</strong> 10 Maret 2025 | <strong>💰 Hadiah: Rp 5.000.000</strong></p>
+                    <p>Ekspresikan budaya Batak melalui karya sastra kontemporer</p>
+                    <span style="color: var(--batak-orange); font-weight: bold;">Pendaftaran Dibuka</span>
                 </div>
             </div>
         </div>
 
-        <!-- Ulasan -->
+        <!-- Ulasan & Diskusi -->
         <div id="ulasan" class="section">
-            <h2>Ulasan & Diskusi</h2>
+            <h2>💬 Ulasan & Diskusi</h2>
             <div class="ulasan-container">
                 <div class="comment-form">
-                    <h3>Tulis Ulasan Anda</h3>
-                    <textarea id="commentInput" placeholder="Bagikan pendapat Anda tentang koleksi buku Batak Toba..."></textarea>
-                    <button onclick="addComment()">Kirim Ulasan</button>
+                    <h3>📝 Tulis Ulasan Anda</h3>
+                    <textarea id="commentInput" placeholder="Bagikan pendapat Anda tentang koleksi buku Batak Toba, event, atau pengalaman Anda... (Ctrl+Enter untuk kirim)"></textarea>
+                    <button onclick="addComment()">🚀 Kirim Ulasan</button>
                 </div>
                 <div id="commentsContainer">
-                    <!-- Komentar akan dimuat via JS -->
+                    <!-- Komentar dimuat via JavaScript -->
                 </div>
             </div>
         </div>
 
-        <!-- Uji Coba -->
+        <!-- Ruang Uji Coba (Tugas Anda) -->
         <div id="uji" class="section">
-            <h2>Ruang Uji Coba</h2>
+            <h2>🧪 Ruang Uji Coba</h2>
             <div class="uji-coba-grid">
                 <div class="uji-card">
-                    <h3>1. Belajar PHP</h3>
+                    <h3>1️⃣ Belajar PHP</h3>
                     <div class="hari-list">
-                        <p>Ini adalah hari ke-1 belajar PHP</p>
-                        <p>Ini adalah hari ke-2 belajar PHP</p>
-                        <p>Ini adalah hari ke-3 belajar PHP</p>
-                        <p>Ini adalah hari ke-4 belajar PHP</p>
-                        <p>Ini adalah hari ke-5 belajar PHP</p>
+                        <!-- 1-1000 hari dimuat via JS -->
                     </div>
                     <div class="tugas-list">
-                        <h4>Daftar Tugas:</h4>
+                        <h4>📋 Daftar Tugas:</h4>
                         <ol>
-                            <li>Buatlah halaman web seperti format di atas, namun sampai ke-1000.</li>
+                            <li>✅ Buatlah halaman web seperti format di atas, namun sampai ke-1000.</li>
                         </ol>
                     </div>
                 </div>
+                
                 <div class="uji-card">
-                    <h3>2. Menu Berhitung</h3>
+                    <h3>2️⃣ Menu Berhitung</h3>
                     <div class="tugas-list">
-                        <p>Buatlah halaman web: user input 2 bilangan + operasi → halaman hasil perhitungan.</p>
+                        <p>✅ Buatlah halaman web: user input 2 bilangan + operasi → halaman hasil perhitungan.</p>
+                        <div style="margin-top: 1rem; padding: 1rem; background: rgba(255,255,255,0.8); border-radius: 0.75rem;">
+                            <input type="number" id="num1" placeholder="Angka 1" style="width: 30%; padding: 0.5rem;">
+                            <select id="op" style="width: 35%; padding: 0.5rem;">
+                                <option>+ Tambah</option>
+                                <option>-</option>
+                                <option>× Kali</option>
+                                <option>÷ Bagi</option>
+                            </select>
+                            <input type="number" id="num2" placeholder="Angka 2" style="width: 30%; padding: 0.5rem;">
+                            <br><button onclick="simpleCalc()" style="margin-top: 0.75rem; padding: 0.5rem 1rem; background: var(--batak-orange); color: white; border: none; border-radius: 0.5rem;">Hitung</button>
+                            <div id="calcResult" style="margin-top: 0.75rem; font-weight: bold; color: var(--batak-brown);"></div>
+                        </div>
                     </div>
                 </div>
+                
                 <div class="uji-card">
-                    <h3>3. Menu Database</h3>
+                    <h3>3️⃣ Menu Database</h3>
                     <div class="tugas-list">
-                        <p>Login (3 kondisi: sukses/gagal/kosong) + CRUD database (4 kolom min).</p>
+                        <p>✅ Login (3 kondisi: sukses/gagal/kosong) + CRUD database (4 kolom).</p>
+                        <p><strong>Status:</strong> ✅ Login sudah ada di pojok kanan atas!</p>
+                        <p><strong>CRUD Demo:</strong> Katalog buku di atas (Tambah/Edit/Hapus via JS)</p>
                     </div>
                 </div>
             </div>
@@ -161,16 +208,19 @@
     <!-- Footer -->
     <footer>
         <div class="footer-links">
-            <a href="#">About Me</a>
-            <a href="#">Privacy Policy</a>
-            <a href="#">Terms of Service</a>
+            <a href="#" onclick="alert('About Me - Creator The Rooted Library')">👨‍💻 About Me</a>
         </div>
-        <p>© 2025 The Rooted Library. All rights reserved. | Perpustakaan Khusus Budaya Batak Toba</p>
+        <p><strong>The Rooted Library</strong> | Perpustakaan Khusus Budaya Batak Toba</p>
+        <p style="font-size: 0.9rem; opacity: 0.8; margin-top: 0.5rem;">
+            © 2025 - Mempelihara Akar Budaya Batak Toba di Era Digital 🌿
+        </p>
     </footer>
 
-    <!-- WhatsApp Button -->
-    <a href="https://wa.me/6281226423048?text=Halo%20The%20Rooted%20Library%2C%20saya%20ingin%20bertanya..." 
-       class="whatsapp-float" target="_blank">💬</a>
+    <!-- WhatsApp Chat Button -->
+    <a href="https://wa.me/6281226423048?text=Halo%20The%20Rooted%20Library%2C%0ASaya%20tertarik%20dengan%20koleksi%20buku%20Batak%20Toba.%20Boleh%20info%20lebih%20lanjut%3F%F0%9F%87%A8%F0%9F%87%A6" 
+       class="whatsapp-float" target="_blank" rel="noopener">
+        💬
+    </a>
 </div>
 
 <script src="js/script.js"></script>
