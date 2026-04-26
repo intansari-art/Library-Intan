@@ -3,48 +3,57 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Diskusi - The Rooted Library</title>
+    <title>Ruang Diskusi - The Rooted Library</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Navigation -->
+    <header>
+        <nav class="navbar">
+            <div class="nav-brand"><h2>The Rooted Library</h2></div>
+            <ul class="nav-menu">
+                <li><a href="index.html">Dashboard</a></li>
+                <li><a href="katalog.html">Katalog</a></li>
+                <li><a href="event.html">Event</a></li>
+                <li><a href="diskusi.html" class="active">Diskusi</a></li>
+                <li><a href="uji-coba.html">Uji Coba</a></li>
+            </ul>
+            <div class="nav-right">
+                <a href="login.html" class="login-btn">Login Anggota</a>
+            </div>
+        </nav>
+    </header>
 
     <section class="diskusi">
         <div class="container">
-            <h1>Ruang Diskusi</h1>
-            <div class="diskusi-container">
-                <div class="komentar">
-                    <div class="user-info">
-                        <strong>Sitorus_95</strong>
-                        <span>2 jam yang lalu</span>
-                    </div>
-                    <p>Bagaimana cara paling efektif melestarikan bahasa Batak di era digital?</p>
-                    <div class="replies">
-                        <div class="reply">
-                            <strong>Hutapea22</strong>: Buat konten digital yang menarik!
-                        </div>
-                    </div>
-                </div>
-                <div class="komentar">
-                    <div class="user-info">
-                        <strong>Lestari_Batak</strong>
-                        <span>5 jam yang lalu</span>
-                    </div>
-                    <p>Siapa yang pernah ikut tortor? Pengalaman seru apa yang kalian dapat?</p>
-                </div>
-                <div class="komentar">
-                    <div class="user-info">
-                        <strong>Siregar_ID</strong>
-                        <span>1 hari yang lalu</span>
-                    </div>
-                    <p>Adat mangulosi sudah jarang ditemui sekarang. Bagaimana pendapat kalian?</p>
-                </div>
+            <h1>💬 Ruang Diskusi Budaya Batak</h1>
+            <p style="text-align:center;color:#666;margin-bottom:3rem;">Bagi pengalaman dan diskusikan warisan budaya Batak Toba</p>
+            
+            <div class="diskusi-container" id="diskusiContainer">
+                <!-- Komentar dimuat via JS -->
             </div>
+            
             <div class="tulis-komentar">
-                <textarea placeholder="Tulis komentar Anda..."></textarea>
-                <button>Kirim</button>
+                <div class="user-input">
+                    <input type="text" id="userName" placeholder="Nama Anda (contoh: Sitorus_95)" maxlength="20">
+                </div>
+                <textarea id="commentText" placeholder="Tulis komentar atau pertanyaan Anda tentang budaya Batak..."></textarea>
+                <button onclick="postComment()">💬 Kirim Komentar</button>
             </div>
         </div>
     </section>
-</body>
-</html>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>The Rooted Library</h3>
+                    <p>Perpustakaan Khusus Budaya Batak Toba</p>
+                </div>
+                <div class="footer-section">
+                    <h4>About Me</h4>
+                    <p>Dibuat dengan ❤️ untuk melestarikan budaya Batak Toba</p>
+                    <a href="https://www.youtube.com/watch?v=Vu-5KnFsIKw" target="_blank">Tonton Adat Batak Toba</a>
+                </div>
+            </div>
+            <
