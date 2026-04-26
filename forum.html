@@ -1,91 +1,10 @@
 <!DOCTYPE html>
-<html lang="id">
-<head>
-    <!-- Same head -->
-    <title>Forum Batak - The Rooted Library</title>
-</head>
-<body>
-    <!-- Navbar -->
-
-    <!-- Hero Forum -->
-    <section class="hero-section py-5 text-center">
-        <div class="container">
-            <h1 class="display-4 fw-bold mb-4">💬 Forum Batak Toba</h1>
-            <p class="lead">Diskusi adat, bahasa, dan budaya Batak Toba</p>
-        </div>
+<!-- Header sama, active="ulasan.html" -->
+<main>
+    <section>
+        <!-- Form review + list ulasan -->
     </section>
-
-    <!-- Forum Container -->
-    <section class="py-5">
-        <div class="container">
-            <!-- New Post Form -->
-            <div class="row justify-content-center">
-                <div class="col-lg-8 mb-5">
-                    <div class="card shadow-lg border-0 rounded-4 p-5 bg-white">
-                        <h3 class="fw-bold text-primary mb-4 text-center">✍️ Buat Diskusi Batak</h3>
-                        <form onsubmit="createBatakPost(event)">
-                            <div class="mb-4">
-                                <label class="form-label fw-bold">Judul Diskusi</label>
-                                <input type="text" class="form-control rounded-pill px-4 py-3" 
-                                       placeholder="Contoh: Arti 'Horas' dalam adat Batak?" required>
-                            </div>
-                            <div class="mb-4">
-                                <label class="form-label fw-bold">Diskusi Anda</label>
-                                <textarea class="form-control rounded-4 py-3 px-4" rows="5" 
-                                          placeholder="Tulis pertanyaan atau sharing tentang budaya Batak..." required></textarea>
-                            </div>
-                            <button type="submit" class="btn btn-batak w-100 py-3 rounded-pill fw-bold fs-5">
-                                <i class="fas fa-paper-plane me-2"></i>Posting Horas!
-                            </button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Forum Posts Batak -->
-            <div class="row g-4">
-                <!-- Post 1: Rekomendasi Pustaha -->
-                <div class="col-lg-8">
-                    <div class="card post-card shadow-lg border-start border-5 border-warning p-4 mb-4">
-                        <div class="d-flex justify-content-between align-items-start mb-3">
-                            <span class="fw-bold text-primary">@saur_matua_batak</span>
-                            <span class="text-muted small">2 jam lalu</span>
-                        </div>
-                        <h4 class="fw-bold mb-3">🔥 Rekomendasi Pustaha Terbaik untuk Pemula</h4>
-                        <p class="text-dark mb-4">Horas! Ada yang punya rekomendasi pustaha Batak untuk pemula? Ingin belajar aksara dan makna adat dasar...</p>
-                        <div class="d-flex gap-4 text-muted small mb-4">
-                            <span><i class="fas fa-comment me-1"></i>12 Balasan</span>
-                            <span><i class="fas fa-heart me-1 text-danger"></i>45 Suka</span>
-                            <span><i class="fas fa-eye me-1"></i>123 Dilihat</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Post 2: Arti Dalihan Na Tolu -->
-                <div class="col-lg-8">
-                    <div class="card post-card shadow-lg border-start border-5 border-warning p-4 mb-4">
-                        <div class="d-flex justify-content-between align-items-start mb-3">
-                            <span class="fw-bold text-primary">@anak_batak_toba</span>
-                            <span class="text-muted small">1 hari lalu</span>
-                        </div>
-                        <h4 class="fw-bold mb-3">🤔 Penjelasan Lengkap Dalihan Na Tolu</h4>
-                        <p class="text-dark mb-4">Bisa jelaskan dong filosofi Dalihan Na Tolu dalam kehidupan sehari-hari Batak modern? Sharing pengalaman!</p>
-                        <div class="d-flex gap-4 text-muted small mb-4">
-                            <span><i class="fas fa-comment me-1"></i>28 Balasan</span>
-                            <span><i class="fas fa-heart me-1 text-danger"></i>156 Suka</span>
-                            <span><i class="fas fa-eye me-1"></i>890 Dilihat</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <script>
-        function createBatakPost(e) {
-            e.preventDefault();
-            alert('✅ Postingan Batak berhasil diposting! Horas! 🙌');
-        }
-    </script>
-</body>
-</html>
+</main>
+<script src="js/script.js">
+    initReviews();
+</script>
