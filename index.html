@@ -4,182 +4,515 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Rooted Library - Perpustakaan Budaya Batak Toba</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-image: url('https://www.ayobandung.id/ayo-netizen/01165954/02102025/budaya-mencontek-yang-sering-dianggap-sepele');
+            background-size: cover;
+            background-attachment: fixed;
+            background-position: center;
+        }
+
+        /* Header & Navigation */
+        header {
+            background: rgba(0, 50, 100, 0.95);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            padding: 1rem 0;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #FFD700;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: #FFD700;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background: #FFD700;
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .login-btn {
+            background: #FFD700;
+            color: #003366;
+            padding: 0.7rem 1.5rem;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(255,215,0,0.3);
+        }
+
+        .login-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255,215,0,0.4);
+        }
+
+        /* Main Content */
+        main {
+            margin-top: 80px;
+            min-height: 100vh;
+        }
+
+        .section {
+            display: none;
+            padding: 4rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section.active {
+            display: block;
+        }
+
+        .hero {
+            text-align: center;
+            color: white;
+            padding: 6rem 2rem;
+            background: rgba(0, 50, 100, 0.8);
+            backdrop-filter: blur(10px);
+            margin: 2rem;
+            border-radius: 20px;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Cards */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            transition: all 0.3s;
+            border: 1px solid rgba(255,255,255,0.3);
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        }
+
+        .card h3 {
+            color: #003366;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        /* About Us */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .vision-mission {
+            background: rgba(255, 215, 0, 0.1);
+            padding: 2rem;
+            border-radius: 15px;
+            border-left: 5px solid #FFD700;
+        }
+
+        /* Catalog */
+        .search-box {
+            max-width: 500px;
+            margin: 2rem auto;
+            position: relative;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 1rem 1rem 1rem 3rem;
+            border: 2px solid #ddd;
+            border-radius: 25px;
+            font-size: 1rem;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        .search-box input:focus {
+            border-color: #FFD700;
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #666;
+        }
+
+        .catalog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .book-card {
+            background: white;
+            border-radius: 15px;
+            padding: 1.5rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+        }
+
+        .book-card:hover {
+            transform: translateY(-5px);
+        }
+
+        /* Reviews/Discussion */
+        .review-form {
+            background: rgba(255,255,255,0.95);
+            padding: 2rem;
+            border-radius: 15px;
+            margin-bottom: 2rem;
+        }
+
+        .review-list {
+            display: grid;
+            gap: 1.5rem;
+        }
+
+        .review-item {
+            background: rgba(255,255,255,0.9);
+            padding: 1.5rem;
+            border-radius: 10px;
+            border-left: 4px solid #FFD700;
+        }
+
+        /* Uji Coba */
+        .uji-coba-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .blue-box {
+            background: #4A90E2;
+            color: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin-bottom: 1rem;
+            font-family: monospace;
+        }
+
+        /* Login Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.8);
+            backdrop-filter: blur(5px);
+        }
+
+        .modal-content {
+            background: white;
+            margin: 10% auto;
+            padding: 2rem;
+            border-radius: 15px;
+            width: 90%;
+            max-width: 400px;
+            text-align: center;
+            animation: modalSlideIn 0.3s ease;
+        }
+
+        @keyframes modalSlideIn {
+            from { transform: translateY(-50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid #ddd;
+            border-radius: 10px;
+            font-size: 1rem;
+            outline: none;
+        }
+
+        .form-group input:focus {
+            border-color: #FFD700;
+        }
+
+        .btn {
+            width: 100%;
+            padding: 1rem;
+            background: #003366;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .btn:hover {
+            background: #FFD700;
+            color: #003366;
+        }
+
+        /* WhatsApp Button */
+        .whatsapp-btn {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 40px;
+            right: 40px;
+            background: #25D366;
+            color: white;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 2px 2px 3px #999;
+            z-index: 1000;
+            transition: all 0.3s;
+            animation: pulse 2s infinite;
+        }
+
+        .whatsapp-btn:hover {
+            background: #128C7E;
+            transform: scale(1.1);
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            .section {
+                padding: 2rem 1rem;
+            }
+        }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: rgba(255,255,255,0.1);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #FFD700;
+            border-radius: 5px;
+        }
+    </style>
 </head>
 <body>
-    <!-- Login Popup -->
-    <div id="loginPopup" class="login-popup">
-        <div class="login-container">
-            <span class="close-login" onclick="closeLogin()">&times;</span>
-            <h3>Login Anggota</h3>
-            <form class="login-form">
-                <input type="text" placeholder="Username / ID" required>
-                <input type="password" placeholder="Password" required>
-                <button type="submit">LOGIN SEKARANG</button>
-                <p>Belum punya akun? <a href="#" class="register-link">Daftar di sini</a></p>
-            </form>
-        </div>
-    </div>
-
     <!-- Header -->
     <header>
-        <div class="container">
-            <div class="logo">
-                <h1>The Rooted Library</h1>
-                <p>Perpustakaan Khusus Budaya Batak Toba</p>
-            </div>
-            <nav>
-                <ul>
-                    <li><a href="#dashboard" class="active">Dashboard</a></li>
-                    <li><a href="#about">About us</a></li>
-                    <li><a href="#katalog">Katalog</a></li>
-                    <li><a href="ulasan.html">Ulasan</a></li>
-                    <li><a href="#event">Event</a></li>
-                    <li><a href="uji_coba.html">Uji Coba</a></li>
-                </ul>
-            </nav>
-            <div class="login-trigger" onclick="openLogin()">
-                <i class="fas fa-user"></i> Login
-            </div>
-        </div>
+        <nav>
+            <a href="#" class="logo">📚 The Rooted Library</a>
+            <ul class="nav-links">
+                <li><a href="#dashboard" onclick="showSection('dashboard')">Dashboard</a></li>
+                <li><a href="#about" onclick="showSection('about')">About Us</a></li>
+                <li><a href="#katalog" onclick="showSection('katalog')">Katalog</a></li>
+                <li><a href="#event" onclick="showSection('event')">Event</a></li>
+                <li><a href="#ulasan" onclick="showSection('ulasan')">Ulasan</a></li>
+                <li><a href="#uji-coba" onclick="showSection('uji-coba')">Uji Coba</a></li>
+            </ul>
+            <a href="#" class="login-btn" onclick="openLoginModal()">Login Anggota</a>
+        </nav>
     </header>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-content">
-            <h2>Selamat Datang di</h2>
-            <h1>The Rooted Library</h1>
-            <p>Perpustakaan Digital Khusus Budaya Batak Toba</p>
-            <a href="#katalog" class="btn-primary">Jelajahi Koleksi</a>
-        </div>
-    </section>
-
-    <!-- Dashboard -->
-    <section id="dashboard" class="section">
-        <div class="container">
-            <h2>Dashboard</h2>
-            <div class="welcome-box">
-                <h3>The Rooted Library</h3>
-                <p>Selamat datang di Perpustakaan Digital The Rooted Library. Temukan ribuan koleksi buku, musik gondang, pustaha kuno, dan seni gorga Batak Toba dalam format digital yang mudah diakses kapan saja, di mana saja.</p>
+    <!-- Main Content -->
+    <main>
+        <!-- Dashboard -->
+        <section id="dashboard" class="section active">
+            <div class="hero">
+                <h1>The Rooted Library</h1>
+                <p>Selamat datang di Perpustakaan Digital The Rooted Library, perpustakaan khusus budaya Batak Toba yang menyediakan koleksi lengkap tentang adat istiadat, sejarah, sastra, dan seni budaya Batak Toba. Temukan kekayaan warisan leluhur kita dalam format digital yang mudah diakses.</p>
             </div>
-            
-            <div class="stats-grid">
-                <div class="stat-card">
-                    <i class="fas fa-book"></i>
+            <div class="cards-grid">
+                <div class="card">
+                    <i class="fas fa-book-open fa-3x" style="color: #FFD700; margin-bottom: 1rem;"></i>
+                    <h3>10.000+ Buku</h3>
+                    <p>Koleksi lengkap tentang budaya Batak Toba dari berbagai era</p>
+                </div>
+                <div class="card">
+                    <i class="fas fa-users fa-3x" style="color: #FFD700; margin-bottom: 1rem;"></i>
+                    <h3>5.000+ Anggota</h3>
+                    <p>Komunitas pecinta budaya Batak Toba terbesar</p>
+                </div>
+                <div class="card">
+                    <i class="fas fa-calendar-alt fa-3x" style="color: #FFD700; margin-bottom: 1rem;"></i>
+                    <h3>20+ Event</h3>
+                    <p>Kegiatan budaya dan diskusi rutin setiap bulan</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Us -->
+        <section id="about" class="section">
+            <div class="card">
+                <h2 style="text-align: center; color: #003366; margin-bottom: 2rem;">Tentang Kami</h2>
+                <div class="about-content">
                     <div>
-                        <h3>15.247</h3>
-                        <p>Buku Batak Toba</p>
+                        <h3>📖 Perpustakaan Khusus Budaya Batak Toba</h3>
+                        <p>The Rooted Library adalah perpustakaan digital pertama yang secara khusus mengumpulkan, melestarikan, dan menyebarkan pengetahuan tentang budaya Batak Toba. Kami hadir untuk menjaga warisan leluhur agar tidak punah di tengah arus modernisasi.</p>
+                        <p>Dari dongeng ulah-ulang, adat perkawinan, hingga arsitektur rumah Bolon, semua tersedia dalam koleksi digital kami yang mudah diakses kapan saja, di mana saja.</p>
                     </div>
-                </div>
-                <div class="stat-card">
-                    <i class="fas fa-users"></i>
                     <div>
-                        <h3>2.847</h3>
-                        <p>Anggota Aktif</p>
-                    </div>
-                </div>
-                <div class="stat-card">
-                    <i class="fas fa-star"></i>
-                    <div>
-                        <h3>98%</h3>
-                        <p>Kepuasan</p>
-                    </div>
-                </div>
-                <div class="stat-card">
-                    <i class="fas fa-calendar-alt"></i>
-                    <div>
-                        <h3>24</h3>
-                        <p>Event/Bulan</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- About Us -->
-    <section id="about" class="section">
-        <div class="container">
-            <h2>About Us</h2>
-            <div class="about-content">
-                <div class="about-section">
-                    <h3>Tentang Kami</h3>
-                    <p>The Rooted Library adalah perpustakaan digital khusus budaya Batak Toba yang berdedikasi melestarikan warisan leluhur melalui teknologi modern. Koleksi kami mencakup buku, musik, seni, dan dokumen kuno Batak Toba.</p>
-                </div>
-                
-                <div class="visi-misi-grid">
-                    <div class="visi-box">
-                        <h4><i class="fas fa-eye"></i> Visi</h4>
-                        <p>Menjadi pusat pelestarian budaya Batak Toba terdepan di dunia dengan koleksi digital terlengkap dan akses global.</p>
-                    </div>
-                    <div class="misi-box">
-                        <h4><i class="fas fa-bullseye"></i> Misi</h4>
-                        <ul>
-                            <li>• Digitalisasi lengkap warisan Batak Toba</li>
-                            <li>• Edukasi generasi muda tentang budaya</li>
-                            <li>• Kolaborasi dengan komunitas Batak global</li>
-                            <li>• Penelitian dan publikasi ilmiah</li>
-                        </ul>
+                        <div class="vision-mission">
+                            <h3>🎯 Visi</h3>
+                            <p>Menjadikan The Rooted Library sebagai pusat referensi utama budaya Batak Toba yang diakui secara nasional dan internasional, melestarikan identitas Batak Toba untuk generasi mendatang.</p>
+                        </div>
+                        <div class="vision-mission" style="margin-top: 1rem;">
+                            <h3>🚀 Misi</h3>
+                            <ul style="margin-top: 1rem;">
+                                <li>Mengumpulkan dan mendigitalisasi semua literatur budaya Batak Toba</li>
+                                <li>Menyediakan akses gratis bagi generasi muda Batak Toba</li>
+                                <li>Mengadakan kegiatan budaya dan diskusi rutin</li>
+                                <li>Mengembangkan aplikasi pembelajaran budaya interaktif</li>
+                                <li>Kolaborasi dengan universitas dan lembaga budaya</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Katalog Buku -->
-    <section id="katalog" class="section">
-        <div class="container">
-            <h2>Katalog Buku</h2>
-            
-            <!-- Search Form -->
-            <div class="search-box">
-                <form class="search-form">
-                    <input type="text" placeholder="Cari judul buku atau penulis..." id="bookSearch">
-                    <button type="submit"><i class="fas fa-search"></i></button>
-                </form>
-            </div>
-
-            <!-- Filter -->
-            <div class="filter-box">
-                <select id="authorFilter">
-                    <option value="">Oleh: Semua</option>
-                    <option value="A">Oleh: A</option>
-                    <option value="B">Oleh: B</option>
-                    <option value="C">Oleh: C</option>
-                </select>
-            </div>
-
-            <!-- Buku List -->
-            <div class="books-grid" id="booksGrid">
-                <!-- Buku akan dimuat via JS -->
-            </div>
-        </div>
-    </section>
-
-    <!-- Event (tetap sama) -->
-    <section id="event" class="section">
-        <div class="container">
-            <h2>Event</h2>
-            <div class="event-list">
-                <div class="event-item">
-                    <div class="event-date">15 Des 2024</div>
-                    <h4>Gondang Festival</h4>
-                    <p>Perayaan musik tradisional Batak Toba</p>
+        <!-- Katalog -->
+        <section id="katalog" class="section">
+            <div class="card">
+                <h2 style="text-align: center; color: #003366; margin-bottom: 2rem;">Katalog Buku</h2>
+                <div class="search-box">
+                    <i class="fas fa-search search-icon"></i>
+                    <input type="text" placeholder="Cari judul buku atau penulis...">
                 </div>
-                <div class="event-item">
-                    <div class="event-date">20 Jan 2025</div>
-                    <h4>Diskusi Pustaha</h4>
-                    <p>Membaca manuskrip kuno Batak</p>
+                <div class="catalog-grid">
+                    <div class="book-card">
+                        <h4>Tarombo Batak Toba</h4>
+                        <p><strong>Oleh:</strong> Dr. S. Siatas</p>
+                        <p>Sejarah lengkap marga-marga Batak Toba</p>
+                    </div>
+                    <div class="book-card">
+                        <h4>Adat Istiadat Batak</h4>
+                        <p><strong>Oleh:</strong> Mangaradja Onggang Paran</p>
+                        <p>Pedoman lengkap upacara adat Batak</p>
+                    </div>
+                    <div class="book-card">
+                        <h4>Sastra Batak Toba</h4>
+                        <p><strong>Oleh:</strong> Dr. H. Sutan Iskandar</p>
+                        <p>Kumpulan pustaha dan ulang-ulang klasik</p>
+                    </div>
+                    <div class="book-card">
+                        <h4>Rumah Bolon Adat</h4>
+                        <p><strong>Oleh:</strong> Arsitek Batak Toba</p>
+                        <p>Arsitektur tradisional Batak Toba</p>
+                    </div>
+                    <div class="book-card">
+                        <h4>Gondang Batak</h4>
+                        <p><strong>Oleh:</strong> Maestro Gondang</p>
+                        <p>Seni musik tradisional Batak Toba</p>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- WhatsApp -->
-    <a href="https://wa.me/6281226423048?text=Halo%20The%20Rooted%20Library" class="whatsapp-float" target="_blank">
-        <i class="fab fa-whatsapp whatsapp-icon"></i>
-    </a>
-
-    <script src="script.js"></script>
-</body>
-</html>
+        <!-- Event -->
+        <section id="event" class="section">
+            <div class="card">
+                <h2 style="text-align: center; color: #003366; margin-bottom: 2rem;">Event & Kegiatan</h2>
+                <div class="cards-grid">
+                    <div class="card">
+                        <h3>Seminar Adat Batak</h3>
+                        <p>Tanggal: 15 Januari 2025</p>
+                        <p>Topik: Upacara Sinot
