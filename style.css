@@ -5,42 +5,45 @@
 }
 
 body {
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
-    color: #333;
-    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
-                url('https://img.freepik.com/free-photo/wooden-bookshelf-filled-with-books_23-2151186389.jpg?w=2000') center/cover fixed;
+    font-family: 'Georgia', 'Times New Roman', serif;
+    line-height: 1.7;
+    color: #2c2c2c;
+    background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), 
+                url('https://img3.pngtree.com/background/20230413/original/pngtree-wooden-bookshelf-interior-background-picture-image_2028928.jpg') center/cover fixed;
 }
 
-/* NAVBAR SIMPEL */
+/* NAVBAR */
 .navbar {
-    background: rgba(0,0,0,0.8);
+    background: rgba(0,0,0,0.9);
     padding: 15px 0;
     position: fixed;
     top: 0;
     width: 100%;
     z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 5%;
 }
 
 .nav-brand {
-    color: #fff;
-    font-size: 24px;
+    color: #ffd700;
+    font-size: 28px;
     font-weight: bold;
-    text-align: center;
+    font-family: Georgia, serif;
 }
 
 .nav-menu {
     display: flex;
-    justify-content: center;
     list-style: none;
     gap: 30px;
-    margin: 10px 0;
 }
 
 .nav-menu a {
     color: #fff;
     text-decoration: none;
-    font-weight: bold;
+    font-weight: 500;
+    font-size: 16px;
 }
 
 .nav-menu a.active {
@@ -48,200 +51,197 @@ body {
 }
 
 .login-btn {
-    position: absolute;
-    top: 20px;
-    right: 30px;
     background: #25D366;
-    color: white;
-    padding: 10px 20px;
+    color: white !important;
+    padding: 12px 25px;
     border-radius: 25px;
     text-decoration: none;
+    font-weight: bold;
 }
 
-/* CONTENT */
+/* CONTAINER */
 .container {
-    max-width: 1000px;
-    margin: 100px auto 0;
-    padding: 20px;
+    max-width: 1100px;
+    margin: 120px auto 0;
+    padding: 0 20px;
 }
 
+/* HERO - SEJAJAR */
 .hero {
     text-align: center;
     color: white;
-    padding: 50px 0;
+    padding: 80px 0;
 }
 
 .hero h1 {
-    font-size: 48px;
-    margin-bottom: 20px;
+    font-size: 52px;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+.hero p {
+    font-size: 22px;
+    margin-bottom: 40px;
+    font-weight: 300;
 }
 
 .cta-btn {
+    display: inline-block;
     background: #ffd700;
     color: #333;
-    padding: 15px 30px;
-    border: none;
-    border-radius: 30px;
-    font-size: 18px;
+    padding: 18px 40px;
+    border-radius: 35px;
+    font-size: 20px;
     font-weight: bold;
-    cursor: pointer;
     text-decoration: none;
-    display: inline-block;
+    box-shadow: 0 5px 20px rgba(255,215,0,0.4);
 }
 
 /* SECTIONS */
 section {
     background: rgba(255,255,255,0.95);
-    margin: 30px 0;
-    padding: 30px;
-    border-radius: 15px;
+    margin: 40px 0;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
 }
 
 h1, h2 {
-    color: #333;
-    margin-bottom: 20px;
+    color: #2c2c2c;
     text-align: center;
+    margin-bottom: 30px;
+    font-family: Georgia, serif;
 }
 
-/* CARDS */
-.book-card, .uji-section {
-    background: rgba(255,255,255,0.9);
-    padding: 20px;
-    margin: 15px 0;
-    border-radius: 10px;
-    border-left: 5px solid #ffd700;
+h1 { font-size: 36px; }
+h2 { font-size: 28px; }
+
+/* PHP BOX BIRU */
+.uji-section .php-box {
+    background: #e3f2fd;
+    border-left: 6px solid #2196f3;
+    padding: 25px;
+    margin: 20px 0;
+    max-height: 400px;
+    overflow-y: auto;
+    font-family: 'Courier New', monospace;
+    font-size: 16px;
+    line-height: 2;
+    border-radius: 12px;
 }
 
 /* FORMS */
-input, select, textarea {
+input, select {
     width: 100%;
-    padding: 12px;
-    margin: 10px 0;
-    border: 2px solid #ddd;
-    border-radius: 8px;
+    padding: 15px;
+    margin: 12px 0;
+    border: 2px solid #e0e0e0;
+    border-radius: 10px;
     font-size: 16px;
+    font-family: inherit;
 }
 
 button {
     background: #ffd700;
     color: #333;
-    padding: 12px 24px;
+    padding: 15px 30px;
     border: none;
-    border-radius: 25px;
+    border-radius: 30px;
     font-weight: bold;
-    cursor: pointer;
     font-size: 16px;
-}
-
-/* PHP BOX BIRU */
-.php-box {
-    background: #e3f2fd;
-    border-left: 5px solid #2196f3;
-    padding: 20px;
-    max-height: 300px;
-    overflow-y: auto;
-    font-family: monospace;
-    font-size: 14px;
+    cursor: pointer;
+    margin: 5px;
 }
 
 /* TABLE */
 .crud-table {
     width: 100%;
     border-collapse: collapse;
-    margin-top: 20px;
+    margin-top: 25px;
 }
 
 .crud-table th {
     background: #ffd700;
     color: #333;
-    padding: 15px;
+    padding: 18px;
+    font-weight: bold;
 }
 
 .crud-table td {
-    padding: 12px;
-    border-bottom: 1px solid #ddd;
+    padding: 15px;
+    border-bottom: 1px solid #eee;
 }
 
 /* SEARCH */
 .search-box {
-    max-width: 400px;
+    max-width: 500px;
     margin: 0 auto 30px;
     display: flex;
-    gap: 10px;
+    gap: 15px;
 }
 
-.search-box input {
-    flex: 1;
+/* CARDS */
+.book-card {
+    background: rgba(255,255,255,0.9);
+    padding: 25px;
+    margin: 20px 0;
+    border-radius: 15px;
+    border-left: 5px solid #ffd700;
 }
 
-/* FOOTER - UJUNG BAWAH SAJA */
+/* FOOTER KECIL */
 footer {
-    background: rgba(0,0,0,0.9);
-    color: white;
+    background: rgba(0,0,0,0.95);
+    color: #fff;
     text-align: center;
-    padding: 20px;
-    margin-top: 50px;
+    padding: 25px 0;
+    margin-top: 60px;
 }
 
 .footer-content {
-    max-width: 1000px;
+    max-width: 1100px;
     margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 20px;
+    padding: 0 20px;
 }
 
 .footer-bottom {
-    margin-top: 20px;
-    padding-top: 20px;
-    border-top: 1px solid #555;
+    margin-top: 15px;
     font-size: 14px;
+    color: #ccc;
 }
 
 /* WA KECIL */
 .whatsapp-btn {
     position: fixed;
-    bottom: 20px;
-    right: 20px;
+    bottom: 25px;
+    right: 25px;
     z-index: 1000;
 }
 
 .whatsapp-btn a {
-    width: 50px;
-    height: 50px;
+    width: 55px;
+    height: 55px;
     border-radius: 50%;
     background: #25D366;
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 4px 12px rgba(37,211,102,0.4);
+    box-shadow: 0 5px 15px rgba(37,211,102,0.4);
 }
 
 .whatsapp-btn img {
-    width: 30px;
-    height: 30px;
+    width: 32px;
+    height: 32px;
 }
 
 /* RESPONSIVE */
 @media (max-width: 768px) {
     .nav-menu {
-        flex-direction: column;
-        gap: 10px;
+        flex-wrap: wrap;
+        gap: 15px;
+        justify-content: center;
     }
     
-    .login-btn {
-        position: static;
-        margin-top: 10px;
-    }
-    
-    .hero h1 {
-        font-size: 32px;
-    }
-    
-    .footer-content {
-        flex-direction: column;
-        text-align: center;
-    }
+    .hero h1 { font-size: 36px; }
+    .hero p { font-size: 18px; }
 }
