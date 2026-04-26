@@ -853,3 +853,25 @@ footer p {
         --batak-orange: #E65100;
     }
 }
+/* FIX Navigation Active */
+.nav-active {
+    background: rgba(255,255,255,0.3) !important;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+/* Pastikan sections visible saat active */
+.section.active {
+    display: block !important;
+    opacity: 1 !important;
+}
+
+/* Loading state */
+.loading {
+    text-align: center;
+    padding: 4rem 2rem;
+    color: var(--batak-brown);
+    font-size: 1.2rem;
+    background: rgba(255,255,255,0.8);
+    border-radius: 1rem;
+    grid-column: 1 / -1;
+}
