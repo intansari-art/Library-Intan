@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Uji Coba - The Rooted Library</title>
+    <title>Uji Coba PHP - The Rooted Library</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -11,105 +11,66 @@
 
     <section class="uji-coba">
         <div class="container">
-            <h1>Ruang Uji Coba</h1>
-            
-            <!-- 1. Belajar PHP 1000 Hari -->
+            <h1>🧪 Ruang Uji Coba</h1>
+
+            <!-- 1. 1000 HARI PHP -->
             <div class="uji-section">
                 <h2>1. Belajar PHP 1000 Hari</h2>
-                <div class="php-box">
-                    <?php
-                    for($i=1; $i<=1000; $i++) {
-                        echo "Ini adalah hari ke-$i aku belajar PHP<br>";
-                    }
-                    ?>
+                <div class="php-box" id="phpBox">
+                    Loading 1000 hari belajar PHP...
                 </div>
             </div>
 
-            <!-- 2. Kalkulator -->
+            <!-- 2. KALKULATOR -->
             <div class="uji-section">
                 <h2>2. Kalkulator Operasi Bilangan</h2>
-                <form action="kalkulator-hasil.php" method="POST" class="kalkulator-form">
+                <form class="kalkulator-form" id="kalkulatorForm">
                     <input type="number" name="angka1" placeholder="Masukkan Angka 1" required>
                     <select name="operasi">
-                        <option value="+">Tambah (+)</option>
-                        <option value="-">Kurang (-)</option>
-                        <option value="*">Kali (*)</option>
-                        <option value="/">Bagi (/)</option>
+                        <option value="+">➕ Tambah (+)</option>
+                        <option value="-">➖ Kurang (-)</option>
+                        <option value="*">✖️ Kali (*)</option>
+                        <option value="/">➗ Bagi (/)</option>
                     </select>
                     <input type="number" name="angka2" placeholder="Masukkan Angka 2" required>
                     <button type="submit">Hitung</button>
                 </form>
             </div>
 
-            <!-- 3. Login Form -->
+            <!-- 3. LOGIN -->
             <div class="uji-section">
                 <h2>3. Sistem Login</h2>
-                <form method="POST" class="login-form">
+                <form class="login-form" id="loginForm">
                     <input type="text" name="username" placeholder="Username" required>
                     <input type="password" name="password" placeholder="Password" required>
                     <button type="submit">Login</button>
-                    <?php
-                    if($_POST) {
-                        $username = $_POST['username'];
-                        $password = $_POST['password'];
-                        
-                        if(empty($username) || empty($password)) {
-                            echo '<p style="color:red;">Input tidak lengkap!</p>';
-                        } elseif($username == "admin" && $password == "batak123") {
-                            echo '<p style="color:green;">Login sukses! Selamat datang Admin</p>';
-                        } else {
-                            echo '<p style="color:red;">Login gagal! Username atau password salah</p>';
-                        }
-                    }
-                    ?>
+                    <div id="loginMessage"></div>
                 </form>
+                <p><small>Demo: admin / batak123</small></p>
             </div>
 
-            <!-- 4. CRUD Database -->
+            <!-- 4. CRUD DATABASE -->
             <div class="uji-section">
                 <h2>4. Sistem Manajemen Database (CRUD)</h2>
-                <form method="POST" class="crud-form">
+                <form class="crud-form" id="crudForm">
                     <input type="text" name="judul" placeholder="Judul Buku">
                     <input type="text" name="penulis" placeholder="Penulis">
                     <input type="number" name="tahun" placeholder="Tahun">
-                    <button type="submit" name="tambah">Tambah</button>
+                    <button type="submit">Tambah</button>
                 </form>
-                
-                <table class="crud-table">
+                <table class="crud-table" id="crudTable">
                     <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>Judul Buku</th>
-                            <th>Penulis</th>
-                            <th>Tahun</th>
-                            <th>Aksi</th>
-                        </tr>
+                        <tr><th>ID</th><th>Judul</th><th>Penulis</th><th>Tahun</th><th>Aksi</th></tr>
                     </thead>
                     <tbody>
-                        <?php
-                        // Simulasi database dengan array
-                        $buku = [
-                            ['id'=>1, 'judul'=>'E', 'penulis'=>'Siregar', 'tahun'=>2023],
-                            ['id'=>2, 'judul'=>'Lask', 'penulis'=>'Hutapea', 'tahun'=>2022]
-                        ];
-                        
-                        foreach($buku as $b) {
-                            echo "<tr>
-                                <td>{$b['id']}</td>
-                                <td>{$b['judul']}</td>
-                                <td>{$b['penulis']}</td>
-                                <td>{$b['tahun']}</td>
-                                <td>
-                                    <button>Edit</button>
-                                    <button>Hapus</button>
-                                </td>
-                            </tr>";
-                        }
-                        ?>
+                        <tr><td>1</td><td>E</td><td>Siregar</td><td>2023</td><td><button>Edit</button><button>Hapus</button></td></tr>
+                        <tr><td>2</td><td>Lask</td><td>Hutapea</td><td>2022</td><td><button>Edit</button><button>Hapus</button></td></tr>
                     </tbody>
                 </table>
             </div>
         </div>
     </section>
+
+    <script src="script.js"></script>
 </body>
 </html>
