@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Rooted Library - Perpustakaan Budaya Batak Toba</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <h1>The Rooted Library</h1>
+                    <p>Perpustakaan Khusus Budaya Batak Toba</p>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="#dashboard">Dashboard</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#katalog">Katalog</a></li>
+                        <li><a href="#event">Event</a></li>
+                        <li><a href="#ulasan">Ulasan</a></li>
+                        <li><a href="#uji-coba">Uji Coba</a></li>
+                        <li><a href="#" class="login-btn" onclick="openLogin(event)"><i class="fas fa-user"></i> Login Anggota</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Login Modal -->
+    <div id="loginModal" class="login-modal">
+        <div class="login-box">
+            <span class="close-btn" onclick="closeLogin()">&times;</span>
+            <h2>Login Anggota</h2>
+            <form id="loginForm">
+                <div class="form-group">
+                    <label><i class="fas fa-user"></i> Username / ID</label>
+                    <input type="text" id="username" placeholder="Masukkan ID Anggota" required>
+                </div>
+                <div class="form-group">
+                    <label><i class="fas fa-lock"></i> Password</label>
+                    <input type="password" id="password" placeholder="Masukkan Password" required>
+                </div>
+                <button type="submit" class="login-submit">
+                    <i class="fas fa-sign-in-alt"></i> LOGIN SEKARANG
+                </button>
+            </form>
+            <div class="register-link">
+                Belum punya akun? <a href="#" onclick="alert('Fitur pendaftaran segera hadir!')">Daftar di sini</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Dashboard -->
+        <section id="dashboard">
+            <div class="container">
+                <h2><i class="fas fa-tachometer-alt"></i> Dashboard</h2>
+                <div class="dashboard-content">
+                    <h3>The Rooted Library</h3>
+                    <p class="welcome-text">Selamat datang di Perpustakaan Digital The Rooted Library</p>
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <i class="fas fa-book"></i>
+                            <h4>5,247</h4>
+                            <p>Buku Digital</p>
+                        </div>
+                        <div class="stat-card">
+                            <i class="fas fa-users"></i>
+                            <h4>2,184</h4>
+                            <p>Anggota Aktif</p>
+                        </div>
+                        <div class="stat-card">
+                            <i class="fas fa-download"></i>
+                            <h4>15,392</h4>
+                            <p>Download</p>
+                        </div>
+                    </div>
+                    <p>Perpustakaan digital khusus yang memfokuskan pada pelestarian dan penyebarluasan budaya Batak Toba. Temukan koleksi lengkap tentang adat istiadat, sejarah, sastra, dan seni budaya Batak Toba dalam format digital yang mudah diakses.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Us -->
+        <section id="about">
+            <div class="container">
+                <h2><i class="fas fa-info-circle"></i> About Us</h2>
+                <div class="about-grid">
+                    <div class="about-card">
+                        <h3><i class="fas fa-building"></i> Tentang Kami</h3>
+                        <p>The Rooted Library adalah perpustakaan digital pertama yang secara khusus didedikasikan untuk melestarikan budaya Batak Toba. Kami mengumpulkan ribuan dokumen digital, buku, foto, dan rekaman tentang adat istiadat, sejarah, dan seni Batak Toba.</p>
+                    </div>
+                    <div class="about-card">
+                        <h3><i class="fas fa-eye"></i> Visi</h3>
+                        <p>Menjadi pusat pelestarian dan penyebarluasan budaya Batak Toba yang terdepan di dunia, menjadikan generasi muda Batak bangga akan warisan leluhur dan menginspirasi dunia akan keunikan budaya kita.</p>
+                    </div>
+                    <div class="about-card">
+                        <h3><i class="fas fa-bullseye"></i> Misi</h3>
+                        <ul>
+                            <li>📚 Digitalisasi seluruh koleksi budaya Batak Toba</li>
+                            <li>🌐 Menyediakan akses gratis untuk generasi muda Batak</li>
+                            <li>💻 Mengembangkan platform pembelajaran interaktif budaya</li>
+                            <li>🗣️ Melestarikan bahasa, adat, dan seni Batak Toba</li>
+                            <li>🤝 Membangun komunitas pecinta budaya Batak global</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Katalog -->
+        <section id="katalog">
+            <div class="container">
+                <h2><i class="fas fa-book-open"></i> Katalog Buku</h2>
+                <div class="catalog-search">
+                    <input type="text" class="search-input" id="searchInput" placeholder="Cari judul buku atau penulis...">
+                    <button class="search-btn" onclick="searchBooks()">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+                <div class="book-grid" id="bookGrid">
+                    <!-- Books will be populated by JavaScript -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Event -->
+        <section id="event">
+            <div class="container">
+                <h2><i class="fas fa-calendar-alt"></i> Event</h2>
+                <div class="event-grid">
+                    <div class="event-card">
+                        <h4>Workshop Tari Tortor</h4>
+                        <p>15 Januari 2025</p>
+                    </div>
+                    <div class="event-card">
+                        <h4>Kelas Bahasa Batak</h4>
+                        <p>20 Januari 2025</p>
+                    </div>
+                    <div class="event-card">
+                        <h4>Seminar Sejarah Batak</h4>
+                        <p>25 Januari 2025</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Ulasan -->
+        <section id="ulasan">
+            <div class="container">
+                <h2><i class="fas fa-comments"></i> Ulasan & Diskusi</h2>
+                <form class="review-form" id="reviewForm">
+                    <div class="form-group">
+                        <label><i class="fas fa-user"></i> Nama</label>
+                        <input type="text" id="reviewName" required>
+                    </div>
+                    <div class="form-group">
+                        <label><i class="fas fa-comment"></i> Ulasan</label>
+                        <textarea id="reviewText" rows="4" placeholder="Bagikan pendapat Anda tentang The Rooted Library..." required></textarea>
+                    </div>
+                    <button type="submit" class="login-submit">Kirim Ulasan</button>
+                </form>
+                <div class="reviews-list" id="reviewsList">
+                    <!-- Reviews will be populated by JavaScript -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Uji Coba -->
+        <section id="uji-coba">
+            <div class="container">
+                <h2><i class="fas fa-flask"></i> Ruang Uji Coba</h2>
+                <div class="uji-coba-grid">
+                    <div class="uji-card">
+                        <h3>1. Belajar PHP (Hari 1-1000)</h3>
+                        <div class="blue-box" id="phpDays">
+                            Loading...
+                        </div>
+                        <p><strong>Tugas:</strong> Buatlah halaman web seperti format di atas, namun sampai ke-1000.</p>
+                    </div>
+                    <div class="uji-card">
+                        <h3>2. Menu Berhitung</h3>
+                        <p><strong>Tugas:</strong> Buatlah halaman web dimana user menginput dua bilangan, memilih operasi, dan menampilkan hasil perhitungan.</p>
+                        <div style="margin-top:1rem;">
+                            <input type="number" id="num1" placeholder="Bilangan 1" style="padding:0.5rem; margin-right:0.5rem;">
+                            <select id="operator" style="padding:0.5rem; margin-right:0.5rem;">
+                                <option>+</option>
+                                <option>-</option>
+                                <option>*</option>
+                                <option>/</option>
+                            </select>
+                            <input type="number" id="num2" placeholder="Bilangan 2" style="padding:0.5rem; margin-right:0.5rem;">
+                            <button onclick="calculate()" style="padding:0.5rem 1rem; background:#003366; color:white; border:none; border-radius:5px; cursor:pointer;">Hitung</button>
+                            <p id="calcResult" style="margin-top:1rem; font-weight:bold;"></p>
+                        </div>
+                    </div>
+                    <div class="uji-card">
+                        <h3>3. Menu Database</h3>
+                        <p><strong>Tugas:</strong> Buatlah halaman login dengan 3 kondisi: sukses, gagal, dan input kosong.</p>
+                        <div style="margin-top:1rem;">
+                            <input type="text" id="dbUsername" placeholder="Username" style="padding:0.5rem; margin-right:0.5rem;">
+                            <input type="password" id="dbPassword" placeholder="Password" style="padding:0.5rem; margin-right:0.5rem;">
+                            <button onclick="checkLogin()" style="padding:0.5rem 1rem; background:#003366; color:white; border:none; border-radius:5px; cursor:pointer;">Login</button>
+                            <p id="loginResult" style="margin-top:1rem; font-weight:bold;"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- WhatsApp Button -->
+    <div class="whatsapp-btn" onclick="openWhatsApp()">
+        <i class="fab fa-whatsapp"></i>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
