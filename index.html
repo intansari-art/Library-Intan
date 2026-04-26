@@ -1,265 +1,178 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The Rooted Library - Perpustakaan Khusus Budaya Batak Toba</title>
-<link rel="stylesheet" href="style.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Rooted Library - Perpustakaan Budaya Batak Toba</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
 <div class="overlay">
-<nav>
-    <div class="nav-left">
-        <a href="javascript:void(0)" onclick="showMenu('dashboard')" class="nav-link active"><i class="fas fa-home"></i> Dashboard</a>
-        <a href="javascript:void(0)" onclick="showMenu('about')" class="nav-link"><i class="fas fa-info-circle"></i> About Us</a>
-        <a href="javascript:void(0)" onclick="showMenu('katalog')" class="nav-link"><i class="fas fa-book"></i> Katalog</a>
-        <a href="javascript:void(0)" onclick="showMenu('event')" class="nav-link"><i class="fas fa-calendar"></i> Event</a>
-        <a href="javascript:void(0)" onclick="showMenu('ulasan')" class="nav-link"><i class="fas fa-comments"></i> Ulasan</a>
-        <a href="javascript:void(0)" onclick="showMenu('uji-coba')" class="nav-link"><i class="fas fa-flask"></i> Uji Coba</a>
-    </div>
-    <div class="nav-right">
-        <a href="javascript:void(0)" onclick="showLoginForm()" id="loginBtn" class="login-btn">
-            <i class="fas fa-user"></i> Login Anggota
-        </a>
-    </div>
-</nav>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-left">
+            <a href="javascript:void(0)" onclick="showMenu('dashboard')">Dashboard</a>
+            <a href="javascript:void(0)" onclick="showMenu('about')">About Us</a>
+            <a href="javascript:void(0)" onclick="showMenu('katalog')">Katalog</a>
+            <a href="javascript:void(0)" onclick="showMenu('event')">Event</a>
+            <a href="javascript:void(0)" onclick="showMenu('ulasan')">Ulasan</a>
+            <a href="javascript:void(0)" onclick="showMenu('uji')">Uji Coba</a>
+        </div>
+        <a href="javascript:void(0)" onclick="showLoginForm()" class="login-btn">Login Anggota</a>
+    </nav>
 
-<!-- Modal Login -->
-<div id="loginModal" class="modal">
-    <div class="modal-content">
-        <span class="close" onclick="closeModal()">&times;</span>
-        <h3>Login Anggota</h3>
-        <form id="loginForm">
-            <div class="form-group">
-                <label for="username">Username / ID</label>
-                <input type="text" id="username" name="username" required>
-            </div>
-            <div class="form-group">
-                <label for="password">Password</label>
-                <input type="password" id="password" name="password" required>
-            </div>
-            <button type="submit">LOGIN SEKARANG</button>
-            <p class="register-link">Belum punya akun? <a href="#" onclick="showRegisterModal()">Daftar di sini</a></p>
-        </form>
-    </div>
-</div>
-
-<!-- Modal Register -->
-<div id="registerModal" class="modal">
-    <div class="modal-content">
-        <span class="close" onclick="closeRegisterModal()">&times;</span>
-        <h3>Daftar Anggota Baru</h3>
-        <form id="registerForm">
-            <div class="form-group">
-                <label for="regName">Nama Lengkap</label>
-                <input type="text" id="regName" required>
-            </div>
-            <div class="form-group">
-                <label for="regEmail">Email</label>
-                <input type="email" id="regEmail" required>
-            </div>
-            <div class="form-group">
-                <label for="regPhone">No. HP</label>
-                <input type="tel" id="regPhone" required>
-            </div>
-            <div class="form-group">
-                <label for="regUsername">Username</label>
-                <input type="text" id="regUsername" required>
-            </div>
-            <div class="form-group">
-                <label for="regPassword">Password</label>
-                <input type="password" id="regPassword" required>
-            </div>
-            <button type="submit">DAFTAR SEKARANG</button>
-        </form>
-    </div>
-</div>
-
-<div class="container">
-    <!-- Dashboard -->
-    <div id="dashboard" class="section active">
-        <h1>The Rooted Library</h1>
-        <p class="welcome-text">Selamat datang di Perpustakaan Digital The Rooted Library</p>
-        <p class="desc-text">Perpustakaan khusus budaya Batak Toba yang menyediakan koleksi lengkap tentang adat istiadat, sejarah, sastra, dan seni budaya Batak Toba. Temukan kekayaan warisan leluhur kita dalam format digital yang mudah diakses.</p>
+    <!-- Modal Login -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h3>Login Anggota</h3>
+            <form id="loginForm">
+                <input type="text" id="username" placeholder="Username / ID" required>
+                <input type="password" id="password" placeholder="Password" required>
+                <button type="submit">LOGIN SEKARANG</button>
+                <p style="margin-top: 20px; font-size: 14px;">
+                    Belum punya akun? <a href="#" style="color: var(--batak-orange);">Daftar di sini</a>
+                </p>
+            </form>
+        </div>
     </div>
 
-    <!-- About Us -->
-    <div id="about" class="section">
-        <h2>Tentang Kami</h2>
-        <div class="about-content">
-            <div class="about-card">
-                <h3>The Rooted Library</h3>
-                <p>Perpustakaan digital khusus budaya Batak Toba yang berdedikasi untuk melestarikan dan mempromosikan warisan budaya Batak Toba melalui koleksi buku digital, arsip sejarah, dan materi pendidikan budaya.</p>
+    <div class="container">
+        <!-- Dashboard -->
+        <div id="dashboard" class="section active">
+            <div class="dashboard-content">
+                <h1>The Rooted Library</h1>
+                <p class="welcome-text">
+                    Selamat datang di Perpustakaan Digital The Rooted Library<br>
+                    <small>Preserving the rich heritage of Batak Toba culture through literature and knowledge</small>
+                </p>
             </div>
-            
-            <div class="vision-misi">
-                <div class="card">
-                    <h3><i class="fas fa-eye"></i> Visi</h3>
-                    <p>Menjadi pusat referensi utama budaya Batak Toba yang diakui secara nasional dan internasional, melestarikan warisan leluhur untuk generasi mendatang.</p>
+        </div>
+
+        <!-- About Us -->
+        <div id="about" class="section">
+            <h2>Tentang Kami</h2>
+            <div class="about-grid">
+                <div class="vision-misi">
+                    <h3>🌀 Visi</h3>
+                    <p>Menjadi pusat referensi utama dan pelestarian budaya Batak Toba yang <strong>terakarat dan autentik</strong>, 
+                    menyediakan akses pengetahuan yang <strong>komprehensif dan mudah diakses</strong> bagi seluruh generasi 
+                    untuk <strong>memahami, menghargai, dan melestarikan warisan leluhur Batak Toba</strong> di era digital.</p>
                 </div>
-                <div class="card">
-                    <h3><i class="fas fa-bullseye"></i> Misi</h3>
+                <div class="vision-misi">
+                    <h3>🎯 Misi</h3>
                     <ul>
-                        <li>Mengumpulkan dan mendigitalisasi semua literatur budaya Batak Toba</li>
-                        <li>Menyediakan akses mudah bagi generasi muda Batak</li>
-                        <li>Mengadakan kegiatan edukasi dan sosialisasi budaya</li>
-                        <li>Mengembangkan konten multimedia budaya Batak Toba</li>
-                        <li>Bekerjasama dengan komunitas Batak global</li>
+                        <li>Mengumpulkan dan mendigitalisasi koleksi pustaka khusus budaya Batak Toba</li>
+                        <li>Menyediakan akses terbuka dan gratis bagi masyarakat luas</li>
+                        <li>Mengadakan kegiatan literasi dan sosialisasi budaya Batak Toba</li>
+                        <li>Mengembangkan platform digital yang user-friendly dan inovatif</li>
+                        <li>Berkolaborasi dengan komunitas dan institusi pelestari budaya Batak</li>
                     </ul>
                 </div>
             </div>
         </div>
-    </div>
 
-    <!-- Katalog -->
-    <div id="katalog" class="section">
-        <h2>Katalog Buku</h2>
-        <div class="search-box">
-            <input type="text" id="searchBook" placeholder="Cari judul buku atau penulis...">
-            <button><i class="fas fa-search"></i></button>
-        </div>
-        <div class="katalog-grid">
-            <div class="book-card">
-                <img src="https://via.placeholder.com/200x300/8B4513/FFD700?text=Adat+Batak+Toba" alt="Adat Batak Toba">
-                <h4>Tarombo ni Raja Batak</h4>
-                <p>Penulis: Dr. Sutan Panggabean</p>
-                <span class="year">2005</span>
+        <!-- Katalog -->
+        <div id="katalog" class="section">
+            <h2>Katalog Buku</h2>
+            <div class="katalog-search">
+                <input type="text" class="search-input" id="searchInput" placeholder="Cari judul buku atau penulis...">
+                <button class="search-btn" onclick="searchBooks()">E</button>
             </div>
-            <div class="book-card">
-                <img src="https://via.placeholder.com/200x300/8B4513/FFD700?text=Gorga+Batak" alt="Gorga Batak">
-                <h4>Seni Gorga Batak Toba</h4>
-                <p>Penulis: Dr. Parada Harahap</p>
-                <span class="year">2018</span>
-            </div>
-            <div class="book-card">
-                <img src="https://via.placeholder.com/200x300/8B4513/FFD700?text=Saur+Matua" alt="Saur Matua">
-                <h4>Saur Matua: Hikmat Batak</h4>
-                <p>Penulis: Mangaradja Onggang Paran</p>
-                <span class="year">1992</span>
-            </div>
-            <div class="book-card">
-                <img src="https://via.placeholder.com/200x300/8B4513/FFD700?text=Si+Singamangaraja" alt="Si Singamangaraja">
-                <h4>Sejarah Si Singamangaraja XII</h4>
-                <p>Penulis: Dr. Sri Adiningsih</p>
-                <span class="year">2015</span>
-            </div>
-            <div class="book-card">
-                <img src="https://via.placeholder.com/200x300/8B4513/FFD700?text=Ulos+Batak" alt="Ulos Batak">
-                <h4>Filosofi Ulos Batak Toba</h4>
-                <p>Penulis: Dr. Mariati Sitorus</p>
-                <span class="year">2020</span>
+            <div class="book-grid" id="bookGrid">
+                <!-- Buku akan dimuat via JS -->
             </div>
         </div>
-    </div>
 
-    <!-- Event -->
-    <div id="event" class="section">
-        <h2>Event & Kegiatan</h2>
-        <div class="event-grid">
-            <div class="event-card">
-                <img src="https://via.placeholder.com/400x250/8B4513/FFD700?text=Diskusi+Budaya" alt="Diskusi">
-                <h4>Diskusi Budaya Batak Toba</h4>
-                <p>15 Desember 2024</p>
-            </div>
-            <div class="event-card">
-                <img src="https://via.placeholder.com/400x250/8B4513/FFD700?text=Lomba+Gorga" alt="Lomba">
-                <h4>Lomba Seni Gorga</h4>
-                <p>20 Januari 2025</p>
+        <!-- Event -->
+        <div id="event" class="section">
+            <h2>Event & Kegiatan</h2>
+            <div class="book-grid">
+                <div class="book-card">
+                    <h3>Workshop Gorga Digital</h3>
+                    <p><strong>Tanggal:</strong> 15 Januari 2025</p>
+                    <p>Belajar membuat motif gorga dengan software digital</p>
+                </div>
+                <div class="book-card">
+                    <h3>Seminar Tarombo Online</h3>
+                    <p><strong>Tanggal:</strong> 22 Februari 2025</p>
+                    <p>Mengenal silsilah keluarga Batak Toba</p>
+                </div>
+                <div class="book-card">
+                    <h3>Lomba Puisi Batak</h3>
+                    <p><strong>Tanggal:</strong> 10 Maret 2025</p>
+                    <p>Ekspresikan budaya melalui karya sastra</p>
+                </div>
             </div>
         </div>
-    </div>
 
-    <!-- Ulasan -->
-    <div id="ulasan" class="section">
-        <h2>Ulasan & Diskusi</h2>
-        <div class="ulasan-container">
-            <div class="ulasan-form">
-                <h3>Tulis Ulasan Anda</h3>
-                <form id="ulasanForm">
-                    <input type="text" placeholder="Nama Anda" required>
-                    <textarea placeholder="Tulis ulasan atau diskusi tentang budaya Batak Toba..." required></textarea>
-                    <button type="submit">Kirim Ulasan</button>
-                </form>
+        <!-- Ulasan -->
+        <div id="ulasan" class="section">
+            <h2>Ulasan & Diskusi</h2>
+            <div class="ulasan-container">
+                <div class="comment-form">
+                    <h3>Tulis Ulasan Anda</h3>
+                    <textarea id="commentInput" placeholder="Bagikan pendapat Anda tentang koleksi buku Batak Toba..."></textarea>
+                    <button onclick="addComment()">Kirim Ulasan</button>
+                </div>
+                <div id="commentsContainer">
+                    <!-- Komentar akan dimuat via JS -->
+                </div>
             </div>
-            <div class="ulasan-list" id="ulasanList">
-                <div class="ulasan-item">
-                    <h4>Sitorus - Pengunjung Setia</h4>
-                    <p>Koleksi buku tentang adat Batak sangat lengkap! Sangat membantu dalam penelitian saya.</p>
-                    <span>2 hari yang lalu</span>
+        </div>
+
+        <!-- Uji Coba -->
+        <div id="uji" class="section">
+            <h2>Ruang Uji Coba</h2>
+            <div class="uji-coba-grid">
+                <div class="uji-card">
+                    <h3>1. Belajar PHP</h3>
+                    <div class="hari-list">
+                        <p>Ini adalah hari ke-1 belajar PHP</p>
+                        <p>Ini adalah hari ke-2 belajar PHP</p>
+                        <p>Ini adalah hari ke-3 belajar PHP</p>
+                        <p>Ini adalah hari ke-4 belajar PHP</p>
+                        <p>Ini adalah hari ke-5 belajar PHP</p>
+                    </div>
+                    <div class="tugas-list">
+                        <h4>Daftar Tugas:</h4>
+                        <ol>
+                            <li>Buatlah halaman web seperti format di atas, namun sampai ke-1000.</li>
+                        </ol>
+                    </div>
+                </div>
+                <div class="uji-card">
+                    <h3>2. Menu Berhitung</h3>
+                    <div class="tugas-list">
+                        <p>Buatlah halaman web: user input 2 bilangan + operasi → halaman hasil perhitungan.</p>
+                    </div>
+                </div>
+                <div class="uji-card">
+                    <h3>3. Menu Database</h3>
+                    <div class="tugas-list">
+                        <p>Login (3 kondisi: sukses/gagal/kosong) + CRUD database (4 kolom min).</p>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Uji Coba -->
-    <div id="uji-coba" class="section">
-        <h2>Ruang Uji Coba</h2>
-        <div class="uji-coba-grid">
-            <div class="uji-card">
-                <h3>1. Belajar PHP</h3>
-                <div class="blue-box" id="phpProgress">
-                    <!-- Konten PHP akan di-generate oleh JS -->
-                </div>
-            </div>
-            <div class="uji-card">
-                <h3>2. Menu Berhitung</h3>
-                <div class="calc-form">
-                    <input type="number" id="num1" placeholder="Masukkan Angka 1">
-                    <select id="operator">
-                        <option>Tambah (+)</option>
-                        <option>Kurang (-)</option>
-                        <option>Kali (×)</option>
-                        <option>Bagi (÷)</option>
-                    </select>
-                    <input type="number" id="num2" placeholder="Masukkan Angka 2">
-                    <button onclick="calculate()">Hitung</button>
-                    <div id="result"></div>
-                </div>
-            </div>
-            <div class="uji-card">
-                <h3>3. Menu Database</h3>
-                <div class="db-form">
-                    <h4>Sistem Manajemen Database (CRUD)</h4>
-                    <input type="text" id="dbJudul" placeholder="Judul Buku...">
-                    <input type="text" id="dbPenulis" placeholder="Penulis...">
-                    <input type="number" id="dbTahun" placeholder="Tahun">
-                    <button onclick="addBook()">Tambah</button>
-                    <table id="dbTable">
-                        <thead>
-                            <tr>
-                                <th>ID</th>
-                                <th>Judul Buku</th>
-                                <th>Penulis</th>
-                                <th>Tahun</th>
-                                <th>Aksi</th>
-                            </tr>
-                        </thead>
-                        <tbody></tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- Footer -->
-<footer>
-    <div class="footer-content">
-        <p>The Rooted Library | Perpustakaan Khusus Budaya Batak Toba</p>
-        <div class="about-me">
+    <!-- Footer -->
+    <footer>
+        <div class="footer-links">
             <a href="#">About Me</a>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Service</a>
         </div>
-    </div>
-</footer>
+        <p>© 2025 The Rooted Library. All rights reserved. | Perpustakaan Khusus Budaya Batak Toba</p>
+    </footer>
 
-<!-- WhatsApp Chat Button -->
-<div class="whatsapp-btn" onclick="openWhatsApp()">
-    <i class="fab fa-whatsapp"></i>
-</div>
+    <!-- WhatsApp Button -->
+    <a href="https://wa.me/6281226423048?text=Halo%20The%20Rooted%20Library%2C%20saya%20ingin%20bertanya..." 
+       class="whatsapp-float" target="_blank">💬</a>
 </div>
 
-<script src="script.js"></script>
+<script src="js/script.js"></script>
 </body>
 </html>
