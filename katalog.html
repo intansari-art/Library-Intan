@@ -5,160 +5,59 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Katalog Buku - The Rooted Library</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Cormorant+Garamond:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header>
-        <nav class="navbar">
-            <div class="nav-brand"><h2>The Rooted Library</h2></div>
-            <ul class="nav-menu">
-                <li><a href="index.html">Dashboard</a></li>
-                <li><a href="katalog.html" class="active">Katalog</a></li>
-                <li><a href="event.html">Event</a></li>
-                <li><a href="diskusi.html">Diskusi</a></li>
-                <li><a href="uji-coba.html">Uji Coba</a></li>
-            </ul>
-            <div class="nav-right">
-                <a href="login.html" class="login-btn">Login Anggota</a>
-            </div>
-        </nav>
-    </header>
+    <!-- Navigation -->
+    <nav class="navbar"><!-- sama --></nav>
 
-    <section class="katalog">
+    <section class="katalog-section">
         <div class="container">
-            <h1 style="font-family: 'Cormorant Garamond', serif;">Katalog Buku Batak Toba</h1>
+            <h1>📚 Katalog Buku Batak Toba</h1>
             <div class="search-box">
                 <input type="text" id="searchInput" placeholder="🔍 Cari judul buku atau penulis...">
                 <button onclick="searchBooks()">Cari</button>
             </div>
-            
             <div class="katalog-grid" id="katalogGrid">
-                <!-- Buku akan dimuat via JS -->
+                <!-- Buku dimuat via JS -->
             </div>
         </div>
     </section>
 
-    <!-- Footer sama seperti index.html -->
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>The Rooted Library</h3>
-                    <p>Perpustakaan Khusus Budaya Batak Toba</p>
-                </div>
-                <div class="footer-section">
-                    <h4>About Me</h4>
-                    <p>Dibuat dengan ❤️ untuk melestarikan budaya Batak Toba</p>
-                    <a href="https://www.youtube.com/watch?v=Vu-5KnFsIKw" target="_blank">Tonton Adat Batak Toba</a>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2025 The Rooted Library. All rights reserved.</p>
-            </div>
-        </div>
-    </footer>
-
-    <div class="whatsapp-btn">
-        <a href="https://wa.me/6281226423048" target="_blank">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
-        </a>
-    </div>
-
+    <!-- Footer & WhatsApp -->
     <script>
-        // Data buku Batak Toba
         const books = [
-            {
-                id: 1,
-                title: "Budaya Batak",
-                author: "S. Siregar",
-                year: 2023,
-                pages: 250,
-                cover: "https://via.placeholder.com/300x400/ff6b35/ffffff?text=Budaya+Batak"
-            },
-            {
-                id: 2,
-                title: "Sejarah Toba",
-                author: "R. Hutapea",
-                year: 2022,
-                pages: 180,
-                cover: "https://via.placeholder.com/300x400/2c3e50/ffffff?text=Sejarah+Toba"
-            },
-            {
-                id: 3,
-                title: "Media Digital Batak",
-                author: "A. Lestari",
-                year: 2024,
-                pages: 300,
-                cover: "https://via.placeholder.com/300x400/27ae60/ffffff?text=Media+Digital"
-            },
-            {
-                id: 4,
-                title: "Adat Istiadat Batak",
-                author: "T. Simanjuntak",
-                year: 2021,
-                pages: 220,
-                cover: "https://via.placeholder.com/300x400/e74c3c/ffffff?text=Adat+Batak"
-            },
-            {
-                id: 5,
-                title: "Pusaka Batak Toba",
-                author: "M. Sitorus",
-                year: 2023,
-                pages: 190,
-                cover: "https://via.placeholder.com/300x400/f39c12/ffffff?text=Pusaka+Batak"
-            },
-            {
-                id: 6,
-                title: "Tortor dan Gondang",
-                author: "J. Sinaga",
-                year: 2020,
-                pages: 150,
-                cover: "https://via.placeholder.com/300x400/9b59b6/ffffff?text=Tortor"
-            }
+            {title: "Budaya Batak", author: "S. Siregar", year: 2023, pages: 250},
+            {title: "Sejarah Toba", author: "R. Hutapea", year: 2022, pages: 180},
+            {title: "Media Digital Batak", author: "A. Lestari", year: 2024, pages: 300},
+            {title: "Adat Istiadat Batak", author: "T. Simanjuntak", year: 2021, pages: 220},
+            {title: "Pusaka Batak Toba", author: "M. Sitorus", year: 2023, pages: 190},
+            {title: "Tortor dan Gondang", author: "J. Sinaga", year: 2020, pages: 150}
         ];
 
         function loadBooks(filteredBooks = books) {
             const grid = document.getElementById('katalogGrid');
-            grid.innerHTML = '';
-            
-            filteredBooks.forEach(book => {
-                const bookCard = document.createElement('div');
-                bookCard.className = 'book-card full';
-                bookCard.innerHTML = `
-                    <img src="${book.cover}" alt="${book.title}" class="book-cover">
-                    <h3 style="font-family: 'Cormorant Garamond', serif;">${book.title}</h3>
+            grid.innerHTML = filteredBooks.map(book => `
+                <div class="book-card">
+                    <h3>${book.title}</h3>
                     <p><strong>Oleh:</strong> ${book.author}</p>
                     <p>${book.year} | ${book.pages} halaman</p>
-                    <div class="book-actions">
-                        <button onclick="readBook(${book.id})" class="read-btn">📖 Baca Sekarang</button>
-                        <button class="favorite-btn">❤️ Favorit</button>
-                    </div>
-                `;
-                grid.appendChild(bookCard);
-            });
+                    <button class="read-btn">📖 Baca</button>
+                </div>
+            `).join('');
         }
 
         function searchBooks() {
             const query = document.getElementById('searchInput').value.toLowerCase();
-            const filtered = books.filter(book => 
-                book.title.toLowerCase().includes(query) || 
-                book.author.toLowerCase().includes(query)
+            const filtered = books.filter(b => 
+                b.title.toLowerCase().includes(query) || b.author.toLowerCase().includes(query)
             );
             loadBooks(filtered);
         }
 
-        function readBook(id) {
-            alert(`Membuka buku: ${books.find(b => b.id === id).title}`);
-        }
-
-        // Load buku saat halaman dimuat
         document.addEventListener('DOMContentLoaded', () => {
             loadBooks();
-            
-            // Search real-time
             document.getElementById('searchInput').addEventListener('input', searchBooks);
         });
     </script>
-    <script src="script.js"></script>
 </body>
 </html>
