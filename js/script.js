@@ -1,50 +1,4 @@
-// FIX IMMEDIATE - Jalankan saat load
-document.addEventListener('DOMContentLoaded', function() {
-    // Force show dashboard
-    document.getElementById('dashboard').style.display = 'block';
-    
-    // Load semua konten
-    setTimeout(() => {
-        initApp();
-    }, 100);
-});
-
-// Fungsi showMenu FIXED
-function showMenu(menuId) {
-    console.log('Switching to:', menuId); // Debug
-    
-    // Hide semua sections
-    document.querySelectorAll('.section').forEach(section => {
-        section.classList.remove('active');
-        section.style.display = 'none';
-    });
-    
-    // Show target section
-    const targetSection = document.getElementById(menuId);
-    if (targetSection) {
-        targetSection.classList.add('active');
-        targetSection.style.display = 'block';
-        
-        // Load content berdasarkan menu
-        switch(menuId) {
-            case 'katalog':
-                loadBooks();
-                break;
-            case 'ulasan':
-                loadComments();
-                break;
-            case 'uji':
-                generatePHPProgress();
-                break;
-        }
-    }
-    
-    // Update nav active
-    document.querySelectorAll('.nav-left a').forEach(link => {
-        link.classList.remove('nav-active');
-    });
-    event.target.closest('a').classList.add('nav-active');
-}// Data Buku Batak Toba (5+ buku)
+// Data Buku Batak Toba (5+ buku)
 const booksData = [
     {
         id: 1,
@@ -133,8 +87,7 @@ function initApp() {
 // Navigation
 function showMenu(menuId) {
     // Hide all sections
-    document.querySelectorAll('.section').forEach(section
-    document.querySelectorAll('.section').forEach(section => {
+    document.querySelectorAll('.section').forEach(section    document.querySelectorAll('.section').forEach(section => {
         section.classList.remove('active');
     });
     
