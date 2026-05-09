@@ -5,48 +5,302 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Us - The Rooted Library</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 </head>
 <body>
-    <!-- Navigation (sama seperti index) -->
-    <nav class="navbar">
-        <div class="nav-brand">The Rooted Library</div>
-        <ul class="nav-menu">
-            <li><a href="index.html">Dashboard</a></li>
-            <li><a href="about.html" class="active">About Us</a></li>
-            <li><a href="katalog.html">Katalog</a></li>
-            <li><a href="event.html">Event</a></li>
-            <li><a href="diskusi.html">Diskusi</a></li>
-            <li><a href="uji-coba.html">Uji Coba</a></li>
-        </ul>
-        <a href="login.html" class="login-btn">Login Anggota</a>
-    </nav>
+    <!-- Navigation - SAMBUUNG DENGAN DASHBOARD SYSTEM -->
+    <header>
+        <nav class="navbar">
+            <div class="nav-brand">
+                <i class="fas fa-seedling"></i>
+                <h2>The Rooted Library</h2>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="dashboard.html"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+                <li><a href="about.html" class="active"><i class="fas fa-info-circle"></i> Tentang</a></li>
+                <li><a href="katalog.html"><i class="fas fa-search"></i> Katalog</a></li>
+                <li><a href="event.html"><i class="fas fa-calendar"></i> Event</a></li>
+                <li><a href="diskusi.html"><i class="fas fa-comments"></i> Diskusi</a></li>
+                <li><a href="uji-coba.html"><i class="fas fa-flask"></i> Uji Coba</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <!-- User Menu (sama seperti dashboard) -->
+            <div class="nav-right user-logged-in" id="userMenu">
+                <div class="user-profile" onclick="toggleDropdown()">
+                    <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=40&h=40&fit=crop&crop=face" alt="Profile" class="user-avatar">
+                    <span>Siagian</span>
+                    <i class="fas fa-chevron-down dropdown-icon"></i>
+                </div>
+                <div class="user-dropdown" id="userDropdown">
+                    <a href="profil.html"><i class="fas fa-user"></i> Profil</a>
+                    <a href="pengaturan.html"><i class="fas fa-cog"></i> Pengaturan</a>
+                    <a href="pinjaman.html"><i class="fas fa-book"></i> Pinjaman</a>
+                    <a href="#" onclick="logout()"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                </div>
+            </div>
+            <div class="nav-right user-not-logged" id="loginBtn">
+                <a href="login.html" class="login-btn">
+                    <i class="fas fa-sign-in-alt"></i> Login Anggota
+                </a>
+            </div>
+        </nav>
+    </header>
 
-    <section class="about-section">
+    <!-- Hero About -->
+    <section class="about-hero">
         <div class="container">
-            <h1>Tentang Kami</h1>
-            <div class="about-grid">
-                <div class="about-card">
-                    <h2>🌱 Visi</h2>
+            <div class="hero-content">
+                <h1 class="hero-title">Tentang <span class="highlight">The Rooted Library</span></h1>
+                <p class="hero-subtitle">Melestarikan akar budaya Batak Toba melalui literasi digital modern</p>
+                <div class="hero-stats">
+                    <span><i class="fas fa-users"></i> 2,847+ Anggota</span>
+                    <span><i class="fas fa-book"></i> 1,247+ Buku Digital</span>
+                    <span><i class="fas fa-globe"></i> Akses Global</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Filosofi Rooted -->
+    <section class="filosofi-section">
+        <div class="container">
+            <div class="content-wrapper">
+                <div class="filosofi-image">
+                    <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=600&h=400&fit=crop" alt="Rooted Tree">
+                    <div class="filosofi-overlay">
+                        <i class="fas fa-seedling"></i>
+                    </div>
+                </div>
+                <div class="filosofi-content">
+                    <h2 class="section-title"><i class="fas fa-root"></i> Filosofi "Rooted"</h2>
+                    <p class="filosofi-desc">
+                        Seperti pohon yang kokoh berdiri karena akarnya yang dalam, pengetahuan sejati lahir dari 
+                        <strong>fondasi budaya yang kuat</strong>. The Rooted Library percaya bahwa pelestarian identitas 
+                        Batak Toba adalah akar yang akan menumbuhkan generasi masa depan yang berbudi luhur.
+                    </p>
+                    <div class="filosofi-points">
+                        <div class="point-item">
+                            <i class="fas fa-root-circle"></i>
+                            <span>Akar = Identitas Budaya Batak Toba</span>
+                        </div>
+                        <div class="point-item">
+                            <i class="fas fa-leaf"></i>
+                            <span>Cabang = Pengetahuan Digital</span>
+                        </div>
+                        <div class="point-item">
+                            <i class="fas fa-cloud-sun"></i>
+                            <span>Buah = Generasi Muda Berbudaya</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Visi Misi -->
+    <section class="visi-misi">
+        <div class="container">
+            <h2 class="section-title"><i class="fas fa-eye"></i> Visi & Misi</h2>
+            <div class="vm-grid">
+                <div class="vm-card visi-card">
+                    <div class="vm-icon">
+                        <i class="fas fa-binoculars"></i>
+                    </div>
+                    <h3>🌱 Visi</h3>
                     <p>Menjadi pusat literasi digital terdepan dalam pelestarian dan pengembangan budaya Batak Toba yang dapat diakses oleh seluruh dunia.</p>
                 </div>
-                <div class="about-card">
-                    <h2>🎯 Misi</h2>
+                <div class="vm-card misi-card">
+                    <div class="vm-icon">
+                        <i class="fas fa-bullseye"></i>
+                    </div>
+                    <h3>🎯 Misi</h3>
                     <ul>
-                        <li>📖 Melestarikan warisan budaya Batak Toba melalui literasi digital</li>
-                        <li>🌐 Menyediakan akses mudah ke sumber pengetahuan budaya Batak</li>
-                        <li>👥 Mendorong generasi muda mencintai identitas Batak Toba</li>
-                        <li>💬 Membangun komunitas pecinta budaya Batak yang aktif berdiskusi</li>
-                        <li>🎓 Mengedukasi masyarakat global tentang kekayaan budaya Batak</li>
+                        <li><i class="fas fa-book-open"></i> Melestarikan warisan budaya Batak Toba melalui literasi digital</li>
+                        <li><i class="fas fa-globe"></i> Menyediakan akses mudah ke sumber pengetahuan budaya Batak</li>
+                        <li><i class="fas fa-graduation-cap"></i> Mendorong generasi muda mencintai identitas Batak Toba</li>
+                        <li><i class="fas fa-users"></i> Membangun komunitas pecinta budaya Batak yang aktif berdiskusi</li>
+                        <li><i class="fas fa-school"></i> Mengedukasi masyarakat global tentang kekayaan budaya Batak</li>
                     </ul>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer & WhatsApp (sama seperti index) -->
-    <footer><!-- sama --></footer>
-    <a href="https://wa.me/6281226423048" class="whatsapp-btn"><!-- sama --></a>
+    <!-- Tim Pengelola -->
+    <section class="tim-section">
+        <div class="container">
+            <h2 class="section-title"><i class="fas fa-users-cog"></i> Tim Pengelola & Contributor</h2>
+            <div class="tim-grid">
+                <div class="team-card">
+                    <div class="team-avatar">
+                        <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face" alt="Dr. S. Siatunga">
+                        <div class="team-status online"></div>
+                    </div>
+                    <h4>Dr. S. Siatunga</h4>
+                    <p class="team-role">Ketua Dewan Kurator</p>
+                    <p>Ahli Sejarah Batak Toba • 30+ Tahun Pengalaman</p>
+                    <div class="team-social">
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+                <div class="team-card">
+                    <div class="team-avatar">
+                        <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face" alt="E. Sinaga">
+                        <div class="team-status online"></div>
+                    </div>
+                    <h4>E. Sinaga, M.Kom</h4>
+                    <p class="team-role">Teknologi & Platform</p>
+                    <p>Software Architect • Pengembang Sistem</p>
+                    <div class="team-social">
+                        <a href="#"><i class="fab fa-github"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="team-card">
+                    <div class="team-avatar">
+                        <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?w=150&h=150&fit=crop&crop=face" alt="R. Sitorus">
+                        <div class="team-status"></div>
+                    </div>
+                    <h4>R. Sitorus</h4>
+                    <p class="team-role">Konten & Kurasi</p>
+                    <p>Peneliti Budaya Batak • Penulis</p>
+                    <div class="team-social">
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fas fa-book"></i></a>
+                    </div>
+                </div>
+                <div class="team-card">
+                    <div class="team-avatar">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face" alt="Community">
+                        <div class="team-status"></div>
+                    </div>
+                    <h4>200+ Contributors</h4>
+                    <p class="team-role">Komunitas Relawan</p>
+                    <p>Penulis, Peneliti, & Pecinta Budaya Batak</p>
+                    <div class="team-social">
+                        <a href="diskusi.html"><i class="fas fa-comments"></i></a>
+                        <a href="#"><i class="fas fa-heart"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="join-team">
+                <a href="diskusi.html" class="btn-primary">🫡 Bergabung Menjadi Contributor</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Timeline Sejarah -->
+    <section class="timeline-section">
+        <div class="container">
+            <h2 class="section-title"><i class="fas fa-road"></i> Perjalanan Kami</h2>
+            <div class="timeline">
+                <div class="timeline-item" data-year="2022">
+                    <div class="timeline-icon">
+                        <i class="fas fa-seedling"></i>
+                    </div>
+                    <div class="timeline-content">
+                        <h4>Ide Awal "Rooted"</h4>
+                        <p>Konsep perpustakaan digital Batak Toba pertama kali diusulkan</p>
+                    </div>
+                </div>
+                <div class="timeline-item" data-year="2023">
+                    <div class="timeline-icon">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <div class="timeline-content">
+                        <h4>Platform Launch</h4>
+                        <p>Website resmi diluncurkan dengan 500+ buku digital</p>
+                    </div>
+                </div>
+                <div class="timeline-item active" data-year="2024">
+                    <div class="timeline-icon">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <div class="timeline-content">
+                        <h4>Ekspansi Global</h4>
+                        <p>1,247+ buku • 2,847+ anggota • Event internasional</p>
+                    </div>
+                </div>
+                <div class="timeline-item" data-year="2025">
+                    <div class="timeline-icon">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <div class="timeline-content">
+                        <h4>Visi Masa Depan</h4>
+                        <p>AR/VR experience budaya Batak • Mobile app</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2><i class="fas fa-heart"></i> Dukung Pelestarian Budaya Batak Toba</h2>
+                <p>Gabung komunitas kami dan jadi bagian dari sejarah!</p>
+                <div class="cta-buttons">
+                    <a href="katalog.html" class="btn-primary">🚀 Mulai Jelajah Katalog</a>
+                    <a href="login.html" class="btn-secondary">👤 Daftar Anggota</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer - SAMBUUNG DENGAN DASHBOARD -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3><i class="fas fa-seedling"></i> The Rooted Library</h3>
+                    <p>Melestarikan budaya Batak Toba melalui literasi digital dan keterlibatan komunitas.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="dashboard.html">Dashboard</a></li>
+                        <li><a href="about.html">Tentang</a></li>
+                        <li><a href="katalog.html">Katalog</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="event.html">Event</a></li>
+                        <li><a href="diskusi.html">Diskusi</a></li>
+                        <li><a href="uji-coba.html">Uji Coba</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <p><i class="fas fa-envelope"></i> info@rootedlibrary.com</p>
+                    <p><i class="fas fa-phone"></i> +62 812-3456-7890</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 The Rooted Library. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Button -->
+    <div class="whatsapp-btn" onclick="openWhatsApp()">
+        <i class="fab fa-whatsapp"></i>
+        <span>Chat</span>
+    </div>
+
     <script src="script.js"></script>
 </body>
 </html>
