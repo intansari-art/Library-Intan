@@ -3,148 +3,102 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard - The Rooted Library</title>
+    <title>About Us - The Rooted Library</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Navigation - HAPUS "Dashboard" dari menu -->
-    <header>
-        <nav class="navbar">
-            <div class="nav-brand">
-                <i class="fas fa-seedling"></i>
-                <h2>The Rooted Library</h2>
-            </div>
-            <ul class="nav-menu">
-                <li><a href="about.html"><i class="fas fa-info-circle"></i> Tentang</a></li>
-                <li><a href="katalog.html"><i class="fas fa-search"></i> Katalog</a></li>
-                <li><a href="event.html"><i class="fas fa-calendar"></i> Event</a></li>
-                <li><a href="diskusi.html"><i class="fas fa-comments"></i> Diskusi</a></li>
-                <li><a href="uji-coba.html"><i class="fas fa-flask"></i> Uji Coba</a></li>
-            </ul>
-            <div class="hamburger">
-                <span></span><span></span><span></span>
-            </div>
-            <div class="nav-right user-logged-in" id="userMenu">
-                <div class="user-profile" onclick="toggleDropdown()">
-                    <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=40&h=40&fit=crop&crop=face" alt="Profile" class="user-avatar">
-                    <span id="navUsername">Siagian</span>
-                    <i class="fas fa-chevron-down dropdown-icon"></i>
-                </div>
-                <div class="user-dropdown" id="userDropdown">
-                    <a href="profil.html"><i class="fas fa-user"></i> Profil</a>
-                    <a href="pengaturan.html"><i class="fas fa-cog"></i> Pengaturan</a>
-                    <a href="pinjaman.html"><i class="fas fa-book"></i> Pinjaman</a>
-                    <a href="#" onclick="logout()"><i class="fas fa-sign-out-alt"></i> Logout</a>
-                </div>
-            </div>
-            <div class="nav-right user-not-logged" id="loginBtn">
-                <a href="login.html" class="login-btn">
-                    <i class="fas fa-sign-in-alt"></i> Login Anggota
-                </a>
-            </div>
-        </nav>
-    </header>
+    <!-- Navigation (sama seperti index) -->
+    <nav class="navbar">
+        <div class="nav-brand">The Rooted Library</div>
+        <ul class="nav-menu">
+            <li><a href="index.html">Dashboard</a></li>
+            <li><a href="about.html" class="active">About Us</a></li>
+            <li><a href="katalog.html">Katalog</a></li>
+            <li><a href="event.html">Event</a></li>
+            <li><a href="diskusi.html">Diskusi</a></li>
+            <li><a href="uji-coba.html">Uji Coba</a></li>
+        </ul>
+        <a href="login.html" class="login-btn">Login Anggota</a>
+    </nav>
 
-    <!-- SATU SECTION SAJA: Hero Dashboard -->
-    <section class="dashboard-hero">
+    <section class="about-section">
         <div class="container">
-            <div class="hero-content">
-                <div class="hero-text">
-                    <h1>Selamat Datang, <span class="username" id="dashboardUsername">Anggota!</span></h1>
-                    <p class="welcome-text">Preserving Batak Toba culture through digital literacy and community engagement.</p>
-                    <div class="hero-stats">
-                        <span><i class="fas fa-crown"></i> Level: Silver Member</span>
-                        <span><i class="fas fa-clock"></i> Terakhir Login: <span id="lastLogin">2 jam lalu</span></span>
-                    </div>
+            <h1>Tentang Kami</h1>
+            <div class="about-grid">
+                <div class="about-card">
+                    <h2>🌱 Visi</h2>
+                    <p>Menjadi pusat literasi digital terdepan dalam pelestarian dan pengembangan budaya Batak Toba yang dapat diakses oleh seluruh dunia.</p>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Stats Cards -->
-    <section class="dashboard-stats">
-        <div class="container">
-            <div class="stats-grid">
-                <div class="stat-card">
-                    <div class="stat-icon"><i class="fas fa-book-open"></i></div>
-                    <h3>1,247</h3><p>Buku Digital</p>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-icon"><i class="fas fa-users"></i></div>
-                    <h3>2,847</h3><p>Anggota Aktif</p>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-icon"><i class="fas fa-calendar-check"></i></div>
-                    <h3>28</h3><p>Event Bulanan</p>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-icon"><i class="fas fa-star"></i></div>
-                    <h3>98%</h3><p>Kepuasan</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Quick Actions -->
-    <section class="quick-actions">
-        <div class="container">
-            <h2><i class="fas fa-bolt"></i> Aksi Cepat</h2>
-            <div class="action-grid">
-                <a href="katalog.html" class="action-card">
-                    <div class="action-icon"><i class="fas fa-search"></i></div>
-                    <h3>Cari Buku</h3><p>Temukan koleksi Batak Toba</p>
-                </a>
-                <a href="#" class="action-card">
-                    <div class="action-icon"><i class="fas fa-book"></i></div>
-                    <h3>Pinjaman</h3><p>Riwayat peminjaman Anda</p>
-                </a>
-                <a href="#" class="action-card">
-                    <div class="action-icon"><i class="fas fa-heart"></i></div>
-                    <h3>Favorit</h3><p>Buku favorit Anda</p>
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3><i class="fas fa-seedling"></i> The Rooted Library</h3>
-                    <p>Melestarikan budaya Batak Toba melalui literasi digital.</p>
-                    <div class="social-links">
-                        <a href="#"><i class="fab fa-facebook"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                    </div>
-                </div>
-                <div class="footer-section">
-                    <h4>Quick Links</h4>
+                <div class="about-card">
+                    <h2>🎯 Misi</h2>
                     <ul>
-                        <li><a href="katalog.html">Katalog</a></li>
-                        <li><a href="event.html">Event</a></li>
-                        <li><a href="diskusi.html">Diskusi</a></li>
+                        <li>📖 Melestarikan warisan budaya Batak Toba melalui literasi digital</li>
+                        <li>🌐 Menyediakan akses mudah ke sumber pengetahuan budaya Batak</li>
+                        <li>👥 Mendorong generasi muda mencintai identitas Batak Toba</li>
+                        <li>💬 Membangun komunitas pecinta budaya Batak yang aktif berdiskusi</li>
+                        <li>🎓 Mengedukasi masyarakat global tentang kekayaan budaya Batak</li>
                     </ul>
                 </div>
-                <div class="footer-section">
-                    <h4>Contact</h4>
-                    <p>info@rootedlibrary.com</p>
-                    <p>+62 812-3456-7890</p>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2024 The Rooted Library. All rights reserved.</p>
             </div>
         </div>
-    </footer>
+    </section>
 
-    <div class="whatsapp-btn" onclick="openWhatsApp()">
-        <i class="fab fa-whatsapp"></i>
-        <span>Chat</span>
-    </div>
+    <!-- Footer & WhatsApp (sama seperti index) -->
+    <footer><!-- sama --></footer>
+    <a href="https://wa.me/6281226423048" class="whatsapp-btn"><!-- sama --></a>
+    <script src="script.js"></script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - The Rooted Library</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation (sama seperti index) -->
+    <nav class="navbar">
+        <div class="nav-brand">The Rooted Library</div>
+        <ul class="nav-menu">
+            <li><a href="index.html">Dashboard</a></li>
+            <li><a href="about.html" class="active">About Us</a></li>
+            <li><a href="katalog.html">Katalog</a></li>
+            <li><a href="event.html">Event</a></li>
+            <li><a href="diskusi.html">Diskusi</a></li>
+            <li><a href="uji-coba.html">Uji Coba</a></li>
+        </ul>
+        <a href="login.html" class="login-btn">Login Anggota</a>
+    </nav>
 
+    <section class="about-section">
+        <div class="container">
+            <h1>Tentang Kami</h1>
+            <div class="about-grid">
+                <div class="about-card">
+                    <h2>🌱 Visi</h2>
+                    <p>Menjadi pusat literasi digital terdepan dalam pelestarian dan pengembangan budaya Batak Toba yang dapat diakses oleh seluruh dunia.</p>
+                </div>
+                <div class="about-card">
+                    <h2>🎯 Misi</h2>
+                    <ul>
+                        <li>📖 Melestarikan warisan budaya Batak Toba melalui literasi digital</li>
+                        <li>🌐 Menyediakan akses mudah ke sumber pengetahuan budaya Batak</li>
+                        <li>👥 Mendorong generasi muda mencintai identitas Batak Toba</li>
+                        <li>💬 Membangun komunitas pecinta budaya Batak yang aktif berdiskusi</li>
+                        <li>🎓 Mengedukasi masyarakat global tentang kekayaan budaya Batak</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer & WhatsApp (sama seperti index) -->
+    <footer><!-- sama --></footer>
+    <a href="https://wa.me/6281226423048" class="whatsapp-btn"><!-- sama --></a>
     <script src="script.js"></script>
 </body>
 </html>
