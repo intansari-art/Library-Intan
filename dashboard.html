@@ -8,11 +8,11 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 </head>
 <body>
-    <!-- Navigation -->
+    <!-- Navigation - TAMBAHAN LOGIN SYSTEM -->
     <header>
         <nav class="navbar">
             <div class="nav-brand">
-                <i class="fas fa-book-rooted"></i>
+                <i class="fas fa-seedling"></i>
                 <h2>The Rooted Library</h2>
             </div>
             <ul class="nav-menu">
@@ -23,25 +23,22 @@
                 <li><a href="uji-coba.html"><i class="fas fa-flask"></i> Uji Coba</a></li>
             </ul>
             <div class="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
+                <span></span><span></span><span></span>
             </div>
-            <!-- User sudah login -->
+            <!-- TAMBAHAN: User Menu -->
             <div class="nav-right user-logged-in" id="userMenu">
                 <div class="user-profile" onclick="toggleDropdown()">
-                    <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=50&h=50&fit=crop&crop=face" alt="Profile" class="user-avatar">
-                    <span>Siagian</span>
+                    <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=40&h=40&fit=crop&crop=face" alt="Profile" class="user-avatar">
+                    <span id="navUsername">Siagian</span>
                     <i class="fas fa-chevron-down dropdown-icon"></i>
                 </div>
                 <div class="user-dropdown" id="userDropdown">
                     <a href="profil.html"><i class="fas fa-user"></i> Profil</a>
                     <a href="pengaturan.html"><i class="fas fa-cog"></i> Pengaturan</a>
-                    <a href="pinjaman.html"><i class="fas fa-book"></i> Pinjaman Aktif</a>
+                    <a href="pinjaman.html"><i class="fas fa-book"></i> Pinjaman</a>
                     <a href="#" onclick="logout()"><i class="fas fa-sign-out-alt"></i> Logout</a>
                 </div>
             </div>
-            <!-- User belum login -->
             <div class="nav-right user-not-logged" id="loginBtn">
                 <a href="login.html" class="login-btn">
                     <i class="fas fa-sign-in-alt"></i> Login Anggota
@@ -50,153 +47,78 @@
         </nav>
     </header>
 
-    <!-- Hero Dashboard -->
+    <!-- TAMBAHAN: Dashboard Content Lengkap -->
     <section class="dashboard-hero">
         <div class="container">
             <div class="hero-content">
                 <div class="hero-text">
-                    <h1>Selamat Datang Kembali, <span class="username">Siagian!</span></h1>
+                    <h1>Selamat Datang, <span class="username" id="dashboardUsername">Anggota!</span></h1>
                     <p class="welcome-text">Preserving Batak Toba culture through digital literacy and community engagement.</p>
                     <div class="hero-stats">
-                        <span><i class="fas fa-book"></i> Level: Silver Member</span>
-                        <span><i class="fas fa-clock"></i> Last Login: 2 jam yang lalu</span>
+                        <span><i class="fas fa-crown"></i> Level: Silver Member</span>
+                        <span><i class="fas fa-clock"></i> Terakhir Login: <span id="lastLogin">2 jam lalu</span></span>
                     </div>
-                </div>
-                <div class="hero-image">
-                    <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=500&h=400&fit=crop" alt="Library">
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Stats Cards -->
+    <!-- TAMBAHAN: Stats Cards -->
     <section class="dashboard-stats">
         <div class="container">
             <div class="stats-grid">
                 <div class="stat-card">
                     <div class="stat-icon"><i class="fas fa-book-open"></i></div>
-                    <h3 id="totalBooks">1,247</h3>
-                    <p>Buku Digital Tersedia</p>
+                    <h3>1,247</h3><p>Buku Digital</p>
                 </div>
                 <div class="stat-card">
                     <div class="stat-icon"><i class="fas fa-users"></i></div>
-                    <h3 id="activeUsers">2,847</h3>
-                    <p>Pengguna Aktif</p>
+                    <h3>2,847</h3><p>Anggota Aktif</p>
                 </div>
                 <div class="stat-card">
                     <div class="stat-icon"><i class="fas fa-calendar-check"></i></div>
-                    <h3 id="events">28</h3>
-                    <p>Event Bulanan</p>
+                    <h3>28</h3><p>Event Bulanan</p>
                 </div>
                 <div class="stat-card">
                     <div class="stat-icon"><i class="fas fa-star"></i></div>
-                    <h3 id="satisfaction">98%</h3>
-                    <p>Tingkat Kepuasan</p>
+                    <h3>98%</h3><p>Kepuasan</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Quick Actions -->
+    <!-- TAMBAHAN: Quick Actions -->
     <section class="quick-actions">
         <div class="container">
-            <h2 class="section-title"><i class="fas fa-bolt"></i> Aksi Cepat</h2>
+            <h2><i class="fas fa-bolt"></i> Aksi Cepat</h2>
             <div class="action-grid">
                 <a href="katalog.html" class="action-card">
                     <div class="action-icon"><i class="fas fa-search"></i></div>
-                    <h3>Cari Buku</h3>
-                    <p>Temukan koleksi Batak Toba terlengkap</p>
+                    <h3>Cari Buku</h3><p>Temukan koleksi Batak Toba</p>
                 </a>
-                <a href="pinjaman.html" class="action-card">
+                <a href="#" class="action-card">
                     <div class="action-icon"><i class="fas fa-book"></i></div>
-                    <h3>Pinjaman Aktif</h3>
-                    <p>Lihat status peminjaman Anda</p>
+                    <h3>Pinjaman</h3><p>Riwayat peminjaman Anda</p>
                 </a>
-                <a href="favorit.html" class="action-card">
+                <a href="#" class="action-card">
                     <div class="action-icon"><i class="fas fa-heart"></i></div>
-                    <h3>Favorit</h3>
-                    <p>Koleksi buku favorit Anda</p>
-                </a>
-                <a href="event.html" class="action-card">
-                    <div class="action-icon"><i class="fas fa-calendar"></i></div>
-                    <h3>Event Terkini</h3>
-                    <p>Daftar event budaya Batak</p>
+                    <h3>Favorit</h3><p>Buku favorit Anda</p>
                 </a>
             </div>
         </div>
     </section>
 
-    <!-- Recent Activity -->
-    <section class="recent-activity">
-        <div class="container">
-            <h2 class="section-title"><i class="fas fa-history"></i> Aktivitas Terbaru</h2>
-            <div class="activity-list">
-                <div class="activity-item">
-                    <span class="activity-icon">📖</span>
-                    <div class="activity-content">
-                        <h4>Meminjam "Tarombo Batak Toba"</h4>
-                        <p><span class="time">2 jam yang lalu</span> • Status: Dipinjam</p>
-                    </div>
-                </div>
-                <div class="activity-item">
-                    <span class="activity-icon">⭐</span>
-                    <div class="activity-content">
-                        <h4>Memberikan rating 5⭐ untuk "Hita do Au"</h4>
-                        <p><span class="time">1 hari yang lalu</span></p>
-                    </div>
-                </div>
-                <div class="activity-item">
-                    <span class="activity-icon">💬</span>
-                    <div class="activity-content">
-                        <h4>Komentar di diskusi "Sejarah Batak"</h4>
-                        <p><span class="time">3 hari yang lalu</span> • 2 balasan</p>
-                    </div>
-                </div>
-                <div class="activity-item">
-                    <span class="activity-icon">📚</span>
-                    <div class="activity-content">
-                        <h4>Menambahkan "Gorga" ke Favorit</h4>
-                        <p><span class="time">5 hari yang lalu</span></p>
-                    </div>
-                </div>
-            </div>
-            <div class="see-more">
-                <a href="aktivitas.html" class="btn-primary">Lihat Semua Aktivitas</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Recommended Books -->
-    <section class="recommended-books">
-        <div class="container">
-            <h2 class="section-title"><i class="fas fa-thumbs-up"></i> Rekomendasi Untuk Anda</h2>
-            <div class="books-slider">
-                <div class="book-card">
-                    <img src="https://images.unsplash.com/photo-1544947950-fa07a98d237f?w=200&h=300&fit=crop" alt="Book">
-                    <h4>Tarombo Batak</h4>
-                    <p>Dr. S. Siatunga</p>
-                    <div class="book-rating">★★★★★ (4.9)</div>
-                    <a href="#" class="btn-small">Pinjam Sekarang</a>
-                </div>
-                <!-- Clone untuk slider effect -->
-                <div class="book-card">...</div>
-                <div class="book-card">...</div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
+    <!-- Footer LENGKAP -->
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
-                    <h3><i class="fas fa-book-rooted"></i> The Rooted Library</h3>
-                    <p>Melestarikan budaya Batak Toba melalui literasi digital dan keterlibatan komunitas.</p>
+                    <h3><i class="fas fa-seedling"></i> The Rooted Library</h3>
+                    <p>Melestarikan budaya Batak Toba melalui literasi digital.</p>
                     <div class="social-links">
                         <a href="#"><i class="fab fa-facebook"></i></a>
                         <a href="#"><i class="fab fa-instagram"></i></a>
                         <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-youtube"></i></a>
                     </div>
                 </div>
                 <div class="footer-section">
@@ -205,36 +127,27 @@
                         <li><a href="katalog.html">Katalog</a></li>
                         <li><a href="event.html">Event</a></li>
                         <li><a href="diskusi.html">Diskusi</a></li>
-                        <li><a href="uji-coba.html">Uji Coba</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Services</h4>
-                    <ul>
-                        <li><a href="#">Download Gratis</a></li>
-                        <li><a href="#">Newsletter</a></li>
-                        <li><a href="#">Panduan Pengguna</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">
                     <h4>Contact</h4>
-                    <p><i class="fas fa-envelope"></i> info@rootedlibrary.com</p>
-                    <p><i class="fas fa-phone"></i> +62 812-3456-7890</p>
-                    <p><i class="fas fa-map-marker-alt"></i> Medan, Sumatera Utara</p>
+                    <p>📧 info@rootedlibrary.com</p>
+                    <p>📱 +62 812-3456-7890</p>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2024 The Rooted Library. All rights reserved. | <a href="privacy.html">Privacy Policy</a></p>
+                <p>&copy; 2024 The Rooted Library. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
-    <!-- WhatsApp Button -->
+    <!-- WhatsApp Button LENGKAP -->
     <div class="whatsapp-btn" onclick="openWhatsApp()">
         <i class="fab fa-whatsapp"></i>
         <span>Chat</span>
     </div>
 
+    <!-- TAMBAHAN: Script -->
     <script src="script.js"></script>
 </body>
 </html>
