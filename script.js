@@ -1,12 +1,5 @@
-// ============================================
-// SCRIPT LENGKAP - The Rooted Library
-// ============================================
-
 document.addEventListener('DOMContentLoaded', function() {
-    
-    // ==================== SCRIPT LAMA (JAGA) ====================
-    
-    // 1. PHP 1000 HARI SIMULATION
+    // 1. PHP 1000 HARI SIMULATION ✅
     const phpBox = document.getElementById('phpBox');
     if (phpBox) {
         let day = 1;
@@ -22,7 +15,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 5);
     }
 
-    // 2. KALKULATOR
+    // 2. KALKULATOR ✅
     const kalkulatorForm = document.getElementById('kalkulatorForm');
     if (kalkulatorForm) {
         kalkulatorForm.addEventListener('submit', function(e) {
@@ -40,7 +33,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // 3. LOGIN SYSTEM - UPGRADED
+    // 3. LOGIN SYSTEM - UPGRADED ✅
     const loginForm = document.getElementById('loginForm');
     if (loginForm) {
         loginForm.addEventListener('submit', function(e) {
@@ -52,20 +45,20 @@ document.addEventListener('DOMContentLoaded', function() {
             if (!username || !password) {
                 message.innerHTML = '<p style="color:red;">❌ Input tidak lengkap!</p>';
             } else if (username === 'admin' && password === 'batak123') {
-                message.innerHTML = '<p style="color:green;">✅ Login sukses! Selamat datang Admin</p>';
+                message.innerHTML = '<p style="color:green;">✅ Login sukses! Redirect ke Dashboard...</p>';
                 sessionStorage.setItem('loggedIn', 'true');
                 sessionStorage.setItem('username', username);
-                // REDIRECT KE DASHBOARD
+                // AUTO REDIRECT KE DASHBOARD
                 setTimeout(() => {
                     window.location.href = 'dashboard.html';
                 }, 1500);
             } else {
-                message.innerHTML = '<p style="color:red;">❌ Login gagal! Username: admin, Password: batak123</p>';
+                message.innerHTML = '<p style="color:red;">❌ Login gagal!<br>Username: <strong>admin</strong><br>Password: <strong>batak123</strong></p>';
             }
         });
     }
 
-    // 4. CRUD DATABASE (Local Storage) - TIDAK BERUBAH
+    // 4. CRUD DATABASE - IMPROVED ✅
     const crudForm = document.getElementById('crudForm');
     const crudTable = document.getElementById('crudTable');
     
@@ -82,7 +75,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 const books = JSON.parse(localStorage.getItem('libraryBooks') || '[]');
                 books.push({
                     id: Date.now(),
-                    judul, penulis, tahun
+                    judul, penulis, tahun,
+                    tanggal: new Date().toLocaleDateString('id-ID')
                 });
                 localStorage.setItem('libraryBooks', JSON.stringify(books));
                 loadCrudData();
@@ -92,89 +86,22 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // ==================== SCRIPT BARU DASHBOARD ====================
+    // ==================== DASHBOARD FEATURES BARU ====================
 
-    // DOM Elements Dashboard
-    const userDropdown = document.getElementById('userDropdown');
-    const userMenu = document.getElementById('userMenu');
-    const loginBtn = document.getElementById('loginBtn');
-    const hamburger = document.querySelector('.hamburger');
-    const navMenu = document.querySelector('.nav-menu');
-
-    // CEK LOGIN STATUS SAAT HALAMAN DIMUAT
+    // Check Login Status di Semua Halaman
     checkLoginStatus();
 
-    // Toggle User Dropdown
-    function toggleDropdown() {
-        if (userDropdown) {
-            userDropdown.classList.toggle('active');
-        }
-    }
-
-    // CHECK LOGIN STATUS
-    function checkLoginStatus() {
-        const isLoggedIn = sessionStorage.getItem('loggedIn') === 'true';
-        const username = sessionStorage.getItem('username') || 'Anggota';
-        
-        if (isLoggedIn && userMenu && loginBtn) {
-            // Update username di dashboard
-            const usernameEl = document.querySelector('.username');
-            if (usernameEl) usernameEl.textContent = username;
-            
-            // Show user menu, hide login
-            userMenu.style.display = 'block';
-            loginBtn.style.display = 'none';
-        } else if (userMenu && loginBtn) {
-            userMenu.style.display = 'none';
-            loginBtn.style.display = 'block';
-        }
-    }
-
-    // Logout Function - INTEGRASI DENGAN SESSION
-    window.logout = function() {
-        if(confirm('Apakah Anda yakin ingin logout?')) {
-            sessionStorage.removeItem('loggedIn');
-            sessionStorage.removeItem('username');
-            checkLoginStatus();
-            
-            // Update UI dashboard
-            const usernameEl = document.querySelector('.username');
-            if (usernameEl) usernameEl.textContent = 'Anggota';
-            
-            alert('👋 Anda telah logout! Silakan login kembali.');
-        }
-    }
-
-    // WhatsApp Chat
-    window.openWhatsApp = function() {
-        const username = sessionStorage.getItem('username') || 'Pengunjung';
-        const message = `Halo Admin, ${username} ingin bertanya tentang layanan The Rooted Library`;
-        window.open(`https://wa.me/6281234567890?text=${encodeURIComponent(message)}`, '_blank');
-    }
-
-    // Navbar Scroll Effect
-    window.addEventListener('scroll', () => {
-        const navbar = document.querySelector('.navbar');
-        if (navbar && window.scrollY > 50) {
-            navbar.style.background = 'rgba(255, 255, 255, 0.95)';
-            navbar.style.backdropFilter = 'blur(10px)';
-        } else if (navbar) {
-            navbar.style.background = '#ffffff';
-            navbar.style.backdropFilter = 'none';
-        }
-    });
-
-    // Animate Stats on Scroll
+    // Animate Stats Counter
     function animateStats() {
         const stats = document.querySelectorAll('.stat-card h3');
         stats.forEach(stat => {
-            const finalValue = parseInt(stat.textContent.replace(/,/g, ''));
+            const final = parseInt(stat.textContent.replace(/,/g, ''));
             let current = 0;
-            const increment = finalValue / 100;
+            const increment = final / 100;
             const timer = setInterval(() => {
                 current += increment;
-                if (current >= finalValue) {
-                    stat.textContent = finalValue.toLocaleString();
+                if (current >= final) {
+                    stat.textContent = final.toLocaleString();
                     clearInterval(timer);
                 } else {
                     stat.textContent = Math.floor(current).toLocaleString();
@@ -184,87 +111,102 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // Intersection Observer untuk Animations
-    const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-    };
-
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                if (entry.target.classList.contains('dashboard-stats')) {
+                if (entry.target.matches('.dashboard-stats')) {
                     animateStats();
                 }
-                if (entry.target.classList.contains('action-grid')) {
+                if (entry.target.matches('.action-grid, .action-card')) {
                     entry.target.style.opacity = '1';
                     entry.target.style.transform = 'translateY(0)';
                 }
-                if (entry.target.classList.contains('recent-activity')) {
-                    entry.target.querySelectorAll('.activity-item').forEach((item, index) => {
-                        setTimeout(() => {
-                            item.style.opacity = '1';
-                            item.style.transform = 'translateX(0)';
-                        }, index * 100);
-                    });
-                }
             }
         });
-    }, observerOptions);
+    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
 
-    // Observe sections
-    const statsSection = document.querySelector('.dashboard-stats');
-    const actionsSection = document.querySelector('.action-grid');
-    const activitySection = document.querySelector('.recent-activity');
-    
-    if (statsSection) observer.observe(statsSection);
-    if (actionsSection) observer.observe(actionsSection.parentElement);
-    if (activitySection) observer.observe(activitySection);
+    // Observe Elements
+    document.querySelectorAll('.dashboard-stats, .action-grid').forEach(el => {
+        observer.observe(el);
+    });
 
-    // Hide dropdown when clicking outside
-    document.addEventListener('click', (e) => {
-        const userProfile = document.querySelector('.user-profile');
-        if (userProfile && !userProfile.contains(e.target)) {
-            if (userDropdown) userDropdown.classList.remove('active');
+    // Navbar Scroll Effect
+    window.addEventListener('scroll', () => {
+        const navbar = document.querySelector('.navbar');
+        if (window.scrollY > 50) {
+            navbar.style.background = 'rgba(255,255,255,0.95)';
+            navbar.style.backdropFilter = 'blur(10px)';
+        } else {
+            navbar.style.background = '#ffffff';
+            navbar.style.backdropFilter = 'none';
         }
     });
 
-    // Smooth scrolling untuk anchor links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
-            if (target) {
-                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            }
-        });
-    });
-
-    // Mobile Menu Toggle
+    // Mobile Menu
+    const hamburger = document.querySelector('.hamburger');
     if (hamburger) {
         hamburger.addEventListener('click', () => {
-            const navMenuMobile = document.querySelector('.nav-menu');
-            if (navMenuMobile) {
-                navMenuMobile.classList.toggle('active');
-            }
+            document.querySelector('.nav-menu').classList.toggle('active');
         });
     }
 
-    // Book Slider Auto-scroll
-    const bookSlider = document.querySelector('.books-slider');
-    if (bookSlider) {
-        setInterval(() => {
-            bookSlider.scrollLeft += 220;
-            if (bookSlider.scrollLeft >= bookSlider.scrollWidth - bookSlider.clientWidth) {
-                bookSlider.scrollLeft = 0;
-            }
-        }, 3000);
-    }
-
-    // ==================== FUNGSI CRUD (GLOBAL) ====================
-    window.loadCrudData = loadCrudData;
 });
 
-// FUNGSI CRUD GLOBAL (TIDAK BERUBAH)
+// ==================== GLOBAL FUNCTIONS ====================
+
+// Check & Update Login Status
+function checkLoginStatus() {
+    const isLoggedIn = sessionStorage.getItem('loggedIn') === 'true';
+    const username = sessionStorage.getItem('username') || 'Anggota';
+    
+    // Update Navbar
+    const userMenu = document.getElementById('userMenu');
+    const loginBtn = document.getElementById('loginBtn');
+    const navUsername = document.getElementById('navUsername');
+    
+    if (isLoggedIn && userMenu && loginBtn) {
+        userMenu.style.display = 'flex';
+        loginBtn.style.display = 'none';
+        if (navUsername) navUsername.textContent = username;
+    } else if (userMenu && loginBtn) {
+        userMenu.style.display = 'none';
+        loginBtn.style.display = 'flex';
+    }
+    
+    // Update Dashboard
+    const dashboardUsername = document.getElementById('dashboardUsername');
+    const lastLogin = document.getElementById('lastLogin');
+    if (dashboardUsername) dashboardUsername.textContent = username;
+    if (lastLogin) lastLogin.textContent = new Date().toLocaleString('id-ID', { 
+        hour: '2-digit', minute: '2-digit', 
+        day: 'numeric', month: 'short' 
+    });
+}
+
+// Toggle User Dropdown
+function toggleDropdown() {
+    const dropdown = document.getElementById('userDropdown');
+    if (dropdown) dropdown.classList.toggle('active');
+}
+
+// Logout
+function logout() {
+    if (confirm('Logout dari akun?')) {
+        sessionStorage.removeItem('loggedIn');
+        sessionStorage.removeItem('username');
+        checkLoginStatus();
+        alert('✅ Logout berhasil!');
+    }
+}
+
+// WhatsApp
+function openWhatsApp() {
+    const username = sessionStorage.getItem('username') || 'Pengunjung';
+    const message = `Halo Admin, ${username} ada pertanyaan tentang The Rooted Library`;
+    window.open(`https://wa.me/6281234567890?text=${encodeURIComponent(message)}`, '_blank');
+}
+
+// CRUD Functions (Global)
 function loadCrudData() {
     const crudTable = document.getElementById('crudTable');
     if (!crudTable) return;
@@ -274,20 +216,20 @@ function loadCrudData() {
     if (tbody) {
         tbody.innerHTML = books.map(book => `
             <tr>
-                <td>${book.id}</td>
+                <td>${new Date(book.id).toLocaleDateString('id-ID')}</td>
                 <td>${book.judul}</td>
                 <td>${book.penulis}</td>
                 <td>${book.tahun}</td>
                 <td>
-                    <button onclick="editBook(${book.id})" class="btn-edit">Edit</button>
-                    <button onclick="deleteBook(${book.id})" class="btn-delete">Hapus</button>
+                    <button class="btn-edit" onclick="editBook(${book.id})">✏️ Edit</button>
+                    <button class="btn-delete" onclick="deleteBook(${book.id})">🗑️ Hapus</button>
                 </td>
             </tr>
-        `).join('') || '<tr><td colspan="5" style="text-align:center;padding:20px;">📚 Belum ada data buku</td></tr>';
+        `).join('') || '<tr><td colspan="5" style="text-align:center;color:#666;padding:30px;">📚 Belum ada buku di perpustakaan</td></tr>';
     }
 }
 
-window.editBook = function(id) {
+function editBook(id) {
     const books = JSON.parse(localStorage.getItem('libraryBooks') || '[]');
     const book = books.find(b => b.id == id);
     if (book) {
@@ -305,19 +247,36 @@ window.editBook = function(id) {
             });
             localStorage.setItem('libraryBooks', JSON.stringify(books));
             loadCrudData();
+            alert('✅ Buku berhasil diupdate!');
         }
     }
 }
 
-window.deleteBook = function(id) {
-    if (confirm('Hapus buku ini?')) {
+function deleteBook(id) {
+    if (confirm('Hapus buku permanen?')) {
         let books = JSON.parse(localStorage.getItem('libraryBooks') || '[]');
         books = books.filter(book => book.id != id);
         localStorage.setItem('libraryBooks', JSON.stringify(books));
         loadCrudData();
+        alert('🗑️ Buku berhasil dihapus!');
     }
 }
 
-// Export functions untuk global access
-window.toggleDropdown = toggleDropdown;
-window.checkLoginStatus = checkLoginStatus;
+// Smooth Scroll
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href'))?.scrollIntoView({
+            behavior: 'smooth'
+        });
+    });
+});
+
+// Hide dropdown on outside click
+document.addEventListener('click', (e) => {
+    const userProfile = document.querySelector('.user-profile');
+    const dropdown = document.getElementById('userDropdown');
+    if (userProfile && dropdown && !userProfile.contains(e.target)) {
+        dropdown.classList.remove('active');
+    }
+});
