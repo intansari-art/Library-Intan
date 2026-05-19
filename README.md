@@ -1,4 +1,4 @@
-# 🌱 The Rooted Library
+# 🌱 The Rooted Librar
 
 **Perpustakaan Digital Khusus Budaya Batak Toba**
 
