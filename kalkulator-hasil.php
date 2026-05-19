@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Hasil Kalkulator</title>
+    <title>Hasi Kalkulator</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
